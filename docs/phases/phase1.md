@@ -1,20 +1,20 @@
-# Phase 1: User Authentication, Note Model and JSON API
+### Phase 1: Backend setup and Front End User Authentication (1 day, W1 Tu 6pm)
 
 ## Rails
 ### Models
 * User
-* Note
+* Restaurant
 
 ### Controllers
 * UsersController (create, new)
 * SessionsController (create, new, destroy)
-* Api::NotesController (create, destroy, index, show, update)
+* Api::RestaurantsController (create, destroy, index, show)
 
 ### Views
 * users/new.html.erb
 * session/new.html.erb
-* notes/index.json.jbuilder
-* notes/show.json.jbuilder
+* restaurant/index.json.jbuilder
+* restaurant/show.json.jbuilder
 
 ## Flux
 ### Views (React Components)

@@ -12,117 +12,145 @@ because once you start implementing your flux loops, that's precisely
 what you'll need to do.
 
 
-## Note Cycles
+## Restaurant Cycles
 
-### Notes API Request Actions
+### Restaurant API Request Actions
 
-* `fetchAllNotes`
-  0. invoked from `NotesIndex` `didMount`/`willReceiveProps`
-  0. `GET /api/notes` is called.
-  0. `receiveAllNotes` is set as the callback.
+* `fetchAllRestaurants`
+  0. invoked from `RestaurantsIndex` `didMount`/`willReceiveProps`
+  0. `GET /api/restaurants` is called.
+  0. `receiveAllRestaurants` is set as the callback.
 
-* `createNote`
-  0. invoked from new note button `onClick`
-  0. `POST /api/notes` is called.
-  0. `receiveSingleNote` is set as the callback.
+* `fetchSingleRestaurant`
+  0. invoked from `RestaurantDetail` `didMount`/`willReceiveProps`
+  0. `GET /api/restaurants/:id` is called.
+  0. `receiveSingleRestaurant` is set as the callback.
 
-* `fetchSingleNote`
-  0. invoked from `NoteDetail` `didMount`/`willReceiveProps`
-  0. `GET /api/notes/:id` is called.
-  0. `receiveSingleNote` is set as the callback.
+### Restaurant API Response Actions
 
-* `updateNote`
-  0. invoked from `NoteForm` `onSubmit`
-  0. `POST /api/notes` is called.
-  0. `receiveSingleNote` is set as the callback.
-
-* `destroyNote`
-  0. invoked from delete note button `onClick`
-  0. `DELETE /api/notes/:id` is called.
-  0. `removeNote` is set as the callback.
-
-### Notes API Response Actions
-
-* `receiveAllNotes`
+* `receiveAllRestaurants`
   0. invoked from an API callback.
-  0. `Note` store updates `_notes` and emits change.
+  0. `Restaurant` store updates `_restaurants` and emits change.
 
-* `receiveSingleNote`
+* `receiveSingleRestaurant`
   0. invoked from an API callback.
-  0. `Note` store updates `_notes[id]` and emits change.
-
-* `removeNote`
-  0. invoked from an API callback.
-  0. `Note` store removes `_notes[id]` and emits change.
+  0. `Restaurant` store updates `_restaurants[id]` and emits change.
 
 ### Store Listeners
 
-* `NotesIndex` component listens to `Note` store.
-* `NoteDetail` component listens to `Note` store.
+* `RestaurantsIndex` component listens to `Restaurant` store.
+* `RestaurantDetail` component listens to `Restaurant` store.
 
 
-## Notebook Cycles
+## Reservation Cycles
 
-### Notebooks API Request Actions
+### Reservations API Request Actions
 
-* `fetchAllNotebooks`
-  0. invoked from `NotebooksIndex` `didMount`/`willReceiveProps`
-  0. `GET /api/notebooks` is called.
-  0. `receiveAllNotebooks` is set as the callback.
+* `fetchAllReservations`
+  0. invoked from `ReservationsIndex` `didMount`/`willReceiveProps`
+  0. `GET /api/restaurants/:id/reservations` is called.
+  0. `receiveAllReservations` is set as the callback.
 
-* `createNotebook`
-  0. invoked from new notebook button `onClick`
-  0. `POST /api/notebooks` is called.
-  0. `receiveSingleNotebook` is set as the callback.
+* `createReservation`
+  0. invoked from new reservation button `onClick`
+  0. `POST /api/restaurants/:id/reservations` is called.
+  0. `receiveSingleReservation` is set as the callback.
 
-* `fetchSingleNotebook`
-  0. invoked from `NotebookDetail` `didMount`/`willReceiveProps`
-  0. `GET /api/notebooks/:id` is called.
-  0. `receiveSingleNotebook` is set as the callback.
+* `fetchSingleReservation`
+  0. invoked from `ReservationDetail` `didMount`/`willReceiveProps`
+  0. `GET /api/restaurants/:id/reservations/:id` is called.
+  0. `receiveSingleReservation` is set as the callback.
 
-* `updateNotebook`
-  0. invoked from `NotebookForm` `onSubmit`
-  0. `POST /api/notebooks` is called.
-  0. `receiveSingleNotebook` is set as the callback.
+* `updateReservation`
+  0. invoked from `ReservationForm` `onSubmit`
+  0. `POST /api/restaurants/:id/reservations/:id` is called.
+  0. `receiveSingleReservation` is set as the callback.
 
-* `destroyNotebook`
+* `destroyReservation`
   0. invoked from delete notebook button `onClick`
-  0. `DELETE /api/notebooks/:id` is called.
-  0. `removeNotebook` is set as the callback.
+  0. `DELETE /api/restaurants/:id/reservations/:id` is called.
+  0. `removeReservation` is set as the callback.
 
-### Notebooks API Response Actions
+### Reservations API Response Actions
 
-* `receiveAllNotebooks`
+* `receiveAllReservations`
   0. invoked from an API callback.
-  0. `Notebook` store updates `_notebooks` and emits change.
+  0. `Reservation` store updates `_reservations` and emits change.
 
-* `receiveSingleNotebook`
+* `receiveSingleReservation`
   0. invoked from an API callback.
-  0. `Notebook` store updates `_notebooks[id]` and emits change.
+  0. `Reservation` store updates `_reservations[id]` and emits change.
 
-* `removeNotebook`
+* `removeReservation`
   0. invoked from an API callback.
-  0. `Notebook` store removes `_notebooks[id]` and emits change.
+  0. `Reservation` store updates `_reservations[id]` and emits change.
 
 ### Store Listeners
 
-* `NotebooksIndex` component listens to `Notebook` store.
+* `ReservationForm` component listens to `Reservation` store.
+
+## Review Cycles
+
+### Review API Request Actions
+
+* `fetchAllReviews`
+  0. invoked from `ReviewsIndex` `didMount`/`willReceiveProps`
+  0. `GET /api/restaurants/:id/reviews` is called.
+  0. `receiveAllReviews` is set as the callback.
+
+* `createReview`
+  0. invoked from new review button `onClick`
+  0. `POST /api/restaurants/:id/reviews` is called.
+  0. `receiveSingleReview` is set as the callback.
+
+* `fetchSingleReview`
+  0. invoked from `ReviewDetail` `didMount`/`willReceiveProps`
+  0. `GET /api/restaurants/:id/reviews/:id` is called.
+  0. `receiveSingleReview` is set as the callback.
+
+* `updateReview`
+  0. invoked from `ReservationForm` `onSubmit`
+  0. `POST /api/restaurants/:id/review/:id` is called.
+  0. `receiveSingleReview` is set as the callback.
+
+* `destroyReview`
+  0. invoked from delete notebook button `onClick`
+  0. `DELETE /api/restaurants/:id/review/:id` is called.
+  0. `removeReview` is set as the callback.
+
+### Reservations API Response Actions
+
+* `receiveAllReviews`
+  0. invoked from an API callback.
+  0. `Review` store updates `_reviews` and emits change.
+
+* `receiveSingleReview`
+  0. invoked from an API callback.
+  0. `Review` store updates `_reviews[id]` and emits change.
+
+* `removeReview`
+  0. invoked from an API callback.
+  0. `Review` store updates `_reviews[id]` and emits change.
+
+### Store Listeners
+
+* `ReviewForm` component listens to `Review` store.
 
 
-## SearchSuggestion Cycles
+## SearchForReservations Cycles
 
 * `fetchSearchSuggestions`
-  0. invoked from `NoteSearchBar` `onChange` when there is text
-  0. `GET /api/notes` is called with `text` param.
-  0. `receiveSearchSuggestions` is set as the callback.
+  0. invoked from `ReservationSearchBar` `onChange` when there is text || selection
+  0. `GET /api/restaurants/:id/reservations` is called with `text` param.
+  0. `receiveSearchedForReservations` is set as the callback.
 
-* `receiveSearchSuggestions`
+* `receiveSearchedForReservations`
   0. invoked from an API callback.
-  0. `SearchSuggestion` store updates `_suggestions` and emits change.
+  0. `ReservationSuggestion` store updates `_suggestions` and emits change.
 
 * `removeSearchSuggestions`
-  0. invoked from `NoteSearchBar` `onChange` when empty
-  0. `SearchSuggestion` store resets `_suggestions` and emits change.
+  0. invoked from `ReviewSearchBar` `onChange` when empty
+  0. `ReservationSuggestion` store resets `_suggestions` and emits change.
 
 ### Store Listeners
 

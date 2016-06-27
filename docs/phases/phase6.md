@@ -1,4 +1,4 @@
-### Phase 5: Reservations (0.5 day, W2 Thu 12pm)
+### Phase 6: Reviews (0.5 days, W2 Th 12pm)
 
 ## Rails
 ### Models

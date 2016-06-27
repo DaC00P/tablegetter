@@ -1,4 +1,4 @@
-### Phase 5: Reservations (0.5 day, W2 Thu 12pm)
+### Phase 7: Bug Fixing, QA, Styling & Styling Cleanup. Seed Production DB (1.5 days, W2 Friday EOD)
 
 ## Rails
 ### Models

@@ -1,37 +1,54 @@
-# Phase 2: Flux Architecture and Note CRUD (2 days)
+### Phase 2: Back End Models & Controllers Pt 2 (2 days, W1 Th EOD)
 
 ## Rails
 ### Models
+* Reservations
+* Reviews
 
 ### Controllers
+* Reservations
+* Reviews
 
 ### Views
+* users/new.html.erb
+* session/new.html.erb
+* restaurant/index.json.jbuilder
+* restaurant/show.json.jbuilder
+
 
 ## Flux
 ### Views (React Components)
-* NotesIndex
-  - NotesIndexItem
-* NoteForm
+* RestaurantIndex
+  - RestaurantIndexItem
+
 
 ### Stores
-* Note
+* Restaurant
+* Reservation
+* Review
+
 
 ### Actions
-* ApiActions.receiveAllNotes -> triggered by ApiUtil
-* ApiActions.receiveSingleNote
-* ApiActions.deleteNote
-* NoteActions.fetchAllNotes -> triggers ApiUtil
-* NoteActions.fetchSingleNote 
-* NoteActions.createNote
-* NoteActions.editNote 
-* NoteActions.destroyNote
+* ApiActions.receiveAllRestaurants -> triggered by ApiUtil
+* ApiActions.receiveSingleRestaurant
+* RestaurantActions.fetchAllRestaurants -> triggers ApiUtil
+* RestaurantActions.fetchSingleRestaurant
+* ReservationActions.fetchAllReservations -> triggers ApiUtil
+* ReservationActions.fetchSingleReservation
+* ReservationActions.createReservations
+* ReservationActions.editReservation
+* ReservationActions.destroyReservation
+
 
 ### ApiUtil
-* ApiUtil.fetchAllNotes
-* ApiUtil.fetchSingleNote
-* ApiUtil.createNote
-* ApiUtil.editNote
-* ApiUtil.destroyNote
+* ApiUtil.fetchAllRestaurants
+* ApiUtil.fetchSingleRestaurant
+* ApiUtil.fetchAllReservations -> triggers ApiUtil
+* ApiUtil.fetchSingleReservation
+* ApiUtil.createReservation
+* ApiUtil.editReservation
+* ApiUtil.destroyReservation
+
 
 ## Gems/Libraries
 * Flux Dispatcher (npm)

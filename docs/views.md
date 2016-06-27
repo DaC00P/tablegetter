@@ -1,22 +1,26 @@
 # View Wireframes
 
-## New User
-![new-user]
 
-## New Session
-![new-session]
+## Main Page
+![main-page]
 
-## NotesIndex / NoteIndexItem / NoteForm
-![notes]
+## Search & Map Page
+![search-map]
 
-## NotebooksIndex / NotebookIndexItem
-![notebooks]
+## Restaurant Detail (Will include Reservation Functionality)
+![restaurant-detail]
 
-## NotebookForm
-![notebook-form]
+## Review Page
+![review-page]
 
-[new-user]: ./wireframes/new_user.png
-[new-session]: ./wireframes/new_session.png
-[notes]: ./wireframes/root_notes.png
-[notebooks]: ./wireframes/root_notebooks.png
-[notebook-form]: ./wireframes/notebook_form.png
+## Review Form Page
+![review-form]
+
+## User Profile & Places (Bonus Feature)
+## TBD
+
+[main-page]: ./wireframes/MainPage.JPG
+[restaurant-detail]: ./wireframes/RestaurantDetail.JPG
+[review-form]: ./wireframes/ReviewForm.JPG
+[review-page]: ./wireframes/ReviewPage.JPG
+[search-map]: ./wireframes/Search&Map.JPG

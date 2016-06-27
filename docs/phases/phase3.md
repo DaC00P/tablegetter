@@ -1,44 +1,62 @@
-# Phase 3: Notebooks and Tags (2 days)
+### Phase 3: Flux Architecture and Router (2.5 days, W2 T Noon)
 
 ## Rails
 ### Models
-* Notebook
-* Tag
-* Tagging
+* Reservations
+* Reviews
 
 ### Controllers
-* Api::NotebooksController (create, destroy, index, show, update)
+* Reservations
+* Reviews
 
 ### Views
-* notebooks/index.json.jbuilder
-* notebooks/show.json.jbuilder
-* tags/show.json.jbuilder
+* users/new.html.erb
+* session/new.html.erb
+* restaurant/index.json.jbuilder
+* restaurant/show.json.jbuilder
+* reservation/create.json.jbuilder
+* reservation/edit.json.jbuilder
+* reservation/create.json.jbuilder
+* review/create.json.jbuilder
+
 
 ## Flux
 ### Views (React Components)
-* NotebooksIndex
-  - NotebookIndexItem
-* NotebookForm
-* SearchIndex
+* RestaurantIndex
+  - RestaurantIndexItem
+* ReservationForm
+* ReviewForm
+* RestaurantMap
+  -RestaurantMapItem (a marker)
 
 ### Stores
-* Notebook
+* Restaurant
+* Reservation
+* Review
+
 
 ### Actions
-* ApiActions.receiveAllNotebooks -> triggered by ApiUtil
-* ApiActions.receiveSingleNotebook
-* ApiActions.deleteNotebook
-* NotebookActions.fetchAllNotebooks -> triggers ApiUtil
-* NotebookActions.fetchSingleNotebook
-* NotebookActions.createNotebook
-* NotebookActions.editNotebook
-* NotebookActions.destroyNotebook
+* ApiActions.receiveAllRestaurants -> triggered by ApiUtil
+* ApiActions.receiveSingleRestaurant
+* RestaurantActions.fetchAllRestaurants -> triggers ApiUtil
+* RestaurantActions.fetchSingleRestaurant
+* ReservationActions.fetchAllReservations -> triggers ApiUtil
+* ReservationActions.fetchSingleReservation
+* ReservationActions.createReservations
+* ReservationActions.editReservation
+* ReservationActions.destroyReservation
+
 
 ### ApiUtil
-* ApiUtil.fetchAllNotebooks
-* ApiUtil.fetchSingleNotebook
-* ApiUtil.createNotebook
-* ApiUtil.editNotebook
-* ApiUtil.destroyNotebook
+* ApiUtil.fetchAllRestaurants
+* ApiUtil.fetchSingleRestaurant
+* ApiUtil.fetchAllReservations -> triggers ApiUtil
+* ApiUtil.fetchSingleReservation
+* ApiUtil.createReservation
+* ApiUtil.editReservation
+* ApiUtil.destroyReservation
+
 
 ## Gems/Libraries
+* Flux Dispatcher (npm)
+* Twitter Bootstrap

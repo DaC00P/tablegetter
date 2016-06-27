@@ -1,35 +1,32 @@
-Please note: first commit didn't work, waiting till after lecture to try again
+# TableSetter
 
-
-# FresherNote
-
-[Heroku link][heroku] **Note:** This should be a link to your production site
+[Heroku link][heroku] coming soon...
 
 [heroku]: http://www.herokuapp.com
 
 ## Minimum Viable Product
 
-FresherNote is a web application inspired by Evernote that will be build using Ruby on Rails and React.js.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
+TableSetter is a web application inspired by AirBNB that will be build using Ruby on Rails and React.js. Its purpose will be to make restaurant reservations for users, and then allow users who have attended a restaurant to review it. It will integrate a map & search bar for finding restaurants, and a scrollable list of restaurants.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
 
 - [ ] Hosting on Heroku
 - [ ] New account creation, login, and guest/demo login
-- [ ] A production README, replacing this README (**NB**: check out the [sample production README](docs/production_readme.md) -- you'll write this later)
-- [ ] Notes
+- [ ] A production README, replacing this README
+- [ ] Restaurant Map
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
-- [ ] Notebooks for organizing notes
+- [ ] Reservations for Restaurants
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
-- [ ] Tags for notes
+- [ ] Reviews for Restaurants
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
-- [ ] Rich Text Editing of notes
-  - [ ] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
-  - [ ] Adequate CSS styling
+- [ ] Search for Restaurants by area (likely city based) and Cuisine
+    - [ ] Smooth, bug-free navigation
+    - [ ] Adequate seed data to demonstrate the site's features
+    - [ ] Adequate CSS styling
 
 ## Design Docs
 * [View Wireframes][views]
@@ -54,36 +51,41 @@ FresherNote is a web application inspired by Evernote that will be build using R
 - [ ] create `User` model
 - [ ] authentication
 - [ ] user signup/signin pages
-- [ ] blank landing page after signin
+- [ ] create restaurant model & controller
+- [ ] blank landing page after sign-in with a header
 
-### Phase 2: Notes Model, API, and basic APIUtil (1.5 days, W1 Th 12pm)
+### Phase 2: Back End Models & Controllers Pt 2 (2 days, W1 Th EOD)
 
-**Objective:** Notes can be created, read, edited and destroyed through
-the API.
+**Objective:** Build the reservation, review back-end structure
 
-- [ ] create `Note` model
-- [ ] seed the database with a small amount of test data
-- [ ] CRUD API for notes (`NotesController`)
-- [ ] jBuilder views for notes
+
+- [ ] create reservation model & controller
+- [ ] create review model &  controller
+- [ ] QA functionality of Ms & Cs; test in console for all CRUD functions
+- [ ] Build out basic associations (restaurant has many Reservations & reviews)
+- [ ] seed the database with test data
+- [ ] jBuilder views for reviews & reservations
 - [ ] setup Webpack & Flux scaffold
 - [ ] setup `APIUtil` to interact with the API
 - [ ] test out API interaction in the console.
 
-### Phase 3: Flux Architecture and Router (1.5 days, W1 F 6pm)
+### Phase 3: Flux Architecture and Router (2.5 days, W2 T Noon)
 
-**Objective:** Notes can be created, read, edited and destroyed with the
-user interface.
+**Objective:** Reservations can be created, modified, and destroyed
 
 - [ ] setup the flux loop with skeleton files
 - [ ] setup React Router
-- implement each note component, building out the flux loop as needed.
-  - [ ] `NotesIndex`
-  - [ ] `NoteIndexItem`
-  - [ ] `NoteForm`
-- [ ] save Notes to the DB when the form loses focus or is left idle
-  after editing.
+- [ ] Integrate Google Maps API to hold markers where Restaurants are all over the city
+  - [ ] Create  the necessary Flux components, mirroring benchbnb's approach to map integration
+- implement each component, building out the flux loop as needed.
+  - [ ] `RestaurantIndex` (the map with a sidebar holding a text index)
+  - [ ] `RestaurantIndexItem` (a restaurant, once clicked on, will show a detailed item pop-over style)
+    - [ ] `ReservationForm` (nested within the index item, making a reservation will not require an acct)
+    - [ ] `ReviewForm`      (nested within the index item, reviewing will require you booked with the rest. through us!)
+- [ ] Integrate searchability for restaurants by area and perhaps by cuisine
 
-### Phase 4: Start Styling (0.5 days, W2 M 12pm)
+
+### Phase 4: Start Styling & QAing Front-End Functionality (1 days, W2 W 12pm)
 
 **Objective:** Existing pages (including signup/signin) will look good.
 
@@ -91,54 +93,37 @@ user interface.
 - [ ] position elements on the page
 - [ ] add basic colors & styles
 
-### Phase 5: Notebooks (1 day, W2 Tu 12pm)
+### Phase 5: Reservations (0.5 day, W2 Thu 12pm)
 
-**Objective:** Notes belong to Notebooks, and can be viewed by notebook.
+**Objective:** Reservations belong to Users, and can be created, modified, and deleted.
 
-- [ ] create `Notebook` model
-- build out API, Flux loop, and components for:
-  - [ ] Notebook CRUD
-  - [ ] adding notes requires a notebook
-  - [ ] moving notes to a different notebook
-  - [ ] viewing notes by notebook
-- Use CSS to style new views
+- [ ] Enact permissions so that guest users can still book Reservations
+- [ ] Ensure the logic is sound so that overbookings don't occur
+  - [ ] also, don't forget to not let a user book two restaurants at the same time, mark user as busy (potential bonus, calender)  
 
-Phase 3 adds organization to the Notes. Notes belong to a Notebook,
-which has its own `Index` view.
+### Phase 6: Reviews (0.5 days, W2 Th 12pm)
 
-### Phase 6: Tags (1 days, W2 Th 12pm)
+**Objective:** Restaurants can be reviewed, but only by a user that has booked with the restaurant recently through TableSetter
 
-**Objective:** Notes can be tagged with multiple tags, and tags are searchable.
+- [ ] Ensure permissions for reviews are set and functioning properly
+  - [ ] A user should be able to create, delete, and modify reviews.
+    - [ ] Limit the number of mods per given period?
+- [ ] Potential Bonus: super-users who get gold star for many reviews
 
-- [ ] create `Tag` model and join table
-- build out API, Flux loop, and components for:
-  - [ ] fetching tags for notebook
-  - [ ] adding tags to notebook
-  - [ ] creating tags while adding to notebooks
-  - [ ] searching notebooks by tag
-- [ ] Style new elements
-
-### Phase 7: Allow Complex Styling in Notes (0.5 days, W2 Th 6pm)
+### Phase 7: Bug Fixing, QA, Styling & Styling Cleanup. Seed Production DB (1.5 days, W2 Friday EOD)
 
 **objective:** Enable complex styling of notes.
 
-- [ ] Integrate `react-quill` (based on Quill.js).
-- [ ] Use Rails helpers to sanitize HTML before rendering.
-- [ ] Style the new Quill elements.
-
-### Phase 8: Styling Cleanup and Seeding (1 day, W2 F 6pm)
-
-**objective:** Make the site feel more cohesive and awesome.
-
-- [ ] Get feedback on my UI from others
-- [ ] Refactor HTML classes & CSS rules
-- [ ] Add modals, transitions, and other styling flourishes.
+- [ ] Put sexy food/restaurant pictures everywhere
+- [ ] Make sure the layout is cohesive and there are no layout bugs or visual bugs
+- [ ] Perform final QA on all functionality regarding Restaurants, Reviews, and Reservations
 
 ### Bonus Features (TBD)
-- [ ] Search through notes for blocks of text
-- [ ] Pagination / infinite scroll for Notes Index
-- [ ] Set reminders on notes
-- [ ] Changelogs for Notes
+- [ ] Custom map interior to each Restaurant (can even say it is in beta and do for a couple restaurants only)
+  - [ ] clicking on a table allows booking that table, etc.
+  - [ ] http://map.reactd3.org/ will be my friend if I get here.
+- [ ] User calender showing all restaurant reservations, with links to past reviews, and a book again functionality
+- [ ] Restaurant registration (this is currently planned to be admin adding of restaurants only, due to vetting of quality)
 - [ ] Multiple sessions
 
 [phase-one]: docs/phases/phase1.md

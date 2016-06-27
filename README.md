@@ -1,3 +1,6 @@
+Please note: first commit didn't work, waiting till after lecture to try again
+
+
 # FresherNote
 
 [Heroku link][heroku] **Note:** This should be a link to your production site

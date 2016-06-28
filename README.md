@@ -59,7 +59,8 @@ ChefsTable is a web application inspired by AirBNB that will be build using Ruby
     - [ ] Bootstrap current user into app.html.erb
         - [ ]  session show page! pulls current user via ajax in api/sessions_util
     - [ ] make sign in/ log in/ sign up pages dynamically render
-- [ ] ensure permissions for any page but root!
+- [ ] ensure permissions for any page but root! (there are no other pages yet though..lol)
+- [ ] DEPLOY TO HEROKUUUUUU
 
 ### Phase 2: Restaurants & Reservations (2 Days, W1 Thu EOD)
 

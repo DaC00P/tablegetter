@@ -23,6 +23,9 @@ const appRouter = (
     </Route>
   </Router>
 );
+// Route path="benches/new" component = { BenchForm } onEnter={ _ensureLoggedIn } />
+// use the above syntax to ensure login on interior routes
+
 
 function _ensureLoggedIn(nextState, replace) {
     if (!SessionStore.isUserLoggedIn()) {

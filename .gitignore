@@ -12,6 +12,9 @@ bundle.js
 bundle.js.map
 node_modules/
 
+# Ignore secrets yml
+config/secrets.yml
+
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep

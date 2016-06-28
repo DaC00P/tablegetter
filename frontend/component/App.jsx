@@ -21,7 +21,6 @@ const App = React.createClass({
     	return (
     		<hgroup className="header-group">
     			<h2 className="header-name">Hi, {SessionStore.currentUser().username}!</h2>
-          <h3>SUP HOMIE</h3>
     			<input className="header-button" type="submit" value="logout" onClick={ this._handleLogOut } />
     		</hgroup>
     	);

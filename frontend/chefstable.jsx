@@ -1,6 +1,5 @@
 "use strict";
 
-const test  = 5;
 const React = require('react');
 const ReactDOM = require('react-dom');
 
@@ -14,12 +13,13 @@ const LoginForm= require('./component/login_form')
 
 const SessionStore = require('./stores/session_store');
 const SessionActions = require('./actions/session_actions');
+const ErrorActions = require('./actions/error_actions')
 
 const appRouter = (
   <Router history={hashHistory}>
     <Route path="/" component={App}>
-      <Route path="/login" component={LoginForm} />
-      <Route path="/signup" component={LoginForm} />
+      <Route path="/login" component={LoginForm} onEnter={ErrorActions.clearErrors} />
+      <Route path="/signup" component={LoginForm} onEnter={ErrorActions.clearErrors} />
     </Route>
   </Router>
 );

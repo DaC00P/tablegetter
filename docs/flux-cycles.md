@@ -85,6 +85,14 @@ what you'll need to do.
   0. invoked from an API callback.
   0. `Reservation` store updates `_reservations[id]` and emits change.
 
+* `addReservation`
+  0. invoked from an API callback.
+  0. `Reservation` store updates `_reservations[id]` and emits change.
+
+* `updateReservation`
+  0. invoked from an API callback.
+  0. `Reservation` store updates `_reservations[id]` and emits change.
+
 ### Store Listeners
 
 * `ReservationForm` component listens to `Reservation` store.
@@ -118,7 +126,7 @@ what you'll need to do.
   0. `DELETE /api/restaurants/:id/review/:id` is called.
   0. `removeReview` is set as the callback.
 
-### Reservations API Response Actions
+### Review API Response Actions
 
 * `receiveAllReviews`
   0. invoked from an API callback.

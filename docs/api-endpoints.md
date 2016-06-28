@@ -8,15 +8,15 @@
 
 ### Users
 
-- `GET /users/new`
-- `POST /users`
-- `PATCH /users`
+- `GET api/users/new`
+- `POST api/users`
+- `PATCH api/users`
 
 ### Session
 
-- `GET /session/new`
-- `POST /session`
-- `DELETE /session`
+- `GET api/session/new`
+- `POST api/session`
+- `DELETE api/session`
 
 ## JSON API
 
@@ -28,18 +28,17 @@
 
 ### Reservations
 
-- `GET /api/restaurant/:id/reservations`
 - `POST /api/restaurant/:id/reservations`
-- `GET /api/restaurant/:id/reservations/:id`
-- `PATCH /api/restaurant/:id/reservations/:id`
-- `DELETE /api/restaurant/:id/reservations/:id`
+- `GET /api/reservations/:id`
+- `PATCH /api/reservations/:id`
+- `DELETE /api/reservations/:id`
 
 ### Reviews
 
-- `GET /api/restaurant/:id/reviews`
+- `GET` (reviews will come bundled with restaurants)
 - `POST /api/restaurant/:id/reviews`
-- `GET /api/restaurant/:id/reviews/:id`
-- `PATCH /api/restaurant/:id/reviews/:id`
-- `DELETE /api/restaurant/:id/reviews/:id`
+- `GET /api/reviews/:id`
+- `PATCH /api/reviews/:id`
+- `DELETE /api/reviews/:id`
 
 - A restaurants reviews will be included in the restaurant show template

@@ -81,35 +81,42 @@ const LoginForm = React.createClass({
 
 		return (
 			<div className="login-form-container">
-				<form onSubmit={this.handleSubmit} className="login-form-box">
-	        Welcome to ChefsTable!
-					<br/>
-					Please { this.formType() } or { navLink }
+				<nav className="navbar navbar-default">
+					<div className="container-fluid">
+						<div className="navbar-header">
+							<form onSubmit={this.handleSubmit} className="login-form-box">
+				        Welcome to ChefsTable!
+								<br/>
+								Please { this.formType() } or { navLink }
 
-	        { this.fieldErrors("base") }
-					<div className="login-form">
-		        <br />
-						<label> Username:
-		          { this.fieldErrors("username") }
-							<input type="text"
-		            value={this.state.username}
-		            onChange={this.update("username")}
-								className="login-input" />
-						</label>
+				        { this.fieldErrors("base") }
+								<div className="login-form">
+					        <br />
+									<label> Username:
+					          { this.fieldErrors("username") }
+										<input type="text"
+					            value={this.state.username}
+					            onChange={this.update("username")}
+											className="login-input" />
+									</label>
 
-		        <br />
-						<label> Password:
-		          { this.fieldErrors("password") }
-		          <input type="password"
-		            value={this.state.password}
-		            onChange={this.update("password")}
-								className="login-input" />
-						</label>
+					        <br />
+									<label> Password:
+					          { this.fieldErrors("password") }
+					          <input type="password"
+					            value={this.state.password}
+					            onChange={this.update("password")}
+											className="login-input" />
+									</label>
 
-		        <br />
-						<input type="submit" value="Submit" />
+					        <br />
+									<input type="submit" value="Submit" />
+								</div>
+							</form>
+						</div>
 					</div>
-				</form>
+				</nav>
+
 			</div>
 		);
 	}

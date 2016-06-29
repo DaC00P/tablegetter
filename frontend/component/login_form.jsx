@@ -15,7 +15,8 @@ const LoginForm = React.createClass({
   getInitialState() {
     return {
       username: "",
-      password: ""
+      password: "",
+			form: this.props.form
     };
   },
 
@@ -31,6 +32,7 @@ const LoginForm = React.createClass({
 
   redirectIfLoggedIn() {
     if (SessionStore.isUserLoggedIn()) {
+			this.props.closeModal();
       this.context.router.push("/");
     }
   },
@@ -43,7 +45,7 @@ const LoginForm = React.createClass({
 			password: this.state.password
 		};
 
-    if (this.props.location.pathname === "/login") {
+    if (this.state.form === "login") {
       SessionActions.logIn(formData);
     } else {
       SessionActions.signUp(formData);
@@ -51,7 +53,7 @@ const LoginForm = React.createClass({
 	},
 
   fieldErrors(field) {
-    const errors = ErrorStore.formErrors(this.formType());
+    const errors = ErrorStore.formErrors(this.state.form);
 
     if (!errors[field]) { return; }
 
@@ -62,62 +64,57 @@ const LoginForm = React.createClass({
     return <ul>{ messages }</ul>;
   },
 
-  formType() {
-    return this.props.location.pathname.slice(1);
-  },
+	toggleFormState() {
+			this.setState({form: this.getOppositeForm() })
+	},
+
+	getOppositeForm() {
+		if (this.state.form === "signup"){
+			return "login"
+		}
+		else {
+			return "signup"
+		}
+	},
 
   update(property) {
     return (e) => this.setState({[property]: e.target.value});
   },
 
 	render() {
-
-    let navLink;
-    if (this.formType() === "login") {
-      navLink = <Link to="/signup">sign up instead</Link>;
-    } else {
-      navLink = <Link to="/login">log in instead</Link>;
-    }
+    let navLink = <a onClick={this.toggleFormState}> {this.getOppositeForm()} instead </a>
 
 		return (
-			<div className="login-form-container">
-				<nav className="navbar navbar-default">
-					<div className="container-fluid">
-						<div className="navbar-header">
-							<form onSubmit={this.handleSubmit} className="login-form-box">
-				        Welcome to ChefsTable!
-								<br/>
-								Please { this.formType() } or { navLink }
+							<div className="login-form-container">
+								<form onSubmit={this.handleSubmit} className="login-form-box">
+									Welcome to ChefsTable!
+									<br/>
+									Please { this.state.form } or { navLink }
 
-				        { this.fieldErrors("base") }
-								<div className="login-form">
-					        <br />
-									<label> Username:
-					          { this.fieldErrors("username") }
-										<input type="text"
-					            value={this.state.username}
-					            onChange={this.update("username")}
-											className="login-input" />
-									</label>
+									{ this.fieldErrors("base") }
+									<div className="login-form">
+										<br />
+										<label> Username:
+											{ this.fieldErrors("username") }
+											<input type="text"
+												value={this.state.username}
+												onChange={this.update("username")}
+												className="login-input" />
+										</label>
 
-					        <br />
-									<label> Password:
-					          { this.fieldErrors("password") }
-					          <input type="password"
-					            value={this.state.password}
-					            onChange={this.update("password")}
-											className="login-input" />
-									</label>
-
-					        <br />
-									<input type="submit" value="Submit" />
-								</div>
-							</form>
-						</div>
-					</div>
-				</nav>
-
-			</div>
+										<br />
+										<label> Password:
+											{ this.fieldErrors("password") }
+											<input type="password"
+												value={this.state.password}
+												onChange={this.update("password")}
+												className="login-input" />
+										</label>
+										<br />
+										<input type="submit" value="Submit"  data-dismiss="modal"/>
+									</div>
+								</form>
+							</div>
 		);
 	}
 });

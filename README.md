@@ -3,7 +3,7 @@
 
 [Heroku link][heroku] coming soon...
 
-[heroku]: http://www.herokuapp.com
+[heroku]: https://chefstable.herokuapp.com/
 
 ## Minimum Viable Product
 

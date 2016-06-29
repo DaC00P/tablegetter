@@ -4,6 +4,12 @@ const React = require('react');
 const Link = require('react-router').Link;
 const SessionStore = require('../stores/session_store');
 const SessionActions = require('../actions/session_actions');
+const LoginForm = require('./login_form');
+const NavBar = require('./navbar');
+const Modal = require('react-modal');
+
+// const subModal = require('./modal');
+
 
 const App = React.createClass({
 
@@ -27,22 +33,58 @@ const App = React.createClass({
     } else if ( !["/login", "/signup"].includes(this.props.location.pathname) ) {
       return (
         <nav className="login-signup">
-          <Link to="/login" activeClassName="current">Login</Link>
-          &nbsp;or&nbsp;
-          <Link to="/signup" activeClassName="current">Sign up!</Link>
+          <Link to="/login" activeClassName="current"></Link>
+          <Link to="/signup" activeClassName="current"></Link>
         </nav>
       );
     }
   },
 
+  getInitialState: function() {
+    return {
+      modalIsOpen: false
+    };
+  },
+
+  openModal: function() {
+    this.setState({modalIsOpen: true});
+  },
+
+  afterOpenModal: function() {
+    // references are now sync'd and can be accessed.
+    this.refs.subtitle.style.color = '#f00';
+  },
+
+  closeModal: function() {
+    this.setState({modalIsOpen: false});
+  },
+
+  componentWillMount(){
+    const appElement = document.getElementById('content');
+    Modal.setAppElement(appElement);
+  },
+
+  setLogin() {
+    this.setState({form: "login"})
+  },
+
+  setSignup() {
+    this.setState({form: "signup"})
+  },
+
+
   render() {
     return (
       <div>
         <header>
-          <Link to="/" className="header-link"><h1>Chefs Table</h1></Link>
-          { this.greeting() }
+          <NavBar openModal={this.openModal} closeModal={this.closeModal} setLogin={this.setLogin} setSignup={this.setSignup}/>
         </header>
+
+        <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal}> <LoginForm closeModal={this.closeModal} form={this.state.form} /> </Modal>
+
+        { this.greeting() }
         {this.props.children}
+
       </div>
     );
   }

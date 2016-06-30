@@ -28,4 +28,8 @@ class ApplicationController < ActionController::Base
     render json: {base: ['invalid credentials']}, status: 401 if !current_user
   end
 
+  def require_reservation_at(restarant_id)
+    #if current_user has had a reservation at restarant.id == restarant_id, true, else, false 
+  end
+
 end

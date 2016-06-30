@@ -4,6 +4,7 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation.create!(reservation_params)
+
   end
 
   def index
@@ -28,6 +29,12 @@ class ReservationsController < ApplicationController
   end
 
   protected
+
+
+    def reservation_doesnt_overlap(reservation_id)
+      other_reservation_dates = Reservation.all.map {|reservation| reservation.date}
+
+    end
 
   def reservation_params
     params.permit(:reservation).require(:user_id, :restaurant_id, :datetime, :description)

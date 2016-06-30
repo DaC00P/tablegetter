@@ -19,6 +19,29 @@
  @import "bootstrap";
 
 
-.navbar-right {
-  display: flex;
+.navbar-right button {
+  height: 30px;
+  margin-top: 10px;
+  margin-right: 2.5px;
+  margin-left: 2.5px;
+}
+
+.navbar-fix {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  height: 0px;
+}
+
+.chef-bg {
+  height: 400px;
+  background-image: url("http://res.cloudinary.com/dldvsrho8/image/upload/v1467239803/chefstablemain2_yzp72y.jpg");
+  background-size: cover;
+  background-position: 50% 25%;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+.login-form-box{
+  font-weight: bold;
+  text-align: center;
 }

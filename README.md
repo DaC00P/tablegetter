@@ -44,7 +44,7 @@ ChefsTable is a web application inspired by AirBNB that will be build using Ruby
 
 ## Implementation Timeline
 
-### Phase 1: Backend setup and Front End User Authentication (1.5 day, W1 W NOON)
+### Phase 1: Backend setup and Front End User Authentication (1.5 day, W1 W EOD)
 
 **Objective:** Functioning rails project with Authentication
 
@@ -62,7 +62,7 @@ ChefsTable is a web application inspired by AirBNB that will be build using Ruby
 - [ ] ensure permissions for any page but root! (there are no other pages yet though..lol)
 - [ ] DEPLOY TO HEROKUUUUUU
 
-### Phase 2: Restaurants & Reservations (2 Days, W1 Thu EOD)
+### Phase 2: Restaurants & Reservations (2 Days, W1 Fri EOD)
 
 **Objective:** Build the restaurant & reservation back & front end structure
 
@@ -76,15 +76,14 @@ ChefsTable is a web application inspired by AirBNB that will be build using Ruby
 - [ ] Implement basic dynamic rendering for all CRUD functions
   - [ ] `RestaurantIndex` (the map with a sidebar holding a text index)
   - [ ] `RestaurantIndexItem` (a restaurant, once clicked on, will show a detailed item pop-over style)
-  - [ ] `ReservationForm` (nested within the restaurant index item, making a reservation will not require an acct)
+  - [ ] `ReservationForm` (nested within the restaurant index item, making a reservation will require an acct)
 
-### Phase 2.5: Basic Styling Necessities(1 day, W1 F EOD)
+### Phase 2.5: Basic Styling Necessities(1 day, W1 Sun EOD)
 
 **Objective:** Existing pages will look good.
 
 - [ ] create a basic style guide
 - [ ] add basic colors & styles
-- [ ] position login/logout elements on the page - try to get the bar strx
 - [ ] Basic styling the basic pages created in Phase 2
 
 ### Phase 3: Reservations (1.5 days, W2 Tu NOON)

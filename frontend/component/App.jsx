@@ -16,6 +16,7 @@ const customStyle = {
     left                  : '50%',
     right                 : 'auto',
     bottom                : '0%',
+    height                : '300px',
     marginRight           : '-50%',
     transform             : 'translate(-50%, -50%)',
     backgroundImage       : "url('https://res.cloudinary.com/dldvsrho8/image/upload/c_scale,h_416/v1467246180/calmmodalbg_okxz6u.jpg')",

@@ -44,7 +44,7 @@ const App = React.createClass({
     	return (
     		<hgroup className="header-group">
     			<h2 className="header-name">Hi, {SessionStore.currentUser().username}!</h2>
-    			<input className="header-button" type="submit" value="logout" onClick={ this._handleLogOut } />
+
     		</hgroup>
     	);
     } else if ( !["/login", "/signup"].includes(this.props.location.pathname) ) {
@@ -95,7 +95,7 @@ const App = React.createClass({
     return (
       <div>
         <header>
-          <NavBar openModal={this.openModal} closeModal={this.closeModal} setLogin={this.setLogin} setSignup={this.setSignup}/>
+          <NavBar handleLogout = {this._handleLogOut} openModal={this.openModal} closeModal={this.closeModal} setLogin={this.setLogin} setSignup={this.setSignup}/>
           <div className="chef-bg"></div>
       </header>
 

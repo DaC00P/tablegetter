@@ -94,7 +94,7 @@ const LoginForm = React.createClass({
 									{ this.fieldErrors("base") }
 									<div className="login-form">
 										<br />
-										<label> Username:
+										<label className='unpw'> Username:&nbsp;
 											{ this.fieldErrors("username") }
 											<input type="text"
 												value={this.state.username}
@@ -103,7 +103,7 @@ const LoginForm = React.createClass({
 										</label>
 
 										<br />
-										<label> Password:
+										<label className='unpw'> Password:&nbsp;
 											{ this.fieldErrors("password") }
 											<input type="password"
 												value={this.state.password}

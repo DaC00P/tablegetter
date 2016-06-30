@@ -26,6 +26,7 @@ gem 'bcrypt'
 gem 'figaro'
 gem 'autoprefixer-rails'
 gem 'annotate'
+gem 'pry-rails'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

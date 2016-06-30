@@ -49,3 +49,35 @@
 #loginmodal {
   height: 100%;
 }
+
+#restaurant-dropdown {
+  align-items: stretch;
+  // height: 500px;
+  position: relative;
+}
+
+.flexboxeverything {
+  display: flex;
+  flex-direction: column;
+}
+
+.restaurant-details {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .dropdown-menu {
+    display: none;
+  }
+
+}
+
+// .dropdown-toggle {
+//   display: block;
+// }
+
+.open .dropdown-menu {
+  width: 100%;
+  display: flex;
+}

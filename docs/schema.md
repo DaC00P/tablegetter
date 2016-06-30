@@ -7,6 +7,7 @@ id          | integer   | not null, primary key
 name        | string    | not null
 description | text      | not null
 chef        | string    | not null
+chef        | string    | not null
 
 ## Reservations
 column name | data type | details
@@ -23,7 +24,6 @@ column name | data type | details
 id          | integer   | not null, primary key
 user_id     | integer   | not null, foreign key (references users), indexed
 restaurant_id| integer   | not null, foreign key (references users), indexed
-datetime    | string    | not null
 title       | string    |
 description | text    |
 

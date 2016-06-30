@@ -18,7 +18,7 @@ const customStyle = {
     bottom                : '0%',
     marginRight           : '-50%',
     transform             : 'translate(-50%, -50%)',
-    backgroundImage       : "url('http://res.cloudinary.com/dldvsrho8/image/upload/c_scale,h_416/v1467246180/calmmodalbg_okxz6u.jpg')",
+    backgroundImage       : "url('https://res.cloudinary.com/dldvsrho8/image/upload/c_scale,h_416/v1467246180/calmmodalbg_okxz6u.jpg')",
     border                : '2.5px solid black',
     borderRadius          : '4px',
     color                 : 'black'
@@ -100,7 +100,7 @@ const App = React.createClass({
 
 
 
-        <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyle}>
+        <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyle} id="loginmodal">
           <LoginForm closeModal={this.closeModal} form={this.state.form} />
         </Modal>
 

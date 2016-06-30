@@ -2,7 +2,8 @@
 
 const React = require('react');
 const Link = require('react-router').Link;
-const LoginForm = require('./login_form')
+const LoginForm = require('./login_form');
+const SessionStore = require('../stores/session_store');
 
 const NavBar = React.createClass({
   loginClick() {
@@ -17,6 +18,19 @@ const NavBar = React.createClass({
 
 
   render() {
+    const loginbuttons = (<button type="button" className="btn btn-info btn-sm" onClick={this.loginClick}>Log In</button>)
+    const signupbutton = (<button type="button" className="btn btn-info btn-sm" onClick={this.signUpClick}>Sign Up</button>)
+
+    const logoutbutton = (<button type="button" className="btn btn-info btn-sm" onClick={this.props.handleLogout}>Log Out</button>)
+
+    let currentbutton;
+    if (SessionStore.isUserLoggedIn()){
+      currentbutton = logoutbutton;
+    }
+    else {
+      currentbutton = <span> {loginbuttons} {signupbutton} </span>;
+    }
+
     return (
       <div>
         <nav className="navbar navbar-default navbar-fix">
@@ -41,9 +55,7 @@ const NavBar = React.createClass({
             </div>
 
             <ul className="nav navbar-nav navbar-right">
-                  <button type="button" className="btn btn-info btn-sm" >Help</button>
-                  <button type="button" className="btn btn-info btn-sm" onClick={this.loginClick}>Log In</button>
-                  <button type="button" className="btn btn-info btn-sm" onClick={this.signUpClick}>Sign Up</button>
+                  <button type="button" className="btn btn-info btn-sm" >Help</button> {currentbutton}
             </ul>
 
           </div>
@@ -56,5 +68,3 @@ const NavBar = React.createClass({
 });
 
 module.exports = NavBar;
-
-//the login/signup button should go on the right of the navbar!

@@ -8,7 +8,23 @@ const LoginForm = require('./login_form');
 const NavBar = require('./navbar');
 const Modal = require('react-modal');
 
-// const subModal = require('./modal');
+
+
+const customStyle = {
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : '0%',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)',
+    backgroundImage       : "url('http://res.cloudinary.com/dldvsrho8/image/upload/c_scale,h_416/v1467246180/calmmodalbg_okxz6u.jpg')",
+    border                : '2.5px solid black',
+    borderRadius          : '4px',
+    color                 : 'black'
+  }
+};
+
 
 
 const App = React.createClass({
@@ -73,14 +89,20 @@ const App = React.createClass({
   },
 
 
+
   render() {
     return (
       <div>
         <header>
           <NavBar openModal={this.openModal} closeModal={this.closeModal} setLogin={this.setLogin} setSignup={this.setSignup}/>
-        </header>
+          <div className="chef-bg"></div>
+      </header>
 
-        <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal}> <LoginForm closeModal={this.closeModal} form={this.state.form} /> </Modal>
+
+
+        <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyle}>
+          <LoginForm closeModal={this.closeModal} form={this.state.form} />
+        </Modal>
 
         { this.greeting() }
         {this.props.children}

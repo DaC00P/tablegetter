@@ -10,7 +10,6 @@ const IndexRoute = ReactRouter.IndexRoute;
 const hashHistory = ReactRouter.hashHistory;
 const App = require('./component/App')
 const LoginForm= require('./component/login_form')
-const subModal = require('./component/modal')
 
 const SessionStore = require('./stores/session_store');
 const SessionActions = require('./actions/session_actions');

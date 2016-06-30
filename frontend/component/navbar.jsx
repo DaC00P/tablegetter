@@ -19,7 +19,7 @@ const NavBar = React.createClass({
   render() {
     return (
       <div>
-        <nav className="navbar navbar-default">
+        <nav className="navbar navbar-default navbar-fix">
           <div className="container-fluid">
 
             <div className="navbar-header">
@@ -41,6 +41,7 @@ const NavBar = React.createClass({
             </div>
 
             <ul className="nav navbar-nav navbar-right">
+                  <button type="button" className="btn btn-info btn-sm" >Help</button>
                   <button type="button" className="btn btn-info btn-sm" onClick={this.loginClick}>Log In</button>
                   <button type="button" className="btn btn-info btn-sm" onClick={this.signUpClick}>Sign Up</button>
             </ul>

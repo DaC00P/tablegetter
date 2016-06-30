@@ -3,17 +3,17 @@ const Link = require('react-router').Link;
 const SessionActions = require('../actions/session_actions');
 const SessionStore = require('../stores/session_store');
 const ErrorStore = require('../stores/error_store');
-const Calender = require('react-datetime');
 
 
-const RestaurantBookingCalender = React.createClass({
+const ReviewBox = React.createClass({
   render() {
     return (
-      <section className='restaurant-booking-calender'>
-        <Calender/>
+      <section className='review-details'>
+          <h2>SUP</h2>
+          <p>a bunch of text here lololololololololol</p>
       </section>
     )
   }
 });
 
-module.exports = RestaurantBookingCalender;
+module.exports = ReviewBox;

@@ -7,6 +7,7 @@ const SessionActions = require('../actions/session_actions');
 const LoginForm = require('./login_form');
 const NavBar = require('./navbar');
 const Modal = require('react-modal');
+const RestaurantDisplay = require('./restaurant_display')
 
 
 
@@ -93,7 +94,7 @@ const App = React.createClass({
 
   render() {
     return (
-      <div>
+      <div className='flexboxeverything'>
         <header>
           <NavBar handleLogout = {this._handleLogOut} openModal={this.openModal} closeModal={this.closeModal} setLogin={this.setLogin} setSignup={this.setSignup}/>
           <div className="chef-bg"></div>
@@ -106,6 +107,9 @@ const App = React.createClass({
         </Modal>
 
         { this.greeting() }
+
+        <RestaurantDisplay/>
+
         {this.props.children}
 
       </div>

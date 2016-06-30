@@ -3,12 +3,19 @@ const Link = require('react-router').Link;
 const SessionActions = require('../actions/session_actions');
 const SessionStore = require('../stores/session_store');
 const ErrorStore = require('../stores/error_store');
+const RestaurantAllDetailBox = require('./restaurant_all_detail_box')
+const RestaurantBookingCalender = require('./restaurant_booking_calender')
 
 
 const RestaurantDetailBox = React.createClass({
   render() {
     return (
-      <h4>SUP!</h4>
+      <section className="restaurant-box-group">
+        <RestaurantAllDetailBox/>
+        <img className="main-restaurant-food-pic" src="http://res.cloudinary.com/dldvsrho8/image/upload/v1467328339/Tropical-Fruit-2000x1717_iqltvu.jpg" alt="FOODPORN"/>
+        <RestaurantBookingCalender/>
+      </section>
+
     )
   }
 });

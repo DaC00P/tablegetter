@@ -11,8 +11,9 @@ const RestaurantDisplay = React.createClass({
   render() {
     return (
       <section className='restaurant-details'>
+        <h2 className='restaurant-name-header'>Restaurant Name</h2>
         <RestaurantDetailBox/ >
-            <button className="dropdown-toggle" data-toggle="dropdown"> Dropdown</button>
+            <button type='button' className="dropdown-toggle" data-toggle="dropdown"> Dropdown</button>
             <div className="dropdown-menu" role="menu" id="restaurant-dropdown">
               <section className = "restaurant-pictures">
                 <img className="dropdown-food-pic" src="http://res.cloudinary.com/dldvsrho8/image/upload/v1467328339/Tropical-Fruit-2000x1717_iqltvu.jpg" alt="FOODPORN"/>

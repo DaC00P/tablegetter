@@ -11,9 +11,14 @@ const RestaurantDetailBox = React.createClass({
   render() {
     return (
       <section className="restaurant-box-group">
-        <RestaurantAllDetailBox/>
+        <section className='detail-booking-section'>
+          <RestaurantAllDetailBox restaurant={this.props.restaurant}/>
+          <RestaurantBookingCalender/>
+          <span></span>
+        </section>
+
         <img className="main-restaurant-food-pic" src="http://res.cloudinary.com/dldvsrho8/image/upload/v1467328339/Tropical-Fruit-2000x1717_iqltvu.jpg" alt="FOODPORN"/>
-        <RestaurantBookingCalender/>
+
       </section>
 
     )

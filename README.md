@@ -48,35 +48,35 @@ ChefsTable is a web application inspired by AirBNB that will be build using Ruby
 
 **Objective:** Functioning rails project with Authentication
 
-- [ ] create `User` model under API namespace
-- [ ] create user & session controllers under API namespace, patch ApplicationController
-- [ ] blank landing page after sign-in with a header reading "Chefs Table"
-- [ ] setup React Router
-- [ ] setup Webpack & Flux scaffold
-- [ ] setup `APIUtil` to interact with the API
-- [ ] user signup/signin pages
-- [ ] Front-end Auth Implementation - follow BenchBNB Implementation.
-    - [ ] Bootstrap current user into app.html.erb
-        - [ ]  session show page! pulls current user via ajax in api/sessions_util
-    - [ ] make sign in/ log in/ sign up pages dynamically render
-- [ ] ensure permissions for any page but root! (there are no other pages yet though..lol)
-- [ ] DEPLOY TO HEROKUUUUUU
+- [x] create `User` model under API namespace
+- [x] create user & session controllers under API namespace, patch ApplicationController
+- [x] blank landing page after sign-in with a header reading "Chefs Table"
+- [x] setup React Router
+- [x] setup Webpack & Flux scaffold
+- [x] setup `APIUtil` to interact with the API
+- [x] user signup/signin pages
+- [x] Front-end Auth Implementation - follow BenchBNB Implementation.
+    - [x] Bootstrap current user into app.html.erb
+        - [x]  session show page! pulls current user via ajax in api/sessions_util
+    - [x] make sign in/ log in/ sign up pages dynamically render
+- [x] ensure permissions for any page but root! (there are no other pages yet though..lol)
+- [x] DEPLOY TO HEROKUUUUUU
 
 ### Phase 2: Restaurants & Reservations (2 Days, W1 Fri EOD)
 
 **Objective:** Build the restaurant & reservation back & front end structure
 
-- [ ] create restaurant DB structure, model, and controller
-- [ ] create reservation DB structure, model, and controller
-- [ ] QA functionality of Ms & Cs; test in console for all CRUD functions
-- [ ] seed the database with test data
-- [ ] jBuilder views for reservations (consult BenchBNB Implementation)
-- [ ] test out API interaction in the console.
-- [ ] setup the flux loop with skeleton files
+- [x] create restaurant DB structure, model, and controller
+- [x] create reservation DB structure, model, and controller
+- [x] QA functionality of Ms & Cs; test in console for all CRUD functions
+- [x] seed the database with test data
+- [x] Create Restaurant components
+- [ ] setup the flux loop with skeleton files for everything but the components
 - [ ] Implement basic dynamic rendering for all CRUD functions
   - [ ] `RestaurantIndex` (the map with a sidebar holding a text index)
   - [ ] `RestaurantIndexItem` (a restaurant, once clicked on, will show a detailed item pop-over style)
   - [ ] `ReservationForm` (nested within the restaurant index item, making a reservation will require an acct)
+- [ ] test out API interaction in the console.
 
 ### Phase 2.5: Basic Styling Necessities(1 day, W1 Sun EOD)
 
@@ -101,7 +101,6 @@ ChefsTable is a web application inspired by AirBNB that will be build using Ruby
 
 **Objective:** Reservations belong to Users, and can be created, modified, and deleted.
 
-- [ ] Enact permissions so that guest users can still book Reservations
 - [ ] Ensure the logic is sound so that overbookings don't occur
   - [ ] also, don't forget to not let a user book two restaurants at the same time, mark user as busy (potential bonus, calender)  
 - [ ] Ensure proper styling per style guides

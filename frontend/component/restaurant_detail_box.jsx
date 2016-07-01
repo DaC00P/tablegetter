@@ -7,7 +7,9 @@ const RestaurantAllDetailBox = require('./restaurant_all_detail_box')
 const RestaurantBookingCalender = require('./restaurant_booking_calender')
 
 
+
 const RestaurantDetailBox = React.createClass({
+
   render() {
     return (
       <section className="restaurant-box-group">
@@ -26,3 +28,8 @@ const RestaurantDetailBox = React.createClass({
 });
 
 module.exports = RestaurantDetailBox;
+
+
+// let currentDate = new Date().setHours(0, 0, 0, 0)
+// sliceIdx = Date(currentDate).indexOf("00:00:00:00")
+// currentDate = Date(currentDate).slice(0, sliceIdx)

@@ -10,7 +10,7 @@ const RestaurantBookingCalender = React.createClass({
   render() {
     return (
       <section className='restaurant-booking-calender'>
-        <Calender/>
+        <Calender defaultValue='Click Here to Reserve'/>
       </section>
     )
   }

@@ -74,6 +74,15 @@
 
 }
 
+.reserve-finalize-button {
+  display: flex;
+  margin: 0 auto;
+}
+
+.detail-booking-section {
+  border: 2.5px solid #36454f;
+}
+
 .open .dropdown-menu {
   width: 100%;
   display: flex;
@@ -101,7 +110,7 @@
 }
 
 .restaurant-all-details {
-  border: 2px solid #36454f;
+  border-bottom: 2.5px solid #36454f;
   text-align: left;
 }
 

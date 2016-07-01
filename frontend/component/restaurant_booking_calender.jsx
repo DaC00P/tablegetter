@@ -7,10 +7,15 @@ const Calender = require('react-datetime');
 
 
 const RestaurantBookingCalender = React.createClass({
+  handleClick() {
+    
+  },
+
   render() {
     return (
       <section className='restaurant-booking-calender'>
         <Calender defaultValue='Click Here to Reserve'/>
+        <button className='reserve-finalize-button' onClick={this.handleClick}>Reserve</button>
       </section>
     )
   }

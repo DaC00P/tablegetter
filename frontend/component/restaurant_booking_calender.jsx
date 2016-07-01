@@ -3,15 +3,58 @@ const Link = require('react-router').Link;
 const SessionActions = require('../actions/session_actions');
 const SessionStore = require('../stores/session_store');
 const ErrorStore = require('../stores/error_store');
-import Calendar from 'react-input-calendar'
-import Dropdown from 'react-dropdown'
+import Calendar from 'react-input-calendar';
+import Dropdown from 'react-dropdown';
+const Modal = require('react-modal');
+const ReservationFinalizeForm = require('./reservation_finalize_form')
+
+const customStyle = {
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : '0%',
+    height                : '300px',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)',
+    backgroundColor       : "cream",
+    border                : '2.5px solid black',
+    borderRadius          : '4px',
+    color                 : 'black'
+  }
+};
 
 
 
 const RestaurantBookingCalender = React.createClass({
-  handleClick() {
-
+  getInitialState() {
+    return (
+      {reservationDate: "", reservationTime: "", modalIsOpen: false}
+    )
   },
+
+  handleCalenderSelect(date) {
+    this.setState({reservationDate: date});
+  },
+
+  handleTimeSelect(time) {
+    this.setState({reservationTime: time});
+  },
+
+  openModal: function() {
+    this.setState({modalIsOpen: true});
+  },
+
+  afterOpenModal: function() {
+    // references are now sync'd and can be accessed.
+    this.refs.subtitle.style.color = '#f00';
+  },
+
+  closeModal: function() {
+    this.setState({modalIsOpen: false});
+  },
+
+
 
   render() {
     const options = ["5:00 PM", "7:00 PM", "9:00 PM"]
@@ -19,18 +62,20 @@ const RestaurantBookingCalender = React.createClass({
 
     return (
       <section className='restaurant-booking-calender'>
-        <section className = 'calender-seating-section'>
-            <Calendar type="calender" format='DD/MM/YYYY' date={new Date()} defaultValue='Click Here to Reserve'/>
-            <Dropdown options={options} value={defaultOption} />
-        </section>
+        <form className = 'calender-seating-section'>
+            <Calendar onChange={this.handleCalenderSelect} closeOnSelect={true} type="calender" format='DD/MM/YYYY' date={new Date()} defaultValue='Click Here to Reserve'/>
+            <Dropdown onChange={this.handleTimeSelect} className="" options={options} value={defaultOption} />
+        </form>
 
 
-        <button className='reserve-finalize-button' onClick={this.handleClick}>Finalize Reservation</button>
+        <button className='reserve-finalize-button' onClick={this.openModal}>Finalize Reservation</button>
+
+        <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyle} id="reservation-modal">
+          <ReservationFinalizeForm closeModal={this.closeModal} date={this.state.reservationDate} time={this.state.reservationTime}/>
+        </Modal>
       </section>
     )
   }
 });
 
 module.exports = RestaurantBookingCalender;
-
-// onChange={this._onSelect} this for the dropdown onclick

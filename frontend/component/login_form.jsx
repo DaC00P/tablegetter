@@ -111,7 +111,7 @@ const LoginForm = React.createClass({
 												className="login-input" />
 										</label>
 										<br />
-										<input type="submit" value="Submit"  data-dismiss="modal"/>
+										<input type="submit" value="Submit"  data-dismiss="modal" onClick={this.handleSubmit}/>
 									</div>
 								</form>
 							</div>

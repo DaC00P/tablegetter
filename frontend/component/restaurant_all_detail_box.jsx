@@ -10,9 +10,9 @@ const RestaurantAllDetailBox = React.createClass({
     return (
       <section className='restaurant-all-details'>
         <ul>
-          <li className="restaurant-detail-item">Chef</li>
-          <li className="restaurant-detail-item">Cuisine</li>
-          <li className="restaurant-detail-item">Description</li>
+          <li className="restaurant-detail-item">{this.props.restaurant.chef}</li>
+          <li className="restaurant-detail-item">{this.props.restaurant.cuisine}</li>
+          <li className="restaurant-detail-item">{this.props.restaurant.description}</li>
         </ul>
       </section>
     )

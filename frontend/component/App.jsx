@@ -7,7 +7,8 @@ const SessionActions = require('../actions/session_actions');
 const LoginForm = require('./login_form');
 const NavBar = require('./navbar');
 const Modal = require('react-modal');
-const RestaurantDisplay = require('./restaurant_display')
+const RestaurantDisplay = require('./restaurant_display');
+const RestaurantMap = require('./restaurant_map');
 
 
 
@@ -99,6 +100,8 @@ const App = React.createClass({
           <NavBar handleLogout = {this._handleLogOut} openModal={this.openModal} closeModal={this.closeModal} setLogin={this.setLogin} setSignup={this.setSignup}/>
           <div className="chef-bg"></div>
       </header>
+
+      <RestaurantMap/>
 
 
 

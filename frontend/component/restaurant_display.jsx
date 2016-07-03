@@ -28,7 +28,7 @@ const RestaurantDisplay = React.createClass({
     });
 
     return (
-      <section>{restaurant_names}</section>
+      <section className="restaurant-index">{restaurant_names}</section>
     )
   }
 });

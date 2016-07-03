@@ -18,6 +18,15 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ .map {
+  float:right;
+  margin-left: 10px;
+  width: 600px;
+  height: 600px;
+  box-shadow: 0 1px 2px #444444;
+  border-radius: 5px;
+}
+
 
 .navbar-right button {
   height: 30px;
@@ -48,12 +57,15 @@
 
 #loginmodal {
   height: 100%;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px #444444;
 }
 
 #restaurant-dropdown {
   align-items: stretch;
   // height: 500px;
   position: relative;
+  border-radius: 5px;
 }
 
 .flexboxeverything {
@@ -62,12 +74,16 @@
 }
 
 .restaurant-details {
+  border: 1.5px solid #36454f;
+  border-radius: 5px;
+  float: right;
   display: flex;
-  width: 100%;
+  width: auto;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: lightgoldenrodyellow;
+  border-radius: 5px;
   .dropdown-menu {
     display: none;
   }
@@ -81,18 +97,22 @@
 
 .detail-booking-section {
   border: 2.5px solid #36454f;
+  border-radius: 5px;
+  margin: 3px;
 }
 
 .open .dropdown-menu {
   width: 100%;
   display: flex;
   background-color: lightgoldenrodyellow;
+  border-radius: 5px;
 }
 
 .dropdown-food-pic {
   width: 25%;
   display: inline-flex;
   padding: 2px;
+  border-radius: 5px;
 }
 
 .restaurant-box-group {
@@ -101,21 +121,25 @@
   justify-content: center;
   align-items: center;
   margin: auto;
+  border-radius: 5px;
 }
 
 .main-restaurant-food-pic {
   margin: 5px;
-  width: 15%;
-  height: 15%;
+  width: 30%;
+  height: 30%;
+  border-radius: 5px;
 }
 
 .restaurant-all-details {
   border-bottom: 2.5px solid #36454f;
   text-align: left;
+  border-radius: 5px;
 }
 
 .restaurant-detail-item {
   padding: 3px;
+  border-radius: 5px;
 }
 
 .dropdown-toggle {
@@ -133,12 +157,21 @@
   width: 150px;
 }
 
-.reservation-finalize-form {
-
+.restaurant-index {
+  float:left;
+  width: 600px;
+  height: 600px;
+  box-shadow: 0 1px 2px #444444;
+  border-radius: 5px;
+  overflow-y: scroll;
 }
 
 .reservation-modal {
+    box-shadow: 0 1px 2px #444444;
+}
 
+.map-details-combo {
+  display: inline-flex;
 }
 
 
@@ -308,7 +341,7 @@
 
 body {
   margin: 20px auto;
-  width: 60%;
+  width: 100%;
 }
 
 header h2 {

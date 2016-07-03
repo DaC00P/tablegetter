@@ -19,3 +19,6 @@ node_modules/
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore application configuration
+/config/application.yml

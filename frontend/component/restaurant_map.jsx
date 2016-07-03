@@ -13,7 +13,7 @@ module.exports = React.createClass({
 
   componentDidMount () {
     this.markers = {};
-    this.highlightedId = null;
+    // this.highlightedId = null;
     this.displayForm = false;
 
     const mapDOMNode = ReactDOM.findDOMNode(this.refs.map);
@@ -66,7 +66,7 @@ module.exports = React.createClass({
 
       if (!this.markers[restaurant.id]) {
         const marker = this.addRestaurantMarker(restaurant);
-        this.markers[restauranth.id] = marker;
+        this.markers[restaurant.id] = marker;
       }
     });
 
@@ -78,8 +78,8 @@ module.exports = React.createClass({
       }
     });
 
-    this.unhighlightMarker();
-    this.highlightMarker(RestaurantStore.highlightedId());
+    // this.unhighlightMarker();
+    // this.highlightMarker(RestaurantStore.highlightedId());
   },
 
   addRestaurantMarker (restaurant) {
@@ -95,23 +95,23 @@ module.exports = React.createClass({
     this.markers[id].setMap(null);
   },
 
-  highlightMarker (id) {
-    if (this.markers[id]) {
-      // fade out all markers
-      this.allMarkers().forEach(marker => marker.setOpacity(0.25));
-
-      // highlight one
-      this.markers[id].setOpacity(1.0);
-      this.highlightedId = id;
-    }
-  },
-
-  unhighlightMarker () {
-    if (this.highlightedId) {
-      this.allMarkers().forEach(marker => marker.setOpacity(1.0));
-      this.highlightedId = null;
-    }
-  },
+  // highlightMarker (id) {
+  //   if (this.markers[id]) {
+  //     // fade out all markers
+  //     this.allMarkers().forEach(marker => marker.setOpacity(0.25));
+  //
+  //     // highlight one
+  //     this.markers[id].setOpacity(1.0);
+  //     this.highlightedId = id;
+  //   }
+  // },
+  //
+  // unhighlightMarker () {
+  //   if (this.highlightedId) {
+  //     this.allMarkers().forEach(marker => marker.setOpacity(1.0));
+  //     this.highlightedId = null;
+  //   }
+  // },
 
   allMarkers () {
     const markers = [];
@@ -125,7 +125,6 @@ module.exports = React.createClass({
     return (
       <div>
         <div className='map' ref='map'></div>
-        <h2>TEST</h2>
       </div>
     );
   }

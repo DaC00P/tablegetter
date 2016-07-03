@@ -101,7 +101,6 @@ const App = React.createClass({
           <div className="chef-bg"></div>
       </header>
 
-      <RestaurantMap/>
 
 
 
@@ -111,7 +110,11 @@ const App = React.createClass({
 
         { this.greeting() }
 
-        <RestaurantDisplay/>
+        <section className="map-details-combo">
+          <RestaurantMap/>
+          <RestaurantDisplay/>
+        </section>
+
 
         {this.props.children}
 

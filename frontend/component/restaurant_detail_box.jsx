@@ -19,7 +19,7 @@ const RestaurantDetailBox = React.createClass({
           <span></span>
         </section>
 
-        <img className="main-restaurant-food-pic" src="http://res.cloudinary.com/dldvsrho8/image/upload/v1467328339/Tropical-Fruit-2000x1717_iqltvu.jpg" alt="FOODPORN"/>
+
 
       </section>
 
@@ -29,7 +29,4 @@ const RestaurantDetailBox = React.createClass({
 
 module.exports = RestaurantDetailBox;
 
-
-// let currentDate = new Date().setHours(0, 0, 0, 0)
-// sliceIdx = Date(currentDate).indexOf("00:00:00:00")
-// currentDate = Date(currentDate).slice(0, sliceIdx)
+  // <img className="main-restaurant-food-pic" src="http://res.cloudinary.com/dldvsrho8/image/upload/v1467328339/Tropical-Fruit-2000x1717_iqltvu.jpg" alt="FOODPORN"/>

@@ -2,7 +2,7 @@
 
 const Store = require('flux/utils').Store;
 const AppDispatcher = require('../dispatcher/dispatcher');
-const RestaurantStore = new Store(AppDispatcher);
+const ReservationStore = new Store(AppDispatcher);
 
 let _reservations = {}
 
@@ -24,7 +24,7 @@ ReservationStore.find = function(id) {
 
 function resetAllReservations(reservation) {
   _reservations = reservation;
-  ReservationStore.__emitChange();
+  this.__emitChange();
 }
 
 

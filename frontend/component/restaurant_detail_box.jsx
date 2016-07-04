@@ -15,7 +15,7 @@ const RestaurantDetailBox = React.createClass({
       <section className="restaurant-box-group">
         <section className='detail-booking-section'>
           <RestaurantAllDetailBox restaurant={this.props.restaurant}/>
-          <RestaurantBookingCalender/>
+          <RestaurantBookingCalender restaurant={this.props.restaurant}/>
           <span></span>
         </section>
 

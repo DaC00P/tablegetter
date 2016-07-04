@@ -9,6 +9,16 @@ const RestaurantUtil = {
 
   fetchSingleReservation(id, success){
     $.get('api/reservations/:id', success);
+  },
+
+  postSingleReservation(reservation, callback){
+    $.ajax({
+      method: "POST",
+      url: 'api/reservations',
+      data: reservation,
+      success(response) {callback(response)}
+    }
+   );
   }
 };
 

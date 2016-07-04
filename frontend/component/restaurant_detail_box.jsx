@@ -3,8 +3,8 @@ const Link = require('react-router').Link;
 const SessionActions = require('../actions/session_actions');
 const SessionStore = require('../stores/session_store');
 const ErrorStore = require('../stores/error_store');
-const RestaurantAllDetailBox = require('./restaurant_all_detail_box')
-const RestaurantBookingCalender = require('./restaurant_booking_calender')
+const RestaurantAllDetailBox = require('./restaurant_all_detail_box');
+const RestaurantBookingCalender = require('./restaurant_booking_calender');
 
 
 
@@ -23,7 +23,7 @@ const RestaurantDetailBox = React.createClass({
 
       </section>
 
-    )
+    );
   }
 });
 

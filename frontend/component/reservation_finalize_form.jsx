@@ -6,7 +6,7 @@ const ErrorStore = require('../stores/error_store');
 
 const RestaurantStore = require('../stores/restaurant_store');
 const RestaurantActions = require('../actions/restaurant_actions');
-const ReservationActions = require('../actions/reservation_actions')
+const ReservationActions = require('../actions/reservation_actions');
 
 const ReservationFinalizeForm = React.createClass({
   getInitialState() {
@@ -18,22 +18,22 @@ const ReservationFinalizeForm = React.createClass({
       special_instructions: "",
       restaurant_id: this.props.restaurant.id,
       finalize: false
-    })
+    });
   },
 
   handlePartySize(event) {
     event.preventDefault();
-    this.setState({party_size: event.target.value})
+    this.setState({party_size: event.target.value});
   },
 
   handleAllergies(event) {
     event.preventDefault();
-    this.setState({allergies: event.target.value})
+    this.setState({allergies: event.target.value});
   },
 
   handleInstructions(event) {
     event.preventDefault();
-    this.setState({special_instructions: event.target.value})
+    this.setState({special_instructions: event.target.value});
   },
 
   handleReservationSubmit() {
@@ -45,7 +45,7 @@ const ReservationFinalizeForm = React.createClass({
   },
 
   reservationConfirmed() {
-    this.setState({finalize: true})
+    this.setState({finalize: true});
   },
 
   render() {
@@ -81,14 +81,14 @@ const ReservationFinalizeForm = React.createClass({
 
     if (this.state.finalize) {
       currentForm = confirmation;
-    };
+    }
 
 
     return (
       <section className='reservation-finalize-form'>
         {currentForm}
       </section>
-    )
+    );
   }
 });
 

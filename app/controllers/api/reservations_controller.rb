@@ -5,6 +5,7 @@ class Api::ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     @reservation.user_id = current_user.id
+    @reservation.date = @reservation.date.to_date
     if @reservation.save
       render json: @reservation
     else

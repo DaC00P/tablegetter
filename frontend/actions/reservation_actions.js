@@ -31,8 +31,8 @@ const ReservationActions = {
     });
   },
 
-  postSingleReservation(reservation) {
-    ReservationApiUtil.postSingleReservation(reservation, this.receiveSingleReservation);
+  postSingleReservation(reservation, confirmationcallback) {
+    ReservationApiUtil.postSingleReservation(reservation, this.receiveSingleReservation, confirmationcallback);
   }
 
 };

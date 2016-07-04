@@ -31,9 +31,7 @@ class Reservation < ActiveRecord::Base
   # end
 
   def overlapping_requests
-    x = Reservation.where(restaurant_id: self.restaurant_id).where(time: self.time).where(date: self.date)
-    debugger
-    x
+    Reservation.where(restaurant_id: self.restaurant_id).where(time: self.time).where(date: self.date)
   end
 
   def does_not_overlap_reservations

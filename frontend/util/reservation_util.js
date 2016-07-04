@@ -11,12 +11,15 @@ const RestaurantUtil = {
     $.get('api/reservations/:id', success);
   },
 
-  postSingleReservation(reservation, callback){
+  postSingleReservation(reservation, callback, confirmationcallback){
     $.ajax({
       method: "POST",
       url: 'api/reservations',
       data: reservation,
-      success(response) {callback(response)}
+      success(response) {
+        callback(response);
+        confirmationcallback();
+      }
     }
    );
   }

@@ -6,7 +6,7 @@ const ErrorStore = require('../stores/error_store');
 import Calendar from 'react-input-calendar';
 import Dropdown from 'react-dropdown';
 const Modal = require('react-modal');
-const ReservationFinalizeForm = require('./reservation_finalize_form')
+const ReservationFinalizeForm = require('./reservation_finalize_form');
 
 const customStyle = {
   content : {
@@ -30,7 +30,7 @@ const RestaurantBookingCalender = React.createClass({
   getInitialState() {
     return (
       {reservationDate: new Date(), reservationTime: "", modalIsOpen: false}
-    )
+    );
   },
 
   handleCalenderSelect(date) {
@@ -55,8 +55,8 @@ const RestaurantBookingCalender = React.createClass({
   },
 
   render() {
-    const options = ["5:00 PM", "7:00 PM", "9:00 PM"]
-    const defaultOption = "Please Select a Seating"
+    const options = ["5:00 PM", "7:00 PM", "9:00 PM"];
+    const defaultOption = "Please Select a Seating";
 
     return (
       <section className='restaurant-booking-calender'>
@@ -72,7 +72,7 @@ const RestaurantBookingCalender = React.createClass({
           <ReservationFinalizeForm restaurant={this.props.restaurant} closeModal={this.closeModal} date={this.state.reservationDate} time={this.state.reservationTime}/>
         </Modal>
       </section>
-    )
+    );
   }
 });
 

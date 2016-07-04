@@ -4,7 +4,7 @@ const Store = require('flux/utils').Store;
 const AppDispatcher = require('../dispatcher/dispatcher');
 const ReservationStore = new Store(AppDispatcher);
 
-let _reservations = {}
+let _reservations = {};
 
 ReservationStore.__onDispatch = function(payload) {
   switch (payload.actionType){
@@ -12,14 +12,14 @@ ReservationStore.__onDispatch = function(payload) {
       resetAllReservations(payload.reservation);
       break;
   }
-}
+};
 
 ReservationStore.all = function() {
-  return Object.keys(_reservations).map((key) => {return (_reservations[key])})
+  return Object.keys(_reservations).map((key) => {return (_reservations[key]);});
 };
 
 ReservationStore.find = function(id) {
-  return Object.assign({}, _reservations[id])
+  return Object.assign({}, _reservations[id]);
 };
 
 function resetAllReservations(reservation) {

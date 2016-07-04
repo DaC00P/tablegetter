@@ -32,12 +32,12 @@ const NavBar = React.createClass({
     }
 
     return (
-      <div>
+      <div className="transparant-navbar">
         <nav className="navbar navbar-default navbar-fix">
           <div className="container-fluid">
 
             <div className="navbar-header">
-              <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <button type="button" className="navbar-toggle collapsed navbar-button-top" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span className="sr-only">Toggle navigation</span>
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
@@ -55,7 +55,7 @@ const NavBar = React.createClass({
             </div>
 
             <ul className="nav navbar-nav navbar-right">
-                  <button type="button" className="btn btn-info btn-sm" >Help</button> {currentbutton}
+                  <button type="button" className="btn btn-info btn-sm" id="help-button">Help</button> {currentbutton}
             </ul>
 
           </div>

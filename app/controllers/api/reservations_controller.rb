@@ -3,8 +3,18 @@ class Api::ReservationsController < ApplicationController
 
 
   def create
-    Reservation.create!(reservation_params)
-
+    @reservation = Reservation.new(reservation_params)
+    @reservation.user_id = current_user.id
+    if @reservation.save
+      render json: @reservation
+    else
+      render(
+        json: {
+          base: ["Bad Reservation Details, try again"]
+        },
+        status: 422
+      )
+    end
   end
 
   def index
@@ -31,12 +41,11 @@ class Api::ReservationsController < ApplicationController
   protected
 
 
-    def reservation_doesnt_overlap(reservation_id)
-      other_reservation_dates = Reservation.all.map {|reservation| reservation.date}
-
-    end
+  def reservation_doesnt_overlap(reservation_id)
+    other_reservation_dates = Reservation.all.map {|reservation| reservation.date}
+  end
 
   def reservation_params
-    params.permit(:reservation).require(:date, :time, :party_size, :allergies, :special_instructions, :restaurant_id)
+    params.require(:reservation).permit(:date, :time, :party_size, :allergies, :special_instructions, :restaurant_id)
   end
 end

@@ -24,7 +24,7 @@ ReservationStore.find = function(id) {
 
 function resetAllReservations(reservation) {
   _reservations = reservation;
-  this.__emitChange();
+  ReservationStore.__emitChange();
 }
 
 

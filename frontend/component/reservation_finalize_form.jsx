@@ -6,15 +6,17 @@ const ErrorStore = require('../stores/error_store');
 
 const RestaurantStore = require('../stores/restaurant_store');
 const RestaurantActions = require('../actions/restaurant_actions');
+const ReservationActions = require('../actions/reservation_actions')
 
 const ReservationFinalizeForm = React.createClass({
   getInitialState() {
     return ({
       date: this.props.date.toString(),
       time: this.props.time.value,
-      partySize: 0,
+      party_size: 0,
       allergies: "",
-      specialInstructions: ""
+      special_instructions: "",
+      restaurant_id: this.props.restaurant.id
     })
   },
 
@@ -34,15 +36,14 @@ const ReservationFinalizeForm = React.createClass({
   },
 
   handleReservationSubmit() {
-    console.log(this.state)
-    //error check and send to store which sends to DB via ajax
+    ReservationActions.postSingleReservation(this.state);
   },
 
   render() {
     return (
       <section className='reservation-finalize-form'>
         <div className='reservation-finalize-form'>
-          <h3>Please Complete Your Reservation for </h3>
+          <h3>Please Complete Your Reservation for {this.props.restaurant.name}</h3>
             Your Reservation Date: {this.props.date.toString()}
           <br/>
             Your Reservation Time: {this.props.time.value}

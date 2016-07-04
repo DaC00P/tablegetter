@@ -24,12 +24,12 @@ const customStyle = {
   }
 };
 
-
+const reserveDate = new Date();
 
 const RestaurantBookingCalender = React.createClass({
   getInitialState() {
     return (
-      {reservationDate: "", reservationTime: "", modalIsOpen: false}
+      {reservationDate: new Date(), reservationTime: "", modalIsOpen: false}
     )
   },
 
@@ -54,8 +54,6 @@ const RestaurantBookingCalender = React.createClass({
     this.setState({modalIsOpen: false});
   },
 
-
-
   render() {
     const options = ["5:00 PM", "7:00 PM", "9:00 PM"]
     const defaultOption = "Please Select a Seating"
@@ -63,7 +61,7 @@ const RestaurantBookingCalender = React.createClass({
     return (
       <section className='restaurant-booking-calender'>
         <form className = 'calender-seating-section'>
-            <Calendar onChange={this.handleCalenderSelect} closeOnSelect={true} type="calender" format='DD/MM/YYYY' date={new Date()} defaultValue='Click Here to Reserve'/>
+            <Calendar onChange={this.handleCalenderSelect} closeOnSelect={true} type="calender" format='DD/MM/YYYY' date={this.state.reservationDate} defaultValue='Click Here to Reserve'/>
             <Dropdown onChange={this.handleTimeSelect} className="" options={options} value={defaultOption} />
         </form>
 
@@ -71,7 +69,7 @@ const RestaurantBookingCalender = React.createClass({
         <button className='reserve-finalize-button' onClick={this.openModal}>Finalize Reservation</button>
 
         <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyle} id="reservation-modal">
-          <ReservationFinalizeForm closeModal={this.closeModal} date={this.state.reservationDate} time={this.state.reservationTime}/>
+          <ReservationFinalizeForm restaurant={this.props.restaurant} closeModal={this.closeModal} date={this.state.reservationDate} time={this.state.reservationTime}/>
         </Modal>
       </section>
     )

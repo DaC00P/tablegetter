@@ -30,6 +30,12 @@ class Reservation < ActiveRecord::Base
   #   Reservation.where.not(id: self.id).where(restaurant_id: restaurant_id).where(date: self.date.to_date)
   # end
 
+  protected
+
+  def over_capacity?
+    
+  end
+
   def overlapping_requests
     Reservation.where(restaurant_id: self.restaurant_id).where(time: self.time).where(date: self.date)
   end

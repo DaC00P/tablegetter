@@ -96,10 +96,10 @@ const App = React.createClass({
   render() {
     return (
       <div className='flexboxeverything'>
-        <header>
 
+        <header>
           <div className="chef-bg">
-            <NavBar id="transparant-navbar" handleLogout = {this._handleLogOut} openModal={this.openModal} closeModal={this.closeModal} setLogin={this.setLogin} setSignup={this.setSignup}/>
+            <NavBar handleLogout = {this._handleLogOut} openModal={this.openModal} closeModal={this.closeModal} setLogin={this.setLogin} setSignup={this.setSignup}/>
             <section className="header-text">
               <h3 className="site-title-text">INDULGE THERE</h3>
               <h4 className="site-marketing-text">Book tables at the best restaurants in the world and experience a culinary pioneer's deft touch</h4>

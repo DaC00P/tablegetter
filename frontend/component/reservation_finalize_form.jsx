@@ -22,7 +22,7 @@ const ReservationFinalizeForm = React.createClass({
 
   handlePartySize(event) {
     event.preventDefault();
-    this.setState({partySize: event.target.value})
+    this.setState({party_size: event.target.value})
   },
 
   handleAllergies(event) {
@@ -32,11 +32,11 @@ const ReservationFinalizeForm = React.createClass({
 
   handleInstructions(event) {
     event.preventDefault();
-    this.setState({specialInstructions: event.target.value})
+    this.setState({special_instructions: event.target.value})
   },
 
   handleReservationSubmit() {
-    ReservationActions.postSingleReservation(this.state);
+    ReservationActions.postSingleReservation({reservation: this.state});
   },
 
   render() {

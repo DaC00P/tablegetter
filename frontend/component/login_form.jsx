@@ -65,15 +65,15 @@ const LoginForm = React.createClass({
   },
 
 	toggleFormState() {
-			this.setState({form: this.getOppositeForm() })
+			this.setState({form: this.getOppositeForm() });
 	},
 
 	getOppositeForm() {
 		if (this.state.form === "signup"){
-			return "login"
+			return "login";
 		}
 		else {
-			return "signup"
+			return "signup";
 		}
 	},
 
@@ -82,7 +82,7 @@ const LoginForm = React.createClass({
   },
 
 	render() {
-    let navLink = <a onClick={this.toggleFormState}> {this.getOppositeForm()} instead </a>
+    let navLink = <a onClick={this.toggleFormState}> {this.getOppositeForm()} instead </a>;
 
 		return (
 							<div className="login-form-container">

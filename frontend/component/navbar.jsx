@@ -18,10 +18,10 @@ const NavBar = React.createClass({
 
 
   render() {
-    const loginbuttons = (<button type="button" className="btn btn-info btn-sm" onClick={this.loginClick}>Log In</button>)
-    const signupbutton = (<button type="button" className="btn btn-info btn-sm" onClick={this.signUpClick}>Sign Up</button>)
+    const loginbuttons = (<button type="button" className="btn btn-info btn-sm" onClick={this.loginClick}>Log In</button>);
+    const signupbutton = (<button type="button" className="btn btn-info btn-sm" onClick={this.signUpClick}>Sign Up</button>);
 
-    const logoutbutton = (<button type="button" className="btn btn-info btn-sm" onClick={this.props.handleLogout}>Log Out</button>)
+    const logoutbutton = (<button type="button" className="btn btn-info btn-sm" onClick={this.props.handleLogout}>Log Out</button>);
 
     let currentbutton;
     if (SessionStore.isUserLoggedIn()){
@@ -62,7 +62,7 @@ const NavBar = React.createClass({
         </nav>
 
       </div>
-    )
+    );
   }
 
 });

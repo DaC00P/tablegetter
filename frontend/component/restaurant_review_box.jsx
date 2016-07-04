@@ -12,7 +12,7 @@ const ReviewBox = React.createClass({
           <h2>SUP</h2>
           <p>a bunch of text here lololololololololol</p>
       </section>
-    )
+    );
   }
 });
 

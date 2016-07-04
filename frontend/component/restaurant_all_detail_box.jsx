@@ -15,7 +15,7 @@ const RestaurantAllDetailBox = React.createClass({
           <li className="restaurant-detail-item">{this.props.restaurant.description}</li>
         </ul>
       </section>
-    )
+    );
   }
 });
 

@@ -84,11 +84,11 @@ const App = React.createClass({
   },
 
   setLogin() {
-    this.setState({form: "login"})
+    this.setState({form: "login"});
   },
 
   setSignup() {
-    this.setState({form: "signup"})
+    this.setState({form: "signup"});
   },
 
 

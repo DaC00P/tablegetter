@@ -29,6 +29,10 @@ const ReservationActions = {
       actionType: "receive_reservation",
       reservation: reservation
     });
+  },
+
+  postSingleReservation(reservation) {
+    ReservationApiUtil.postSingleReservation(reservation, this.receiveSingleReservation);
   }
 
 };

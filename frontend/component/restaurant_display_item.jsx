@@ -27,7 +27,7 @@ const RestaurantDisplayItem = React.createClass({
             </div>
 
       </section>
-    )
+    );
   }
 });
 

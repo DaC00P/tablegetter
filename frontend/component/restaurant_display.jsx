@@ -10,7 +10,7 @@ const RestaurantDisplayItem = require('./restaurant_display_item');
 
 const RestaurantDisplay = React.createClass({
   getInitialState() {
-    return {restaurants: []}
+    return {restaurants: []};
   },
 
   componentDidMount() {
@@ -19,17 +19,17 @@ const RestaurantDisplay = React.createClass({
   },
 
   getAllRestaurants() {
-    this.setState({restaurants: RestaurantStore.all()})
+    this.setState({restaurants: RestaurantStore.all()});
   },
 
   render() {
     let restaurant_names = this.state.restaurants.map((restaurant) => {
-      return (<RestaurantDisplayItem key={restaurant.id} restaurant={restaurant}></RestaurantDisplayItem>)
+      return (<RestaurantDisplayItem key={restaurant.id} restaurant={restaurant}></RestaurantDisplayItem>);
     });
 
     return (
       <section className="restaurant-index">{restaurant_names}</section>
-    )
+    );
   }
 });
 

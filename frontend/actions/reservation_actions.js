@@ -5,12 +5,12 @@ const SessionConstants = require('../constants/session_constants');
 const SessionApiUtil = require('../util/session_api_util');
 const ErrorActions = require('./error_actions');
 const hashHistory = require('react-router').hashHistory;
-const ReservationApiUtil = require('../util/reservation_util')
+const ReservationApiUtil = require('../util/reservation_util');
 
 
 const ReservationActions = {
   fetchAllReservations() {
-    RestaurantApiUtil.fetchAllRestaurants(this.receiveAllRestaurants);
+    ReservationApiUtil.fetchAllReservations(this.receiveAllReservations);
   },
 
   receiveAllReservations(reservations) {

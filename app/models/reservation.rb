@@ -14,7 +14,8 @@
 
 class Reservation < ActiveRecord::Base
   validates :user_id, :restaurant_id, :date, :time, :party_size, presence: true
-  validate :does_not_overlap_reservations
+
+  validate :over_capacity?
 
   belongs_to :user,
   primary_key: :id,
@@ -26,22 +27,11 @@ class Reservation < ActiveRecord::Base
   foreign_key: :restaurant_id,
   class_name: :Restaurant
 
-  # def overlapping_date_requests
-  #   Reservation.where.not(id: self.id).where(restaurant_id: restaurant_id).where(date: self.date.to_date)
-  # end
-
   protected
 
   def over_capacity?
-    
-  end
-
-  def overlapping_requests
-    Reservation.where(restaurant_id: self.restaurant_id).where(time: self.time).where(date: self.date)
-  end
-
-  def does_not_overlap_reservations
-    unless overlapping_requests.empty?
+    x = (Reservation.where(restaurant_id: self.restaurant_id).where(time: self.time).where(date: self.date).sum(:party_size) + self.party_size) <= Restaurant.where(id: self.restaurant_id).first.capacity
+    unless x
       errors[:base] << "Request conflicts with existing approved request"
     end
   end

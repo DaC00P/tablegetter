@@ -20,6 +20,7 @@ class Api::ReservationsController < ApplicationController
 
   def index
     @reservation = Reservation.all
+    render json: @reservation
   end
 
   def update(id)

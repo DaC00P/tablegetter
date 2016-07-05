@@ -36,8 +36,19 @@ const ReservationFinalizeForm = React.createClass({
     this.setState({special_instructions: event.target.value});
   },
 
+  copyState(state) {
+    let copy = {};
+    for (var attr in state) {
+        copy[attr] = state[attr];
+    }
+    return copy;
+  },
+
   handleReservationSubmit() {
-    ReservationActions.postSingleReservation({reservation: this.state}, this.reservationConfirmed);
+    let reservationtoPass = this.copyState(this.state);
+    delete reservationtoPass["finalize"];
+
+    ReservationActions.postSingleReservation({reservation: reservationtoPass}, this.reservationConfirmed);
   },
 
   handleFinalizeClick() {

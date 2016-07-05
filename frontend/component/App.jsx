@@ -9,6 +9,8 @@ const NavBar = require('./navbar');
 const Modal = require('react-modal');
 const RestaurantDisplay = require('./restaurant_display');
 const RestaurantMap = require('./restaurant_map');
+const ReservationActions = require('../actions/reservation_actions');
+const ReservationStore = require('../stores/reservation_store');
 
 
 
@@ -34,34 +36,22 @@ const App = React.createClass({
 
   componentDidMount() {
     SessionStore.addListener(this.forceUpdate.bind(this));
+    ReservationStore.addListener(this.updateReservations);
+    ReservationActions.fetchAllReservations();
+  },
+
+  updateReservations() {
+    this.setState({reservations: ReservationStore.all()});
   },
 
   _handleLogOut(){
     SessionActions.logOut();
   },
 
-  greeting() {
-    if (SessionStore.isUserLoggedIn()) {
-
-    	return (
-    		<hgroup className="header-group">
-    			<h2 className="header-name">Hi, {SessionStore.currentUser().username}!</h2>
-
-    		</hgroup>
-    	);
-    } else if ( !["/login", "/signup"].includes(this.props.location.pathname) ) {
-      return (
-        <nav className="login-signup">
-          <Link to="/login" activeClassName="current"></Link>
-          <Link to="/signup" activeClassName="current"></Link>
-        </nav>
-      );
-    }
-  },
-
   getInitialState: function() {
     return {
-      modalIsOpen: false
+      modalIsOpen: false,
+      reservations: ReservationStore.all()
     };
   },
 
@@ -91,15 +81,14 @@ const App = React.createClass({
     this.setState({form: "signup"});
   },
 
-
-
   render() {
+
     return (
       <div className='flexboxeverything'>
 
         <header>
           <div className="chef-bg">
-            <NavBar handleLogout = {this._handleLogOut} openModal={this.openModal} closeModal={this.closeModal} setLogin={this.setLogin} setSignup={this.setSignup}/>
+            <NavBar reservations={this.state.reservations} handleLogout = {this._handleLogOut} openModal={this.openModal} closeModal={this.closeModal} setLogin={this.setLogin} setSignup={this.setSignup}/>
             <section className="header-text">
               <h3 className="site-title-text">INDULGE THERE</h3>
               <h4 className="site-marketing-text">Book tables at the best restaurants in the world and experience a culinary pioneer's deft touch</h4>
@@ -113,8 +102,6 @@ const App = React.createClass({
         <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyle} id="loginmodal">
           <LoginForm closeModal={this.closeModal} form={this.state.form} />
         </Modal>
-
-        { this.greeting() }
 
         <section className="map-details-combo">
           <RestaurantMap/>

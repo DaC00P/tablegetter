@@ -9,7 +9,6 @@ const RestaurantStore = require('../stores/restaurant_store');
 const RestaurantActions = require('../actions/restaurant_actions');
 
 const RestaurantDisplayItem = React.createClass({
-  //restaurant  = this.props.restaurant
   render() {
     return (
       <section className='restaurant-details'>

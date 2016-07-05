@@ -16,6 +16,10 @@ const NavBar = React.createClass({
     this.props.setSignup();
   },
 
+  accessReservations() {
+
+  },
+
 
   render() {
     const loginbuttons = (<button type="button" className="btn btn-info btn-sm" onClick={this.loginClick}>Log In</button>);
@@ -55,7 +59,7 @@ const NavBar = React.createClass({
             </div>
 
             <ul className="nav navbar-nav navbar-right">
-                  <button type="button" className="btn btn-info btn-sm" id="help-button">Help</button> {currentbutton}
+                  <button type="button" className="btn btn-info btn-sm" id="help-button">My Reservations</button> {currentbutton}
             </ul>
 
           </div>

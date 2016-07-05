@@ -11,6 +11,9 @@ ReservationStore.__onDispatch = function(payload) {
     case "receive_reservation":
       resetAllReservations(payload.reservation);
       break;
+    case "receive_reservations":
+      resetAllReservations(payload.reservations);
+      break;
   }
 };
 

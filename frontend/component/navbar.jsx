@@ -106,6 +106,7 @@ const NavBar = React.createClass({
     reservations = reservations.map( (reservationn) => {
       return (
         <ul>
+          <br></br>
           <li key={reservationn.date}> Date: {reservationn.date} </li>
           <li key={reservationn.time}> Time: {reservationn.time} </li>
           <li key={reservationn.party_size}> Party Size: {reservationn.party_size} </li>
@@ -137,7 +138,7 @@ const NavBar = React.createClass({
         </nav>
 
         <Modal key="reservationModal" isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyle} id="reservation-modal">
-          {reservations}
+          <ul>{reservations}</ul>
         </Modal>
 
       </div>

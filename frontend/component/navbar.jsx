@@ -105,14 +105,14 @@ const NavBar = React.createClass({
 
     reservations = reservations.map( (reservationn) => {
       return (
-        <ul>
+        <ul key={reservationn.id}>
           <br></br>
           <li key={reservationn.date}> Date: {reservationn.date} </li>
           <li key={reservationn.time}> Time: {reservationn.time} </li>
-          <li key={reservationn.party_size}> Party Size: {reservationn.party_size} </li>
-          <li key={reservationn.allergies}> Allergies: {reservationn.allergies} </li>
-          <li key={reservationn.special_instructions}>Special Instructions: {reservationn.special_instructions} </li>
-          <li key={reservationn.restaurant_id}> Restaurant ID: {reservationn.restaurant_id} </li>
+          <li key={(reservationn.time[0]  + reservationn.date[0]) * 5}> Party Size: {reservationn.party_size} </li>
+          <li key={reservationn.time[0] * 4}> Allergies: {reservationn.allergies} </li>
+          <li key={(reservationn.time[0]  + reservationn.date[0]) * 3}>Special Instructions: {reservationn.special_instructions} </li>
+          <li key={reservationn.time[0] * 2}> Restaurant ID: {reservationn.restaurant_id} </li>
       </ul>
       );
     });

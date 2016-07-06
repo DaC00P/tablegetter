@@ -4,6 +4,7 @@ const Store = require('flux/utils').Store;
 const AppDispatcher = require('../dispatcher/dispatcher');
 const RestaurantStore = new Store(AppDispatcher);
 
+
 let _restaurants = {};
 let _highlightedId = null;
 
@@ -47,10 +48,10 @@ function unhighlightRestaurant (id) {
 }
 
 function resetAllRestaurants(restaurants) {
-  _restaurants = {};
-  for (let i = 0; i < restaurants.length; i++) {
-    _restaurants[restaurants[i].id] = restaurants[i];
-  }
+    _restaurants = {};
+    for (let i = 0; i < restaurants.length; i++) {
+      _restaurants[restaurants[i].id] = restaurants[i];
+    }
   RestaurantStore.__emitChange();
 }
 

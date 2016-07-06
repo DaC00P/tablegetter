@@ -6,6 +6,7 @@ const ErrorStore = require('../stores/error_store');
 const RestaurantStore = require('../stores/restaurant_store');
 const RestaurantActions = require('../actions/restaurant_actions');
 const RestaurantDisplayItem = require('./restaurant_display_item');
+const SearchActions = require('../actions/search_actions');
 
 
 const RestaurantDisplay = React.createClass({
@@ -22,13 +23,26 @@ const RestaurantDisplay = React.createClass({
     this.setState({restaurants: RestaurantStore.all()});
   },
 
+  searchForRestaurants(event) {
+    event.preventDefault();
+    SearchActions.searchForRestaurants(event.currentTarget.value);
+  },
+
   render() {
     let restaurant_names = this.state.restaurants.map((restaurant) => {
       return (<RestaurantDisplayItem key={restaurant.id} restaurant={restaurant}></RestaurantDisplayItem>);
     });
 
     return (
-      <section className="restaurant-index">{restaurant_names}</section>
+      <section className="restaurant-index-and-search">
+        <form className="navbar-form navbar-left" role="search" id='restaurant-searchbar'>
+          <div className="form-group">
+            <input onChange={this.searchForRestaurants} type="text" className="form-control" placeholder="Search"/>
+          </div>
+        </form>
+
+        <section className="restaurant-index">{restaurant_names}</section>
+      </section>
     );
   }
 });

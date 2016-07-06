@@ -33,6 +33,18 @@ const RestaurantUtil = {
      }
    }
   );
+},
+
+ editReservation(reservationDetails, callback) {
+   $.ajax({
+     method: "PATCH",
+     url: `api/reservations/${reservationDetails.id}`,
+     data: {reservation: reservationDetails},
+     success(response) {
+       callback(response);
+     }
+   }
+  );
  }
 };
 

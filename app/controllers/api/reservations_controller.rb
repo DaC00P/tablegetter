@@ -23,20 +23,32 @@ class Api::ReservationsController < ApplicationController
     render json: @reservation
   end
 
-  def update(id)
-    @reservation = Reservation.find_by(id: id)
+  def update
+    @reservation = Reservation.find(params[:id])
     @reservation.update_attributes(reservation_params)
-    render json: @reservation
+    if @reservation.save
+      render json: @reservation
+    else
+      render(
+        json: {
+          base: ["Bad Reservation Details, try again"]
+        },
+        status: 422
+      )
+    end
   end
 
   def destroy()
     @reservation = Reservation.find_by(id: params[:id])
-    # dup_reservation = @reservation.dup
     if @reservation == nil
-      
+      render(
+        json: {
+          base: ["Bad Reservation Details, try again"]
+        },
+        status: 422
+      )
     end
     if (@reservation.destroy)
-      debugger;
       render json: @reservation
     else
       @errors = @reservation.errors.full_messages

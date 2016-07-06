@@ -23,7 +23,9 @@ RestaurantStore.find = function(id) {
 };
 
 function resetAllRestaurants(restaurants) {
-  _restaurants = restaurants;
+  for (let i = 0; i < restaurants.length; i++) {
+    _restaurants[restaurants[i].id] = restaurants[i];
+  }
   RestaurantStore.__emitChange();
 }
 

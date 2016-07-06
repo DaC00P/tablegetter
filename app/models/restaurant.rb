@@ -26,4 +26,12 @@ class Restaurant < ActiveRecord::Base
   primary_key: :id,
   foreign_key: :restaurant_id,
   class_name: :Review
+
+  def self.in_bounds(bounds)
+    coords = [bounds[:northEast][:lat],
+              bounds[:southWest][:lat],
+              bounds[:northEast][:lng],
+              bounds[:southWest][:lng]].map(&:to_f)
+    Restaurant.where("lat < ? AND lat > ? AND lng < ? AND lng > ?", *coords)
+  end
 end

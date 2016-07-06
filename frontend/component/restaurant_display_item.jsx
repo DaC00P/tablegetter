@@ -22,7 +22,6 @@ const RestaurantDisplayItem = React.createClass({
   render() {
     return (
       <section className='restaurant-details'  onMouseEnter={this._onMouseEnter} onMouseLeave={this._onMouseLeave}>
-
         <h2 className='restaurant-name-header'>{this.props.restaurant.name}</h2>
         <RestaurantDetailBox restaurant={this.props.restaurant}/ >
             <button type='button' className="dropdown-toggle" data-toggle="dropdown"> Pictures and Reviews</button>

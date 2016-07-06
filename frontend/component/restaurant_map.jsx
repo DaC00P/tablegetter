@@ -91,7 +91,7 @@ module.exports = React.createClass({
     return marker;
   },
 
-  removeRestaurantMarkerMarker (id) {
+  removeRestaurantMarker (id) {
     this.markers[id].setMap(null);
   },
 

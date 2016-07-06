@@ -31,8 +31,19 @@ const ReservationActions = {
     });
   },
 
+  receiveCanceledReservation(reservation) {
+    AppDispatcher.dispatch({
+      actionType: "cancel_reservation",
+      reservation: reservation
+    });
+  },
+
   postSingleReservation(reservation, confirmationcallback) {
     ReservationApiUtil.postSingleReservation(reservation, this.receiveSingleReservation, confirmationcallback);
+  },
+
+  cancelReservation(reservationId) {
+    ReservationApiUtil.cancelReservation(reservationId, this.receiveCanceledReservation);
   }
 
 };

@@ -6,6 +6,13 @@ const LoginForm = require('./login_form');
 const SessionStore = require('../stores/session_store');
 const ReservationStore = require('../stores/reservation_store');
 const Modal = require('react-modal');
+import Calendar from 'react-input-calendar';
+import Dropdown from 'react-dropdown';
+const ReservationActions = require('../actions/reservation_actions');
+
+
+
+
 
 const customStyle = {
   content : {
@@ -16,21 +23,37 @@ const customStyle = {
     height                : 'auto',
     marginRight           : '-50%',
     transform             : 'translate(-50%, -50%)',
-    backgroundImage       : "url('https://res.cloudinary.com/dldvsrho8/image/upload/c_scale,h_416/v1467246180/calmmodalbg_okxz6u.jpg')",
+    backgroundColor       : "floralwhite",
     border                : '2.5px solid black',
     borderRadius          : '4px',
     color                 : 'black',
     width                 : '50vw',
-    fontWeight            : 'bold'
+    fontWeight            : 'bold',
+    textAlign             : 'center'
   }
 };
+const options = ["5:00 PM", "7:00 PM", "9:00 PM"];
+const defaultOption = "Please Select a Seating";
 
 
 const NavBar = React.createClass({
   getInitialState() {
     return {
       modalIsOpen: false,
+      reservationDate: new Date(),
+      reservationTime: "",
+      party_size: 0,
+      allergies: "",
+      special_instructions: ""
     };
+  },
+
+  handleCalenderSelect(date) {
+    this.setState({reservationDate: date});
+  },
+
+  handleTimeSelect(time) {
+    this.setState({reservationTime: time});
   },
 
   loginClick() {
@@ -76,6 +99,26 @@ const NavBar = React.createClass({
     Modal.setAppElement(appElement);
   },
 
+  editReservationDetails() {
+    console.log('test');
+  },
+
+  editPartySize(event) {
+    this.setState({party_size: event});
+  },
+
+  editAllergies(event) {
+    this.setState({allergies: event});
+  },
+
+  editSpecialInstructions(event) {
+    this.setState({special_instructions: event});
+  },
+
+  cancelReservation(id) {
+    ReservationActions.cancelReservation(id);
+  },
+
   render() {
     const loginbuttons = (<button type="button" className="btn btn-info btn-sm" onClick={this.loginClick}>Log In</button>);
     const signupbutton = (<button type="button" className="btn btn-info btn-sm" onClick={this.signUpClick}>Sign Up</button>);
@@ -105,21 +148,40 @@ const NavBar = React.createClass({
 
     reservations = reservations.map( (reservationn) => {
       return (
-        <ul key={reservationn.id}>
-          <br></br>
-          <li key={reservationn.date}> Date: {reservationn.date} </li>
-          <li key={reservationn.time}> Time: {reservationn.time} </li>
-          <li key={(reservationn.time[0]  + reservationn.date[0]) * 5}> Party Size: {reservationn.party_size} </li>
-          <li key={reservationn.time[0] * 4}> Allergies: {reservationn.allergies} </li>
-          <li key={(reservationn.time[0]  + reservationn.date[0]) * 3}>Special Instructions: {reservationn.special_instructions} </li>
-          <li key={reservationn.time[0] * 2}> Restaurant ID: {reservationn.restaurant_id} </li>
-      </ul>
+        <div key = {reservationn.id * 12} className="user-reservation-ud">
+          <h3>Your Reservation at {reservationn.restaurant_id}</h3>
+
+          <ul key={reservationn.id} className='reservation-details-edit'>
+            <br></br>
+            <h4>If you would like to edit your Reservation, please fill out the form and press Edit Reservation</h4>
+            <li key={reservationn.id * 9}>
+               Date: {reservationn.date} <Calendar onChange={this.handleCalenderSelect} closeOnSelect={true} type="calender" format='DD/MM/YYYY' date={this.state.reservationDate} defaultValue='Click Here to Reserve'/>
+            </li>
+            <li key={reservationn.id * 8}>
+               Time: {reservationn.time} <Dropdown onChange={this.handleTimeSelect} className="" options={options} value={this.state.reservationTime} placeholder="Please Select a Seating" />
+            </li>
+            <li key={reservationn.id * 7}>
+               Party Size: <input onChange={this.editReservationDetails} type="text" placeholder="Please Enter Your New Party Size" className="reservation-entry-details"/>
+            </li>
+            <li key={reservationn.id * 6}>
+               Allergies: <input onChange={this.editReservationDetails} type="text" placeholder="Please Enter Your New Allergies" className="reservation-entry-details"/>
+            </li>
+            <li key={reservationn.id * 5}>
+              Special Instructions: <input onChange={this.editReservationDetails} type="text" placeholder="Please Enter You New Special Instructions" className="reservation-entry-details"/>
+           </li>
+            <button type="button" className="btn btn-info btn-sm" id="edit-button" onClick={this.editReservationDetails} >Edit Reservation</button>
+            <button type="button" className="btn btn-info btn-sm" id="cancel`-button" onClick={this.cancelReservation.bind(this, reservationn.id)} >Cancel Reservation</button>
+          </ul>
+
+        </div>
+
       );
     });
 
     if (reservations.length === 0){
       reservations = (<li></li>);
     }
+
     return (
       <div className="transparant-navbar">
         <nav className="navbar navbar-default navbar-fix">

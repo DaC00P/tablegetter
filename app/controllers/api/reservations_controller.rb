@@ -29,11 +29,15 @@ class Api::ReservationsController < ApplicationController
     render json: @reservation
   end
 
-  def destroy(id)
-    @reservation = Reservation.find_by(id: id)
-
+  def destroy()
+    @reservation = Reservation.find_by(id: params[:id])
+    # dup_reservation = @reservation.dup
+    if @reservation == nil
+      
+    end
     if (@reservation.destroy)
-      render json: "farts"
+      debugger;
+      render json: @reservation
     else
       @errors = @reservation.errors.full_messages
       render json: @errors

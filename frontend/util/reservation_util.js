@@ -22,7 +22,18 @@ const RestaurantUtil = {
       }
     }
    );
-  }
+ },
+
+ cancelReservation(reservationId, callback, confirmationcallback) {
+   $.ajax({
+     method: "DELETE",
+     url: `api/reservations/${reservationId}`,
+     success(response) {
+       callback(response);
+     }
+   }
+  );
+ }
 };
 
 module.exports = RestaurantUtil;

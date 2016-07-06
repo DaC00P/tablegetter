@@ -9,8 +9,8 @@ const RestaurantApiUtil = require('../util/restaurant_util');
 
 
 const RestaurantActions = {
-  fetchAllRestaurants() {
-    RestaurantApiUtil.fetchAllRestaurants(this.receiveAllRestaurants);
+  fetchAllRestaurants(bounds) {
+    RestaurantApiUtil.fetchAllRestaurants(bounds, this.receiveAllRestaurants);
   },
 
   receiveAllRestaurants(restaurants) {

@@ -47,6 +47,7 @@ function unhighlightRestaurant (id) {
 }
 
 function resetAllRestaurants(restaurants) {
+  _restaurants = {};
   for (let i = 0; i < restaurants.length; i++) {
     _restaurants[restaurants[i].id] = restaurants[i];
   }

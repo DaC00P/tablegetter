@@ -3,8 +3,16 @@
 const RestaurantStore = require('../stores/restaurant_store');
 
 const RestaurantUtil = {
-  fetchAllRestaurants(success){
-    $.get('api/restaurants', success);
+  fetchAllRestaurants(bounds, callback){
+    $.ajax({
+      method: "GET",
+      url: 'api/restaurants',
+      data: {bounds: bounds},
+      success(response) {
+        callback(response);
+      }
+    }
+   );
   },
 };
 

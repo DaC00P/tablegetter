@@ -18,6 +18,19 @@ const RestaurantActions = {
       actionType: "receive_restaurants",
       restaurants: restaurants
     });
+  },
+
+  highlightRestaurant (id) {
+    AppDispatcher.dispatch({
+      actionType: "RESTAURANT_HIGHLIGHTED",
+      id: id
+    });
+  },
+  unhighlightRestaurant (id) {
+    AppDispatcher.dispatch({
+      actionType: "RESTAURANT_UNHIGHLIGHTED",
+      id: id
+    });
   }
 
 };

@@ -8,6 +8,7 @@ const RestaurantBookingCalender = require('./restaurant_booking_calender');
 
 
 
+
 const RestaurantDetailBox = React.createClass({
 
   render() {

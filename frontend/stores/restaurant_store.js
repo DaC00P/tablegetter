@@ -5,11 +5,19 @@ const AppDispatcher = require('../dispatcher/dispatcher');
 const RestaurantStore = new Store(AppDispatcher);
 
 let _restaurants = {};
+let _highlightedId = null;
+
 
 RestaurantStore.__onDispatch = function(payload) {
   switch (payload.actionType){
     case "receive_restaurants":
       resetAllRestaurants(payload.restaurants);
+      break;
+    case "RESTAURANT_HIGHLIGHTED":
+      highlightRestaurant(payload.id);
+      break;
+    case "RESTAURANT_UNHIGHLIGHTED":
+      unhighlightRestaurant(payload.id);
       break;
   }
 };
@@ -21,6 +29,22 @@ RestaurantStore.all = function() {
 RestaurantStore.find = function(id) {
   return Object.assign({}, _restaurants[id]);
 };
+
+RestaurantStore.highlightedId = function () {
+  return _highlightedId;
+};
+
+function highlightRestaurant (id) {
+  if (_restaurants[id]) {
+    _highlightedId = id;
+  }
+  RestaurantStore.__emitChange();
+}
+
+function unhighlightRestaurant (id) {
+  _highlightedId = null;
+  RestaurantStore.__emitChange();
+}
 
 function resetAllRestaurants(restaurants) {
   for (let i = 0; i < restaurants.length; i++) {

@@ -9,7 +9,7 @@ let _reservations = {};
 ReservationStore.__onDispatch = function(payload) {
   switch (payload.actionType){
     case "receive_reservation":
-      resetAllReservations(payload.reservation);
+      receiveSingleReservation(payload.reservation);
       break;
     case "receive_reservations":
       resetAllReservations(payload.reservations);
@@ -28,13 +28,20 @@ ReservationStore.find = function(id) {
   return Object.assign({}, _reservations[id]);
 };
 
-function resetAllReservations(reservation) {
-  _reservations = reservation;
+function receiveSingleReservation(reservation) {
+  _reservations[reservation.id] = reservation;
+  ReservationStore.__emitChange();
+}
+
+function resetAllReservations(reservations) {
+  for (let i = 0; i < reservations.length; i++) {
+    _reservations[reservations[i].id] = reservations[i];
+  }
   ReservationStore.__emitChange();
 }
 
 function removeReservation(reservation) {
-  delete _reservations[reservation];
+  delete _reservations[reservation.id];
   ReservationStore.__emitChange();
 }
 

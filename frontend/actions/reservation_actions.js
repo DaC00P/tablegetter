@@ -55,7 +55,7 @@ const ReservationActions = {
       actionType: "receive_reservation",
       reservation: reservation
     });
-  }
+  },
 
 };
 

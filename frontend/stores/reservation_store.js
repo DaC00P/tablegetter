@@ -14,6 +14,9 @@ ReservationStore.__onDispatch = function(payload) {
     case "receive_reservations":
       resetAllReservations(payload.reservations);
       break;
+    case "cancel_reservation":
+      removeReservation(payload.reservation);
+      break;
   }
 };
 
@@ -27,6 +30,11 @@ ReservationStore.find = function(id) {
 
 function resetAllReservations(reservation) {
   _reservations = reservation;
+  ReservationStore.__emitChange();
+}
+
+function removeReservation(reservation) {
+  delete _reservations[reservation];
   ReservationStore.__emitChange();
 }
 

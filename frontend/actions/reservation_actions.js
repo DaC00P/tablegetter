@@ -44,6 +44,17 @@ const ReservationActions = {
 
   cancelReservation(reservationId) {
     ReservationApiUtil.cancelReservation(reservationId, this.receiveCanceledReservation);
+  },
+
+  editReservationDetails(reservation) {
+    ReservationApiUtil.editReservation(reservation, this.receiveEditedReservation);
+  },
+
+  receiveEditedReservation(reservation){
+    AppDispatcher.dispatch({
+      actionType: "receive_reservation",
+      reservation: reservation
+    });
   }
 
 };

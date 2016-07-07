@@ -13,7 +13,6 @@ const ReservationActions = require('../actions/reservation_actions');
 const ReservationStore = require('../stores/reservation_store');
 
 
-
 const customStyle = {
   content : {
     top                   : '50%',
@@ -27,6 +26,15 @@ const customStyle = {
     border                : '2.5px solid black',
     borderRadius          : '4px',
     color                 : 'black'
+  },
+  overlay : {
+    position          : 'fixed',
+    top               : 0,
+    left              : 0,
+    right             : 0,
+    bottom            : 0,
+    backgroundColor   : 'rgba(255, 255, 255, 0.75)',
+    zIndex            : 1000
   }
 };
 
@@ -81,6 +89,7 @@ const App = React.createClass({
     this.setState({form: "signup"});
   },
 
+
   render() {
 
     return (
@@ -94,6 +103,8 @@ const App = React.createClass({
               <h4 className="site-marketing-text">Book tables at the best restaurants in the world and experience a culinary pioneer's deft touch</h4>
             </section>
           </div>
+
+
         </header>
 
 

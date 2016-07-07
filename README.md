@@ -20,11 +20,11 @@ ChefsTable is a web application inspired by AirBNB that will be build using Ruby
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
-- [ ] Restaurant Show Page with Reviews
+- [ ] Restaurant Show Page with Professional Reviews
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
-- [ ] Search for Restaurants by area (likely city based)
+- [ ] Search for Restaurants by area via map & by cuisine/chef/name
     - [ ] Smooth, bug-free navigation
     - [ ] Adequate seed data to demonstrate the site's features
     - [ ] Adequate CSS styling

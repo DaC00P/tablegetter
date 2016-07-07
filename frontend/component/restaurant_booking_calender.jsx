@@ -66,7 +66,7 @@ const RestaurantBookingCalender = React.createClass({
         </form>
 
 
-        <button className='reserve-finalize-button' onClick={this.openModal}>Finalize Reservation</button>
+        <button className="btn btn-info btn-sm" id='reserve-finalize-button' onClick={this.openModal}>Finalize Reservation</button>
 
         <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyle} id="reservation-modal">
           <ReservationFinalizeForm restaurant={this.props.restaurant} closeModal={this.closeModal} date={this.state.reservationDate} time={this.state.reservationTime}/>

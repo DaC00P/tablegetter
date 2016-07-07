@@ -64,6 +64,17 @@
   position: relative;
 }
 
+.restaurant-bg {
+  height: 400px;
+  background-size: cover;
+  background-position: 50% 25%;
+  margin-top: 0px;
+  padding-top: 0px;
+  opacity: .8;
+  position: relative;
+  align-content: center;
+}
+
 .login-form-box{
   font-weight: bold;
   text-align: center;
@@ -187,7 +198,12 @@
     display: none;
     background-color: #edefed;
   }
+}
 
+.restaurant-show-page-details {
+  display: inline-flex;
+  list-style: none;
+  line-height: 100%;
 }
 
 .reserve-finalize-button {

@@ -14,6 +14,17 @@ const RestaurantUtil = {
     }
    );
   },
+
+  fetchSingleRestaurant(id, callback){
+    $.ajax({
+      method: "GET",
+      url: `api/restaurants/${id}`,
+      success(response) {
+        callback(response);
+      }
+    }
+   );
+  }
 };
 
 module.exports = RestaurantUtil;

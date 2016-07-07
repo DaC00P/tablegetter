@@ -31,6 +31,17 @@ const RestaurantActions = {
       actionType: "RESTAURANT_UNHIGHLIGHTED",
       id: id
     });
+  },
+
+  fetchSingleRestaurant(id) {
+    RestaurantApiUtil.fetchSingleRestaurant(id, this.receiveSingleRestaurant);
+  },
+
+  receiveSingleRestaurant(restaurant) {
+    AppDispatcher.dispatch({
+      actionType: "receive_restaurant",
+      restaurant: restaurant
+    });
   }
 
 };

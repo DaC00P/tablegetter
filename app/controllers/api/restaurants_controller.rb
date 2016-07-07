@@ -7,4 +7,10 @@ class Api::RestaurantsController < ApplicationController
     end
     render json: @restaurants
   end
+
+  def show
+    @restaurant = Restaurant.find(params[:id])
+    @pics = RestaurantPic.where(restaurant_id: params[:id])
+    render json: {restaurant: @restaurant, pics: @pics}
+  end
 end

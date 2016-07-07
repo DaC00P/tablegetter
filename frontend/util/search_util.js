@@ -1,5 +1,3 @@
-const SearchStore = require('../stores/search_store');
-
 const SearchUtil = {
 
   getSearchResults(query, callback){

@@ -30,6 +30,15 @@ const customStyle = {
     width                 : '50vw',
     fontWeight            : 'bold',
     textAlign             : 'center'
+  },
+  overlay : {
+    position          : 'fixed',
+    top               : 0,
+    left              : 0,
+    right             : 0,
+    bottom            : 0,
+    backgroundColor   : 'rgba(255, 255, 255, 0.75)',
+    zIndex            : 1000
   }
 };
 const options = ["5:00 PM", "7:00 PM", "9:00 PM"];
@@ -209,7 +218,7 @@ const NavBar = React.createClass({
         </nav>
 
         <Modal key="reservationModal" isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyle} id="reservation-modal">
-          <ul>{reservations}</ul>
+          <ul className="total-reservation-edit">{reservations}</ul>
         </Modal>
 
       </div>

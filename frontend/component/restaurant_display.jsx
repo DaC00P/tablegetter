@@ -15,8 +15,12 @@ const RestaurantDisplay = React.createClass({
   },
 
   componentDidMount() {
-    RestaurantStore.addListener(this.getAllRestaurants);
+    this.restaurantListener = RestaurantStore.addListener(this.getAllRestaurants);
     RestaurantActions.fetchAllRestaurants();
+  },
+
+  componentWillUnmount() {
+    this.restaurantListener.remove();
   },
 
   getAllRestaurants() {

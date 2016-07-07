@@ -43,9 +43,14 @@ const customStyle = {
 const App = React.createClass({
 
   componentDidMount() {
-    SessionStore.addListener(this.forceUpdate.bind(this));
-    ReservationStore.addListener(this.updateReservations);
+    this.storeListener = SessionStore.addListener(this.forceUpdate.bind(this));
+    this.reservationListener = ReservationStore.addListener(this.updateReservations);
     ReservationActions.fetchAllReservations();
+  },
+
+  componentWillUnmount() {
+    this.storeListener.remove();
+    this.reservationListener.remove();
   },
 
   updateReservations() {
@@ -92,33 +97,37 @@ const App = React.createClass({
 
   render() {
 
+    let marketingBanner = (
+      <header>
+        <div className="chef-bg">
+          <NavBar reservations={this.state.reservations} handleLogout = {this._handleLogOut} openModal={this.openModal} closeModal={this.closeModal} setLogin={this.setLogin} setSignup={this.setSignup}/>
+          <section className="header-text">
+            <h3 className="site-title-text">INDULGE THERE</h3>
+            <h4 className="site-marketing-text">Book tables at the best restaurants in the world and experience a culinary pioneer's deft touch</h4>
+          </section>
+        </div>
+      </header>
+    );
+
+    if (this.props.location.pathname.includes('api/restaurant')){
+      marketingBanner = (
+        <header>
+          <div>
+            <NavBar reservations={this.state.reservations} handleLogout = {this._handleLogOut} openModal={this.openModal} closeModal={this.closeModal} setLogin={this.setLogin} setSignup={this.setSignup}/>
+          </div>
+        </header>
+      );
+    }
+
+
     return (
       <div className='flexboxeverything'>
 
-        <header>
-          <div className="chef-bg">
-            <NavBar reservations={this.state.reservations} handleLogout = {this._handleLogOut} openModal={this.openModal} closeModal={this.closeModal} setLogin={this.setLogin} setSignup={this.setSignup}/>
-            <section className="header-text">
-              <h3 className="site-title-text">INDULGE THERE</h3>
-              <h4 className="site-marketing-text">Book tables at the best restaurants in the world and experience a culinary pioneer's deft touch</h4>
-            </section>
-          </div>
-
-
-        </header>
-
-
-
+        {marketingBanner}
 
         <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyle} id="loginmodal">
           <LoginForm closeModal={this.closeModal} form={this.state.form} />
         </Modal>
-
-        <section className="map-details-combo">
-          <RestaurantMap/>
-          <RestaurantDisplay/>
-        </section>
-
 
         {this.props.children}
 

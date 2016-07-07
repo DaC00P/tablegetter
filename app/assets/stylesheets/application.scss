@@ -95,16 +95,21 @@
 #edit-button {
   margin-top: 3px;
   margin-right: 5px;
-  color: floralwhite;
-  background-color: #6956A8;
-  border: none;
 }
 
 #cancel-button {
   margin-top: 3px;
+}
+
+#reserve-finalize-button {
+  margin: 0 auto;
+}
+
+.btn-sm {
   color: floralwhite;
   background-color: #6956A8;
   border: none;
+  opacity: .9;
 }
 
 #restaurant-searchbar {
@@ -125,6 +130,10 @@
   top: 0px;
   left: 0px;
   width: 100vw;
+}
+
+.restaurant-booking-calender {
+    position: relative;
 }
 
 .restaurant-name-header {
@@ -200,7 +209,7 @@
 }
 
 .total-reservation-edit{
-  color: red;
+
 }
 
 .open .dropdown-menu {

@@ -18,8 +18,8 @@ module.exports = React.createClass({
 
     const mapDOMNode = ReactDOM.findDOMNode(this.refs.map);
     let mapOptions = {
-      center: {lat: 37.7758, lng: -122.435}, // this is SF
-      zoom: 3
+      center: {lat: 0, lng: 0}, // this is SF
+      zoom: 2
     };
     this.map = new google.maps.Map(mapDOMNode, mapOptions);
 

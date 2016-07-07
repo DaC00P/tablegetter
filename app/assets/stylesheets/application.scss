@@ -20,11 +20,12 @@
 
  .map {
   float:right;
-  margin-left: 10px;
+  margin-left: 1px;
   width: 50vw;
   height: 650px;
   box-shadow: 0 1px 2px #444444;
   border-radius: 5px;
+  border-right: none;
 }
 
 
@@ -80,6 +81,10 @@
   font-weight: bold;
 }
 
+.ReactModal__Overlay--after-open {
+  z-index: 1000;
+}
+
 #restaurant-dropdown {
   align-items: stretch;
   // height: 500px;
@@ -100,6 +105,18 @@
   color: floralwhite;
   background-color: #6956A8;
   border: none;
+}
+
+#restaurant-searchbar {
+  height: 50px;
+  width: 100vw;
+  z-index: 1;
+  position: absolute;
+  top: -7.5%
+}
+
+#restaurant-filter {
+  width: 235px;
 }
 
 .transparant-navbar {
@@ -177,10 +194,13 @@
 }
 
 .detail-booking-section {
-  // border: 2.5px solid #36454f;
   border-radius: 5px;
   margin: 3px;
   width: 590px;
+}
+
+.total-reservation-edit{
+  color: red;
 }
 
 .open .dropdown-menu {
@@ -243,15 +263,18 @@
 
 .restaurant-index {
   float:left;
+  position: absolute;
+  top: 0;
   width: 50vw;
-  height: 600px;
+  height: 650px;
   box-shadow: 0 1px 2px #444444;
   border-radius: 5px;
   overflow-y: scroll;
+  background-color: #edefed;
 }
 
 .restaurant-index-and-search {
-
+  position: relative;
 }
 
 .reservation-modal {

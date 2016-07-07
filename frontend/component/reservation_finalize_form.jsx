@@ -83,7 +83,7 @@ const ReservationFinalizeForm = React.createClass({
           <br/>
           <input onChange={this.handleInstructions} type="text" placeholder="Please Enter Any Special Instructions So We May Better Serve You" className="reservation-entry-details"/>
           <br/>
-          <input onClick={this.handleFinalizeClick} type="submit" value="Finalize Reservation"/>
+          <input onClick={this.handleFinalizeClick} className="btn btn-info btn-sm" type="submit" value="Finalize Reservation"/>
         </form>
       </div>
     );

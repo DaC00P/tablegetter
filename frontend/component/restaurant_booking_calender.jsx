@@ -14,10 +14,10 @@ const customStyle = {
     left                  : '50%',
     right                 : 'auto',
     bottom                : '0%',
-    height                : '300px',
+    height                : 'auto',
     marginRight           : '-50%',
     transform             : 'translate(-50%, -50%)',
-    backgroundColor       : "cream",
+    backgroundColor       : "#edefed",
     border                : '2.5px solid black',
     borderRadius          : '4px',
     color                 : 'black'

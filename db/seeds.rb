@@ -24,6 +24,20 @@ Restaurant.create!(name: "The French Laundry", chef: "Thomas Keller", cuisine: "
 Restaurant.create!(name: "El Bulli", chef: "Ferran Adrià", cuisine: "Haute Cuisine", capacity: 100, lat: 42.251354, lng: 0.228353, city: 'Roses, Catalonia, Spain', description: "THE playground for modern gastronimic delights, rooted in a tradition of experimenting and haute cuisine")
 
 
+Restaurant.find_by(name: "Osteria Francescana").update(lat: 44.644806, lng:  10.921570)
+Restaurant.find_by(name: "Blue Hill Restaurant").update(lat: 40.732034, lng: -73.999707)
+Restaurant.find_by(name: "Alinea").update(lat: 41.913439, lng: -87.647905)
+Restaurant.find_by(name: "El Restaurante Patagonia Sur").update(lat: -34.640204, lng: -58.361744)
+Restaurant.find_by(name: "N/Naka").update(lat: 34.025162, lng: -118.412232)
+Restaurant.find_by(name: "Attica").update(lat: -37.876965, lng: 144.997343)
+Restaurant.find_by(name: "Fäviken").update(name: "Fäviken", lat: 63.435305, lng: 13.29289)
+Restaurant.find_by(name: "Alinea").update(lat: 41.913439, lng: -87.647905)
+Restaurant.find_by(name: "D.O.M.").update(lat: -23.566303, lng: -46.667427)
+Restaurant.find_by(name: "Atelier Crenn").update(lat: 37.798348, lng: -122.435857)
+Restaurant.find_by(name: "Pujol").update(lat: 19.433636, lng: -99.185494)
+Restaurant.find_by(name: "Hiša Franko").update(lat: 46.247298, lng: 13.537742)
+Restaurant.find_by(name: "Gaggan").update(lat: 13.737738, lng: 100.542076)
+
 
 Restaurant.find_by(name: "The French Laundry").update(city: "Yountville, California")
 Restaurant.find_by(name: "Osteria Francescana").update(city: "Modena, Italy")

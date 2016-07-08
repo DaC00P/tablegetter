@@ -225,12 +225,49 @@
   text-align: left;
 }
 
-.restaurant-show-page-details li{
-  height: 50px;
+.restaurant-show-page-details .fancy-span, pre .fancy-span {
+  font-weight: bolder;
+  font-family: 'Bad Script', cursive;
+  font-size: 30px;
+  color: black;
 }
 
-.review-section h2 {
+.restaurant-show-page-details li{
+  height: 50px;
+  font-size: 20px;
+  color: grey;
+}
+
+.restaurant-review-section {
+  margin-top: 25px;
+  padding-bottom: 35px;
+  border-top: 2.5px solid #36454f;
+}
+
+.restaurant-review-section h2 {
   text-align: center;
+  font-weight: bolder;
+  font-family: 'Bad Script', cursive;
+  font-size: 45px;
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+
+.restaurant-review-section pre {
+  font-family: 'Montserrat';
+  font-size: 14px;
+  font-weight: 300;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 90%;
+  margin: 0 auto;
+  word-wrap: normal;
+  word-break: break-word;
+  overflow-x: auto;
+  min-height: 150px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  white-space: pre-wrap;
 }
 
 .restaurant-pics-index {

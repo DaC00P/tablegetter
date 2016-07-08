@@ -33,7 +33,7 @@ const LoginForm = React.createClass({
   redirectIfLoggedIn() {
     if (SessionStore.isUserLoggedIn()) {
 			this.props.closeModal();
-      this.context.router.push("/");
+      // this.context.router.push("/");
     }
   },
 

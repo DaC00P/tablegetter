@@ -98,6 +98,8 @@
 
 #reserve-finalize-button {
   margin: 0 auto;
+  margin-left: 10px;
+  height: 37px;
 }
 
 .btn-sm {
@@ -105,6 +107,8 @@
   background-color: #6956A8;
   border: none;
   opacity: .9;
+  height: 40px;
+  font-size: 16px;
 }
 
 #restaurant-searchbar {
@@ -315,15 +319,20 @@
   padding-bottom: 5px;
   form {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     width: 100%;
   }
   input {
-    margin: 7.5px;
+    margin-top: 7.5px;
+    margin-bottom: 7.5px;
     height: 40px;
     width: 400px;
+    border: 1px solid black;
+    border-radius: 5px;
   }
 }
+
 
 .reservation-finalize-form-errors {
   color: red;
@@ -340,6 +349,8 @@
     margin: 7.5px;
     height: 40px;
     width: auto;
+    border: 1px solid black;
+    border-radius: 5px;
   }
 }
 
@@ -421,6 +432,7 @@
 .reservation-entry-details {
   width: 150px;
   background-color: #edefed;
+  border-radius: 5px;
 }
 
 .restaurant-index {
@@ -459,6 +471,7 @@
   font-family: 'Pontano Sans', sans-serif;
   position: relative;
   padding-right: 15px;
+  display: flex;
 }
 
 .input-calendar-wrapper {
@@ -479,12 +492,12 @@
 }
 
 .input-calendar .input-calendar-field {
-  width: 120px;
+  width: 220px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-family: 'Pontano Sans', sans-serif;
   font-size: 16px;
-  padding: 2px 8px;
+  padding: 2px 0px;
 }
 
 .input-calendar .input-calendar-field:focus {

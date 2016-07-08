@@ -7,6 +7,16 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create!(username: 'demo', password: 123123)
+# Reservation.create!()
+# Reservation.create!()
+# Reservation.create!()
+# Reservation.create!()
+# Reservation.create!()
+# Reservation.create!()
+# Reservation.create!()
+# Reservation.create!()
+# Reservation.create!()
+
 
 Restaurant.create!(name: "Osteria Francescana", chef: "Massimo Bottura", cuisine: "Italian", capacity: 40, description: "A hyper-modern take on classic Italian cuisine")
 Restaurant.create!(name: "Blue Hill Restaurant", chef: "Dan Barber", cuisine: "Local Farm to Table - New York", capacity: 100, description: "A farmer's feast of beautiful and respectfully raised local produce")

@@ -60,13 +60,14 @@ const RestaurantBookingCalender = React.createClass({
 
     return (
       <section className='restaurant-booking-calender'>
-        <form className = 'calender-seating-section'>
+
             <Calendar onChange={this.handleCalenderSelect} closeOnSelect={true} type="calender" format='DD/MM/YYYY' date={this.state.reservationDate} defaultValue='Click Here to Reserve'/>
             <Dropdown onChange={this.handleTimeSelect} className="" options={options} value={defaultOption} />
-        </form>
+            <button className="btn btn-info btn-sm" id='reserve-finalize-button' onClick={this.openModal}>Finalize Reservation</button>
 
 
-        <button className="btn btn-info btn-sm" id='reserve-finalize-button' onClick={this.openModal}>Finalize Reservation</button>
+
+
 
         <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyle} id="reservation-modal">
           <ReservationFinalizeForm restaurant={this.props.restaurant} closeModal={this.closeModal} date={this.state.reservationDate} time={this.state.reservationTime}/>

@@ -39,7 +39,7 @@ const ReservationActions = {
   },
 
   postSingleReservation(reservation, confirmationcallback) {
-    ReservationApiUtil.postSingleReservation(reservation, this.receiveSingleReservation, confirmationcallback);
+    ReservationApiUtil.postSingleReservation(reservation, this.receiveSingleReservation, confirmationcallback, ErrorActions.setErrors);
   },
 
   cancelReservation(reservationId) {
@@ -47,7 +47,7 @@ const ReservationActions = {
   },
 
   editReservationDetails(reservation) {
-    ReservationApiUtil.editReservation(reservation, this.receiveEditedReservation);
+    ReservationApiUtil.editReservation(reservation, this.receiveEditedReservation, ErrorActions.setErrors);
   },
 
   receiveEditedReservation(reservation){

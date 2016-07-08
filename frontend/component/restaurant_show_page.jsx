@@ -39,7 +39,7 @@ const RestaurantShowPage = React.createClass({
     if (pics !== undefined){
       for (let i = 0; i < pics.length; i++) {
         restaurantPics.push(<div key={pics[i].id}>
-                              <img src={pics[i].picture_url} style={{width: '200px', height: '200px'}}/>
+                              <img className="restaurant-detail-pic"src={pics[i].picture_url} style={{width: '200px', height: '200px'}}/>
                             </div>);
       }
     }
@@ -56,9 +56,12 @@ const RestaurantShowPage = React.createClass({
             </div>
         </section>
 
-        <section>
+        <section className="restaurant-detail-bar">
+          <div>
+            <img src={this.state.restaurant.chef_pic_url} alt={this.state.restaurant.chef}/>
+          </div>
           <ul className='restaurant-show-page-details'>
-            <li> Chef: {this.state.restaurant.chef} <img src={this.state.restaurant.chef_pic_url} alt={this.state.restaurant.chef}/></li>
+            <li> Chef: {this.state.restaurant.chef} </li>
             <li> Location: {this.state.restaurant.city}</li>
             <li> Cuisine: {this.state.restaurant.cuisine} </li>
             <li> About: {this.state.restaurant.description} </li>
@@ -67,6 +70,11 @@ const RestaurantShowPage = React.createClass({
 
         <section className='restaurant-pics-index'>
           {restaurantPics}
+        </section>
+
+        <section className='review-section'>
+          <h2>reviews</h2>
+          <p>a bunch of text a bunch of texta bunch of texta bunch of texta bunch of texta bunch of texta bunch of texta bunch of texta bunch of texta bunch of texta bunch of texta bunch of texta bunch of texta bunch of texta bunch of texta bunch of texta bunch of texta bunch of texta bunch of texta bunch of texta bunch of texta bunch of text</p>
         </section>
       </section>
     );

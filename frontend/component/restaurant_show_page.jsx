@@ -49,12 +49,15 @@ const RestaurantShowPage = React.createClass({
       let review1 = this.state.reviews.review1;
       let review2 = this.state.reviews.review2;
       restaurantReviews.push(
-        <p>
-          {review1}
-          <br></br>
-          <br></br>
-          {review2}
-        </p>
+        <pre>
+          <span className="fancy-span">Julia Child Says: </span> {review1}
+        </pre>
+      );
+      restaurantReviews.push(
+        <pre>
+          <span className="fancy-span"> Anton Ego Says: </span> {review2}
+        </pre>
+
       );
     }
 
@@ -75,10 +78,9 @@ const RestaurantShowPage = React.createClass({
             <img src={this.state.restaurant.chef_pic_url} alt={this.state.restaurant.chef}/>
           </div>
           <ul className='restaurant-show-page-details'>
-            <li> Chef: {this.state.restaurant.chef} </li>
-            <li> Location: {this.state.restaurant.city}</li>
-            <li> Cuisine: {this.state.restaurant.cuisine} </li>
-            <li> About: {this.state.restaurant.description} </li>
+            <li>  <span className="fancy-span" >{this.state.restaurant.chef}</span> Chef</li>
+            <li>  <span className="fancy-span" >{this.state.restaurant.city}</span> Location</li>
+            <li>  <span className="fancy-span" >{this.state.restaurant.cuisine}</span> Cuisine</li>
           </ul>
         </section>
 
@@ -86,7 +88,7 @@ const RestaurantShowPage = React.createClass({
           {restaurantPics}
         </section>
 
-        <section className='review-section'>
+        <section className='restaurant-review-section'>
           <h2>Reviews</h2>
           {restaurantReviews}
         </section>

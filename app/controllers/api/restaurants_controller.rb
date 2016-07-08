@@ -16,6 +16,9 @@ class Api::RestaurantsController < ApplicationController
   end
 
   def split_reviews(reviews)
+    reviews.gsub!("[", "")
+    reviews.gsub!("]", "")
+    reviews.gsub!("\\n", "\n")
     reviews = reviews.split('666')
     both_reviews = {review1: reviews[0], review2: reviews[1]}
     return both_reviews

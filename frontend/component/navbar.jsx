@@ -11,6 +11,7 @@ import Dropdown from 'react-dropdown';
 const ReservationActions = require('../actions/reservation_actions');
 const SessionActions = require('../actions/session_actions');
 const ErrorStore = require('../stores/error_store');
+const RestaurantStore = require('../stores/restaurant_store');
 
 const customStyle = {
   content : {
@@ -183,9 +184,11 @@ const NavBar = React.createClass({
     }
 
     reservations = reservations.map( (reservationn) => {
+      let restaurantt = RestaurantStore.findByID(reservationn.restaurant_id).name
+
       return (
         <div key = {reservationn.id * 12} className="user-reservation-ud">
-          <h3>Your Reservation at {reservationn.restaurant_id}</h3>
+          <h2 className="your-reservation-at">Your Reservation at {restaurantt}</h2>
 
           <ul key={reservationn.id} className='reservation-details-edit'>
             <br></br>

@@ -31,7 +31,7 @@ Restaurant.create!(name: "Pujol", chef: "Enrique Olivera", cuisine: "Mexican", c
 Restaurant.create!(name: "Hiša Franko", chef: "Ana Ros", cuisine: "Slovenian", capacity: 40, description: "A beautiful transformation of traditional Slovenian fare")
 Restaurant.create!(name: "Gaggan", chef: "Gaggan Anand", cuisine: "Indian", capacity: 100, description: "Wonderous Indian dishes based on tradition, but twisted into hyper-modern transformations")
 Restaurant.create!(name: "The French Laundry", chef: "Thomas Keller", cuisine: "Californian", capacity: 100, lat: 38.404400, lng: -122.364988, description: "A bastion of Wine Country haute-cuisine, considered one of the best in California.")
-Restaurant.create!(name: "El Bulli", chef: "Ferran Adrià", cuisine: "Haute Cuisine", capacity: 100, lat: 42.251354, lng: 0.228353, city: 'Roses, Catalonia, Spain', description: "THE playground for modern gastronimic delights, rooted in a tradition of experimenting and haute cuisine")
+Restaurant.create!(name: "El Bulli", chef: "Ferran Adrià", cuisine: "Experimental Modernist", capacity: 100, lat: 42.251354, lng: 0.228353, city: 'Roses, Catalonia, Spain', description: "THE playground for modern gastronimic delights, rooted in a tradition of experimenting and haute cuisine")
 
 
 Restaurant.find_by(name: "Osteria Francescana").update(lat: 44.644806, lng:  10.921570)

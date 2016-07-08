@@ -77,6 +77,10 @@ RestaurantStore.find = function() {
   return {restaurant: _restaurants, pics: _pics, reviews: _reviews};
 };
 
+RestaurantStore.findByID = function(id) {
+  return _restaurants[id];
+};
+
 
 
 module.exports = RestaurantStore;

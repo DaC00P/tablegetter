@@ -8,6 +8,7 @@ const RestaurantStore = new Store(AppDispatcher);
 let _restaurants = {};
 let _highlightedId = null;
 let _pics = {};
+let _reviews = {};
 
 
 RestaurantStore.__onDispatch = function(payload) {
@@ -18,6 +19,7 @@ RestaurantStore.__onDispatch = function(payload) {
     case "receive_restaurant":
       resetToSingleRestaurant(payload.restaurant.restaurant);
       resetSingleRestaurantPics(payload.restaurant.pics);
+      resetSingleRestaurantReviews(payload.restaurant.reviews);
       break;
     case "RESTAURANT_HIGHLIGHTED":
       highlightRestaurant(payload.id);
@@ -66,8 +68,13 @@ function resetSingleRestaurantPics(pics) {
   RestaurantStore.__emitChange();
 }
 
+function resetSingleRestaurantReviews(reviews) {
+  _reviews = reviews;
+  RestaurantStore.__emitChange();
+}
+
 RestaurantStore.find = function() {
-  return {restaurant: _restaurants, pics: _pics};
+  return {restaurant: _restaurants, pics: _pics, reviews: _reviews};
 };
 
 

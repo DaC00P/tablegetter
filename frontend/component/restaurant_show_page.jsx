@@ -23,7 +23,7 @@ const RestaurantShowPage = React.createClass({
 
   setCurrentRestaurant() {
     let restaurantAndPics = RestaurantStore.find();
-    this.setState({restaurant: restaurantAndPics.restaurant, pics: restaurantAndPics.pics});
+    this.setState({restaurant: restaurantAndPics.restaurant, pics: restaurantAndPics.pics, reviews: restaurantAndPics.reviews});
   },
 
   componentWillUnmount() {
@@ -42,6 +42,20 @@ const RestaurantShowPage = React.createClass({
                               <img className="restaurant-detail-pic"src={pics[i].picture_url} style={{width: '200px', height: '200px'}}/>
                             </div>);
       }
+    }
+
+    let restaurantReviews = [];
+    if (this.state.reviews !== undefined) {
+      let review1 = this.state.reviews.review1;
+      let review2 = this.state.reviews.review2;
+      restaurantReviews.push(
+        <p>
+          {review1}
+          <br></br>
+          <br></br>
+          {review2}
+        </p>
+      );
     }
 
     return (
@@ -73,8 +87,8 @@ const RestaurantShowPage = React.createClass({
         </section>
 
         <section className='review-section'>
-          <h2>reviews</h2>
-          <p>a bunch of text a bunch of texta bunch of texta bunch of texta bunch of texta bunch of texta bunch of texta bunch of texta bunch of texta bunch of texta bunch of texta bunch of texta bunch of texta bunch of texta bunch of texta bunch of texta bunch of texta bunch of texta bunch of texta bunch of texta bunch of texta bunch of text</p>
+          <h2>Reviews</h2>
+          {restaurantReviews}
         </section>
       </section>
     );

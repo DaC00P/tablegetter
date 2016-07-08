@@ -128,12 +128,8 @@
   z-index: 100;
 }
 
-.restaurant-booking-calender {
-    position: relative;
-}
-
 .restaurant-name-header {
-  color: floralwhite;
+  color: black;
   font-weight: bolder;
   font-family: 'Bad Script', cursive;
 }
@@ -176,11 +172,26 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("https://res.cloudinary.com/dldvsrho8/image/upload/v1467328339/Tropical-Fruit-2000x1717_iqltvu.jpg");
+  background-size: cover;
+
   .dropdown-menu {
     display: none;
     background-color: #edefed;
   }
+  li {
+    list-style: none;
+  }
+}
+
+.restaurant-details-div {
+  background-color: rgba(237,239,237, 0.75);
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15px;
+}
+
+.restaurant-details-div:hover {
+  background-color: rgba(237,239,237, 0.5);
 }
 
 .restaurant-show-page {
@@ -231,6 +242,14 @@
   font-size: 30px;
   color: black;
 }
+
+.nearly-fancy-span {
+  font-weight: bolder;
+  font-family: 'Bad Script', cursive;
+  font-size: 24px;
+  color: black;
+}
+
 
 .restaurant-show-page-details li{
   height: 50px;
@@ -293,12 +312,67 @@
   border-bottom: 2.5px solid #36454f;
   text-align: left;
   padding-bottom: 5px;
+  form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  input {
+    margin: 7.5px;
+    height: 40px;
+    width: 400px;
+  }
+}
+
+.reservation-finalize-form-errors {
+  color: red;
+}
+
+.reservation-finalize-form {
+  background-color: #edefed;
+  form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  input {
+    margin: 7.5px;
+    height: 40px;
+    width: auto;
+  }
 }
 
 .detail-booking-section {
   border-radius: 5px;
   margin: 3px;
-  width: 590px;
+  width: 100%;
+}
+
+.title-reviewsmore-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.restaurant-box-group {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  border-radius: 5px;
+  width: 100%;
+}
+
+
+.restaurant-booking-calender {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  .btn {
+    height: 28px;
+  }
 }
 
 
@@ -309,14 +383,9 @@
   border-radius: 5px;
 }
 
-.restaurant-box-group {
-  display: inline-flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  border-radius: 5px;
-}
+
+
+
 
 .main-restaurant-food-pic {
   margin: 5px;
@@ -333,7 +402,7 @@
 .restaurant-detail-item {
   padding: 3px;
   border-radius: 5px;
-  color: floralwhite;
+  color: black;
   font-weight: bold;
 }
 
@@ -378,7 +447,7 @@
 }
 
 .ReactModal__Content.ReactModal__Content--after-open {
-  background-color: #edefed;
+  background-color: #floralwhite;
 }
 
 
@@ -388,6 +457,7 @@
 .input-calendar {
   font-family: 'Pontano Sans', sans-serif;
   position: relative;
+  padding-right: 15px;
 }
 
 .input-calendar-wrapper {
@@ -447,20 +517,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-
-.input-calendar .cell:hover {
-  color: #f39c12;
-  border: 1px solid #f39c12;
-  border-radius: 4px;
-}
-
-.input-calendar .cell.current {
-  background: #f39c12;
-  color: #fff;
-  border-radius: 4px;
-  opacity: .8;
-}
+}div
 
 .input-calendar .day {
   width: 25px;
@@ -469,7 +526,11 @@
 }
 
 .input-calendar .day.prev,
-.input-calendar .day.next {
+.input-calendar .day.next {.title-reviewsmore-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
   opacity: .4;
 }
 
@@ -588,7 +649,9 @@ pre code {
   outline: none;
   padding: 8px 52px 8px 10px;
   transition: all 200ms ease;
+  width: 220px;
 }
+
 
 .Dropdown-control:hover {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);

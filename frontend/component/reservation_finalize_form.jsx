@@ -17,8 +17,17 @@ const ReservationFinalizeForm = React.createClass({
       allergies: "",
       special_instructions: "",
       restaurant_id: this.props.restaurant.id,
-      finalize: false
+      finalize: false,
+      errors: ""
     });
+  },
+
+  componentDidMount() {
+    ErrorStore.addListener(this.handleErrors);
+  },
+
+  handleErrors() {
+    this.setState({errors: ErrorStore.formErrors("reservationErrors")});
   },
 
   handlePartySize(event) {
@@ -47,6 +56,7 @@ const ReservationFinalizeForm = React.createClass({
   handleReservationSubmit() {
     let reservationtoPass = this.copyState(this.state);
     delete reservationtoPass["finalize"];
+    delete reservationtoPass["errors"];
 
     ReservationActions.postSingleReservation({reservation: reservationtoPass}, this.reservationConfirmed);
   },
@@ -71,8 +81,9 @@ const ReservationFinalizeForm = React.createClass({
     );
 
     const reservationForm = (
-      <div className='reservation-finalize-form'>
+      <div>
         <h3>Please Complete Your Reservation for {this.props.restaurant.name}</h3>
+          <br></br><span className="reservation-finalize-form-errors">{this.state.errors.error}</span><br></br>
           Your Reservation Date: {this.props.date.toString()}
         <br/>
           Your Reservation Time: {this.props.time.value}

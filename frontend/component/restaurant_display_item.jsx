@@ -27,10 +27,15 @@ const RestaurantDisplayItem = React.createClass({
 
   render() {
     return (
-      <section className='restaurant-details'  onMouseEnter={this._onMouseEnter} onMouseLeave={this._onMouseLeave}>
-        <h2 className='restaurant-name-header'>{this.props.restaurant.name}</h2>
-        <RestaurantDetailBox restaurant={this.props.restaurant}/ >
+      <section className='restaurant-details' style={{backgroundImage: `url(${this.props.restaurant.restaurant_cover_pic})`}}  onMouseEnter={this._onMouseEnter} onMouseLeave={this._onMouseLeave}>
+        <div className="restaurant-details-div">
+          <div className="title-reviewsmore-div">
+            <h2 className='restaurant-name-header'>{this.props.restaurant.name}</h2>
             <button type="button" className="btn btn-info btn-sm" onClick={this.showRestaurant}>See Reviews & More</button>
+          </div>
+
+          <RestaurantDetailBox restaurant={this.props.restaurant}/ >
+        </div>
       </section>
     );
   }

@@ -10,7 +10,7 @@ import Calendar from 'react-input-calendar';
 import Dropdown from 'react-dropdown';
 const ReservationActions = require('../actions/reservation_actions');
 const SessionActions = require('../actions/session_actions');
-
+const ErrorStore = require('../stores/error_store');
 
 const customStyle = {
   content : {
@@ -47,6 +47,7 @@ const NavBar = React.createClass({
   getInitialState() {
     return {
       modalIsOpen: false,
+      errors: "",
       reservationDate: new Date(),
       reservationTime: "",
       party_size: 0,
@@ -114,9 +115,14 @@ const NavBar = React.createClass({
     this.setState({modalIsOpen: false});
   },
 
+  handleErrors() {
+    this.setState({errors: ErrorStore.formErrors("reservationErrors")});
+  },
+
   componentWillMount(){
     const appElement = document.getElementById('content');
     Modal.setAppElement(appElement);
+    ErrorStore.addListener(this.handleErrors);
   },
 
   editReservationDetails(id, event) {
@@ -184,6 +190,7 @@ const NavBar = React.createClass({
           <ul key={reservationn.id} className='reservation-details-edit'>
             <br></br>
             <h4>If you would like to edit your Reservation, please fill out the form and press Edit Reservation</h4>
+            <br></br><span className="reservation-finalize-form-errors">{this.state.errors.error}</span><br></br>
             <li key={reservationn.id * 9}>
                Date: {reservationn.date} <Calendar onChange={this.handleCalenderSelect} closeOnSelect={true} type="calender" format='DD/MM/YYYY' date={this.state.reservationDate} defaultValue='Click Here to Reserve'/>
             </li>

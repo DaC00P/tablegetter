@@ -83,10 +83,9 @@ const ReservationFinalizeForm = React.createClass({
     const reservationForm = (
       <div>
         <h3>Please Complete Your Reservation for {this.props.restaurant.name}</h3>
-          <br></br><span className="reservation-finalize-form-errors">{this.state.errors.error}</span><br></br>
-          Your Reservation Date: {this.props.date.toString()}
-        <br/>
-          Your Reservation Time: {this.props.time.value}
+          <br></br> <span className="reservation-finalize-form-errors">{this.state.errors.error}</span> <br></br>
+          <h4>Your Reservation Date: {this.props.date.toString()}</h4>
+          <h4>Your Reservation Time: {this.props.time.value}</h4>
         <form>
           <input onChange={this.handlePartySize} type="text" placeholder="Please Enter Your Party Size" className="reservation-entry-details"/>
           <br/>

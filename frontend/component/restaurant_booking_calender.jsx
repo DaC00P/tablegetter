@@ -57,12 +57,11 @@ const RestaurantBookingCalender = React.createClass({
   render() {
     const options = ["5:00 PM", "7:00 PM", "9:00 PM"];
     const defaultOption = "Please Select a Seating";
-
     return (
       <section className='restaurant-booking-calender'>
 
             <Calendar onChange={this.handleCalenderSelect} closeOnSelect={true} type="calender" format='DD/MM/YYYY' date={this.state.reservationDate} defaultValue='Click Here to Reserve'/>
-            <Dropdown onChange={this.handleTimeSelect} className="" options={options} value={defaultOption} />
+            <Dropdown onChange={this.handleTimeSelect} className="" options={options} value={this.state.reservationTime} default={defaultOption} />
             <button className="btn btn-info btn-sm" id='reserve-finalize-button' onClick={this.openModal}>Finalize Reservation</button>
 
 

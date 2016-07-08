@@ -39,7 +39,7 @@ const RestaurantShowPage = React.createClass({
     if (pics !== undefined){
       for (let i = 0; i < pics.length; i++) {
         restaurantPics.push(<div key={pics[i].id}>
-                              <img className="restaurant-detail-pic"src={pics[i].picture_url} style={{width: '200px', height: '200px'}}/>
+                              <img key={pics[i].id*5} className="restaurant-detail-pic"src={pics[i].picture_url} style={{width: '200px', height: '200px'}}/>
                             </div>);
       }
     }

@@ -32,7 +32,7 @@ const RestaurantShowPage = React.createClass({
 
   render() {
 
-    let restaurantImage = {backgroundImage: `url(https://res.cloudinary.com/dldvsrho8/image/upload/v1467239803/chefstablemain2_yzp72y.jpg)`};
+    let restaurantImage = {backgroundImage: `url(${this.state.restaurant.restaurant_cover_pic})`};
 
     let restaurantPics = [];
     let pics = this.state.pics;

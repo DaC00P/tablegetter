@@ -24,8 +24,8 @@
   width: 50vw;
   height: 650px;
   box-shadow: 0 1px 2px #444444;
-  border-radius: 5px;
   border-right: none;
+  border-top: none;
 }
 
 
@@ -130,6 +130,7 @@
   top: 0px;
   left: 0px;
   width: 100vw;
+  z-index: 100;
 }
 
 .restaurant-booking-calender {
@@ -175,14 +176,12 @@
 
 .restaurant-details {
   border: 1.5px solid #36454f;
-  border-radius: 5px;
   display: flex;
   width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-image: url("https://res.cloudinary.com/dldvsrho8/image/upload/v1467328339/Tropical-Fruit-2000x1717_iqltvu.jpg");
-  border-radius: 5px;
   .dropdown-menu {
     display: none;
     background-color: #edefed;
@@ -274,13 +273,6 @@
 
 }
 
-.open .dropdown-menu {
-  width: inherit;
-  display: flex;
-  background-color: #edefed;
-  border-radius: 5px;
-}
-
 .dropdown-food-pic {
   width: 25%;
   display: inline-flex;
@@ -339,7 +331,6 @@
   width: 50vw;
   height: 650px;
   box-shadow: 0 1px 2px #444444;
-  border-radius: 5px;
   overflow-y: scroll;
   background-color: #edefed;
 }

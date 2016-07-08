@@ -52,6 +52,7 @@ const LoginForm = React.createClass({
     }
 	},
 
+
   fieldErrors(field) {
     const errors = ErrorStore.formErrors(this.state.form);
 

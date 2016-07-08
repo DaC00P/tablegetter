@@ -10,9 +10,7 @@ class Api::ReservationsController < ApplicationController
       render json: @reservation
     else
       render(
-        json: {
-          base: ["Bad Reservation Details, try again"]
-        },
+        json: {error: "Bad Reservation Details, try again"},
         status: 422
       )
     end
@@ -30,9 +28,7 @@ class Api::ReservationsController < ApplicationController
       render json: @reservation
     else
       render(
-        json: {
-          base: ["Bad Reservation Details, try again"]
-        },
+        json: {error: "Bad Reservation Details, try again"},
         status: 422
       )
     end
@@ -42,9 +38,7 @@ class Api::ReservationsController < ApplicationController
     @reservation = Reservation.find_by(id: params[:id])
     if @reservation == nil
       render(
-        json: {
-          base: ["Bad Reservation Details, try again"]
-        },
+        json: {error: "This reservation cannot be deleted please contact customer support"},
         status: 422
       )
     end

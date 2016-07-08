@@ -11,7 +11,7 @@ const RestaurantUtil = {
     $.get('api/reservations/:id', success);
   },
 
-  postSingleReservation(reservation, callback, confirmationcallback){
+  postSingleReservation(reservation, callback, confirmationcallback, errorCallback){
     $.ajax({
       method: "POST",
       url: 'api/reservations',
@@ -19,6 +19,10 @@ const RestaurantUtil = {
       success(response) {
         callback(response);
         confirmationcallback();
+      },
+      error(response){
+        const errors = response.responseJSON;
+        errorCallback("reservationErrors", errors);
       }
     }
    );
@@ -35,13 +39,17 @@ const RestaurantUtil = {
   );
 },
 
- editReservation(reservationDetails, callback) {
+ editReservation(reservationDetails, callback, errorCallback) {
    $.ajax({
      method: "PATCH",
      url: `api/reservations/${reservationDetails.id}`,
      data: {reservation: reservationDetails},
      success(response) {
        callback(response);
+     },
+     error(response){
+       const errors = response.responseJSON;
+       errorCallback("reservationErrors", errors);
      }
    }
   );

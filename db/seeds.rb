@@ -175,7 +175,28 @@ a = [ "https://res-5.cloudinary.com/dldvsrho8/image/upload/v1467822969/nnaka11_d
    "https://res-2.cloudinary.com/dldvsrho8/image/upload/v1467822898/attica7_nupmww.jpg",
    "https://res-4.cloudinary.com/dldvsrho8/image/upload/v1467822898/attica6_ta1fqc.jpg",
    "https://res-1.cloudinary.com/dldvsrho8/image/upload/v1467822898/attica4_nbpuvw.jpg",
-   "https://res-3.cloudinary.com/dldvsrho8/image/upload/v1467822898/attica5_sci3cv.jpg"]
+   "https://res-3.cloudinary.com/dldvsrho8/image/upload/v1467822898/attica5_sci3cv.jpg",
+   "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941984/fl0_rncls4.jpg",
+    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941984/fl1_ny7vsj.jpg",
+    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941984/fl2_vjr78o.jpg",
+    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941985/fl3_yvw028.jpg",
+    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941985/fl4_iiyoxa.jpg",
+    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941985/fl5_hw5gab.jpg",
+    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941985/fl6_fl9ghp.jpg",
+    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941985/fl7_jxghxv.jpg",
+    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941985/fl8_xga2em.jpg",
+    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941985/fl9_tyu2qu.jpg",
+    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941997/eb0_i4woje.jpg",
+    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941997/eb1_srmqwv.jpg",
+    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941998/eb10_tjnfvx.jpg",
+    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941998/eb11_teytyt.jpg",
+    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941997/eb2_y14bmr.jpg",
+    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941997/eb3_sewsfw.jpg",
+    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941997/eb4_ojqoqd.jpg",
+    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941997/eb6_y5fy8u.jpg",
+    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941997/eb7_kytzk3.jpg",
+    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467942001/eb8_cor4kk.jpg",
+    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941998/eb9_heu6j7.jpg"]
 
 
 a.each do |url|

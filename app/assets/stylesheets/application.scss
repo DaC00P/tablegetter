@@ -39,10 +39,6 @@
   border: none;
 }
 
-// #help-button {
-//     margin-right: 0px;
-// }
-
 .navbar-fix {
   margin-bottom: 0px;
   padding-bottom: 0px;
@@ -87,7 +83,6 @@
 
 #restaurant-dropdown {
   align-items: stretch;
-  // height: 500px;
   position: relative;
   border-radius: 5px;
 }
@@ -117,7 +112,7 @@
   width: 100vw;
   z-index: 1;
   position: absolute;
-  top: -7.5%
+  top: -7.5%;
 }
 
 #restaurant-filter {
@@ -269,9 +264,6 @@
   width: 590px;
 }
 
-.total-reservation-edit{
-
-}
 
 .dropdown-food-pic {
   width: 25%;

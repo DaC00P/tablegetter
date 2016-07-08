@@ -9,9 +9,7 @@ const Modal = require('react-modal');
 import Calendar from 'react-input-calendar';
 import Dropdown from 'react-dropdown';
 const ReservationActions = require('../actions/reservation_actions');
-
-
-
+const SessionActions = require('../actions/session_actions');
 
 
 const customStyle = {
@@ -69,6 +67,19 @@ const NavBar = React.createClass({
     this.props.openModal();
     this.props.setLogin();
   },
+
+  handleDemoLogin(event) {
+    event.preventDefault();
+
+    const demoFormData = {
+      username: "demo",
+      password: "123123"
+    };
+    SessionActions.logIn(demoFormData);
+    // this.props.openModal();
+    // this.props.closeModal();
+  },
+
 
   signUpClick() {
     this.props.openModal();
@@ -138,6 +149,7 @@ const NavBar = React.createClass({
   },
 
   render() {
+    const demologinbutton = (<button type="button" className="btn btn-info btn-sm" onClick={this.handleDemoLogin}>Guest Log In</button>);
     const loginbuttons = (<button type="button" className="btn btn-info btn-sm" onClick={this.loginClick}>Log In</button>);
     const signupbutton = (<button type="button" className="btn btn-info btn-sm" onClick={this.signUpClick}>Sign Up</button>);
 
@@ -155,7 +167,7 @@ const NavBar = React.createClass({
 
     }
     else {
-      currentbutton = <span> {loginbuttons} {signupbutton} </span>;
+      currentbutton = <span> {demologinbutton} {loginbuttons} {signupbutton} </span>;
       greeting = <div></div>;
     }
 

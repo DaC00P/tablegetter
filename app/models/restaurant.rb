@@ -24,11 +24,6 @@ class Restaurant < ActiveRecord::Base
   foreign_key: :restaurant_id,
   class_name: :Reservation
 
-  has_many :reviews,
-  primary_key: :id,
-  foreign_key: :restaurant_id,
-  class_name: :Review
-
   has_many :restaurant_pics,
   primary_key: :id,
   foreign_key: :restaurant_id,

@@ -11,6 +11,13 @@ class Api::RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     @pics = RestaurantPic.where(restaurant_id: params[:id])
-    render json: {restaurant: @restaurant, pics: @pics}
+    @reviews = split_reviews(@restaurant.reviews)
+    render json: {restaurant: @restaurant, pics: @pics, reviews: @reviews}
+  end
+
+  def split_reviews(reviews)
+    reviews = reviews.split('666')
+    both_reviews = {review1: reviews[0], review2: reviews[1]}
+    return both_reviews
   end
 end

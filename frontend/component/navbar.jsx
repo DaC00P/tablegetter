@@ -192,19 +192,19 @@ const NavBar = React.createClass({
             <h4>If you would like to edit your Reservation, please fill out the form and press Edit Reservation</h4>
             <br></br><span className="reservation-finalize-form-errors">{this.state.errors.error}</span><br></br>
             <li key={reservationn.id * 9}>
-               Date: {reservationn.date} <Calendar onChange={this.handleCalenderSelect} closeOnSelect={true} type="calender" format='DD/MM/YYYY' date={this.state.reservationDate} defaultValue='Click Here to Reserve'/>
+               Your Current Reservation Date is: {reservationn.date} <Calendar onChange={this.handleCalenderSelect} closeOnSelect={true} type="calender" format='DD/MM/YYYY' date={this.state.reservationDate} defaultValue='Click Here to Reserve'/>
             </li>
             <li key={reservationn.id * 8}>
-               Time: {reservationn.time} <Dropdown onChange={this.handleTimeSelect} className="" options={options} value={this.state.reservationTime} placeholder="Please Select a Seating" />
+               Your Current Reservation Time is: {reservationn.time} <Dropdown onChange={this.handleTimeSelect} className="" options={options} value={this.state.reservationTime} placeholder="Please Select a Seating" />
             </li>
             <li key={reservationn.id * 7}>
-               Party Size: <input onChange={this.editPartySize} type="text" placeholder="Please Enter Your New Party Size" className="reservation-entry-details"/>
+               <input onChange={this.editPartySize} type="text" placeholder="Please Enter Your New Party Size" className="reservation-entry-details"/>
             </li>
             <li key={reservationn.id * 6}>
-               Allergies: <input onChange={this.editAllergies} type="text" placeholder="Please Enter Your New Allergies" className="reservation-entry-details"/>
+               <input onChange={this.editAllergies} type="text" placeholder="Please Enter Your New Allergies" className="reservation-entry-details"/>
             </li>
             <li key={reservationn.id * 5}>
-              Special Instructions: <input onChange={this.editSpecialInstructions} type="text" placeholder="Please Enter You New Special Instructions" className="reservation-entry-details"/>
+              <input onChange={this.editSpecialInstructions} type="text" placeholder="Please Enter You New Special Instructions" className="reservation-entry-details"/>
            </li>
             <button type="button" className="btn btn-info btn-sm" id="edit-button" onClick={this.editReservationDetails.bind(this, reservationn.id)} >Edit Reservation</button>
             <button type="button" className="btn btn-info btn-sm" id="cancel`-button" onClick={this.cancelReservation.bind(this, reservationn.id)} >Cancel Reservation</button>

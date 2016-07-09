@@ -18,9 +18,6 @@ const SessionStore = require('./stores/session_store');
 const SessionActions = require('./actions/session_actions');
 const ErrorActions = require('./actions/error_actions');
 
-window.errorstore = require('./stores/error_store');
-
-
 
 const appRouter = (
   <Router history={hashHistory}>

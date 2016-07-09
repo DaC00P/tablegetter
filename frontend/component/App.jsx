@@ -45,7 +45,6 @@ const App = React.createClass({
   componentDidMount() {
     this.storeListener = SessionStore.addListener(this.forceUpdate.bind(this));
     this.reservationListener = ReservationStore.addListener(this.updateReservations);
-    ReservationActions.fetchAllReservations();
   },
 
   componentWillUnmount() {

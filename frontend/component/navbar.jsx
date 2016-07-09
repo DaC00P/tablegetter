@@ -12,6 +12,7 @@ const ReservationActions = require('../actions/reservation_actions');
 const SessionActions = require('../actions/session_actions');
 const ErrorStore = require('../stores/error_store');
 const RestaurantStore = require('../stores/restaurant_store');
+const RestaurantActions = require('../actions/restaurant_actions')
 
 const customStyle = {
   content : {
@@ -124,6 +125,9 @@ const NavBar = React.createClass({
     const appElement = document.getElementById('content');
     Modal.setAppElement(appElement);
     ErrorStore.addListener(this.handleErrors);
+    // RestaurantStore.addListener(this.forceUpdate.bind(this));
+    ReservationActions.fetchAllReservations();
+    RestaurantActions.fetchAllRestaurants();
   },
 
   editReservationDetails(id, event) {
@@ -178,13 +182,23 @@ const NavBar = React.createClass({
       greeting = <div></div>;
     }
 
+    // if (!(this.props.location.pathname.includes('api/restaurant'))){
+    //why isn't the pathname working??
+    // }
+
     let reservations = [];
     for (let reservation in this.props.reservations){
       reservations.push(this.props.reservations[reservation]);
     }
 
+    let restaurantt = "";
     reservations = reservations.map( (reservationn) => {
-      let restaurantt = RestaurantStore.findByID(reservationn.restaurant_id).name
+
+
+      if (RestaurantStore.findByID(reservationn.restaurant_id) !== undefined){
+        restaurantt = RestaurantStore.findByID(reservationn.restaurant_id).name
+      }
+
 
       return (
         <div key = {reservationn.id * 12} className="user-reservation-ud">

@@ -1,6 +1,7 @@
 "use strict";
 
 const ReservationStore = require('../stores/reservation_store');
+const ErrorActions = require('../actions/error_actions');
 
 const RestaurantUtil = {
   fetchAllReservations(success){
@@ -46,6 +47,7 @@ const RestaurantUtil = {
      data: {reservation: reservationDetails},
      success(response) {
        callback(response);
+       ErrorActions.clearErrors();
      },
      error(response){
        const errors = response.responseJSON;

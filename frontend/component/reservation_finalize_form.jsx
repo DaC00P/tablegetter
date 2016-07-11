@@ -104,6 +104,12 @@ const ReservationFinalizeForm = React.createClass({
       currentForm = confirmation;
     }
 
+    if (!SessionStore.isUserLoggedIn()) {
+      currentForm = (
+        <h1 className="not-signed-in-reservation"> You must log in before booking a reservation. If you do not have an account, please sign up or use the Guest Log In</h1>
+      );
+    }
+
 
     return (
       <section className='reservation-finalize-form'>

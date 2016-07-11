@@ -55,20 +55,20 @@ Restaurant.find_by(name: "Pujol").update(city: "Mexico City, Mexico")
 Restaurant.find_by(name: "Hiša Franko").update(city: "Kobarid, Slovenia", name: "Hiša Franko")
 Restaurant.find_by(name: "Gaggan").update(city: "Bangkok, Thailand")
 
-Restaurant.find_by(name: "The French Laundry").update(chef_pic_url: "http://res.cloudinary.com/dldvsrho8/image/upload/v1467927252/keller_ccykiz.jpg")
-Restaurant.find_by(name: "Osteria Francescana").update(chef_pic_url: "http://res.cloudinary.com/dldvsrho8/image/upload/c_scale,w_200/v1467927251/massimo_ftjevi.jpg")
-Restaurant.find_by(name: "Blue Hill Restaurant").update(chef_pic_url: "http://res.cloudinary.com/dldvsrho8/image/upload/c_scale,w_200/v1467927251/barber_z1vth1.jpg")
-Restaurant.find_by(name: "El Restaurante Patagonia Sur").update(chef_pic_url: "http://res.cloudinary.com/dldvsrho8/image/upload/c_scale,w_200/v1467927251/mallman_wtwjjq.jpg")
-Restaurant.find_by(name: "N/Naka").update(chef_pic_url: "http://res.cloudinary.com/dldvsrho8/image/upload/c_scale,h_200/v1467927251/niki_wewq2b.jpg")
-Restaurant.find_by(name: "Attica").update(chef_pic_url: "http://res.cloudinary.com/dldvsrho8/image/upload/c_scale,w_200/v1467927251/Ben-Shewry_pz7xoa.jpg")
-Restaurant.find_by(name: "Fäviken").update(chef_pic_url: "http://res.cloudinary.com/dldvsrho8/image/upload/c_scale,h_200/v1467927251/magnus_yqnq5g.jpg")
-Restaurant.find_by(name: "Alinea").update(chef_pic_url: "http://res.cloudinary.com/dldvsrho8/image/upload/c_scale,w_200/v1467927251/achatz_prxbcm.jpg")
-Restaurant.find_by(name: "D.O.M.").update(chef_pic_url: "http://res.cloudinary.com/dldvsrho8/image/upload/c_scale,h_200/v1467927252/Alex_Atala_fsifeg.jpg")
-Restaurant.find_by(name: "Atelier Crenn").update(chef_pic_url: "http://res.cloudinary.com/dldvsrho8/image/upload/c_scale,w_200/v1467927253/Dominique-Crenn_nrqgha.jpg")
-Restaurant.find_by(name: "Pujol").update(chef_pic_url: "http://res.cloudinary.com/dldvsrho8/image/upload/c_scale,h_200,w_200/v1467927252/olvera_xvp5es.jpg")
-Restaurant.find_by(name: "Hiša Franko").update(chef_pic_url: "http://res.cloudinary.com/dldvsrho8/image/upload/c_scale,w_200/v1467927252/ros_jko1w1.jpg")
-Restaurant.find_by(name: "Gaggan").update(chef_pic_url: "http://res.cloudinary.com/dldvsrho8/image/upload/c_scale,w_200/v1467927252/gaggan_qqav4y.jpg")
-Restaurant.find_by(name: "El Bulli").update(chef_pic_url: "http://res.cloudinary.com/dldvsrho8/image/upload/c_scale,w_200/v1467927252/adria_hpidsn.jpg")
+Restaurant.find_by(name: "The French Laundry").update(chef_pic_url: "https://res.cloudinary.com/dldvsrho8/image/upload/v1467927252/keller_ccykiz.jpg")
+Restaurant.find_by(name: "Osteria Francescana").update(chef_pic_url: "https://res.cloudinary.com/dldvsrho8/image/upload/c_scale,w_200/v1467927251/massimo_ftjevi.jpg")
+Restaurant.find_by(name: "Blue Hill Restaurant").update(chef_pic_url: "https://res.cloudinary.com/dldvsrho8/image/upload/c_scale,w_200/v1467927251/barber_z1vth1.jpg")
+Restaurant.find_by(name: "El Restaurante Patagonia Sur").update(chef_pic_url: "https://res.cloudinary.com/dldvsrho8/image/upload/c_scale,w_200/v1467927251/mallman_wtwjjq.jpg")
+Restaurant.find_by(name: "N/Naka").update(chef_pic_url: "https://res.cloudinary.com/dldvsrho8/image/upload/c_scale,h_200/v1467927251/niki_wewq2b.jpg")
+Restaurant.find_by(name: "Attica").update(chef_pic_url: "https://res.cloudinary.com/dldvsrho8/image/upload/c_scale,w_200/v1467927251/Ben-Shewry_pz7xoa.jpg")
+Restaurant.find_by(name: "Fäviken").update(chef_pic_url: "https://res.cloudinary.com/dldvsrho8/image/upload/c_scale,h_200/v1467927251/magnus_yqnq5g.jpg")
+Restaurant.find_by(name: "Alinea").update(chef_pic_url: "https://res.cloudinary.com/dldvsrho8/image/upload/c_scale,w_200/v1467927251/achatz_prxbcm.jpg")
+Restaurant.find_by(name: "D.O.M.").update(chef_pic_url: "https://res.cloudinary.com/dldvsrho8/image/upload/c_scale,h_200/v1467927252/Alex_Atala_fsifeg.jpg")
+Restaurant.find_by(name: "Atelier Crenn").update(chef_pic_url: "https://res.cloudinary.com/dldvsrho8/image/upload/c_scale,w_200/v1467927253/Dominique-Crenn_nrqgha.jpg")
+Restaurant.find_by(name: "Pujol").update(chef_pic_url: "https://res.cloudinary.com/dldvsrho8/image/upload/c_scale,h_200,w_200/v1467927252/olvera_xvp5es.jpg")
+Restaurant.find_by(name: "Hiša Franko").update(chef_pic_url: "https://res.cloudinary.com/dldvsrho8/image/upload/c_scale,w_200/v1467927252/ros_jko1w1.jpg")
+Restaurant.find_by(name: "Gaggan").update(chef_pic_url: "https://res.cloudinary.com/dldvsrho8/image/upload/c_scale,w_200/v1467927252/gaggan_qqav4y.jpg")
+Restaurant.find_by(name: "El Bulli").update(chef_pic_url: "https://res.cloudinary.com/dldvsrho8/image/upload/c_scale,w_200/v1467927252/adria_hpidsn.jpg")
 
 a = [ "https://res-5.cloudinary.com/dldvsrho8/image/upload/v1467822969/nnaka11_dq0cor.jpg",
    "https://res-4.cloudinary.com/dldvsrho8/image/upload/v1467822967/osteria2_fsbjqh.jpg",
@@ -178,27 +178,27 @@ a = [ "https://res-5.cloudinary.com/dldvsrho8/image/upload/v1467822969/nnaka11_d
    "https://res-4.cloudinary.com/dldvsrho8/image/upload/v1467822898/attica6_ta1fqc.jpg",
    "https://res-1.cloudinary.com/dldvsrho8/image/upload/v1467822898/attica4_nbpuvw.jpg",
    "https://res-3.cloudinary.com/dldvsrho8/image/upload/v1467822898/attica5_sci3cv.jpg",
-   "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941984/fl0_rncls4.jpg",
-    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941984/fl1_ny7vsj.jpg",
-    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941984/fl2_vjr78o.jpg",
-    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941985/fl3_yvw028.jpg",
-    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941985/fl4_iiyoxa.jpg",
-    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941985/fl5_hw5gab.jpg",
-    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941985/fl6_fl9ghp.jpg",
-    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941985/fl7_jxghxv.jpg",
-    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941985/fl8_xga2em.jpg",
-    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941985/fl9_tyu2qu.jpg",
-    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941997/eb0_i4woje.jpg",
-    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941997/eb1_srmqwv.jpg",
-    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941998/eb10_tjnfvx.jpg",
-    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941998/eb11_teytyt.jpg",
-    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941997/eb2_y14bmr.jpg",
-    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941997/eb3_sewsfw.jpg",
-    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941997/eb4_ojqoqd.jpg",
-    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941997/eb6_y5fy8u.jpg",
-    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941997/eb7_kytzk3.jpg",
-    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467942001/eb8_cor4kk.jpg",
-    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941998/eb9_heu6j7.jpg"]
+   "https://res.cloudinary.com/dldvsrho8/image/upload/v1467941984/fl0_rncls4.jpg",
+    "https://res.cloudinary.com/dldvsrho8/image/upload/v1467941984/fl1_ny7vsj.jpg",
+    "https://res.cloudinary.com/dldvsrho8/image/upload/v1467941984/fl2_vjr78o.jpg",
+    "https://res.cloudinary.com/dldvsrho8/image/upload/v1467941985/fl3_yvw028.jpg",
+    "https://res.cloudinary.com/dldvsrho8/image/upload/v1467941985/fl4_iiyoxa.jpg",
+    "https://res.cloudinary.com/dldvsrho8/image/upload/v1467941985/fl5_hw5gab.jpg",
+    "https://res.cloudinary.com/dldvsrho8/image/upload/v1467941985/fl6_fl9ghp.jpg",
+    "https://res.cloudinary.com/dldvsrho8/image/upload/v1467941985/fl7_jxghxv.jpg",
+    "https://res.cloudinary.com/dldvsrho8/image/upload/v1467941985/fl8_xga2em.jpg",
+    "https://res.cloudinary.com/dldvsrho8/image/upload/v1467941985/fl9_tyu2qu.jpg",
+    "https://res.cloudinary.com/dldvsrho8/image/upload/v1467941997/eb0_i4woje.jpg",
+    "https://res.cloudinary.com/dldvsrho8/image/upload/v1467941997/eb1_srmqwv.jpg",
+    "https://res.cloudinary.com/dldvsrho8/image/upload/v1467941998/eb10_tjnfvx.jpg",
+    "https://res.cloudinary.com/dldvsrho8/image/upload/v1467941998/eb11_teytyt.jpg",
+    "https://res.cloudinary.com/dldvsrho8/image/upload/v1467941997/eb2_y14bmr.jpg",
+    "https://res.cloudinary.com/dldvsrho8/image/upload/v1467941997/eb3_sewsfw.jpg",
+    "https://res.cloudinary.com/dldvsrho8/image/upload/v1467941997/eb4_ojqoqd.jpg",
+    "https://res.cloudinary.com/dldvsrho8/image/upload/v1467941997/eb6_y5fy8u.jpg",
+    "https://res.cloudinary.com/dldvsrho8/image/upload/v1467941997/eb7_kytzk3.jpg",
+    "https://res.cloudinary.com/dldvsrho8/image/upload/v1467942001/eb8_cor4kk.jpg",
+    "https://res.cloudinary.com/dldvsrho8/image/upload/v1467941998/eb9_heu6j7.jpg"]
 
 
 a.each do |url|
@@ -233,20 +233,20 @@ a.each do |url|
   end
 end
 
-Restaurant.find_by(name: "The French Laundry").update(restaurant_cover_pic: "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941985/fl5_hw5gab.jpg")
-Restaurant.find_by(name: "Osteria Francescana").update(restaurant_cover_pic: "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822967/osteria2_fsbjqh.jpg")
-Restaurant.find_by(name: "Blue Hill Restaurant").update(restaurant_cover_pic: "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822901/bluehill7_yzbptq.jpg")
-Restaurant.find_by(name: "El Restaurante Patagonia Sur").update(restaurant_cover_pic: "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822949/patsurmallman_ieqze4.jpg")
-Restaurant.find_by(name: "N/Naka").update(restaurant_cover_pic: "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822921/nnaka9_rwx7v7.jpg")
-Restaurant.find_by(name: "Attica").update(restaurant_cover_pic: "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822897/attica3_dgfzl3.jpg")
-Restaurant.find_by(name: "Fäviken").update(restaurant_cover_pic: "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822918/faviken9_eug2m0.jpg")
+Restaurant.find_by(name: "The French Laundry").update(restaurant_cover_pic: "https://res.cloudinary.com/dldvsrho8/image/upload/v1467941985/fl5_hw5gab.jpg")
+Restaurant.find_by(name: "Osteria Francescana").update(restaurant_cover_pic: "https://res.cloudinary.com/dldvsrho8/image/upload/v1467822967/osteria2_fsbjqh.jpg")
+Restaurant.find_by(name: "Blue Hill Restaurant").update(restaurant_cover_pic: "https://res.cloudinary.com/dldvsrho8/image/upload/v1467822901/bluehill7_yzbptq.jpg")
+Restaurant.find_by(name: "El Restaurante Patagonia Sur").update(restaurant_cover_pic: "https://res.cloudinary.com/dldvsrho8/image/upload/v1467822949/patsurmallman_ieqze4.jpg")
+Restaurant.find_by(name: "N/Naka").update(restaurant_cover_pic: "https://res.cloudinary.com/dldvsrho8/image/upload/v1467822921/nnaka9_rwx7v7.jpg")
+Restaurant.find_by(name: "Attica").update(restaurant_cover_pic: "https://res.cloudinary.com/dldvsrho8/image/upload/v1467822897/attica3_dgfzl3.jpg")
+Restaurant.find_by(name: "Fäviken").update(restaurant_cover_pic: "https://res.cloudinary.com/dldvsrho8/image/upload/v1467822918/faviken9_eug2m0.jpg")
 Restaurant.find_by(name: "Alinea").update(restaurant_cover_pic: "https://res.cloudinary.com/dldvsrho8/image/upload/v1467328339/Tropical-Fruit-2000x1717_iqltvu.jpg")
-Restaurant.find_by(name: "D.O.M.").update(restaurant_cover_pic: "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822904/dom7_alrs6s.jpg")
-Restaurant.find_by(name: "Atelier Crenn").update(restaurant_cover_pic: "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822895/ac5_dtudhz.jpg")
-Restaurant.find_by(name: "Pujol").update(restaurant_cover_pic: "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822953/pujol11_apqx2i.jpg")
-Restaurant.find_by(name: "Hiša Franko").update(restaurant_cover_pic: "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822919/hf6_oujr5k.jpg")
-Restaurant.find_by(name: "Gaggan").update(restaurant_cover_pic: "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822916/gaggan6_sgr4mm.jpg")
-Restaurant.find_by(name: "El Bulli").update(restaurant_cover_pic: "http://res.cloudinary.com/dldvsrho8/image/upload/v1467941998/eb9_heu6j7.jpg")
+Restaurant.find_by(name: "D.O.M.").update(restaurant_cover_pic: "https://res.cloudinary.com/dldvsrho8/image/upload/v1467822904/dom7_alrs6s.jpg")
+Restaurant.find_by(name: "Atelier Crenn").update(restaurant_cover_pic: "https://res.cloudinary.com/dldvsrho8/image/upload/v1467822895/ac5_dtudhz.jpg")
+Restaurant.find_by(name: "Pujol").update(restaurant_cover_pic: "https://res.cloudinary.com/dldvsrho8/image/upload/v1467822953/pujol11_apqx2i.jpg")
+Restaurant.find_by(name: "Hiša Franko").update(restaurant_cover_pic: "https://res.cloudinary.com/dldvsrho8/image/upload/v1467822919/hf6_oujr5k.jpg")
+Restaurant.find_by(name: "Gaggan").update(restaurant_cover_pic: "https://res.cloudinary.com/dldvsrho8/image/upload/v1467822916/gaggan6_sgr4mm.jpg")
+Restaurant.find_by(name: "El Bulli").update(restaurant_cover_pic: "https://res.cloudinary.com/dldvsrho8/image/upload/v1467941998/eb9_heu6j7.jpg")
 
 User.create!(username: 'demo', password: 123123)
 userid = User.find_by(username: 'demo').id

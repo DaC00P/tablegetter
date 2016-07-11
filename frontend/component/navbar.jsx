@@ -11,6 +11,7 @@ import Dropdown from 'react-dropdown';
 const ReservationActions = require('../actions/reservation_actions');
 const SessionActions = require('../actions/session_actions');
 const ErrorStore = require('../stores/error_store');
+const ErrorActions = require('../actions/error_actions');
 const RestaurantStore = require('../stores/restaurant_store');
 const RestaurantActions = require('../actions/restaurant_actions')
 
@@ -90,6 +91,7 @@ const NavBar = React.createClass({
   },
 
   reservationClick() {
+    ErrorActions.clearErrors();
     this.openModal();
   },
 

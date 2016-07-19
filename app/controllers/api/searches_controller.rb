@@ -1,10 +1,10 @@
 class Api::SearchesController < ApplicationController
   def search_for_restaurants(query)
     searched_for = []
-    searched_for << Restaurant.where("name LIKE ? OR name LIKE ?", "%#{query.capitalize}%", "%#{query}%")
-    searched_for << Restaurant.where("chef LIKE ? OR chef LIKE ?", "%#{query.capitalize}%", "%#{query}%")
-    searched_for << Restaurant.where("cuisine LIKE ? OR cuisine LIKE ?", "%#{query.capitalize}%", "%#{query}%")
-    # searched_for << Restaurant.where(query[:city])
+    searched_for << Restaurant.where("name ILIKE ?", "%#{query}%")
+    searched_for << Restaurant.where("chef ILIKE ?", "%#{query}%")
+    searched_for << Restaurant.where("cuisine ILIKE ?", "%#{query}%")
+    searched_for << Restaurant.where("city ILIKE ?", "%#{query}%")
     searched_for
   end
 

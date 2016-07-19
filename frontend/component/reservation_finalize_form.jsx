@@ -47,7 +47,7 @@ const ReservationFinalizeForm = React.createClass({
 
   copyState(state) {
     let copy = {};
-    for (var attr in state) {
+    for (let attr in state) {
         copy[attr] = state[attr];
     }
     return copy;
@@ -106,7 +106,7 @@ const ReservationFinalizeForm = React.createClass({
 
     if (!SessionStore.isUserLoggedIn()) {
       currentForm = (
-        <h1 className="not-signed-in-reservation"> You must log in before booking a reservation. If you do not have an account, please sign up or use the Guest Log In</h1>
+        <h1 className="not-signed-in-reservation"> We Apologize <br></br><br></br> You must log in before booking a reservation. If you do not have an account, please sign up or use the Guest Log In</h1>
       );
     }
 

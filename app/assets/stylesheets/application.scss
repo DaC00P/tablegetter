@@ -360,6 +360,16 @@
   }
 }
 
+.not-signed-in-reservation {
+  max-width: 750px;
+  font-weight: bolder;
+  font-size: 30px;
+  text-align: center;
+  margin-top: 140px;
+  font-weight: bolder;
+  font-family: 'Bad Script', cursive;
+}
+
 .detail-booking-section {
   border-radius: 5px;
   margin: 3px;
@@ -382,7 +392,6 @@
   width: 100%;
 }
 
-
 .restaurant-booking-calender {
   display: flex;
   justify-content: space-around;
@@ -393,17 +402,12 @@
   }
 }
 
-
 .dropdown-food-pic {
   width: 25%;
   display: inline-flex;
   padding: 2px;
   border-radius: 5px;
 }
-
-
-
-
 
 .main-restaurant-food-pic {
   margin: 5px;

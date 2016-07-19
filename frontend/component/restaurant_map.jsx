@@ -86,7 +86,8 @@ module.exports = React.createClass({
     const pos = new google.maps.LatLng(restaurant.lat, restaurant.lng);
     const marker = new google.maps.Marker({
       position: pos,
-      map: this.map
+      map: this.map,
+      title: restaurant.name
     });
     return marker;
   },

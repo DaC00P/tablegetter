@@ -33,7 +33,6 @@ const LoginForm = React.createClass({
   redirectIfLoggedIn() {
     if (SessionStore.isUserLoggedIn()) {
 			this.props.closeModal();
-      // this.context.router.push("/");
     }
   },
 
@@ -78,6 +77,16 @@ const LoginForm = React.createClass({
 		}
 	},
 
+	handleDemoLogin () {
+		event.preventDefault();
+
+    const demoFormData = {
+      username: "demo",
+      password: "123123"
+    };
+    SessionActions.logIn(demoFormData);
+	},
+
   update(property) {
     return (e) => this.setState({[property]: e.target.value});
   },
@@ -88,9 +97,10 @@ const LoginForm = React.createClass({
 		return (
 							<div className="login-form-container">
 								<form onSubmit={this.handleSubmit} className="login-form-box">
-									Welcome to ChefsTable!
+									<span className='welcome-to'>Welcome to ChefsTable!</span>
 									<br/>
-									Please { this.state.form } or { navLink }
+									<br/>
+									<span className='please-login-signup'>Please { this.state.form } or { navLink }</span>
 
 									{ this.fieldErrors("base") }
 									<div className="login-form">
@@ -112,7 +122,8 @@ const LoginForm = React.createClass({
 												className="login-input" />
 										</label>
 										<br />
-										<input type="submit" value="Submit"  data-dismiss="modal" onClick={this.handleSubmit}/>
+										<button type="button" className="btn btn-info btn-sm" onClick={this.handleSubmit}>Submit</button>
+										<button type="button" className="btn btn-info btn-sm" onClick={this.handleDemoLogin}>Guest Log In</button>
 									</div>
 								</form>
 							</div>

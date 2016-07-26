@@ -13,7 +13,7 @@ const SessionActions = require('../actions/session_actions');
 const ErrorStore = require('../stores/error_store');
 const ErrorActions = require('../actions/error_actions');
 const RestaurantStore = require('../stores/restaurant_store');
-const RestaurantActions = require('../actions/restaurant_actions')
+const RestaurantActions = require('../actions/restaurant_actions');
 
 const customStyle = {
   content : {
@@ -24,7 +24,7 @@ const customStyle = {
     height                : 'auto',
     marginRight           : '-50%',
     transform             : 'translate(-50%, -50%)',
-    backgroundColor       : "floralwhite",
+    backgroundColor       : '#FD3DDD3',
     border                : '2.5px solid black',
     borderRadius          : '4px',
     color                 : 'black',
@@ -71,19 +71,6 @@ const NavBar = React.createClass({
     this.props.openModal();
     this.props.setLogin();
   },
-
-  handleDemoLogin(event) {
-    event.preventDefault();
-
-    const demoFormData = {
-      username: "demo",
-      password: "123123"
-    };
-    SessionActions.logIn(demoFormData);
-    // this.props.openModal();
-    // this.props.closeModal();
-  },
-
 
   signUpClick() {
     this.props.openModal();
@@ -162,7 +149,6 @@ const NavBar = React.createClass({
   },
 
   render() {
-    const demologinbutton = (<button type="button" className="btn btn-info btn-sm" onClick={this.handleDemoLogin}>Guest Log In</button>);
     const loginbuttons = (<button type="button" className="btn btn-info btn-sm" onClick={this.loginClick}>Log In</button>);
     const signupbutton = (<button type="button" className="btn btn-info btn-sm" onClick={this.signUpClick}>Sign Up</button>);
 
@@ -180,7 +166,7 @@ const NavBar = React.createClass({
 
     }
     else {
-      currentbutton = <span> {demologinbutton} {loginbuttons} {signupbutton} </span>;
+      currentbutton = <span> {loginbuttons} {signupbutton} </span>;
       greeting = <div></div>;
     }
 

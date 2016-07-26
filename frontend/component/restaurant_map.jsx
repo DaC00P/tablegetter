@@ -89,10 +89,19 @@ module.exports = React.createClass({
       map: this.map,
       title: restaurant.name
     });
+    this.restaurant_id = restaurant.id;
+    // marker.addEventListener();
+    this.mapMarkerListener = google.maps.event.addListener(marker, 'click', this.scrollToRestaurantInIndex);
+    // put in a callback instead of the console log that either narrows the index or does..?
     return marker;
   },
 
+  scrollToRestaurantInIndex() {
+    console.log('testing');
+  },
+
   removeRestaurantMarker (id) {
+    // this.markers[id].removeListener();
     this.markers[id].setMap(null);
   },
 

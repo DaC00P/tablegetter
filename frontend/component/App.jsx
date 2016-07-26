@@ -22,10 +22,10 @@ const customStyle = {
     height                : '300px',
     marginRight           : '-50%',
     transform             : 'translate(-50%, -50%)',
-    backgroundImage       : "url('https://res.cloudinary.com/dldvsrho8/image/upload/c_scale,h_416/v1467246180/calmmodalbg_okxz6u.jpg')",
     border                : '2.5px solid black',
     borderRadius          : '4px',
-    color                 : 'black'
+    color                 : 'black',
+    backgroundColor       : '#FD3DDD3'
   },
   overlay : {
     position          : 'fixed',

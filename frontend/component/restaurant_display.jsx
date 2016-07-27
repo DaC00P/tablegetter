@@ -34,9 +34,15 @@ const RestaurantDisplay = React.createClass({
   },
 
   render() {
-    let restaurant_names = this.state.restaurants.map((restaurant) => {
-      return (<RestaurantDisplayItem key={restaurant.id} restaurant={restaurant}></RestaurantDisplayItem>);
-    });
+    let restaurant_names;
+    if (this.state.restaurants.length === 0){
+      restaurant_names = (<h2 className="no-search-results">Apologies, no matching search results</h2>);
+    }
+    else {
+      restaurant_names = this.state.restaurants.map((restaurant) => {
+        return (<RestaurantDisplayItem key={restaurant.id} restaurant={restaurant}></RestaurantDisplayItem>);
+      });
+    }
 
     return (
       <section className="restaurant-index-and-search">

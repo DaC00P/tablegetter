@@ -31,7 +31,7 @@ const RestaurantDisplayItem = React.createClass({
         <div className="restaurant-details-div">
           <div className="title-reviewsmore-div">
             <h2 className='restaurant-name-header'>{this.props.restaurant.name}</h2>
-            <button type="button" className="btn btn-info btn-sm" onClick={this.showRestaurant}>See Reviews & More</button>
+            <button type="button" className="btn btn-info btn-sm" id="reserve-finalize-button" onClick={this.showRestaurant}>See Reviews & More</button>
           </div>
 
           <RestaurantDetailBox restaurant={this.props.restaurant}/ >

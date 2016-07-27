@@ -15,6 +15,7 @@
  */
 
 
+
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
@@ -225,11 +226,11 @@
   width: 300px;
 }
 
-
 .restaurant-name-header {
   color: black;
   font-weight: bolder;
   font-family: 'Bad Script', cursive;
+  font-size: 30px;
   &:hover {
     text-decoration: underline;
     text-decoration-color: red;
@@ -238,24 +239,22 @@
 }
 
 .tooltip {
-    display: inline-block;
-    width:100px;
+    display: inline;
+    position: relative;
 }
 
-.tooltip.jq {
-  display: inline-block;
-  background: #333;
-  background: rgba(0, 0, 0, .8);
-  border-radius: 5px;
-  bottom: 26px;
-  color: #fff;
-  content: attr(title);
-  left: 20%;
-  padding: 5px 15px;
-  position: absolute;
-  z-index: 100;
-  width: 220px;
-  height: 100px;
+.tooltip:hover:after {
+    background: #333;
+    background: rgba(0,0,0,.8);
+    border-radius: 5px;
+    bottom: 26px;
+    color: #fff;
+    content: attr(title);
+    left: 20%;
+    padding: 5px 15px;
+    position: absolute;
+    z-index: 98;
+    width: 220px;
 }
 
 
@@ -265,7 +264,7 @@
     border-width: 6px 6px 0 6px;
     bottom: 20px;
     content: "";
-    left: 25%;
+    left: 50%;
     position: absolute;
     z-index: 99;
 }

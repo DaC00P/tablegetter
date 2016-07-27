@@ -21,14 +21,14 @@ const customStyle = {
     left                  : '50%',
     right                 : 'auto',
     bottom                : '0%',
-    height                : 'auto',
+    height                : '50vw',
+    width                : '80vw',
     marginRight           : '-50%',
     transform             : 'translate(-50%, -50%)',
     backgroundColor       : '#FD3DDD3',
     border                : '2.5px solid black',
     borderRadius          : '4px',
     color                 : 'black',
-    width                 : '50vw',
     fontWeight            : 'bold',
     textAlign             : 'center'
   },
@@ -43,7 +43,7 @@ const customStyle = {
   }
 };
 const options = ["5:00 PM", "7:00 PM", "9:00 PM"];
-const defaultOption = "Please Select a Seating";
+const defaultOption = "Please Select a Time";
 
 
 const NavBar = React.createClass({
@@ -149,10 +149,10 @@ const NavBar = React.createClass({
   },
 
   render() {
-    const loginbuttons = (<button type="button" className="btn btn-info btn-sm" onClick={this.loginClick}>Log In</button>);
-    const signupbutton = (<button type="button" className="btn btn-info btn-sm" onClick={this.signUpClick}>Sign Up</button>);
+    const loginbuttons = (<button type="button" className="btn btn-info btn-sm" id="reserve-finalize-button" onClick={this.loginClick}>Log In</button>);
+    const signupbutton = (<button type="button" className="btn btn-info btn-sm" id="reserve-finalize-button" onClick={this.signUpClick}>Sign Up</button>);
 
-    const logoutbutton = (<button type="button" className="btn btn-info btn-sm" onClick={this.props.handleLogout}>Log Out</button>);
+    const logoutbutton = (<button type="button" className="btn btn-info btn-sm" id="reserve-finalize-button" onClick={this.props.handleLogout}>Log Out</button>);
 
     let greeting = <div></div>;
     let myReservations = <div></div>;
@@ -162,17 +162,13 @@ const NavBar = React.createClass({
       currentbutton = logoutbutton;
       greeting = (<h4 className="navbar-header-name">Welcome, {SessionStore.currentUser().username}!</h4>);
 
-      myReservations = (<button type="button" className="btn btn-info btn-sm" id="help-button" data-toggle="modal" data-target="#reservation-modal" onClick={this.reservationClick} >My Reservations</button>);
+      myReservations = (<button type="button" className="btn btn-info btn-sm" id="reserve-finalize-button" data-toggle="modal" data-target="#reservation-modal" onClick={this.reservationClick} >My Reservations</button>);
 
     }
     else {
       currentbutton = <span> {loginbuttons} {signupbutton} </span>;
       greeting = <div></div>;
     }
-
-    // if (!(this.props.location.pathname.includes('api/restaurant'))){
-    //why isn't the pathname working??
-    // }
 
     let reservations = [];
     for (let reservation in this.props.reservations){
@@ -184,7 +180,7 @@ const NavBar = React.createClass({
 
 
       if (RestaurantStore.findByID(reservationn.restaurant_id) !== undefined){
-        restaurantt = RestaurantStore.findByID(reservationn.restaurant_id).name
+        restaurantt = RestaurantStore.findByID(reservationn.restaurant_id).name;
       }
 
 
@@ -211,8 +207,8 @@ const NavBar = React.createClass({
             <li key={reservationn.id * 5}>
               <input onChange={this.editSpecialInstructions} type="text" placeholder="Please Enter You New Special Instructions" className="reservation-entry-details"/>
            </li>
-            <button type="button" className="btn btn-info btn-sm" id="edit-button" onClick={this.editReservationDetails.bind(this, reservationn.id)} >Edit Reservation</button>
-            <button type="button" className="btn btn-info btn-sm" id="cancel`-button" onClick={this.cancelReservation.bind(this, reservationn.id)} >Cancel Reservation</button>
+            <button type="button" className="btn btn-info btn-sm" id="reserve-finalize-button" onClick={this.editReservationDetails.bind(this, reservationn.id)} >Edit Reservation</button>
+            <button type="button" className="btn btn-info btn-sm" id="reserve-finalize-button" onClick={this.cancelReservation.bind(this, reservationn.id)} >Cancel Reservation</button>
           </ul>
 
         </div>

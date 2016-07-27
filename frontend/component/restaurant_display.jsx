@@ -42,7 +42,7 @@ const RestaurantDisplay = React.createClass({
       <section className="restaurant-index-and-search">
         <form className="navbar-form navbar-left" role="search" id='restaurant-searchbar'>
           <div className="form-group">
-            <input onChange={this.searchForRestaurants} type="text" className="form-control" id="restaurant-filter" placeholder="Filter by Name, Chef, and Cuisine"/>
+            <input onChange={this.searchForRestaurants} type="text" className="form-control" id="restaurant-filter" placeholder="Filter by Name, Chef, City or Cuisine"/>
           </div>
         </form>
         <section className="restaurant-index">{restaurant_names}</section>

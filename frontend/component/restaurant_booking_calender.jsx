@@ -45,7 +45,7 @@ const RestaurantBookingCalender = React.createClass({
     this.setState({modalIsOpen: true});
   },
 
-  afterOpenModal: function() {
+  afterOpenModal: function(e) {
     // references are now sync'd and can be accessed.
     this.refs.subtitle.style.color = '#f00';
   },
@@ -56,11 +56,11 @@ const RestaurantBookingCalender = React.createClass({
 
   render() {
     const options = ["5:00 PM", "7:00 PM", "9:00 PM"];
-    const defaultOption = "Please Select a Seating";
+    const defaultOption = "Please Select a Time";
     return (
       <section className='restaurant-booking-calender'>
 
-            <Calendar onChange={this.handleCalenderSelect} closeOnSelect={true} type="calender" format='DD/MM/YYYY' date={this.state.reservationDate} defaultValue='Click Here to Reserve'/>
+            <Calendar onChange={this.handleCalenderSelect} closeOnSelect={true} type="calender" format='MM/DD/YYYY' date={this.state.reservationDate} defaultValue='Click Here to Reserve'/>
             <Dropdown onChange={this.handleTimeSelect} className="" options={options} value={this.state.reservationTime} placeholder={defaultOption} />
             <button className="btn btn-info btn-sm" id='reserve-finalize-button' onClick={this.openModal}>Finalize Reservation</button>
 

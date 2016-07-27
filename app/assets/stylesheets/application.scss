@@ -18,7 +18,31 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
- .map {
+ .icon-colors {
+   color: #1178B3;
+ }
+ .footer-container .social li {
+  display: inline-block;
+  margin: 0 2px 0 0;
+  vertical-align: top;
+  letter-spacing: normal;
+}
+.footer-container .social {
+  font-size: 22px;
+  line-height: 24px;
+  padding: 10px 0 0;
+}
+
+.footer {
+  background-color: rgb(237,239,237);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 45px;
+  border: none;
+}
+
+.map {
   float: right;
   position: absolute;
   right: 0;
@@ -44,6 +68,7 @@
   margin-bottom: 0px;
   padding-bottom: 0px;
   height: 0px;
+  border-radius: none;
 }
 
 .navbar-brand {
@@ -155,32 +180,31 @@
   border-radius: 5px;
 }
 
-#edit-button {
-  margin-top: 3px;
-  margin-right: 5px;
-}
-
-#cancel-button {
-  margin-top: 3px;
-}
-
 #reserve-finalize-button {
   margin: 0 auto;
   margin-left: 10px;
   height: 37px;
-}
-
-.btn-sm {
-  color: floralwhite;
   background-color: rgba(0, 0, 0, 0.6);
-  border: none;
-  opacity: .9;
-  height: 40px;
-  font-size: 16px;
   &:hover {
     background-color: rgba(0, 0, 0, 0.9);
   }
 }
+
+// #reserve-finalize-button:active:focus {
+//   background-color: rgba(0, 0, 0, 0.9) !important;
+// }
+// .btn-sm:active {
+//   background-color: rgba(0, 0, 0, 0.9) !important;
+// }
+
+.btn-sm {
+  color: floralwhite;
+  border: none;
+  opacity: .9;
+  height: 40px;
+  font-size: 16px;
+}
+
 
 #restaurant-searchbar {
   height: 50px;
@@ -192,7 +216,7 @@
 }
 
 #restaurant-filter {
-  width: 235px;
+  width: 300px;
 }
 
 
@@ -201,7 +225,6 @@
   font-weight: bolder;
   font-family: 'Bad Script', cursive;
 }
-
 
 
 .flexboxeverything {
@@ -388,6 +411,12 @@
     width: auto;
     border: 1px solid black;
     border-radius: 5px;
+  }
+  .btn-sm {
+    background-color: rgba(0, 0, 0, 0.6);
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.9);
+    }
   }
 }
 

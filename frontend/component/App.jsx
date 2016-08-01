@@ -11,6 +11,7 @@ const RestaurantDisplay = require('./restaurant_display');
 const RestaurantMap = require('./restaurant_map');
 const ReservationActions = require('../actions/reservation_actions');
 const ReservationStore = require('../stores/reservation_store');
+const SocialButtons = require('./social_links');
 
 
 const customStyle = {
@@ -101,7 +102,7 @@ const App = React.createClass({
         <div className="chef-bg">
           <NavBar reservations={this.state.reservations} handleLogout = {this._handleLogOut} openModal={this.openModal} closeModal={this.closeModal} setLogin={this.setLogin} setSignup={this.setSignup}/>
           <section className="header-text">
-            <h3 className="site-title-text">INDULGE THERE</h3>
+            <h3 className="site-title-text">INDULGE YOURSELF</h3>
             <h4 className="site-marketing-text">Book tables at the best restaurants in the world and experience a culinary pioneer's deft touch</h4>
           </section>
         </div>
@@ -118,48 +119,34 @@ const App = React.createClass({
       );
     }
 
+    let footerStyleID = this.props.location.pathname;
+    if(footerStyleID === "/" || footerStyleID === "/"){
+      footerStyleID = "homepage";
+    } else {
+      footerStyleID = "footer";
+    }
+
 
     return (
-      <div className='flexboxeverything'>
+        <div className='flexboxeverything'>
 
-        {marketingBanner}
+          {marketingBanner}
 
-        <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyle} id="loginmodal">
-          <LoginForm closeModal={this.closeModal} form={this.state.form} />
-        </Modal>
+          <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyle} id="loginmodal">
+            <LoginForm closeModal={this.closeModal} form={this.state.form} />
+          </Modal>
 
-        {this.props.children}
+          {this.props.children}
 
-        <footer className='footer'>
+          <nav id={footerStyleID} className="navbar navbar-default navbar-fixed-bottom">
+              <SocialButtons/>
+          </nav>
 
-        	<div id="footerwrap">
-        		<div className="container">
-        			<div className="row centered">
 
-        				<div className="col-lg-4">
-        					<p>Created by Daniel Cuperman</p>
-        				</div>
-                <div className="footer-column">
-                  <strong className="heading">CONNECT</strong>
-                  <div className="social">
-                    <ul className="connect-row">
-                      <li><a href="mailto:dacuperman@gmail.com"><i className="fa fa-envelope fa-lg icon-colors" aria-hidden="true"></i></a></li>
-                      <li className="linkedin"><a className="icon-linkedin" href="https://www.linkedin.com/in/danielcuperman"><i className="fa fa-linkedin fa-lg icon-colors" aria-hidden="true"></i></a></li>
-                      <li className="git"><a className="icon-github-circled" href="https://github.com/DaC00P"><i className="fa fa-github fa-lg icon-colors" aria-hidden="true"></i></a></li>
-                      <li className="keep"></li>
-                    </ul>
-                  </div>
-                </div>
-        			</div>
-        		</div>
-        	</div>
-
-        </footer>
       </div>
+
     );
   }
 });
 
 module.exports = App;
-
-// <li className="home"><a className="icon-home" href="http://nhatho89.github.io/PersonalSite/"><i className="fa fa-home fa-lg icon-colors" aria-hidden="true"></i></a></li>

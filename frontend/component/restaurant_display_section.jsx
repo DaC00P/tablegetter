@@ -10,7 +10,7 @@ const RestaurantDisplaySection = React.createClass({
 
   render() {
     return (
-      <section className="map-details-combo">
+      <section className="map-details-combo clearfix">
         <RestaurantMap/>
         <RestaurantDisplay/>
       </section>

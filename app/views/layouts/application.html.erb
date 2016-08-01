@@ -2,9 +2,9 @@
 <html>
 <head>
   <title>ChefsTable</title>
+  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV["gmaps_key"]}"%>
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Bad+Script' rel='stylesheet' type='text/css'>
-  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV["gmaps_key"]}"%>
   <%= csrf_meta_tags %>
   <%= javascript_include_tag 'application' %>
   <%= stylesheet_link_tag    'application', media: 'all'%>
@@ -16,4 +16,5 @@
 <%= yield %>
 
 </body>
+
 </html>

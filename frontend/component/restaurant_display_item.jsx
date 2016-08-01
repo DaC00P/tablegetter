@@ -9,6 +9,7 @@ const RestaurantStore = require('../stores/restaurant_store');
 const RestaurantActions = require('../actions/restaurant_actions');
 const ReactRouter = require('react-router');
 const hashHistory = ReactRouter.hashHistory;
+const ReactTooltip = require("react-tooltip");
 
 
 const RestaurantDisplayItem = React.createClass({
@@ -32,7 +33,8 @@ const RestaurantDisplayItem = React.createClass({
 
           <div className="title-reviewsmore-div">
               <h2 className='restaurant-name-header' onClick={this.showRestaurant}>
-                  <span className='restaurant-name-header' title="Pictures & Reviews">{this.props.restaurant.name}</span>
+                  <ReactTooltip place="top" type="dark" effect="float"/>
+                  <p className='restaurant-name-header' data-tip="Pictures & Reviews">{this.props.restaurant.name}</p>
               </h2>
           </div>
 

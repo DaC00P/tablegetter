@@ -10,8 +10,8 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
+ *= require reset.css
  */
 
 
@@ -19,29 +19,7 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
- .icon-colors {
-   color: #1178B3;
- }
- .footer-container .social li {
-  display: inline-block;
-  margin: 0 2px 0 0;
-  vertical-align: top;
-  letter-spacing: normal;
-}
-.footer-container .social {
-  font-size: 22px;
-  line-height: 24px;
-  padding: 10px 0 0;
-}
 
-.footer {
-  background-color: rgb(237,239,237);
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 45px;
-  border: none;
-}
 
 .map {
   float: right;
@@ -87,6 +65,54 @@
   z-index: 100;
 }
 
+#content {
+  position: relative;
+}
+
+#footer {
+ position: absolute;
+ background-color: rgb(246, 246, 246);
+ bottom: 0;
+ width: 100%;
+ border: none;
+}
+
+#homepage{
+ position: fixed;
+ background-color: rgb(246, 246, 246);
+ bottom: 0;
+ width: 100%;
+ height: 63px;
+ border: none;
+}
+
+.connect-row {
+ display: flex;
+ justify-content: space-around;
+ width: 200px;
+ margin: auto;
+ padding: 0px;
+ height: 50px;
+ list-style: none;
+}
+
+.footer-column {
+ display: inline-flex;
+ font-size: 14px;
+ .by-dc {
+   left: 0;
+   font-size: 18px;
+ }
+ .connect-row {
+   right: 0;
+   display: flex;
+ }
+}
+
+#icon {
+ width: 35px;
+ height: 35px;
+}
 
 #greeting {
   margin: 0 auto;
@@ -197,13 +223,6 @@
   }
 }
 
-// #reserve-finalize-button:active:focus {
-//   background-color: rgba(0, 0, 0, 0.9) !important;
-// }
-// .btn-sm:active {
-//   background-color: rgba(0, 0, 0, 0.9) !important;
-// }
-
 .btn-sm {
   color: floralwhite;
   border: none;
@@ -237,38 +256,6 @@
     cursor: pointer;
   }
 }
-
-.tooltip {
-    display: inline;
-    position: relative;
-}
-
-.tooltip:hover:after {
-    background: #333;
-    background: rgba(0,0,0,.8);
-    border-radius: 5px;
-    bottom: 26px;
-    color: #fff;
-    content: attr(title);
-    left: 20%;
-    padding: 5px 15px;
-    position: absolute;
-    z-index: 98;
-    width: 220px;
-}
-
-
-.tooltip:hover:before {
-    border: solid;
-    border-color: #333 transparent;
-    border-width: 6px 6px 0 6px;
-    bottom: 20px;
-    content: "";
-    left: 50%;
-    position: absolute;
-    z-index: 99;
-}
-
 
 .flexboxeverything {
   display: flex;
@@ -324,7 +311,7 @@
   background-position: 50% 25%;
   margin-top: 0px;
   padding-top: 0px;
-  opacity: .8;
+
   position: relative;
   align-content: center;
   margin-top: 5px;
@@ -741,6 +728,7 @@ body {
   margin: 20px auto;
   width: 100%;
   height: 100%;
+  padding-bottom: 50px;
 }
 
 header h2 {

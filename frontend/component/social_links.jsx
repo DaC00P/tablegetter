@@ -9,22 +9,22 @@ const Connect = React.createClass({
   render: function() {
     return (
       <div className="footer-column">
-          <p className='by-dc'>Chef's Table: Created by Daniel Cuperman</p>
+          <p className='by-dc'>Chef's Table: Site Designed & Built by Daniel 'Coop' Cuperman</p>
           <ul className="connect-row">
-            <strong className="heading">CONNECT</strong>
+            <strong className="heading">CONNECT:</strong>
             <li>
               <a href="mailto:dacuperman@gmail.com">
-                <EMAIL/>
+                <EMAIL id='icon'/>
               </a>
             </li>
             <li className="linkedin">
               <a className="icon-linkedin" href="https://www.linkedin.com/in/danielcuperman">
-                <LD/>
+                <LD id='icon'/>
               </a>
             </li>
             <li className="git">
               <a className="icon-github-circled" href="https://github.com/DaC00P">
-                <GH/>
+                <GH id='icon'/>
               </a>
             </li>
           </ul>

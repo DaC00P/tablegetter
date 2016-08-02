@@ -21,20 +21,16 @@ Check out ChefsTable [live here][production].
 
 ![login-signup-modal](./docs/screenshots/login-signup-modal.png)
 
-### See Where You'll Eat: Fully Interactive Google Map with Marker Highlighting & Street View
+### See Where You'll Eat: Fully Interactive Google Map with Marker Highlighting
 
-![map](./docs/screenshots/map-with-highlighted-marker.png)
 - Utilizes the Google Maps API in a React Component to allow the user to see restaurant locations.
 - Disables mouse-wheel scrolling in the Map in order not to disrupt user experience while scrolling on page.
 - Zooming in on the Map will narrow the index to whichever restaurants are visible.
-![narrowed-index](./docs/screenshots/narrowed-index.png)
-- Users can enter street view and explore the area around their Restaurant of choice.
 - Highlights a Restaurant Map Marker by inducing opacity on all other markers when the restaurant is moused over in the Index:
   ![highlighted-marker](./docs/screenshots/highlighted-marker.png)
 
 
 ### Reservation Booking: Pick Your Place, Date, Seating Time, and Give Special Instructions
-  ![reservation](./docs/screenshots/show-where-reserve-is.png)
 - Booking is accomplished via a Finalization Modal, once the Date & Time have been chosen via integrated React components.
 - A Finalize Modal is then used to confirm all user details, and give optional input fields for Special Instructions & Allergies.
 - Overbooking is prevented on the back-end with a custom validation:
@@ -62,7 +58,6 @@ Check out ChefsTable [live here][production].
 ### Filtering Map & Index: Active Search Bar Utilized to Narrow Your Reservation Choices
 - The Restaurant Index has two filtering options:
   - 1) An active filter based on a search bar, which updates the results with every character typed.
-  ![search-bar](./docs/screenshots/search-bar-in-action.png)
 
   - 2) The zoom function on the map, which narrows the results based on the bounds of the map.
     - Active filtering is accomplished via a single ActiveRecord query:
@@ -77,16 +72,16 @@ Check out ChefsTable [live here][production].
                          *query )
     end
     ```
+    -Filter in Use
+    ![search-bar](./docs/screenshots/search-bar-in-action.png)
 
 
 ## Ongoing Improvements
 
-### Enable Mouse-Over Zoomed-In Modal for Food Photography
-  - Use the CSS grow property on hover in order to display higher resolution images in a larger format for the Restaurant Show Page, while also transitioning the other images via sliding transitions so that all images are still        visibile.
-
 ### Utilize Auto-Scrolling to Move the Index to the Position of the Restaurant that was Clicked on the Map
   - When a map marker is clicked on, the Restaurant Index should scroll to that restaurant's position. A tooltip should also open on the map marker indicating that the user can click the tooltip to go directly to the show page.
+  - Additionally, the user should be presented for an option to view the Google Street View of the location that the Restaurant is at.
 ### Center in on the map when the index item is Clicked
-  - When the Restaurant Index Item is clicked  on, the Restaurant will be set as the new center of the map, and the marker will remain highlighted for extended time
+  - When the Restaurant Index Item is clicked  on, the Restaurant will be set as the new center of the map, and the marker will remain highlighted for extended time.
 
 [popup-logic]: ./docs/screenshots/popup_logic.png

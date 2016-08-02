@@ -149,25 +149,65 @@ const NavBar = React.createClass({
   },
 
   render() {
-    const loginbuttons = (<button type="button" className="btn btn-info btn-sm" id="reserve-finalize-button" onClick={this.loginClick}>Log In</button>);
-    const signupbutton = (<button type="button" className="btn btn-info btn-sm" id="reserve-finalize-button" onClick={this.signUpClick}>Sign Up</button>);
+    const loginbuttons = (
+      <button
+        type="button"
+        className="btn btn-info btn-sm"
+        id="reserve-finalize-button"
+        onClick={this.loginClick}>
+        Log In
+      </button>
+    );
+    const signupbutton = (
+      <button
+        type="button"
+        className="btn btn-info btn-sm"
+        id="reserve-finalize-button"
+        onClick={this.signUpClick}>
+        Sign Up
+      </button>
+    );
 
-    const logoutbutton = (<button type="button" className="btn btn-info btn-sm" id="reserve-finalize-button" onClick={this.props.handleLogout}>Log Out</button>);
+    const logoutbutton = (
+      <button
+        type="button"
+        className="btn btn-info btn-sm"
+        id="reserve-finalize-button"
+        onClick={this.props.handleLogout}>
+        Log Out
+      </button>
+    );
 
-    let greeting = <div></div>;
-    let myReservations = <div></div>;
+    let greeting = <div/>;
+    let myReservations = <div/>;
 
     let currentbutton;
     if (SessionStore.isUserLoggedIn()){
       currentbutton = logoutbutton;
-      greeting = (<h4 className="navbar-header-name">Welcome, {SessionStore.currentUser().username}!</h4>);
+      greeting = (
+        <h4 className="navbar-header-name">Welcome, {SessionStore.currentUser().username}!</h4>
+      );
 
-      myReservations = (<button type="button" className="btn btn-info btn-sm" id="reserve-finalize-button" data-toggle="modal" data-target="#reservation-modal" onClick={this.reservationClick} >My Reservations</button>);
+      myReservations = (
+        <button
+          type="button"
+          className="btn btn-info btn-sm"
+          id="reserve-finalize-button"
+          data-toggle="modal"
+          data-target="#reservation-modal"
+          onClick={this.reservationClick} >
+          My Reservations
+        </button>
+      );
 
     }
     else {
-      currentbutton = <span> {loginbuttons} {signupbutton} </span>;
-      greeting = <div></div>;
+      currentbutton =
+      <span>
+        {loginbuttons} {signupbutton}
+      </span>
+      ;
+      greeting = <div/>;
     }
 
     let reservations = [];
@@ -185,65 +225,117 @@ const NavBar = React.createClass({
 
 
       return (
-        <div key = {reservationn.id * 12} className="user-reservation-ud">
-          <h2 className="your-reservation-at">Your Reservation at {restaurantt}</h2>
+        <div
+          key = {reservationn.id * 12}
+          className="user-reservation-ud">
+          <h2 className="your-reservation-at">
+            Your Reservation at {restaurantt}
+          </h2>
 
-          <ul key={reservationn.id} className='reservation-details-edit'>
-            <br></br>
-            <h4>If you would like to edit your Reservation, please fill out the form and press Edit Reservation</h4>
-            <br></br><span className="reservation-finalize-form-errors">{this.state.errors.error}</span><br></br>
+          <ul
+            key={reservationn.id}
+            className='reservation-details-edit'>
+            <br>
+            </br>
+            <h4>
+              If you would like to edit your Reservation, please fill out the form and press Edit Reservation
+            </h4>
+            <br>
+            </br>
+            <span className="reservation-finalize-form-errors">
+              {this.state.errors.error}
+            </span>
+            <br>
+            </br>
             <li key={reservationn.id * 9}>
-               Your Current Reservation Date is: {reservationn.date} <Calendar onChange={this.handleCalenderSelect} closeOnSelect={true} type="calender" format='DD/MM/YYYY' date={this.state.reservationDate} defaultValue='Click Here to Reserve'/>
+              Your Current Reservation Date is: {reservationn.date} <Calendar onChange={this.handleCalenderSelect}
+              closeOnSelect={true} type="calender" format='DD/MM/YYYY' date={this.state.reservationDate} defaultValue='Click Here to Reserve'/>
             </li>
             <li key={reservationn.id * 8}>
-               Your Current Reservation Time is: {reservationn.time} <Dropdown onChange={this.handleTimeSelect} className="" options={options} value={this.state.reservationTime} placeholder="Please Select a Seating" />
+            Your Current Reservation Time is: {reservationn.time} <Dropdown onChange={this.handleTimeSelect}
+            className="" options={options} value={this.state.reservationTime} placeholder="Please Select a Seating" />
             </li>
             <li key={reservationn.id * 7}>
-               <input onChange={this.editPartySize} type="text" placeholder="Please Enter Your New Party Size" className="reservation-entry-details"/>
+              <input
+                onChange={this.editPartySize}
+                type="text"
+                placeholder="Please Enter Your New Party Size"
+                className="reservation-entry-details"/>
             </li>
             <li key={reservationn.id * 6}>
-               <input onChange={this.editAllergies} type="text" placeholder="Please Enter Your New Allergies" className="reservation-entry-details"/>
+              <input
+                onChange={this.editAllergies}
+                type="text"
+                placeholder="Please Enter Your New Allergies"
+                className="reservation-entry-details"/>
             </li>
             <li key={reservationn.id * 5}>
-              <input onChange={this.editSpecialInstructions} type="text" placeholder="Please Enter You New Special Instructions" className="reservation-entry-details"/>
-           </li>
-            <button type="button" className="btn btn-info btn-sm" id="reserve-finalize-button" onClick={this.editReservationDetails.bind(this, reservationn.id)} >Edit Reservation</button>
-            <button type="button" className="btn btn-info btn-sm" id="reserve-finalize-button" onClick={this.cancelReservation.bind(this, reservationn.id)} >Cancel Reservation</button>
-          </ul>
+              <input
+                onChange={this.editSpecialInstructions}
+                type="text"
+                placeholder="Please Enter You New Special Instructions"
+                className="reservation-entry-details"/>
+            </li>
+            <button
+              type="button"
+              className="btn btn-info btn-sm"
+              id="reserve-finalize-button"
+              onClick={this.editReservationDetails.bind(this, reservationn.id)} >
+              Edit Reservation
+            </button>
+            <button
+              type="button"
+              className="btn btn-info btn-sm"
+              id="reserve-finalize-button"
+              onClick={this.cancelReservation.bind(this, reservationn.id)} >
+              Cancel Reservation
+            </button>
+      </ul>
 
+    </div>
+
+  );
+});
+
+if (reservations.length === 0){
+  reservations = (
+    <li>
+    </li>
+  );
+}
+
+return (
+  <div className="transparant-navbar">
+    <nav className="navbar navbar-default navbar-fix">
+      <div className="container-fluid">
+        <div className="navbar-header">
+          <Link to="/" className="navbar-brand">
+            <span className="glyphicon glyphicon-cutlery">
+            </span>
+            &nbsp;
+            Chefs Table
+          </Link>
         </div>
-
-      );
-    });
-
-    if (reservations.length === 0){
-      reservations = (<li></li>);
-    }
-
-    return (
-      <div className="transparant-navbar">
-        <nav className="navbar navbar-default navbar-fix">
-          <div className="container-fluid">
-            <div className="navbar-header">
-              <Link to="/" className="navbar-brand">
-                <span className="glyphicon glyphicon-cutlery"></span>
-                  &nbsp;
-                Chefs Table
-              </Link>
-            </div>
-              <div className="nav navbar-nav navbar-right">
-                    {myReservations}{currentbutton}
-              </div>
-          </div>
-        </nav>
-
-        <Modal key="reservationModal" isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyle} id="reservation-modal">
-          <ul className="total-reservation-edit">{reservations}</ul>
-        </Modal>
-
+        <div className="nav navbar-nav navbar-right">
+          {myReservations}{currentbutton}
+        </div>
       </div>
-    );
-  }
+    </nav>
+
+    <Modal
+      key="reservationModal"
+      isOpen={this.state.modalIsOpen}
+      onRequestClose={this.closeModal}
+      style={customStyle}
+      id="reservation-modal">
+      <ul className="total-reservation-edit">
+        {reservations}
+      </ul>
+    </Modal>
+
+  </div>
+);
+}
 
 });
 

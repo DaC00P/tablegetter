@@ -5,7 +5,7 @@ class Api::ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     @reservation.user_id = current_user.id
-    @reservation.date = @reservation.date.to_date
+    @reservation.date = format_date(@reservation.date)
     if @reservation.save
       render json: @reservation
     else
@@ -51,6 +51,14 @@ class Api::ReservationsController < ApplicationController
   end
 
   protected
+
+  def format_date(date)
+    if date.length > 10
+      date.to_date
+    else
+      DateTime.strptime(date, '%m-%d-%Y').to_date
+    end
+  end
 
 
   def reservation_doesnt_overlap(reservation_id)

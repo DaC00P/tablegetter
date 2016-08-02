@@ -17,17 +17,12 @@ Check out ChefsTable [live here][production].
 - Stores only a hash of a user's password, utilizing the BCrypt gem to encrypt.
 - Requires login only to book reservations - full site navigation is allowed whilst not signed in.
 
-![login-navbar-right](./docs/screenshots/login-signup-buttons.png)
-
-![login-signup-modal](./docs/screenshots/login-signup-modal.png)
-
 ### See Where You'll Eat: Fully Interactive Google Map with Marker Highlighting
 
 - Utilizes the Google Maps API in a React Component to allow the user to see restaurant locations.
 - Disables mouse-wheel scrolling in the Map in order not to disrupt user experience while scrolling on page.
 - Zooming in on the Map will narrow the index to whichever restaurants are visible.
-- Highlights a Restaurant Map Marker by inducing opacity on all other markers when the restaurant is moused over in the Index:
-  ![highlighted-marker](./docs/screenshots/highlighted-marker.png)
+- Highlights a Restaurant Map Marker by inducing opacity on all other markers when the restaurant is moused over in the Index: ![highlighted-marker](./docs/screenshots/highlighted-marker.png)
 
 
 ### Reservation Booking: Pick Your Place, Date, Seating Time, and Give Special Instructions
@@ -83,5 +78,3 @@ Check out ChefsTable [live here][production].
   - Additionally, the user should be presented for an option to view the Google Street View of the location that the Restaurant is at.
 ### Center in on the map when the index item is Clicked
   - When the Restaurant Index Item is clicked  on, the Restaurant will be set as the new center of the map, and the marker will remain highlighted for extended time.
-
-[popup-logic]: ./docs/screenshots/popup_logic.png

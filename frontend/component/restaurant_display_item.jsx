@@ -4,7 +4,6 @@ const SessionActions = require('../actions/session_actions');
 const SessionStore = require('../stores/session_store');
 const ErrorStore = require('../stores/error_store');
 const RestaurantDetailBox = require('./restaurant_detail_box');
-const ReviewBox = require('./restaurant_review_box');
 const RestaurantStore = require('../stores/restaurant_store');
 const RestaurantActions = require('../actions/restaurant_actions');
 const ReactRouter = require('react-router');

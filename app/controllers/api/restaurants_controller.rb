@@ -15,6 +15,8 @@ class Api::RestaurantsController < ApplicationController
     render json: {restaurant: @restaurant, pics: @pics, reviews: @reviews}
   end
 
+  protected
+
   def split_reviews(reviews)
     reviews.gsub!("[", "")
     reviews.gsub!("]", "")

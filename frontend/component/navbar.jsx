@@ -98,7 +98,6 @@ const NavBar = React.createClass({
   },
 
   afterOpenModal: function() {
-    // references are now sync'd and can be accessed.
     this.refs.subtitle.style.color = '#f00';
   },
 
@@ -114,7 +113,6 @@ const NavBar = React.createClass({
     const appElement = document.getElementById('content');
     Modal.setAppElement(appElement);
     ErrorStore.addListener(this.handleErrors);
-    // RestaurantStore.addListener(this.forceUpdate.bind(this));
     ReservationActions.fetchAllReservations();
     RestaurantActions.fetchAllRestaurants();
   },

@@ -10,7 +10,19 @@ const SearchUtil = {
       }
     }
    );
- }
+ },
+
+ getSearchResultsOnMap(bounds, callback){
+   $.ajax({
+     method: "GET",
+     url: 'api/searches',
+     data: {bounds: bounds},
+     success(response) {
+       callback(response);
+     }
+   }
+  );
+}
 };
 
 module.exports = SearchUtil;

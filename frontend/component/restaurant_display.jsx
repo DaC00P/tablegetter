@@ -23,6 +23,7 @@ const RestaurantDisplay = React.createClass({
     this.restaurantListener.remove();
   },
 
+  //put switch logic in here: it listens to search store if anything has been entered in filter bar OR if map has been moved or zoomed from default
   getAllRestaurants() {
     this.setState({restaurants: RestaurantStore.all()});
   },

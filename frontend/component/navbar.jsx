@@ -114,7 +114,6 @@ const NavBar = React.createClass({
     Modal.setAppElement(appElement);
     ErrorStore.addListener(this.handleErrors);
     ReservationActions.fetchAllReservations();
-    RestaurantActions.fetchAllRestaurants();
   },
 
   editReservationDetails(id, event) {
@@ -213,25 +212,25 @@ const NavBar = React.createClass({
       reservations.push(this.props.reservations[reservation]);
     }
 
-    let restaurantt = "";
-    reservations = reservations.map( (reservationn) => {
+    let restaurantName = "";
+    reservations = reservations.map( (singleReservation) => {
 
 
-      if (RestaurantStore.findByID(reservationn.restaurant_id) !== undefined){
-        restaurantt = RestaurantStore.findByID(reservationn.restaurant_id).name;
+      if (RestaurantStore.findByID(singleReservation.restaurant_id) !== undefined){
+        restaurantName = RestaurantStore.findByID(singleReservation.restaurant_id).name;
       }
 
 
       return (
         <div
-          key = {reservationn.id * 12}
+          key = {singleReservation.id * 12}
           className="user-reservation-ud">
           <h2 className="your-reservation-at">
-            Your Reservation at {restaurantt}
+            Your Reservation at {restaurantName}
           </h2>
 
           <ul
-            key={reservationn.id}
+            key={singleReservation.id}
             className='reservation-details-edit'>
             <br>
             </br>
@@ -245,29 +244,29 @@ const NavBar = React.createClass({
             </span>
             <br>
             </br>
-            <li key={reservationn.id * 9}>
-              Your Current Reservation Date is: {reservationn.date} <Calendar onChange={this.handleCalenderSelect}
+            <li key={singleReservation.id * 9}>
+              Your Current Reservation Date is: {singleReservation.date} <Calendar onChange={this.handleCalenderSelect}
               closeOnSelect={true} type="calender" format='DD/MM/YYYY' date={this.state.reservationDate} defaultValue='Click Here to Reserve'/>
             </li>
-            <li key={reservationn.id * 8}>
-            Your Current Reservation Time is: {reservationn.time} <Dropdown onChange={this.handleTimeSelect}
+            <li key={singleReservation.id * 8}>
+            Your Current Reservation Time is: {singleReservation.time} <Dropdown onChange={this.handleTimeSelect}
             className="" options={options} value={this.state.reservationTime} placeholder="Please Select a Seating" />
             </li>
-            <li key={reservationn.id * 7}>
+            <li key={singleReservation.id * 7}>
               <input
                 onChange={this.editPartySize}
                 type="text"
                 placeholder="Please Enter Your New Party Size"
                 className="reservation-entry-details"/>
             </li>
-            <li key={reservationn.id * 6}>
+            <li key={singleReservation.id * 6}>
               <input
                 onChange={this.editAllergies}
                 type="text"
                 placeholder="Please Enter Your New Allergies"
                 className="reservation-entry-details"/>
             </li>
-            <li key={reservationn.id * 5}>
+            <li key={singleReservation.id * 5}>
               <input
                 onChange={this.editSpecialInstructions}
                 type="text"
@@ -278,14 +277,14 @@ const NavBar = React.createClass({
               type="button"
               className="btn btn-info btn-sm"
               id="reserve-finalize-button"
-              onClick={this.editReservationDetails.bind(this, reservationn.id)} >
+              onClick={this.editReservationDetails.bind(this, singleReservation.id)} >
               Edit Reservation
             </button>
             <button
               type="button"
               className="btn btn-info btn-sm"
               id="reserve-finalize-button"
-              onClick={this.cancelReservation.bind(this, reservationn.id)} >
+              onClick={this.cancelReservation.bind(this, singleReservation.id)} >
               Cancel Reservation
             </button>
       </ul>

@@ -5,8 +5,13 @@ const ReactDOM = require('react-dom');
 const ReactRouter = require('react-router');
 const RestaurantDisplay = require('./restaurant_display');
 const RestaurantMap = require('./restaurant_map');
+const RestaurantActions = require('../actions/restaurant_actions');
 
 const RestaurantDisplaySection = React.createClass({
+
+  componentWillMount() {
+    RestaurantActions.fetchAllRestaurants();
+  },
 
   render() {
     return (

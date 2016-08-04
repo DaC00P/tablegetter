@@ -7,7 +7,7 @@ const RestaurantStore = require('../stores/restaurant_store');
 const RestaurantActions = require('../actions/restaurant_actions');
 const RestaurantDisplayItem = require('./restaurant_display_item');
 const SearchActions = require('../actions/search_actions');
-const Scroll = require('react-scroll');
+// const Scroll = require('react-scroll');
 
 
 const RestaurantDisplay = React.createClass({
@@ -15,9 +15,8 @@ const RestaurantDisplay = React.createClass({
     return {restaurants: []};
   },
 
-  componentDidMount() {
+  componentWillMount() {
     this.restaurantListener = RestaurantStore.addListener(this.getAllRestaurants);
-    RestaurantActions.fetchAllRestaurants();
   },
 
   componentWillUnmount() {

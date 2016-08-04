@@ -33,16 +33,13 @@ const RestaurantActions = {
     });
   },
 
-  fetchSingleRestaurant(id) {
-    RestaurantApiUtil.fetchSingleRestaurant(id, this.receiveSingleRestaurant);
-  },
 
-  receiveSingleRestaurant(restaurant) {
-    AppDispatcher.dispatch({
-      actionType: "receive_restaurant",
-      restaurant: restaurant
-    });
-  }
+  // receiveSingleRestaurant(restaurant) {
+  //   AppDispatcher.dispatch({
+  //     actionType: "receive_restaurant",
+  //     restaurant: restaurant
+  //   });
+  // }
 
 };
 

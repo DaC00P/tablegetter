@@ -15,9 +15,13 @@ const SearchActions = {
 
   receiveSearchResults(restaurants) {
     AppDispatcher.dispatch({
-      actionType: "receive_restaurants",
+      actionType: "receive_searched_restaurants",
       restaurants: restaurants
     });
+  },
+
+  searchForRestaurantsOnMap(bounds) {
+    SearchUtil.getSearchResultsOnMap(bounds, this.receiveSearchResults);
   }
 };
 

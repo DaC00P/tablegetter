@@ -4,6 +4,8 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const RestaurantStore = require('../stores/restaurant_store');
 const RestaurantActions = require('../actions/restaurant_actions');
+const SearchMapStore = require('../stores/restaurant_store');
+const SearchActions = require('../actions/search_actions');
 
 
 module.exports = React.createClass({
@@ -24,10 +26,11 @@ module.exports = React.createClass({
     };
     this.map = new google.maps.Map(mapDOMNode, mapOptions);
 
-    // this.mapListener1 = google.maps.event.addListener(this.map, 'idle', this._handleIdle);
+    this.mapListener1 = google.maps.event.addListener(this.map, 'idle', this._handleIdle);
     this.mapListener2 = google.maps.event.addListener(this.map, 'click', this._openForm);
   },
 
+  //is this really necessary??
   _openForm (coords) {
     this.clickLat = coords.latLng.lat();
     this.clickLng = coords.latLng.lng();
@@ -42,7 +45,9 @@ module.exports = React.createClass({
     if (!this.storeListener) {
       this.storeListener = RestaurantStore.addListener(this._onChange);
     }
-    RestaurantActions.fetchAllRestaurants(this.getBounds());
+    // RestaurantActions.fetchAllRestaurants(this.getBounds());
+    SearchActions.searchForRestaurantsOnMap(this.getBounds());
+    //this needs to become searchactions.fetchAllRestaurantsWithinParams
   },
 
   getBounds () {
@@ -92,7 +97,7 @@ module.exports = React.createClass({
     });
     this.restaurant_id = restaurant.id;
     // marker.addEventListener();
-    this.mapMarkerListener = google.maps.event.addListener(marker, 'click', this.scrollToRestaurantInIndex);
+    // this.mapMarkerListener = google.maps.event.addListener(marker, 'click', this.scrollToRestaurantInIndex);
     // put in a callback instead of the console log that either narrows the index or does..?
     return marker;
   },

@@ -1,28 +1,15 @@
 class Api::RestaurantsController < ApplicationController
   def index
     if params[:bounds]
-      @restaurants = Restaurant.in_bounds(params[:bounds])
+      @restaurants = Restaurant.includes(:restaurant_pics).in_bounds(params[:bounds])
     else
-      @restaurants = Restaurant.all
+      @restaurants = Restaurant.includes(:restaurant_pics).all
     end
-    render json: @restaurants
+    @restaurants
   end
 
   def show
-    @restaurant = Restaurant.find(params[:id])
-    @pics = RestaurantPic.where(restaurant_id: params[:id])
-    @reviews = split_reviews(@restaurant.reviews)
-    render json: {restaurant: @restaurant, pics: @pics, reviews: @reviews}
+    @restaurant = Restaurant.includes(:restaurant_pics)[params[:id]]
   end
 
-  protected
-
-  def split_reviews(reviews)
-    reviews.gsub!("[", "")
-    reviews.gsub!("]", "")
-    reviews.gsub!("\\n", "\n")
-    reviews = reviews.split('666')
-    both_reviews = {review1: reviews[0], review2: reviews[1]}
-    return both_reviews
-  end
 end

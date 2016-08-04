@@ -48,16 +48,7 @@ ActiveRecord::Schema.define(version: 20160708030919) do
     t.string   "city"
     t.text     "chef_pic_url"
     t.text     "restaurant_cover_pic"
-    t.text     "reviews"
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.integer  "user_id",       null: false
-    t.integer  "restaurant_id", null: false
-    t.string   "title",         null: false
-    t.text     "description"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.json     "reviews"
   end
 
   create_table "users", force: :cascade do |t|

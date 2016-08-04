@@ -24,7 +24,7 @@ module.exports = React.createClass({
     };
     this.map = new google.maps.Map(mapDOMNode, mapOptions);
 
-    this.mapListener1 = google.maps.event.addListener(this.map, 'idle', this._handleIdle);
+    // this.mapListener1 = google.maps.event.addListener(this.map, 'idle', this._handleIdle);
     this.mapListener2 = google.maps.event.addListener(this.map, 'click', this._openForm);
   },
 

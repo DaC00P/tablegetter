@@ -5,6 +5,7 @@ const ReactDOM = require('react-dom');
 const ReactRouter = require('react-router');
 const RestaurantStore = require('../stores/restaurant_store');
 const RestaurantActions = require('../actions/restaurant_actions');
+const ReservationActions = require('../actions/reservation_actions');
 
 const RestaurantShowPage = React.createClass({
 
@@ -12,18 +13,14 @@ const RestaurantShowPage = React.createClass({
     return ({restaurant: {}});
   },
 
-  getCurrentRestaurant() {
-    RestaurantActions.fetchSingleRestaurant(this.props.location.pathname.slice(-2));
-  },
-
-  componentDidMount() {
+  componentWillMount() {
     this.restaurantStoreListener = RestaurantStore.addListener(this.setCurrentRestaurant);
-    this.getCurrentRestaurant();
+    RestaurantActions.fetchAllRestaurants();
   },
 
   setCurrentRestaurant() {
-    let restaurantAndPics = RestaurantStore.find();
-    this.setState({restaurant: restaurantAndPics.restaurant, pics: restaurantAndPics.pics, reviews: restaurantAndPics.reviews});
+    let restaurant = RestaurantStore.findByID(this.props.params.id);
+    this.setState({restaurant: restaurant, pics: restaurant.restaurant_pics, reviews: restaurant.reviews});
   },
 
   componentWillUnmount() {
@@ -31,7 +28,6 @@ const RestaurantShowPage = React.createClass({
   },
 
   render() {
-
     let restaurantImage = {backgroundImage: `url(${this.state.restaurant.restaurant_cover_pic})`};
 
     let restaurantPics = [];

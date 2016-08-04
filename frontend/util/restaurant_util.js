@@ -24,7 +24,7 @@ const RestaurantUtil = {
       }
     }
    );
-  }
+ }
 };
 
 module.exports = RestaurantUtil;

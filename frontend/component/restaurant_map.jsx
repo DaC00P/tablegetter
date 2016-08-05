@@ -6,11 +6,16 @@ const RestaurantStore = require('../stores/restaurant_store');
 const RestaurantActions = require('../actions/restaurant_actions');
 const SearchMapStore = require('../stores/restaurant_store');
 const SearchActions = require('../actions/search_actions');
+const RestaurantDisplay = require('./restaurant_display');
 
 
 module.exports = React.createClass({
   getInitialState () {
-    return {displayForm: false};
+    return {
+      displayForm: false,
+      initialBounds: {},
+      currentBounds: {}
+    };
   },
 
   componentDidMount () {
@@ -28,6 +33,7 @@ module.exports = React.createClass({
 
     this.mapListener1 = google.maps.event.addListener(this.map, 'idle', this._handleIdle);
     this.mapListener2 = google.maps.event.addListener(this.map, 'click', this._openForm);
+    this.mapListener3 = google.maps.event.addListener(this.map, 'idle', SearchActions.updateMapBoundsInIndex);
   },
 
   //is this really necessary??
@@ -46,8 +52,38 @@ module.exports = React.createClass({
       this.storeListener = RestaurantStore.addListener(this._onChange);
     }
     // RestaurantActions.fetchAllRestaurants(this.getBounds());
+    let mapState = this.handleBoundStateChange();
+    this.setState({
+      mapState
+    });
+
     SearchActions.searchForRestaurantsOnMap(this.getBounds());
     //this needs to become searchactions.fetchAllRestaurantsWithinParams
+  },
+
+  handleBoundStateChange() {
+    if(this.state.initialBounds !== {}){
+      return {currentBounds: this.getBounds()};
+    }
+    else {
+      return {initialBounds: this.getBounds()};
+    }
+  },
+
+  checkBoundsMovement() {
+    let initialBounds = this.state.initialBounds;
+    let currentBounds = this.state.currentBounds;
+    if (
+      (initialBounds.northEast.lat === currentBounds.northEast.lat) &&
+      (initialBounds.northEast.lng === currentBounds.northEast.lng) &&
+      (initialBounds.southWest.lat === currentBounds.southWest.lat) &&
+      (initialBounds.southWest.lng === currentBounds.southWest.lng)
+    ) {
+      return true;
+    }
+    else {
+      return false;
+    }
   },
 
   getBounds () {
@@ -62,6 +98,7 @@ module.exports = React.createClass({
     this.storeListener.remove();
     google.maps.event.removeListener(this.mapListener1);
     google.maps.event.removeListener(this.mapListener2);
+    google.maps.event.removeListener(this.mapListener3);
   },
 
   _onChange () {

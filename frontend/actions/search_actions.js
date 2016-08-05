@@ -22,6 +22,14 @@ const SearchActions = {
 
   searchForRestaurantsOnMap(bounds) {
     SearchUtil.getSearchResultsOnMap(bounds, this.receiveSearchResults);
+  },
+
+  updateMapBoundsInIndex() {
+    // let hasMapChanged = 
+  },
+
+  tellDisplayBounds() {
+    console.log('test');
   }
 };
 

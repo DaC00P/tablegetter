@@ -62,5 +62,3 @@ RestaurantStore.findByID = function(id) {
 
 
 module.exports = RestaurantStore;
-
-window.reststore = RestaurantStore;

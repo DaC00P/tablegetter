@@ -9,69 +9,64 @@ const RestaurantDisplayItem = require('./restaurant_display_item');
 const SearchActions = require('../actions/search_actions');
 const SearchMapStore = require('../stores/search_map_store');
 const Map = require('./restaurant_map');
-// const Scroll = require('react-scroll');
 
 
 const RestaurantDisplay = React.createClass({
   getInitialState() {
     return {
       restaurants: [],
-      searchStatus: false,
-      mapChanged: false
+      searched: []
     };
   },
 
   componentWillMount() {
-    this.restaurantListener = RestaurantStore.addListener(this.getAllRestaurants);
-
+    this.restaurantListener = RestaurantStore.addListener(this.setStoretoDefault);
+    this.searchListener = SearchMapStore.addListener(this.setStoreToSearch);
   },
 
   componentWillUnmount() {
     this.restaurantListener.remove();
+    this.searchListener.remove();
   },
 
-  getAllRestaurants() {
-    if (this.state.searchStatus || this.state.mapChanged){
-      this.setState({restaurants: SearchMapStore.all()});
-    }
-    else {
-      this.setState({restaurants: RestaurantStore.all()});
-    }
+  setStoreToSearch() {
+    this.setState({searched: SearchMapStore.all()});
   },
 
-  setMapState() {
-    let mapChanged = false;
-    this.setState({mapChanged: mapChanged});
+  setStoretoDefault() {
+    this.setState({restaurants: RestaurantStore.all()});
   },
 
   searchForRestaurants(event) {
     event.preventDefault();
-    this.setSearchState(event);
-    SearchActions.searchForRestaurants(event.currentTarget.value);
-  },
-
-  setSearchState(event){
-    if (event.target.value.length > 0){
-      this.setState({searchStatus: true});
-    }
-    else {
-      this.setState({searchStatus: false});
+    if (event.currentTarget.value.length === 0) {
+      SearchActions.searchForRestaurantsOnMapSearch('', this.props.getMapBounds());
+    } else {
+      this.props.activateSearch();
+      SearchActions.searchForRestaurantsOnMapSearch(event.currentTarget.value, this.props.getMapBounds());
     }
   },
 
   restaurantSearchResults() {
-    if (this.state.restaurants.length === 0){
+    let restaurants;
+
+    if(this.props.checkStore()){
+      restaurants = this.state.searched;
+    } else {
+      restaurants = this.state.restaurants;
+    }
+
+    if (restaurants.length === 0){
       return (<h2 className="no-search-results">Apologies, no matching search results</h2>);
     }
     else {
-      return this.state.restaurants.map((restaurant) => {
+      return restaurants.map((restaurant) => {
         return (<RestaurantDisplayItem key={restaurant.id} restaurant={restaurant}></RestaurantDisplayItem>);
       });
     }
   },
 
   render() {
-
     let restaurant_names = this.restaurantSearchResults();
 
     return (

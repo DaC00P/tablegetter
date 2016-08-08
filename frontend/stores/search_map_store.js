@@ -58,5 +58,3 @@ SearchMapStore.findByID = function(id) {
 
 
 module.exports = SearchMapStore;
-
-window.reststore = SearchMapStore;

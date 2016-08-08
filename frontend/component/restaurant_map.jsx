@@ -69,6 +69,7 @@ module.exports = React.createClass({
 
   _onChange () {
     let restaurants;
+    let _store;
     if (this.props.checkSearchState()) {
       restaurants = RestaurantStore.all();
     } else {
@@ -94,7 +95,11 @@ module.exports = React.createClass({
     });
 
     this.unhighlightMarker();
-    this.highlightMarker(RestaurantStore.highlightedId());
+    if (this.props.checkSearchState()) {
+      this.highlightMarker(RestaurantStore.highlightedId());
+    } else {
+      this.highlightMarker(SearchMapStore.highlightedId());
+    }
   },
 
   addRestaurantMarker (restaurant) {

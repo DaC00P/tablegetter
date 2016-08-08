@@ -29,11 +29,21 @@ class Restaurant < ActiveRecord::Base
   foreign_key: :restaurant_id,
   class_name: :RestaurantPic
 
-  def self.in_bounds(bounds)
+  scope :in_bounds, -> (bounds) do
     coords = [bounds[:northEast][:lat],
               bounds[:southWest][:lat],
               bounds[:northEast][:lng],
               bounds[:southWest][:lng]].map(&:to_f)
-    Restaurant.where("lat < ? AND lat > ? AND lng < ? AND lng > ?", *coords)
+    where("lat < ? AND lat > ? AND lng < ? AND lng > ?", *coords)
   end
+
+  scope :search, -> (query) do
+    query = ["%#{query}%", "%#{query}%", "%#{query}%", "%#{query}%"]
+    Restaurant.where("name ILIKE ? OR
+                      chef ILIKE ? OR
+                      cuisine ILIKE ? OR
+                      city ILIKE ?",
+                       *query )
+  end
+
 end

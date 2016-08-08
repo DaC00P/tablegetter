@@ -13,8 +13,7 @@ module.exports = React.createClass({
   getInitialState () {
     return {
       displayForm: false,
-      initialBounds: {},
-      currentBounds: {}
+      storeToUse: "restaurantStore"
     };
   },
 
@@ -29,61 +28,28 @@ module.exports = React.createClass({
       zoom: 2,
       scrollwheel: false
     };
+
     this.map = new google.maps.Map(mapDOMNode, mapOptions);
-
     this.mapListener1 = google.maps.event.addListener(this.map, 'idle', this._handleIdle);
-    this.mapListener2 = google.maps.event.addListener(this.map, 'click', this._openForm);
-    this.mapListener3 = google.maps.event.addListener(this.map, 'idle', SearchActions.updateMapBoundsInIndex);
+    this.mapListener2 = google.maps.event.addListener(this.map, 'bounds_changed', this._handleSearch);
   },
 
-  //is this really necessary??
-  _openForm (coords) {
-    this.clickLat = coords.latLng.lat();
-    this.clickLng = coords.latLng.lng();
-    this.setState({displayForm: true});
-  },
-
-  _closeForm () {
-    this.setState({displayForm: false});
-  },
-
-  _handleIdle () {
-    if (!this.storeListener) {
-      this.storeListener = RestaurantStore.addListener(this._onChange);
+  _handleIdle() {
+    if (!this.defaultStoreListener) {
+      this.defaultStoreListener = RestaurantStore.addListener(this._onChange);
+      RestaurantActions.fetchAllRestaurants(this.getBounds());
     }
-    // RestaurantActions.fetchAllRestaurants(this.getBounds());
-    let mapState = this.handleBoundStateChange();
-    this.setState({
-      mapState
-    });
 
+    if (!this.searchStoreListener) {
+      this.searchStoreListener = SearchMapStore.addListener(this._onChange);
+    }
+
+  },
+
+  _handleSearch() {
+    this.props.setMapBounds(this.getBounds());
+    this.props.activateSearch();
     SearchActions.searchForRestaurantsOnMap(this.getBounds());
-    //this needs to become searchactions.fetchAllRestaurantsWithinParams
-  },
-
-  handleBoundStateChange() {
-    if(this.state.initialBounds !== {}){
-      return {currentBounds: this.getBounds()};
-    }
-    else {
-      return {initialBounds: this.getBounds()};
-    }
-  },
-
-  checkBoundsMovement() {
-    let initialBounds = this.state.initialBounds;
-    let currentBounds = this.state.currentBounds;
-    if (
-      (initialBounds.northEast.lat === currentBounds.northEast.lat) &&
-      (initialBounds.northEast.lng === currentBounds.northEast.lng) &&
-      (initialBounds.southWest.lat === currentBounds.southWest.lat) &&
-      (initialBounds.southWest.lng === currentBounds.southWest.lng)
-    ) {
-      return true;
-    }
-    else {
-      return false;
-    }
   },
 
   getBounds () {
@@ -95,16 +61,22 @@ module.exports = React.createClass({
   },
 
   componentWillUnmount () {
-    this.storeListener.remove();
+    this.defaultStoreListener.remove();
+    this.searchStoreListener.remove();
     google.maps.event.removeListener(this.mapListener1);
     google.maps.event.removeListener(this.mapListener2);
-    google.maps.event.removeListener(this.mapListener3);
   },
 
   _onChange () {
+    let restaurants;
+    if (this.props.checkSearchState()) {
+      restaurants = RestaurantStore.all();
+    } else {
+      restaurants = SearchMapStore.all();
+    }
     // add new marks and record them
     const newMarkers = {};
-    RestaurantStore.all().forEach(restaurant => {
+    restaurants.forEach(restaurant => {
       newMarkers[restaurant.id] = true;
 
       if (!this.markers[restaurant.id]) {

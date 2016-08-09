@@ -19,6 +19,7 @@ const RestaurantDisplaySection = React.createClass({
 
   componentWillMount() {
     RestaurantActions.fetchAllRestaurants();
+    this.searchValue =  '';
   },
 
   checkStore() {
@@ -47,11 +48,29 @@ const RestaurantDisplaySection = React.createClass({
     return this.state.searchActive;
   },
 
+  setSearchValue(value) {
+    this.searchValue = value;
+  },
+
+  getSearchValue() {
+    return this.searchValue;
+  },
+
   render() {
     return (
       <section className="map-details-combo clearfix">
-        <RestaurantMap checkStore={this.checkStore} setMapBounds={this.setMapBounds} activateSearch={this.activateSearch} checkSearchState={this.checkSearchState}/>
-        <RestaurantDisplay checkStore={this.checkStore} setMapBounds={this.setMapBounds} getMapBounds={this.getMapBounds} activateSearch={this.activateSearch}/>
+        <RestaurantMap
+          checkStore={this.checkStore}
+          setMapBounds={this.setMapBounds}
+          activateSearch={this.activateSearch}
+          checkSearchState={this.checkSearchState}
+          getSearchValue={this.getSearchValue}/>
+        <RestaurantDisplay
+          checkStore={this.checkStore}
+          setMapBounds={this.setMapBounds}
+          getMapBounds={this.getMapBounds}
+          activateSearch={this.activateSearch}
+          setSearchValue={this.setSearchValue}/>
       </section>
     );
   }

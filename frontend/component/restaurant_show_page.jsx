@@ -71,7 +71,7 @@ const RestaurantShowPage = React.createClass({
 
         <section className="restaurant-detail-bar">
           <div>
-            <img src={this.state.restaurant.chef_pic_url} alt={this.state.restaurant.chef}/>
+            <img className='chef-pic' src={this.state.restaurant.chef_pic_url} alt={this.state.restaurant.chef}/>
           </div>
           <ul className='restaurant-show-page-details'>
             <li>  <span className="fancy-span" >{this.state.restaurant.chef}</span> Chef</li>

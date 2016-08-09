@@ -43,6 +43,7 @@ const RestaurantDisplay = React.createClass({
       SearchActions.searchForRestaurantsOnMapSearch('', this.props.getMapBounds());
     } else {
       this.props.activateSearch();
+      this.props.setSearchValue(event.currentTarget.value);
       SearchActions.searchForRestaurantsOnMapSearch(event.currentTarget.value, this.props.getMapBounds());
     }
   },

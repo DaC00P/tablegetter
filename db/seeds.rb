@@ -148,7 +148,7 @@ a = [ "https://res-5.cloudinary.com/dldvsrho8/image/upload/v1467822969/nnaka11_d
    "https://res-5.cloudinary.com/dldvsrho8/image/upload/v1467822912/faviken6_s9gq9u.jpg",
    "https://res-4.cloudinary.com/dldvsrho8/image/upload/v1467822912/faviken5_c6ee2k.jpg",
    "https://res-5.cloudinary.com/dldvsrho8/image/upload/v1467822911/faviken4_k1bzbv.jpg",
-   "https://res-4.cloudinary.com/dldvsrho8/image/upload/v1467822911/dom8_tytptb.png",
+   "https://res-4.cloudinary.com/dldvsrho8/image/upload/v1467822911/dom8_tytptb.jpg",
    "https://res-1.cloudinary.com/dldvsrho8/image/upload/v1467822909/faviken2_rqu5s2.jpg",
    "https://res-4.cloudinary.com/dldvsrho8/image/upload/v1467822908/faviken1_lufezo.jpg",
    "https://res-1.cloudinary.com/dldvsrho8/image/upload/v1467822904/dom9_dyzyjb.jpg",
@@ -160,7 +160,7 @@ a = [ "https://res-5.cloudinary.com/dldvsrho8/image/upload/v1467822969/nnaka11_d
    "https://res-1.cloudinary.com/dldvsrho8/image/upload/v1467822903/dom6_kirwhk.jpg",
    "https://res-1.cloudinary.com/dldvsrho8/image/upload/v1467822902/attica2_xhwi8g.jpg",
    "https://res-3.cloudinary.com/dldvsrho8/image/upload/v1467822902/dom2_q2v9mu.jpg",
-   "https://res-1.cloudinary.com/dldvsrho8/image/upload/v1467822902/bluehill6_jxnxfe.png",
+   "https://res-1.cloudinary.com/dldvsrho8/image/upload/v1467822902/bluehill6_jxnxfe.jpg",
    "https://res-1.cloudinary.com/dldvsrho8/image/upload/v1467822901/bluehill9_n2vkfx.jpg",
    "https://res-4.cloudinary.com/dldvsrho8/image/upload/v1467822901/bluehill8_dmbmrq.jpg",
    "https://res-5.cloudinary.com/dldvsrho8/image/upload/v1467822901/bluehill5_pbzv2u.jpg",
@@ -170,16 +170,16 @@ a = [ "https://res-5.cloudinary.com/dldvsrho8/image/upload/v1467822969/nnaka11_d
    "https://res-5.cloudinary.com/dldvsrho8/image/upload/v1467822900/bluehill6_dwldxm.jpg",
    "https://res-3.cloudinary.com/dldvsrho8/image/upload/v1467822900/bluehill3_gzgowq.jpg",
    "https://res-4.cloudinary.com/dldvsrho8/image/upload/v1467822899/alinea7_gaqc9x.jpg",
-   "http://res.cloudinary.com/dldvsrho8/image/upload/c_scale,w_1000/v1467822896/alinea0_wk2hfq.jpg",
-   "http://res.cloudinary.com/dldvsrho8/image/upload/c_scale,w_1000/v1467822896/alinea1_fvhxuc.jpg",
-   "http://res.cloudinary.com/dldvsrho8/image/upload/c_scale,w_1000/v1467822897/alinea10_jydfwh.jpg",
-   "http://res.cloudinary.com/dldvsrho8/image/upload/c_scale,w_1000/v1467822896/alinea2_gv2wdz.jpg",
+   "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822896/alinea0_wk2hfq.jpg",
+   "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822896/alinea1_fvhxuc.jpg",
+   "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822897/alinea10_jydfwh.jpg",
+   "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822896/alinea2_gv2wdz.jpg",
    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822896/alinea3_afvnjc.jpg",
-   "http://res.cloudinary.com/dldvsrho8/image/upload/c_scale,w_1000/v1467822896/alinea4_n7noww.jpg",
+   "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822896/alinea4_n7noww.jpg",
    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822896/alinea5_trilie.jpg",
    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822896/alinea6_xszzky.jpg",
-   "http://res.cloudinary.com/dldvsrho8/image/upload/c_scale,w_1000/v1467822899/alinea7_gaqc9x.jpg",
-   "http://res.cloudinary.com/dldvsrho8/image/upload/c_scale,w_1000/v1467822897/alinea8_ijtgkz.jpg",
+   "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822899/alinea7_gaqc9x.jpg",
+   "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822897/alinea8_ijtgkz.jpg",
    "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822897/alinea9_s8po1d.jpg",
    "https://res-1.cloudinary.com/dldvsrho8/image/upload/v1467822899/bluehill1_y7gksa.jpg",
    "https://res-4.cloudinary.com/dldvsrho8/image/upload/v1467822899/attica8_xrt5xx.jpg",
@@ -205,7 +205,6 @@ a = [ "https://res-5.cloudinary.com/dldvsrho8/image/upload/v1467822969/nnaka11_d
     "https://res.cloudinary.com/dldvsrho8/image/upload/v1467941998/eb11_teytyt.jpg",
     "https://res.cloudinary.com/dldvsrho8/image/upload/v1467941997/eb2_y14bmr.jpg",
     "https://res.cloudinary.com/dldvsrho8/image/upload/v1467941997/eb3_sewsfw.jpg",
-    "https://res.cloudinary.com/dldvsrho8/image/upload/v1467941997/eb4_ojqoqd.jpg",
     "https://res.cloudinary.com/dldvsrho8/image/upload/v1467941997/eb6_y5fy8u.jpg",
     "https://res.cloudinary.com/dldvsrho8/image/upload/v1467941997/eb7_kytzk3.jpg",
     "https://res.cloudinary.com/dldvsrho8/image/upload/v1467942001/eb8_cor4kk.jpg",
@@ -365,7 +364,7 @@ Cocktail connoisseur: The cocktail selection is as elaborate and creative as the
 Worth noting: Dreams of a test kitchen came true after recent renovations to the converted house in which the restaurant resides. ", review2:" Indian: While some say that Gaggan isn't really Indian, and some call it 'molecular masala,' this award winning 'Top 50 restaurants in Asia' winner is certainly worth experiencing. This snazzy restaurant started by Gaggan Anand, the Kolkata native who interned with Michelin-starred molecular whiz Ferran Adrià at his famed El Bulli restaurant in Spain, turns out wonderful creations such as chicken tikka topped with aromatic cilantro chutney foam or mutton bhuna ghosh pot roasted in a copper vessel then vacuum packed and simmered in a water bath for 24 hours, creating outrageous flavors. For fans of innovative and progressive cooking, Gaggan dazzles the senses, and the classy colonial home the eatery is housed in compliments the wonderful food
 Best Restaurants: Recently named Asia's Best Restaurant, Gaggan is described as progressive Indian, but it might be better to say molecular gastronomy goes Indian and comes to Bangkok! This snazzy restaurant started by Gaggan Anand, the Kolkata native who interned with Michelin-starred molecular whiz Ferran Adrià; at his famed El Bulli restaurant in Spain, turns out wonderful creations such as chicken tikka topped with aromatic cilantro chutney foam or mutton bhuna ghosh pot roasted in a copper vessel then vacuum packed and simmered in a water bath for 24 hours, creating outrageous flavors. For fans of innovative and progressive cooking, Gaggan dazzles the senses, and the classy colonial home the eatery is housed in compliments the wonderful food.
 Pathumwan's Best Restaurants: Some say that Gaggan isn't really Indian, and some call it 'molecular masala,' but surely it is worth experiencing. This snazzy restaurant started by Gaggan Anand, the Kolkata native who interned with Michelin-starred molecular whiz Ferran Adri at his famed El Bulli restaurant in Spain, turns out wonderful creations such as chicken tikka topped with aromatic cilantro chutney foam or mutton bhuna ghosh pot roasted in a copper vessel then vacuum packed and simmered in a water bath for 24 hours, creating outrageous flavors. For fans of innovative and progressive cooking, Gaggan dazzles the senses, and the classy colonial home the eatery is housed in compliments the wonderful food"})
-Restaurant.find_by(name: "El Bulli").update(reviews: {review1: "am still not sure why El Bulli made me cry. Or at least how it magicked a hot tear to my eye. It wasn't the intensity of taste, with shifting textures and notes that lasted longer than Pavarotti's C. It wasn't that I felt I had to close my eyes in a crowded room to savour and surf every wave of flavour. It wasn't even that 'peas 2011' tasted more like my first peas than in any dish I've eaten since I was seven. Nor was it, honestly, the toasty flow of Dom Pérignon 1973. It was simply, in the end, I think, the deliciousness that undid me.
+Restaurant.find_by(name: "El Bulli").update(reviews: {review1: "I am still not sure why El Bulli made me cry. Or at least how it magicked a hot tear to my eye. It wasn't the intensity of taste, with shifting textures and notes that lasted longer than Pavarotti's C. It wasn't that I felt I had to close my eyes in a crowded room to savour and surf every wave of flavour. It wasn't even that 'peas 2011' tasted more like my first peas than in any dish I've eaten since I was seven. Nor was it, honestly, the toasty flow of Dom Pérignon 1973. It was simply, in the end, I think, the deliciousness that undid me.
 Not all the dishes were sublime, of course – I am not sure chef Ferran Adrià is interested in that. He wants to make you think and to feel food, to orchestrate your mood, mess with your idea of what it could and should be. More flavour theatre than restaurant. We ate a Felliniesque, insane 50 dishes culled from Adrià's 'greatest hits', the oldest from more than 20 years before, the newest only finalised that morning (the menu was revised six times). Plus endless choices from a giant chocolate box that looked like a flashing organ coming out of the floor. But if we pass over the Japanese-style tiramisu (a sleight of hand with miso that was plain unpleasant), the disappointing trademark carbonara tagliatelle, and the 'challenging' frozen gorgonzola balloon, El Bulli's 50 cooks still sent out close to 50 plates of food for 50 people that no other restaurant may ever match. As Ferran Adrià's heir apparent and current number one cook in the world, René Redzepi of Copenhagen's Noma, tells me: 'Ferran and his team are culinary freedom fighters. They helped free me.'
 Our superluxe Spanish food trip started, surreally, in Luton, in an anonymous single-storey airport building where celebrities and top business people avoid civilians and waiting for flights. We had just missed Ozzy Osbourne shuffling though the lounge, and then Simon le Bon suddenly couldn't come. But 30 minutes before takeoff on our private jet – like a top-end Lexus limo with wings – actress Rosamund Pike has heroically stepped in for the year's hot meal ticket: an El Bulli supper, pitch perfect for a selection of rare champagne, devised by Adrià with Richard Geoffroy, Dom Pérignon's effervescent chef de cave.
 Later that day, over dinner in a private Catalan castle, I am sitting opposite Hollywood's Heather Graham and Jason Silva, her film-producer boyfriend, who have also flown in for the feast, watching as the star of Boogie Nights and The Hangover delicately transfers her food from her plate to her partner's. While the rest of us gorge on octopus, Iberico ham and vintage fizz, she is saved from starvation by a strawberry kebab.
@@ -396,7 +395,7 @@ How much does dinner cost? The tasting menu is 165€. Add wine, water, and cof
 "})
 Restaurant.find_by(name: "Alinea").update(reviews: {review1: "I wander into the kitchen, where Observer photographer Howard Sooley is seven hours into his shoot – the first time Adrià has let anyone photograph behind the scenes during service.
 Sooley used to work for US Vog show when you can have both together? That's because eating at Alinea, which involves around 20 courses over about three hours, is more than simply dinner-it's culinary theater. Perhaps it could qualify for a Tony Award along with its Michelin stars, because you're even invited backstage afterwards to meet the talented protagonists in the kitchen. Alinea provides such a vivid, visceral experience, that you'll even forget about the somewhat painful and entirely inhospitable booking procedure. Neophytes have nothing to fear here as there's a veritable army of charming, clued-up helpers and servers to guide you effortlessly through each and every dish. And guidance is certainly needed because the only menu you'll see is the one presented to you like an award certificate as you leave. The cooking is strikingly original and very clever. It can surprise but it can also challenge; at times dishes can be playful or even whimsical. But underpinning all those clever techniques and all those dazzling arrangements and quite striking presentations is an inherent understanding of flavor-and this is what gives the cooking such great depth.
-", review2: ""})
+", review2: "An amazing, wonderous journey through culinary experimentation. What a mind blowing experience!"})
 Reservation.create!(user_id: userid, restaurant_id: 1, time: "5:00 PM", party_size: 5, date: "2016-04-07")
 Reservation.create!(user_id: userid, restaurant_id: 3, time: "5:00 PM", party_size: 5, date: "2016-05-07")
 Reservation.create!(user_id: userid, restaurant_id: 5, time: "5:00 PM", party_size: 5, date: "2016-06-07")

@@ -85,12 +85,10 @@ const ReservationFinalizeForm = React.createClass({
 
   handleLogin() {
     this.props.switchToLoginSignupForm('login');
-    // this.props.closeModal();
   },
 
   handleSignup() {
     this.props.switchToLoginSignupForm('signup');
-    // this.props.closeModal();
   },
 
   render() {

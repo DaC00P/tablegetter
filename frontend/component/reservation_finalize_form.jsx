@@ -8,6 +8,7 @@ const RestaurantStore = require('../stores/restaurant_store');
 const RestaurantActions = require('../actions/restaurant_actions');
 const ReservationActions = require('../actions/reservation_actions');
 
+
 const ReservationFinalizeForm = React.createClass({
   getInitialState() {
     return ({
@@ -69,7 +70,51 @@ const ReservationFinalizeForm = React.createClass({
     this.setState({finalize: true});
   },
 
+  handleDemoLogin () {
+		event.preventDefault();
+
+    const demoFormData = {
+      username: "demo",
+      password: "123123"
+    };
+    SessionActions.logIn(demoFormData);
+    this.props.closeModal();
+	},
+
+  handleLoginSignup() {
+    console.log('loginsignup');
+  },
+
   render() {
+
+    const loginbutton = (
+      <button
+        type="button"
+        className="btn btn-info btn-sm"
+        id="reserve-finalize-button"
+        onClick={this.handleLoginSignup}>
+        Log In
+      </button>
+    );
+    const signupbutton = (
+      <button
+        type="button"
+        className="btn btn-info btn-sm"
+        id="reserve-finalize-button"
+        onClick={this.handleLoginSignup}>
+        Sign Up
+      </button>
+    );
+
+    const guestLogInButton = (
+      <button
+        type="button"
+        className="btn btn-info btn-sm"
+        id="reserve-finalize-button"
+        onClick={this.handleDemoLogin}>
+        Guest Login
+      </button>
+    );
 
     const confirmation = (
       <div id="5">
@@ -106,8 +151,18 @@ const ReservationFinalizeForm = React.createClass({
 
     if (!SessionStore.isUserLoggedIn()) {
       currentForm = (
-        <h1 className="not-signed-in-reservation"> We Apologize <br></br><br></br> You must log in before booking a reservation. If you do not have an account, please sign up or use the Guest Log In</h1>
-      );
+        <section>
+          <h1 className="not-signed-in-reservation"> We Apologize <br>
+          </br><br>
+          </br>
+          You must log in before booking a reservation. If you do not have an account, please sign up or use the Guest Log In
+          <br></br>
+        </h1>
+        <div className='not-signed-in-buttons'>
+          {loginbutton}{signupbutton}{guestLogInButton}
+        </div>
+        </section>
+    );
     }
 
 

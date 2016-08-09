@@ -19,7 +19,8 @@ const ReservationFinalizeForm = React.createClass({
       special_instructions: "",
       restaurant_id: this.props.restaurant.id,
       finalize: false,
-      errors: ""
+      errors: "",
+      formState: 'default'
     });
   },
 
@@ -58,6 +59,7 @@ const ReservationFinalizeForm = React.createClass({
     let reservationtoPass = this.copyState(this.state);
     delete reservationtoPass["finalize"];
     delete reservationtoPass["errors"];
+    delete reservationtoPass["formState"];
 
     ReservationActions.postSingleReservation({reservation: reservationtoPass}, this.reservationConfirmed);
   },
@@ -81,8 +83,14 @@ const ReservationFinalizeForm = React.createClass({
     this.props.closeModal();
 	},
 
-  handleLoginSignup() {
-    console.log('loginsignup');
+  handleLogin() {
+    this.props.switchToLoginSignupForm('login');
+    // this.props.closeModal();
+  },
+
+  handleSignup() {
+    this.props.switchToLoginSignupForm('signup');
+    // this.props.closeModal();
   },
 
   render() {
@@ -92,7 +100,7 @@ const ReservationFinalizeForm = React.createClass({
         type="button"
         className="btn btn-info btn-sm"
         id="reserve-finalize-button"
-        onClick={this.handleLoginSignup}>
+        onClick={this.handleLogin}>
         Log In
       </button>
     );
@@ -101,7 +109,7 @@ const ReservationFinalizeForm = React.createClass({
         type="button"
         className="btn btn-info btn-sm"
         id="reserve-finalize-button"
-        onClick={this.handleLoginSignup}>
+        onClick={this.handleSignup}>
         Sign Up
       </button>
     );

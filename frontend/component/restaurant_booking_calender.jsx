@@ -7,6 +7,7 @@ import Calendar from 'react-input-calendar';
 import Dropdown from 'react-dropdown';
 const Modal = require('react-modal');
 const ReservationFinalizeForm = require('./reservation_finalize_form');
+const LoginForm = require('./login_form');
 
 const customStyle = {
   content : {
@@ -29,8 +30,11 @@ const reserveDate = new Date();
 const RestaurantBookingCalender = React.createClass({
   getInitialState() {
     return (
-      {reservationDate: new Date(), reservationTime: "", modalIsOpen: false}
-    );
+      {reservationDate: new Date(),
+       reservationTime: "",
+      modalIsOpen: false,
+      currentForm: 'finalize'
+    });
   },
 
   handleCalenderSelect(date) {
@@ -54,9 +58,32 @@ const RestaurantBookingCalender = React.createClass({
     this.setState({modalIsOpen: false});
   },
 
+  switchToLoginSignupForm(form) {
+    this.setState({currentForm: form});
+  },
+
+  getCurrentForm() {
+    if (this.state.currentForm === 'finalize') {
+      return (
+        <ReservationFinalizeForm
+          switchToLoginSignupForm={this.switchToLoginSignupForm}
+          restaurant={this.props.restaurant}
+          closeModal={this.closeModal}
+          date={this.state.reservationDate}
+          time={this.state.reservationTime}/>
+      );
+    } else {
+      return (
+        <LoginForm closeModal={this.closeModal}/>
+      );
+    }
+  },
+
   render() {
     const options = ["5:00 PM", "7:00 PM", "9:00 PM"];
     const defaultOption = "Please Select a Time";
+    const currentForm = this.getCurrentForm();
+
     return (
       <section className='restaurant-booking-calender'>
             <Calendar onChange={this.handleCalenderSelect} closeOnSelect={true}
@@ -69,7 +96,7 @@ const RestaurantBookingCalender = React.createClass({
             <button className="btn btn-info btn-sm" id='reserve-finalize-button' onClick={this.openModal}>Finalize Reservation</button>
 
         <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyle} id="reservation-modal">
-          <ReservationFinalizeForm restaurant={this.props.restaurant} closeModal={this.closeModal} date={this.state.reservationDate} time={this.state.reservationTime}/>
+          {currentForm}
         </Modal>
       </section>
     );

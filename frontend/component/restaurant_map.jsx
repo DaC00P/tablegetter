@@ -24,7 +24,7 @@ module.exports = React.createClass({
 
     const mapDOMNode = ReactDOM.findDOMNode(this.refs.map);
     let mapOptions = {
-      center: {lat: 0, lng: 0}, // this is SF
+      center: {lat: 0, lng: 0},
       zoom: 2,
       scrollwheel: false
     };
@@ -49,7 +49,7 @@ module.exports = React.createClass({
   _handleSearch() {
     this.props.setMapBounds(this.getBounds());
     this.props.activateSearch();
-    SearchActions.searchForRestaurantsOnMap(this.getBounds());
+    SearchActions.searchForRestaurantsOnMapSearch(this.props.getSearchValue(), this.getBounds());
   },
 
   getBounds () {
@@ -96,9 +96,9 @@ module.exports = React.createClass({
 
     this.unhighlightMarker();
     if (this.props.checkSearchState()) {
-      this.highlightMarker(RestaurantStore.highlightedId());
-    } else {
       this.highlightMarker(SearchMapStore.highlightedId());
+    } else {
+      this.highlightMarker(RestaurantStore.highlightedId());
     }
   },
 
@@ -107,7 +107,8 @@ module.exports = React.createClass({
     const marker = new google.maps.Marker({
       position: pos,
       map: this.map,
-      title: restaurant.name
+      title: restaurant.name,
+      icon: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
     });
     this.restaurant_id = restaurant.id;
     // marker.addEventListener();

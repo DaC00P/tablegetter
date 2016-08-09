@@ -26,20 +26,13 @@ const RestaurantActions = {
       id: id
     });
   },
+  
   unhighlightRestaurant (id) {
     AppDispatcher.dispatch({
       actionType: "RESTAURANT_UNHIGHLIGHTED",
       id: id
     });
   },
-
-
-  // receiveSingleRestaurant(restaurant) {
-  //   AppDispatcher.dispatch({
-  //     actionType: "receive_restaurant",
-  //     restaurant: restaurant
-  //   });
-  // }
 
 };
 

@@ -9,6 +9,7 @@ const RestaurantActions = require('../actions/restaurant_actions');
 const ReactRouter = require('react-router');
 const hashHistory = ReactRouter.hashHistory;
 const ReactTooltip = require("react-tooltip");
+const ImageTransformer = require('../constants/image_transformer');
 
 
 const RestaurantDisplayItem = React.createClass({
@@ -22,8 +23,9 @@ const RestaurantDisplayItem = React.createClass({
    },
 
   render() {
+    let backgroundImageUrl = ImageTransformer.displayItemBackgroundPic(this.props.restaurant.restaurant_cover_pic);
     return (
-      <section key={this.props.restaurant.id} className='restaurant-details' style={{backgroundImage: `url(${this.props.restaurant.restaurant_cover_pic})`}}  onMouseEnter={this._onMouseEnter} onMouseLeave={this._onMouseLeave}>
+      <section key={this.props.restaurant.id} className='restaurant-details' style={{backgroundImage: `url(${backgroundImageUrl})`}}  onMouseEnter={this._onMouseEnter} onMouseLeave={this._onMouseLeave}>
         <div className="restaurant-details-div">
 
           <div className="title-reviewsmore-div">

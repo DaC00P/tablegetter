@@ -6,6 +6,7 @@ const ReactRouter = require('react-router');
 const RestaurantStore = require('../stores/restaurant_store');
 const RestaurantActions = require('../actions/restaurant_actions');
 const ReservationActions = require('../actions/reservation_actions');
+const ImageTransformer = require('../constants/image_transformer');
 
 const RestaurantShowPage = React.createClass({
 
@@ -34,8 +35,9 @@ const RestaurantShowPage = React.createClass({
     let pics = this.state.pics;
     if (pics !== undefined){
       for (let i = 0; i < pics.length; i++) {
+        let url = ImageTransformer.showPagefoodPic(pics[i].picture_url, 350, 350);
         restaurantPics.push(<div key={pics[i].id}>
-                              <img key={pics[i].id*5} className="restaurant-detail-pic"src={pics[i].picture_url} style={{width: '200px', height: '200px'}}/>
+                              <img key={pics[i].id*5} className="restaurant-detail-pic"src={url} style={{width: '200px', height: '200px'}}/>
                             </div>);
       }
     }

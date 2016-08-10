@@ -37,7 +37,7 @@ const RestaurantShowPage = React.createClass({
       for (let i = 0; i < pics.length; i++) {
         let url = ImageTransformer.showPagefoodPic(pics[i].picture_url, 350, 350);
         restaurantPics.push(<div key={pics[i].id}>
-                              <img key={pics[i].id*5} className="restaurant-detail-pic"src={url} style={{width: '200px', height: '200px'}}/>
+                              <img key={pics[i].id*50} className="restaurant-detail-pic"src={url} style={{width: '200px', height: '200px'}}/>
                             </div>);
       }
     }

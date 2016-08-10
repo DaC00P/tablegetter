@@ -7,6 +7,7 @@ const ErrorStore = require('../stores/error_store');
 const RestaurantStore = require('../stores/restaurant_store');
 const RestaurantActions = require('../actions/restaurant_actions');
 const ReservationActions = require('../actions/reservation_actions');
+const Moment = require('moment');
 
 
 const ReservationFinalizeForm = React.createClass({
@@ -19,8 +20,7 @@ const ReservationFinalizeForm = React.createClass({
       special_instructions: "",
       restaurant_id: this.props.restaurant.id,
       finalize: false,
-      errors: "",
-      formState: 'default'
+      errors: ""
     });
   },
 
@@ -59,7 +59,6 @@ const ReservationFinalizeForm = React.createClass({
     let reservationtoPass = this.copyState(this.state);
     delete reservationtoPass["finalize"];
     delete reservationtoPass["errors"];
-    delete reservationtoPass["formState"];
 
     ReservationActions.postSingleReservation({reservation: reservationtoPass}, this.reservationConfirmed);
   },
@@ -123,11 +122,24 @@ const ReservationFinalizeForm = React.createClass({
     );
 
     const confirmation = (
-      <div id="5">
-        <h3>Congratulations! You have completed your reservation for {this.props.restaurant.name}</h3>
-          Your Reservation Date: {this.props.date.toString()}
-        <br/>
+      <div id="5" className="finalized-reservation">
+        <h3 >
+          Congratulations! You have completed your reservation for {this.props.restaurant.name}
+        </h3>
+
+        <section>
+          Your Reservation Date: {Moment(this.props.date).format('dddd, MMMM Do YYYY')}
+          <br/>
           Your Reservation Time: {this.props.time.value}
+        </section>
+
+        <button
+          type="button"
+          className="btn btn-info btn-sm"
+          id="reserve-finalize-button"
+          onClick={this.props.closeModal}>
+          Close & Continue
+        </button>
       </div>
     );
 
@@ -135,7 +147,7 @@ const ReservationFinalizeForm = React.createClass({
       <div>
         <h3>Please Complete Your Reservation for {this.props.restaurant.name}</h3>
           <br></br> <span className="reservation-finalize-form-errors">{this.state.errors.error}</span> <br></br>
-          <h4>Your Reservation Date: {this.props.date.toString()}</h4>
+          <h4>Your Reservation Date: {Moment(this.props.date).format('dddd, MMMM Do YYYY')}</h4>
           <h4>Your Reservation Time: {this.props.time.value}</h4>
         <form>
           <input onChange={this.handlePartySize} type="text" placeholder="Please Enter Your Party Size" className="reservation-entry-details"/>

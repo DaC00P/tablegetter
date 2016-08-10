@@ -133,13 +133,17 @@ module.exports = React.createClass({
 
       // highlight one
       this.markers[id].setOpacity(1.0);
+      this.markers[id].icon = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'
       this.highlightedId = id;
     }
   },
 
   unhighlightMarker () {
     if (this.highlightedId) {
-      this.allMarkers().forEach(marker => marker.setOpacity(1.0));
+      this.allMarkers().forEach(marker => {
+        marker.setOpacity(1.0);
+        marker.icon = 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png';
+      });
       this.highlightedId = null;
     }
   },

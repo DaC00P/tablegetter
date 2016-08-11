@@ -108,7 +108,7 @@ module.exports = React.createClass({
       position: pos,
       map: this.map,
       title: restaurant.name,
-      icon: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
+      icon: 'https://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
     });
     this.restaurant_id = restaurant.id;
     // marker.addEventListener();
@@ -133,7 +133,7 @@ module.exports = React.createClass({
 
       // highlight one
       this.markers[id].setOpacity(1.0);
-      this.markers[id].icon = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'
+      this.markers[id].icon = 'https://maps.google.com/mapfiles/ms/icons/red-dot.png'
       this.highlightedId = id;
     }
   },
@@ -142,7 +142,7 @@ module.exports = React.createClass({
     if (this.highlightedId) {
       this.allMarkers().forEach(marker => {
         marker.setOpacity(1.0);
-        marker.icon = 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png';
+        marker.icon = 'https://maps.google.com/mapfiles/ms/icons/yellow-dot.png';
       });
       this.highlightedId = null;
     }

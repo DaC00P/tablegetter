@@ -71,7 +71,7 @@ Restaurant.find_by(name: "Gaggan").update(chef_pic_url: "https://res.cloudinary.
 Restaurant.find_by(name: "El Bulli").update(chef_pic_url: "https://res.cloudinary.com/dldvsrho8/image/upload/c_scale,w_200/v1467927252/adria_hpidsn.jpg")
 
 a = [ "https://res-5.cloudinary.com/dldvsrho8/image/upload/v1467822969/nnaka11_dq0cor.jpg",
-   "http://res.cloudinary.com/dldvsrho8/image/upload/c_scale,w_1000/v1467822967/osteria2_fsbjqh.jpg",
+   "https://res.cloudinary.com/dldvsrho8/image/upload/c_scale,w_1000/v1467822967/osteria2_fsbjqh.jpg",
    "https://res-4.cloudinary.com/dldvsrho8/image/upload/v1467822953/pujol11_apqx2i.jpg",
    "https://res-2.cloudinary.com/dldvsrho8/image/upload/v1467822954/pujol7_pklkzt.jpg",
    "https://res-2.cloudinary.com/dldvsrho8/image/upload/v1467822953/pujol12_uyxcvp.jpg",
@@ -170,17 +170,17 @@ a = [ "https://res-5.cloudinary.com/dldvsrho8/image/upload/v1467822969/nnaka11_d
    "https://res-5.cloudinary.com/dldvsrho8/image/upload/v1467822900/bluehill6_dwldxm.jpg",
    "https://res-3.cloudinary.com/dldvsrho8/image/upload/v1467822900/bluehill3_gzgowq.jpg",
    "https://res-4.cloudinary.com/dldvsrho8/image/upload/v1467822899/alinea7_gaqc9x.jpg",
-   "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822896/alinea0_wk2hfq.jpg",
-   "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822896/alinea1_fvhxuc.jpg",
-   "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822897/alinea10_jydfwh.jpg",
-   "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822896/alinea2_gv2wdz.jpg",
-   "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822896/alinea3_afvnjc.jpg",
-   "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822896/alinea4_n7noww.jpg",
-   "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822896/alinea5_trilie.jpg",
-   "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822896/alinea6_xszzky.jpg",
-   "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822899/alinea7_gaqc9x.jpg",
-   "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822897/alinea8_ijtgkz.jpg",
-   "http://res.cloudinary.com/dldvsrho8/image/upload/v1467822897/alinea9_s8po1d.jpg",
+   "https://res.cloudinary.com/dldvsrho8/image/upload/v1467822896/alinea0_wk2hfq.jpg",
+   "https://res.cloudinary.com/dldvsrho8/image/upload/v1467822896/alinea1_fvhxuc.jpg",
+   "https://res.cloudinary.com/dldvsrho8/image/upload/v1467822897/alinea10_jydfwh.jpg",
+   "https://res.cloudinary.com/dldvsrho8/image/upload/v1467822896/alinea2_gv2wdz.jpg",
+   "https://res.cloudinary.com/dldvsrho8/image/upload/v1467822896/alinea3_afvnjc.jpg",
+   "https://res.cloudinary.com/dldvsrho8/image/upload/v1467822896/alinea4_n7noww.jpg",
+   "https://res.cloudinary.com/dldvsrho8/image/upload/v1467822896/alinea5_trilie.jpg",
+   "https://res.cloudinary.com/dldvsrho8/image/upload/v1467822896/alinea6_xszzky.jpg",
+   "https://res.cloudinary.com/dldvsrho8/image/upload/v1467822899/alinea7_gaqc9x.jpg",
+   "https://res.cloudinary.com/dldvsrho8/image/upload/v1467822897/alinea8_ijtgkz.jpg",
+   "https://res.cloudinary.com/dldvsrho8/image/upload/v1467822897/alinea9_s8po1d.jpg",
    "https://res-1.cloudinary.com/dldvsrho8/image/upload/v1467822899/bluehill1_y7gksa.jpg",
    "https://res-4.cloudinary.com/dldvsrho8/image/upload/v1467822899/attica8_xrt5xx.jpg",
    "https://res-1.cloudinary.com/dldvsrho8/image/upload/v1467822899/bluehill0_y7dmg3.jpg",
@@ -255,7 +255,7 @@ a.each do |url|
 end
 
 Restaurant.find_by(name: "The French Laundry").update(restaurant_cover_pic: "https://res.cloudinary.com/dldvsrho8/image/upload/v1467941985/fl5_hw5gab.jpg")
-Restaurant.find_by(name: "Osteria Francescana").update(restaurant_cover_pic: "http://res.cloudinary.com/dldvsrho8/image/upload/c_scale,w_1000/v1467822967/osteria2_fsbjqh.jpg")
+Restaurant.find_by(name: "Osteria Francescana").update(restaurant_cover_pic: "https://res.cloudinary.com/dldvsrho8/image/upload/c_scale,w_1000/v1467822967/osteria2_fsbjqh.jpg")
 Restaurant.find_by(name: "Blue Hill Restaurant").update(restaurant_cover_pic: "https://res.cloudinary.com/dldvsrho8/image/upload/v1467822901/bluehill7_yzbptq.jpg")
 Restaurant.find_by(name: "El Restaurante Patagonia Sur").update(restaurant_cover_pic: "https://res.cloudinary.com/dldvsrho8/image/upload/v1467822949/patsurmallman_ieqze4.jpg")
 Restaurant.find_by(name: "N/Naka").update(restaurant_cover_pic: "https://res.cloudinary.com/dldvsrho8/image/upload/v1467822921/nnaka9_rwx7v7.jpg")

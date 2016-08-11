@@ -5,6 +5,8 @@ const ReactDOM = require('react-dom');
 const ReactRouter = require('react-router');
 const RestaurantStore = require('../stores/restaurant_store');
 const RestaurantActions = require('../actions/restaurant_actions');
+const ReservationActions = require('../actions/reservation_actions');
+const ImageTransformer = require('../constants/image_transformer');
 
 const RestaurantShowPage = React.createClass({
 
@@ -12,18 +14,14 @@ const RestaurantShowPage = React.createClass({
     return ({restaurant: {}});
   },
 
-  getCurrentRestaurant() {
-    RestaurantActions.fetchSingleRestaurant(this.props.location.pathname.slice(-2));
-  },
-
-  componentDidMount() {
+  componentWillMount() {
     this.restaurantStoreListener = RestaurantStore.addListener(this.setCurrentRestaurant);
-    this.getCurrentRestaurant();
+    RestaurantActions.fetchAllRestaurants();
   },
 
   setCurrentRestaurant() {
-    let restaurantAndPics = RestaurantStore.find();
-    this.setState({restaurant: restaurantAndPics.restaurant, pics: restaurantAndPics.pics, reviews: restaurantAndPics.reviews});
+    let restaurant = RestaurantStore.findByID(this.props.params.id);
+    this.setState({restaurant: restaurant, pics: restaurant.restaurant_pics, reviews: restaurant.reviews});
   },
 
   componentWillUnmount() {
@@ -31,15 +29,15 @@ const RestaurantShowPage = React.createClass({
   },
 
   render() {
-
     let restaurantImage = {backgroundImage: `url(${this.state.restaurant.restaurant_cover_pic})`};
 
     let restaurantPics = [];
     let pics = this.state.pics;
     if (pics !== undefined){
       for (let i = 0; i < pics.length; i++) {
+        let url = ImageTransformer.showPagefoodPic(pics[i].picture_url, 350, 350);
         restaurantPics.push(<div key={pics[i].id}>
-                              <img key={pics[i].id*5} className="restaurant-detail-pic"src={pics[i].picture_url} style={{width: '200px', height: '200px'}}/>
+                              <img key={pics[i].id*50} className="restaurant-detail-pic"src={url} style={{width: '200px', height: '200px'}}/>
                             </div>);
       }
     }
@@ -75,7 +73,7 @@ const RestaurantShowPage = React.createClass({
 
         <section className="restaurant-detail-bar">
           <div>
-            <img src={this.state.restaurant.chef_pic_url} alt={this.state.restaurant.chef}/>
+            <img className='chef-pic' src={this.state.restaurant.chef_pic_url} alt={this.state.restaurant.chef}/>
           </div>
           <ul className='restaurant-show-page-details'>
             <li>  <span className="fancy-span" >{this.state.restaurant.chef}</span> Chef</li>

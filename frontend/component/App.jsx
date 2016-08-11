@@ -42,6 +42,12 @@ const customStyle = {
 
 
 const App = React.createClass({
+  getInitialState: function() {
+    return {
+      modalIsOpen: false,
+      reservations: ReservationStore.all()
+    };
+  },
 
   componentDidMount() {
     this.storeListener = SessionStore.addListener(this.forceUpdate.bind(this));
@@ -59,13 +65,6 @@ const App = React.createClass({
 
   _handleLogOut(){
     SessionActions.logOut();
-  },
-
-  getInitialState: function() {
-    return {
-      modalIsOpen: false,
-      reservations: ReservationStore.all()
-    };
   },
 
   openModal: function() {

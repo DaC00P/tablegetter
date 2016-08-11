@@ -2,16 +2,16 @@
 
 const Store = require('flux/utils').Store;
 const AppDispatcher = require('../dispatcher/dispatcher');
-const RestaurantStore = new Store(AppDispatcher);
+const SearchMapStore = new Store(AppDispatcher);
 
 
 let _restaurants = {};
 let _highlightedId = null;
 
 
-RestaurantStore.__onDispatch = function(payload) {
+SearchMapStore.__onDispatch = function(payload) {
   switch (payload.actionType){
-    case "receive_restaurants":
+    case "receive_searched_restaurants":
       resetAllRestaurants(payload.restaurants);
       break;
     case "RESTAURANT_HIGHLIGHTED":
@@ -23,11 +23,11 @@ RestaurantStore.__onDispatch = function(payload) {
   }
 };
 
-RestaurantStore.all = function() {
+SearchMapStore.all = function() {
   return Object.keys(_restaurants).map((key) => {return (_restaurants[key]);});
 };
 
-RestaurantStore.highlightedId = function () {
+SearchMapStore.highlightedId = function () {
   return _highlightedId;
 };
 
@@ -35,12 +35,12 @@ function highlightRestaurant (id) {
   if (_restaurants[id]) {
     _highlightedId = id;
   }
-  RestaurantStore.__emitChange();
+  SearchMapStore.__emitChange();
 }
 
 function unhighlightRestaurant (id) {
   _highlightedId = null;
-  RestaurantStore.__emitChange();
+  SearchMapStore.__emitChange();
 }
 
 function resetAllRestaurants(restaurants) {
@@ -48,17 +48,13 @@ function resetAllRestaurants(restaurants) {
     for (let i = 0; i < restaurants.length; i++) {
       _restaurants[restaurants[i].id] = restaurants[i];
     }
-  RestaurantStore.__emitChange();
+  SearchMapStore.__emitChange();
 }
 
-RestaurantStore.find = function(id) {
-  // return {restaurant: _restaurants[id], pics: _pics, reviews: _reviews};
-};
-
-RestaurantStore.findByID = function(id) {
+SearchMapStore.findByID = function(id) {
   return _restaurants[id];
 };
 
 
 
-module.exports = RestaurantStore;
+module.exports = SearchMapStore;

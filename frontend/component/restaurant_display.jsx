@@ -7,42 +7,68 @@ const RestaurantStore = require('../stores/restaurant_store');
 const RestaurantActions = require('../actions/restaurant_actions');
 const RestaurantDisplayItem = require('./restaurant_display_item');
 const SearchActions = require('../actions/search_actions');
-const Scroll = require('react-scroll');
+const SearchMapStore = require('../stores/search_map_store');
+const Map = require('./restaurant_map');
 
 
 const RestaurantDisplay = React.createClass({
   getInitialState() {
-    return {restaurants: []};
+    return {
+      restaurants: [],
+      searched: []
+    };
   },
 
-  componentDidMount() {
-    this.restaurantListener = RestaurantStore.addListener(this.getAllRestaurants);
-    RestaurantActions.fetchAllRestaurants();
+  componentWillMount() {
+    this.restaurantListener = RestaurantStore.addListener(this.setStoretoDefault);
+    this.searchListener = SearchMapStore.addListener(this.setStoreToSearch);
   },
 
   componentWillUnmount() {
     this.restaurantListener.remove();
+    this.searchListener.remove();
   },
 
-  getAllRestaurants() {
+  setStoreToSearch() {
+    this.setState({searched: SearchMapStore.all()});
+  },
+
+  setStoretoDefault() {
     this.setState({restaurants: RestaurantStore.all()});
   },
 
   searchForRestaurants(event) {
     event.preventDefault();
-    SearchActions.searchForRestaurants(event.currentTarget.value);
+    if (event.currentTarget.value.length === 0) {
+      SearchActions.searchForRestaurantsOnMapSearch('', this.props.getMapBounds());
+    } else {
+      this.props.activateSearch();
+      this.props.setSearchValue(event.currentTarget.value);
+      SearchActions.searchForRestaurantsOnMapSearch(event.currentTarget.value, this.props.getMapBounds());
+    }
   },
 
-  render() {
-    let restaurant_names;
-    if (this.state.restaurants.length === 0){
-      restaurant_names = (<h2 className="no-search-results">Apologies, no matching search results</h2>);
+  restaurantSearchResults() {
+    let restaurants;
+
+    if(this.props.checkStore()){
+      restaurants = this.state.searched;
+    } else {
+      restaurants = this.state.restaurants;
+    }
+
+    if (restaurants.length === 0){
+      return (<h2 className="no-search-results">Apologies, no matching search results</h2>);
     }
     else {
-      restaurant_names = this.state.restaurants.map((restaurant) => {
+      return restaurants.map((restaurant) => {
         return (<RestaurantDisplayItem key={restaurant.id} restaurant={restaurant}></RestaurantDisplayItem>);
       });
     }
+  },
+
+  render() {
+    let restaurant_names = this.restaurantSearchResults();
 
     return (
       <section className="restaurant-index-and-search">

@@ -203,6 +203,25 @@
   color: black;
   font-weight: bolder;
   font-family: 'Bad Script', cursive;
+  margin-top: 15px;
+}
+
+.finalized-reservation {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  button {
+    margin: 0 auto !important;
+    margin-top: 50px !important;
+  }
+  h3 {
+    font-weight: bolder;
+    font-family: 'Bad Script', cursive;
+    margin-bottom: 25px;
+  }
+  section {
+
+  }
 }
 
 .ReactModal__Overlay--after-open {
@@ -291,11 +310,7 @@
   padding: 15px;
 }
 
-.restaurant-show-page {
-  justify-content: center;
-  margin: 0 auto;
-  position: relative;
-}
+
 
 .restaurant-detail-bar {
   display: flex;
@@ -323,11 +338,16 @@
   border-radius: 5px;
 }
 
+.restaurant-show-page {
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+}
+
 .restaurant-show-page-details {
   display: flex;
   flex-direction: column;
   list-style: none;
-
 }
 .restaurant-show-page-details img {
   text-align: left;
@@ -341,9 +361,9 @@
 }
 
 .nearly-fancy-span {
-  font-weight: bolder;
-  font-family: 'Bad Script', cursive;
-  font-size: 24px;
+  font-weight: lighter;
+  font-family: 'Montserrat';
+  font-size: 20px;
   color: black;
 }
 
@@ -352,6 +372,12 @@
   height: 50px;
   font-size: 20px;
   color: grey;
+}
+.chef-pic {
+  margin-right: 15px;
+  border-radius: 10px;
+  height: 250px;
+  width: 250px;
 }
 
 .restaurant-review-section {
@@ -462,6 +488,12 @@
   margin-top: 140px;
   font-weight: bolder;
   font-family: 'Bad Script', cursive;
+}
+
+.not-signed-in-buttons {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 25px;
 }
 
 .detail-booking-section {

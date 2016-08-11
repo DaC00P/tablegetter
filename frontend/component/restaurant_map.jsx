@@ -4,11 +4,17 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const RestaurantStore = require('../stores/restaurant_store');
 const RestaurantActions = require('../actions/restaurant_actions');
+const SearchMapStore = require('../stores/restaurant_store');
+const SearchActions = require('../actions/search_actions');
+const RestaurantDisplay = require('./restaurant_display');
 
 
 module.exports = React.createClass({
   getInitialState () {
-    return {displayForm: false};
+    return {
+      displayForm: false,
+      storeToUse: "restaurantStore"
+    };
   },
 
   componentDidMount () {
@@ -18,31 +24,32 @@ module.exports = React.createClass({
 
     const mapDOMNode = ReactDOM.findDOMNode(this.refs.map);
     let mapOptions = {
-      center: {lat: 0, lng: 0}, // this is SF
+      center: {lat: 0, lng: 0},
       zoom: 2,
       scrollwheel: false
     };
+
     this.map = new google.maps.Map(mapDOMNode, mapOptions);
-
     this.mapListener1 = google.maps.event.addListener(this.map, 'idle', this._handleIdle);
-    this.mapListener2 = google.maps.event.addListener(this.map, 'click', this._openForm);
+    this.mapListener2 = google.maps.event.addListener(this.map, 'bounds_changed', this._handleSearch);
   },
 
-  _openForm (coords) {
-    this.clickLat = coords.latLng.lat();
-    this.clickLng = coords.latLng.lng();
-    this.setState({displayForm: true});
-  },
-
-  _closeForm () {
-    this.setState({displayForm: false});
-  },
-
-  _handleIdle () {
-    if (!this.storeListener) {
-      this.storeListener = RestaurantStore.addListener(this._onChange);
+  _handleIdle() {
+    if (!this.defaultStoreListener) {
+      this.defaultStoreListener = RestaurantStore.addListener(this._onChange);
+      RestaurantActions.fetchAllRestaurants(this.getBounds());
     }
-    RestaurantActions.fetchAllRestaurants(this.getBounds());
+
+    if (!this.searchStoreListener) {
+      this.searchStoreListener = SearchMapStore.addListener(this._onChange);
+    }
+
+  },
+
+  _handleSearch() {
+    this.props.setMapBounds(this.getBounds());
+    this.props.activateSearch();
+    SearchActions.searchForRestaurantsOnMapSearch(this.props.getSearchValue(), this.getBounds());
   },
 
   getBounds () {
@@ -54,15 +61,23 @@ module.exports = React.createClass({
   },
 
   componentWillUnmount () {
-    this.storeListener.remove();
+    this.defaultStoreListener.remove();
+    this.searchStoreListener.remove();
     google.maps.event.removeListener(this.mapListener1);
     google.maps.event.removeListener(this.mapListener2);
   },
 
   _onChange () {
+    let restaurants;
+    let _store;
+    if (this.props.checkSearchState()) {
+      restaurants = RestaurantStore.all();
+    } else {
+      restaurants = SearchMapStore.all();
+    }
     // add new marks and record them
     const newMarkers = {};
-    RestaurantStore.all().forEach(restaurant => {
+    restaurants.forEach(restaurant => {
       newMarkers[restaurant.id] = true;
 
       if (!this.markers[restaurant.id]) {
@@ -80,7 +95,11 @@ module.exports = React.createClass({
     });
 
     this.unhighlightMarker();
-    this.highlightMarker(RestaurantStore.highlightedId());
+    if (this.props.checkSearchState()) {
+      this.highlightMarker(SearchMapStore.highlightedId());
+    } else {
+      this.highlightMarker(RestaurantStore.highlightedId());
+    }
   },
 
   addRestaurantMarker (restaurant) {
@@ -88,11 +107,12 @@ module.exports = React.createClass({
     const marker = new google.maps.Marker({
       position: pos,
       map: this.map,
-      title: restaurant.name
+      title: restaurant.name,
+      icon: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
     });
     this.restaurant_id = restaurant.id;
     // marker.addEventListener();
-    this.mapMarkerListener = google.maps.event.addListener(marker, 'click', this.scrollToRestaurantInIndex);
+    // this.mapMarkerListener = google.maps.event.addListener(marker, 'click', this.scrollToRestaurantInIndex);
     // put in a callback instead of the console log that either narrows the index or does..?
     return marker;
   },
@@ -113,13 +133,17 @@ module.exports = React.createClass({
 
       // highlight one
       this.markers[id].setOpacity(1.0);
+      this.markers[id].icon = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'
       this.highlightedId = id;
     }
   },
 
   unhighlightMarker () {
     if (this.highlightedId) {
-      this.allMarkers().forEach(marker => marker.setOpacity(1.0));
+      this.allMarkers().forEach(marker => {
+        marker.setOpacity(1.0);
+        marker.icon = 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png';
+      });
       this.highlightedId = null;
     }
   },

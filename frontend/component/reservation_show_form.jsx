@@ -18,7 +18,7 @@ const RestaurantActions = require('../actions/restaurant_actions');
 const options = ["5:00 PM", "7:00 PM", "9:00 PM"];
 const defaultOption = "Please Select a Time";
 
-const RestaurantShowForm = React.createClass({
+const ReservationShowForm = React.createClass({
 
   getInitialState() {
     return {
@@ -195,4 +195,4 @@ const RestaurantShowForm = React.createClass({
   }
 });
 
-module.exports = RestaurantShowForm;
+module.exports = ReservationShowForm;

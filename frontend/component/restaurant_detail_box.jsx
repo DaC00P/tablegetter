@@ -19,11 +19,7 @@ const RestaurantDetailBox = React.createClass({
           <RestaurantBookingCalender restaurant={this.props.restaurant}/>
           <span></span>
         </section>
-
-
-
       </section>
-
     );
   }
 });

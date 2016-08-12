@@ -14,6 +14,7 @@ const ErrorStore = require('../stores/error_store');
 const ErrorActions = require('../actions/error_actions');
 const RestaurantStore = require('../stores/restaurant_store');
 const RestaurantActions = require('../actions/restaurant_actions');
+const ReservationShowForm = require('./reservation_show_form');
 
 const customStyle = {
   content : {
@@ -51,21 +52,7 @@ const NavBar = React.createClass({
   getInitialState() {
     return {
       modalIsOpen: false,
-      errors: "",
-      reservationDate: new Date(),
-      reservationTime: "",
-      party_size: 0,
-      allergies: "",
-      special_instructions: ""
     };
-  },
-
-  handleCalenderSelect(date) {
-    this.setState({reservationDate: date});
-  },
-
-  handleTimeSelect(time) {
-    this.setState({reservationTime: time.value});
   },
 
   loginClick() {
@@ -83,17 +70,6 @@ const NavBar = React.createClass({
     this.openModal();
   },
 
-  accessCurrentUserReservations() {
-    const currentUserID = SessionStore.currentUser.id;
-    const reservations = ReservationStore.all();
-    for (let obj in reservations) {
-      if (!(obj["user_id"] === currentUserID)){
-        delete reservations[obj];
-      }
-    }
-    return reservations;
-  },
-
   openModal: function() {
     this.setState({modalIsOpen: true});
   },
@@ -106,143 +82,10 @@ const NavBar = React.createClass({
     this.setState({modalIsOpen: false});
   },
 
-  handleErrors() {
-    this.setState({errors: ErrorStore.formErrors("reservationErrors")});
-  },
-
   componentWillMount() {
     const appElement = document.getElementById('content');
     Modal.setAppElement(appElement);
-    ErrorStore.addListener(this.handleErrors);
-    ReservationActions.fetchAllReservations();
   },
-
-  editReservationDetails(id, event) {
-    event.preventDefault();
-    let reservationDetails = {
-      id: id,
-      date: this.state.reservationDate,
-      time: this.state.reservationTime,
-      party_size: this.state.party_size,
-      allergies: this.state.allergies,
-      special_instructions: this.state.special_instructions
-    };
-    ReservationActions.editReservationDetails(reservationDetails);
-  },
-
-  editPartySize(event) {
-    this.setState({party_size: event.currentTarget.value});
-  },
-
-  editAllergies(event) {
-    this.setState({allergies: event.currentTarget.value});
-  },
-
-  editSpecialInstructions(event) {
-    this.setState({special_instructions: event.currentTarget.value});
-  },
-
-  cancelReservation(id) {
-    ReservationActions.cancelReservation(id);
-  },
-
-  generateReservations() {
-    let reservations = [];
-    for (let reservation in this.props.reservations){
-      reservations.push(this.props.reservations[reservation]);
-    }
-
-    let restaurantName = "";
-    reservations = reservations.map( (singleReservation) => {
-
-
-          if (RestaurantStore.findByID(singleReservation.restaurant_id) !== undefined){
-            restaurantName = RestaurantStore.findByID(singleReservation.restaurant_id).name;
-          }
-
-
-          return (
-            <div
-              key = {singleReservation.id * 12}
-              className="user-reservation-ud">
-              <h2 className="your-reservation-at">
-                Your Reservation at {restaurantName}
-              </h2>
-
-              <ul
-                key={singleReservation.id}
-                className='reservation-details-edit'>
-                <br>
-                </br>
-                <h4>
-                  If you would like to edit your Reservation, please fill out the form and press Edit Reservation
-                </h4>
-                <br>
-                </br>
-                <span className="reservation-finalize-form-errors">
-                  {this.state.errors.error}
-                </span>
-                <br>
-                </br>
-                <li key={singleReservation.id * 9}>
-                  Your Current Reservation Date is: {singleReservation.date} <Calendar onChange={this.handleCalenderSelect}
-                  closeOnSelect={true} type="calender" format='DD/MM/YYYY' date={this.state.reservationDate} defaultValue='Click Here to Reserve'/>
-                </li>
-                <li key={singleReservation.id * 8}>
-                Your Current Reservation Time is: {singleReservation.time} <Dropdown onChange={this.handleTimeSelect}
-                className="" options={options} value={this.state.reservationTime} placeholder="Please Select a Seating" />
-                </li>
-                <li key={singleReservation.id * 7}>
-                  <input
-                    onChange={this.editPartySize}
-                    type="text"
-                    placeholder="Please Enter Your New Party Size"
-                    className="reservation-entry-details"/>
-                </li>
-                <li key={singleReservation.id * 6}>
-                  <input
-                    onChange={this.editAllergies}
-                    type="text"
-                    placeholder="Please Enter Your New Allergies"
-                    className="reservation-entry-details"/>
-                </li>
-                <li key={singleReservation.id * 5}>
-                  <input
-                    onChange={this.editSpecialInstructions}
-                    type="text"
-                    placeholder="Please Enter You New Special Instructions"
-                    className="reservation-entry-details"/>
-                </li>
-                <button
-                  type="button"
-                  className="btn btn-info btn-sm"
-                  id="reserve-finalize-button"
-                  onClick={this.editReservationDetails.bind(this, singleReservation.id)} >
-                  Edit Reservation
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-info btn-sm"
-                  id="reserve-finalize-button"
-                  onClick={this.cancelReservation.bind(this, singleReservation.id)} >
-                  Cancel Reservation
-                </button>
-          </ul>
-
-        </div>
-
-      );
-    });
-    if (reservations.length === 0){
-      reservations = (
-        <li>
-        </li>
-      );
-    }
-    return reservations;
-  },
-
-
 
   render() {
     const loginbuttons = (
@@ -305,7 +148,6 @@ const NavBar = React.createClass({
       ;
       greeting = <div/>;
     }
-  let reservations = this.generateReservations();
 
 return (
   <div className="transparant-navbar">
@@ -332,7 +174,10 @@ return (
       style={customStyle}
       id="reservation-modal">
       <ul className="total-reservation-edit">
-        {reservations}
+        <ReservationShowForm
+          closeModal={this.closeModal}
+          reservations={this.props.reservations}
+          />
       </ul>
     </Modal>
 

@@ -179,7 +179,6 @@ return (
         closeModal={this.closeModal}
         reservations={this.props.reservations}
       />
-      <div>hi</div>
 
     </Modal>
 

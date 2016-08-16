@@ -8,42 +8,46 @@ const ReservationStore = require('../stores/reservation_store');
 const Modal = require('react-modal');
 import Calendar from 'react-input-calendar';
 import Dropdown from 'react-dropdown';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 const ReservationActions = require('../actions/reservation_actions');
 const SessionActions = require('../actions/session_actions');
 const ErrorStore = require('../stores/error_store');
 const ErrorActions = require('../actions/error_actions');
 const RestaurantStore = require('../stores/restaurant_store');
 const RestaurantActions = require('../actions/restaurant_actions');
+const ReservationEditForm = require('./reservation_edit_form');
 
+const SingleReservationForm = React.createClass({
 
-const ReservationViewForm = React.createClass({
+  getInitialState() {
+      return {reservation: this.props.reservation};
+  },
 
   componentWillMount() {
-    ReservationStore.addListener(this.accessCurrentUserReservations);
+    ReservationStore.addListener(this.accessCurrentUserSingleReservation);
   },
 
-  accessCurrentUserReservations() {
-    const currentUserID = SessionStore.currentUser.id;
-    const reservations = ReservationStore.all();
-    for (let obj in reservations) {
-      if (!(obj["user_id"] === currentUserID)){
-        delete reservations[obj];
-      }
-    }
-    return reservations;
+  accessCurrentUserSingleReservation() {
+    let reservation = ReservationStore.find(this.props.reservation.id);
+    this.setState({reservation: reservation});
   },
 
+  generateReservationView() {
 
-  generateReservations() {
-    let reservations = [];
-    let userReservations = this.accessCurrentUserReservations();
+    let userReservation = [];
+    userReservation.push(this.state.reservation);
 
-    for (let reservation in userReservations){
-      reservations.push(this.props.reservations[reservation]);
+    if (userReservation.length === 0) {
+      return (
+        <li>
+          We are sorry, you do not have a reservation to view!
+        </li>
+      );
     }
 
     let restaurantName = "";
-    reservations = reservations.map( (singleReservation) => {
+
+    return userReservation.map( (singleReservation) => {
 
 
           if (RestaurantStore.findByID(singleReservation.restaurant_id) !== undefined){
@@ -51,7 +55,8 @@ const ReservationViewForm = React.createClass({
           }
 
 
-          return (
+
+        return (
             <div
               key = {singleReservation.id * 12}
               className="user-reservation-ud">
@@ -87,36 +92,46 @@ const ReservationViewForm = React.createClass({
                 <li key={singleReservation.id * 5}>
                   Your Current Specical Instructions are: {singleReservation.special_instructions}
                 </li>
-                <button
-                  type="button"
-                  className="btn btn-info btn-sm"
-                  id="reserve-finalize-button"
-                  onClick={console.log('this button will open the edit view for the specific reservation')} >
-                  Edit Reservation
-                </button>
-          </ul>
-        </div>
-
-      );
+              </ul>
+          </div>
+        );
     });
-    if (reservations.length === 0){
-      reservations = (
-        <li>
-          We are sorry, you do not have any reservations to view!
-        </li>
-      );
-    }
-    return reservations;
+
   },
 
+
   render() {
-    let reservations = this.generateReservations();
+    let reservationView = this.generateReservationView();
+
     return (
-      <section>
-        {reservations}
-      </section>
+      <div>
+
+      <Tabs>
+
+        <TabList>
+            <Tab>
+              View
+            </Tab>
+            <Tab>
+              Edit
+            </Tab>
+        </TabList>
+
+        <TabPanel>
+          {reservationView}
+        </TabPanel>
+
+        <TabPanel>
+          <ReservationEditForm reservation={this.state.reservation}/>
+        </TabPanel>
+
+      </Tabs>
+
+
+      </div>
     );
   }
+
 });
 
-module.exports = ReservationViewForm;
+module.exports = SingleReservationForm;

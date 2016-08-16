@@ -83,6 +83,7 @@ const NavBar = React.createClass({
   },
 
   componentWillMount() {
+    ReservationActions.fetchAllReservations();
     const appElement = document.getElementById('content');
     Modal.setAppElement(appElement);
   },
@@ -173,12 +174,13 @@ return (
       onRequestClose={this.closeModal}
       style={customStyle}
       id="reservation-modal">
-      <ul className="total-reservation-edit">
-        <ReservationShowForm
-          closeModal={this.closeModal}
-          reservations={this.props.reservations}
-          />
-      </ul>
+
+      <ReservationShowForm
+        closeModal={this.closeModal}
+        reservations={this.props.reservations}
+      />
+      <div>hi</div>
+
     </Modal>
 
   </div>

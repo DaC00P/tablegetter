@@ -14,24 +14,44 @@ const ErrorStore = require('../stores/error_store');
 const ErrorActions = require('../actions/error_actions');
 const RestaurantStore = require('../stores/restaurant_store');
 const RestaurantActions = require('../actions/restaurant_actions');
-const ReservationViewForm = require('./reservation_view_form');
-const ReservationEditForm = require('./reservation_edit_form');
+const SingleReservationForm = require('./single_reservation_form');
+
 
 const ReservationShowForm = React.createClass({
-  componentWillMount() {
-    ReservationActions.fetchAllReservations();
+
+  accessCurrentUserReservations() {
+    let reservations = [];
+    let currentUserID = SessionStore.currentUser().id;
+    let reservationsObjects = ReservationStore.all();
+    for (let i = 0; i < reservationsObjects.length; i++) {
+      let reservationObj = reservationsObjects[i];
+      if (!(reservationObj["user_id"] === currentUserID)){
+        delete reservations[reservationObj];
+      }
+      else {
+        reservations.push(reservationObj);
+      }
+    }
+    return reservations;
   },
 
-  render() {
-    return (
-      <div>
-        <ReservationEditForm reservations={this.props.reservations} errors={this.props.errors}/>
-      </div>
 
+  render() {
+    let reservations = this.accessCurrentUserReservations().map((reservation) => {
+      return (
+        <div key={reservation.id * 2}>
+          <SingleReservationForm key={reservation.id} reservation={reservation}/>
+        </div>
+      );
+    });
+
+    return (
+      <ul className="total-reservation-edit" key={9999}>
+        {reservations}
+      </ul>
     );
   }
+
 });
 
 module.exports = ReservationShowForm;
-
-// <ReservationViewForm reservations={this.props.reservations} errors={this.props.errors}/>

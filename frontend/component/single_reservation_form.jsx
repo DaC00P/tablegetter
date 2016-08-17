@@ -16,6 +16,7 @@ const ErrorActions = require('../actions/error_actions');
 const RestaurantStore = require('../stores/restaurant_store');
 const RestaurantActions = require('../actions/restaurant_actions');
 const ReservationEditForm = require('./reservation_edit_form');
+const Moment = require('moment');
 
 const SingleReservationForm = React.createClass({
 
@@ -78,7 +79,7 @@ const SingleReservationForm = React.createClass({
                 <br>
                 </br>
                 <li key={singleReservation.id * 9}>
-                  Your Current Reservation Date is: {singleReservation.date}
+                  Your Current Reservation Date is: {singleReservation.date} , {Date(singleReservation.date).format('dddd, MMMM Do YYYY')}
                 </li>
                 <li key={singleReservation.id * 8}>
                 Your Current Reservation Time is: {singleReservation.time}

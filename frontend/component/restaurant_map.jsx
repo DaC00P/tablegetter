@@ -37,7 +37,6 @@ module.exports = React.createClass({
   _handleIdle() {
     if (!this.defaultStoreListener) {
       this.defaultStoreListener = RestaurantStore.addListener(this._onChange);
-      RestaurantActions.fetchAllRestaurants(this.getBounds());
     }
 
     if (!this.searchStoreListener) {

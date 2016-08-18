@@ -47,9 +47,7 @@ const SingleReservationForm = React.createClass({
     }
 
     let restaurantName = "";
-
     return userReservation.map( (singleReservation) => {
-
 
           if (RestaurantStore.findByID(singleReservation.restaurant_id) !== undefined){
             restaurantName = RestaurantStore.findByID(singleReservation.restaurant_id).name;
@@ -79,7 +77,7 @@ const SingleReservationForm = React.createClass({
                 <br>
                 </br>
                 <li key={singleReservation.id * 9}>
-                  Your Current Reservation Date is: {singleReservation.date} , {Date(singleReservation.date).format('dddd, MMMM Do YYYY')}
+                  Your Current Reservation Date is: {Moment(new Date(singleReservation.date)).format('dddd, MMMM Do YYYY')}
                 </li>
                 <li key={singleReservation.id * 8}>
                 Your Current Reservation Time is: {singleReservation.time}

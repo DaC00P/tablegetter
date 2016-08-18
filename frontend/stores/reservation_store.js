@@ -48,5 +48,3 @@ function removeReservation(reservation) {
 
 
 module.exports = ReservationStore;
-
-window.reservationstore = ReservationStore;

@@ -269,17 +269,7 @@ Restaurant.find_by(name: "Hiša Franko").update(restaurant_cover_pic: "https://r
 Restaurant.find_by(name: "Gaggan").update(restaurant_cover_pic: "https://res.cloudinary.com/dldvsrho8/image/upload/v1467822916/gaggan6_sgr4mm.jpg")
 Restaurant.find_by(name: "El Bulli").update(restaurant_cover_pic: "https://res.cloudinary.com/dldvsrho8/image/upload/v1467941998/eb9_heu6j7.jpg")
 
-User.create!(username: 'demo', password: 123123)
-userid = User.find_by(username: 'demo').id
-Reservation.create!(user_id: userid, restaurant_id: 1, time: "5:00 PM", party_size: 5, date: "2016-04-07")
-Reservation.create!(user_id: userid, restaurant_id: 3, time: "5:00 PM", party_size: 5, date: "2016-05-07")
-Reservation.create!(user_id: userid, restaurant_id: 5, time: "5:00 PM", party_size: 5, date: "2016-06-07")
-Reservation.create!(user_id: userid, restaurant_id: 7, time: "5:00 PM", party_size: 5, date: "2016-07-07")
-Reservation.create!(user_id: userid, restaurant_id: 2, time: "5:00 PM", party_size: 5, date: "2017-08-07")
-Reservation.create!(user_id: userid, restaurant_id: 4, time: "5:00 PM", party_size: 5, date: "2017-09-07")
-Reservation.create!(user_id: userid, restaurant_id: 8, time: "5:00 PM", party_size: 5, date: "2017-10-07")
-Reservation.create!(user_id: userid, restaurant_id: 9, time: "5:00 PM", party_size: 5, date: "2017-11-07")
-Reservation.create!(user_id: userid, restaurant_id: 3, time: "5:00 PM", party_size: 5, date: "2017-12-07")
+
 
 
 Restaurant.find_by(name: "The French Laundry").update(reviews: {review1: "An old stone building laced with ivy houses the most acclaimed restaurant in the Napa Valley—and, indeed, one of the most highly regarded in the country. The two nine-course prix-fixe menus (both $295), one of which highlights vegetables, vary, but 'oysters and pearls,' a silky dish of pearl tapioca with oysters and white sturgeon caviar, is a signature starter. Some courses rely on luxe ingredients like calotte (cap of the rib eye), while others take humble foods such as fava beans and elevate them to art. Many courses also offer the option of 'supplements'—sea urchin, for instance, or black truffles. Reservations are hard-won here; to get one call two months ahead to the day at 10 am, on the dot. ", review2:" This year Thomas Keller is starting a new chapter at his 21-year-old restaurant. He tore down several buildings, and built a replica of the old kitchen in shipping containers to serve as a temporary home while building a permanent kitchen that will be like no other. He gave the international firm Snohetta the challenge of creating a structure inspired by the glass pyramid of the Louvre, to contrast with the elegant dining room that is in a century-old stone building. The new kitchen is scheduled to premiere in November, but in the meantime, chef David Breeden continues to turn out some of the country’s best food on the nine-plus course menu. The expansive garden across the street inspires the nightly changing menu, and no ingredient is repeated. Keller continues to evolve and push the envelope. With Per Se in New York, he is the only American chef to have Michelin three-star restaurants on both coasts. Both are wonderful, and both capture a sense of place."})
@@ -396,6 +386,10 @@ How much does dinner cost? The tasting menu is 165€. Add wine, water, and cof
 Restaurant.find_by(name: "Alinea").update(reviews: {review1: "I wander into the kitchen, where Observer photographer Howard Sooley is seven hours into his shoot – the first time Adrià has let anyone photograph behind the scenes during service.
 Sooley used to work for US Vog show when you can have both together? That's because eating at Alinea, which involves around 20 courses over about three hours, is more than simply dinner-it's culinary theater. Perhaps it could qualify for a Tony Award along with its Michelin stars, because you're even invited backstage afterwards to meet the talented protagonists in the kitchen. Alinea provides such a vivid, visceral experience, that you'll even forget about the somewhat painful and entirely inhospitable booking procedure. Neophytes have nothing to fear here as there's a veritable army of charming, clued-up helpers and servers to guide you effortlessly through each and every dish. And guidance is certainly needed because the only menu you'll see is the one presented to you like an award certificate as you leave. The cooking is strikingly original and very clever. It can surprise but it can also challenge; at times dishes can be playful or even whimsical. But underpinning all those clever techniques and all those dazzling arrangements and quite striking presentations is an inherent understanding of flavor-and this is what gives the cooking such great depth.
 ", review2: "An amazing, wonderous journey through culinary experimentation. What a mind blowing experience!"})
+
+
+User.create!(username: 'demo', password: 123123)
+userid = User.find_by(username: 'demo').id
 Reservation.create!(user_id: userid, restaurant_id: 1, time: "5:00 PM", party_size: 5, date: "2016-04-07")
 Reservation.create!(user_id: userid, restaurant_id: 3, time: "5:00 PM", party_size: 5, date: "2016-05-07")
 Reservation.create!(user_id: userid, restaurant_id: 5, time: "5:00 PM", party_size: 5, date: "2016-06-07")

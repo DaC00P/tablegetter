@@ -33,7 +33,11 @@ const ReservationEditForm = React.createClass({
   },
 
   componentWillMount() {
-    ErrorStore.addListener(this.handleErrors);
+    this.errorListener = ErrorStore.addListener(this.handleErrors);
+  },
+
+  componentWillUnmount() {
+    this.errorListener.remove();
   },
 
 

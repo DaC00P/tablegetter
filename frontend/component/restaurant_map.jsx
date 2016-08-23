@@ -31,13 +31,14 @@ module.exports = React.createClass({
 
     this.map = new google.maps.Map(mapDOMNode, mapOptions);
     this.mapListener1 = google.maps.event.addListener(this.map, 'idle', this._handleIdle);
+    if (!this.defaultStoreListener) {
+      this.defaultStoreListener = RestaurantStore.addListener(this._onChange);
+    }
     this.mapListener2 = google.maps.event.addListener(this.map, 'bounds_changed', this._handleSearch);
   },
 
   _handleIdle() {
-    if (!this.defaultStoreListener) {
-      this.defaultStoreListener = RestaurantStore.addListener(this._onChange);
-    }
+
 
     if (!this.searchStoreListener) {
       this.searchStoreListener = SearchMapStore.addListener(this._onChange);

@@ -17,6 +17,7 @@ const RestaurantStore = require('../stores/restaurant_store');
 const RestaurantActions = require('../actions/restaurant_actions');
 const ReservationEditForm = require('./reservation_edit_form');
 const Moment = require('moment');
+const ImageTransformer = require('../constants/image_transformer');
 
 const SingleReservationForm = React.createClass({
 
@@ -48,12 +49,36 @@ const SingleReservationForm = React.createClass({
 
     let restaurantName = "";
     return userReservation.map( (singleReservation) => {
+          let restaurant = RestaurantStore.findByID(singleReservation.restaurant_id);
+          restaurantName = restaurant.name;
 
-          if (RestaurantStore.findByID(singleReservation.restaurant_id) !== undefined){
-            restaurantName = RestaurantStore.findByID(singleReservation.restaurant_id).name;
+          let restaurantPics = [];
+          let pics = restaurant.restaurant_pics;
+
+            for (let i = 0; i < pics.length; i++) {
+              let url = ImageTransformer.showPagefoodPic(pics[i].picture_url, 350, 350);
+              restaurantPics.push(<div key={pics[i].id}>
+                                    <img key={pics[i].id*50}
+                                        className="restaurant-detail-pic-reserve"
+                                         src={url}
+                                         style={{width: '200px', height: '200px'}}/>
+                                  </div>);
+            }
+
+
+          // if (RestaurantStore.findByID(singleReservation.restaurant_id) !== undefined){
+          //   restaurantName = RestaurantStore.findByID(singleReservation.restaurant_id).name;
+          // }
+
+          let allergies = singleReservation.allergies;
+          if (allergies === null){
+            allergies = "  N/A";
           }
 
-
+          let specialInstructions = singleReservation.special_instructions;
+          if (specialInstructions === null){
+            specialInstructions = "  N/A";
+          }
 
         return (
             <div
@@ -66,32 +91,19 @@ const SingleReservationForm = React.createClass({
                 Your Reservation at {restaurantName}
               </h2>
 
-              <ul
-                key={singleReservation.id}
-                className='reservation-details-edit'>
-                <br>
-                </br>
-                <span className="reservation-finalize-form-errors">
-                  {this.props.errors}
-                </span>
-                <br>
-                </br>
-                <li key={singleReservation.id * 9}>
-                  Your Current Reservation Date is: {Moment(new Date(singleReservation.date)).format('dddd, MMMM Do YYYY')}
-                </li>
-                <li key={singleReservation.id * 8}>
-                Your Current Reservation Time is: {singleReservation.time}
-                </li>
-                <li key={singleReservation.id * 7}>
-                  Your Current Party Size is: {singleReservation.party_size}
-                </li>
-                <li key={singleReservation.id * 6}>
-                  Your Current Allergy Notes are: {singleReservation.allergies}
-                </li>
-                <li key={singleReservation.id * 5}>
-                  Your Current Specical Instructions are: {singleReservation.special_instructions}
-                </li>
-              </ul>
+              <p className='single-reservation-view'>
+                  Your reservation is on&nbsp;{Moment(new Date(singleReservation.date)).format('dddd, MMMM Do YYYY')},
+                  at&nbsp;{singleReservation.time}, for&nbsp;{singleReservation.party_size}&nbsp;people.
+              </p>
+              <p className='single-reservation-view'>
+                  Allergy Notes:&nbsp;{allergies}
+              </p>
+              <p className='single-reservation-view'>
+                  Specical Instructions:&nbsp;{specialInstructions}
+              </p>
+              <div className='restaurant-reserve-pics'>
+                {restaurantPics[0]} {restaurantPics[1]} {restaurantPics[2]} {restaurantPics[3]}
+              </div>
           </div>
         );
     });
@@ -106,8 +118,7 @@ const SingleReservationForm = React.createClass({
       <div>
 
       <Tabs>
-
-        <TabList>
+        <TabList id='view-edit-tab-selector'>
             <Tab>
               View
             </Tab>
@@ -119,11 +130,9 @@ const SingleReservationForm = React.createClass({
         <TabPanel>
           {reservationView}
         </TabPanel>
-
         <TabPanel>
           <ReservationEditForm reservation={this.state.reservation}/>
         </TabPanel>
-
       </Tabs>
 
 

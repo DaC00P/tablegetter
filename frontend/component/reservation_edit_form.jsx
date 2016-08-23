@@ -84,22 +84,11 @@ const ReservationEditForm = React.createClass({
 
   generateReservationsEditView() {
     let reservation;
-    // if (this.props.reservation.length === 0){
-    //   reservation = (
-    //     <li>
-    //       We are sorry, you do not have any reservations to view!
-    //     </li>
-    //   );
-    //   return reservation;
-    // }
-
     let restaurantName = "";
 
-
-
-      if (RestaurantStore.findByID(this.props.reservation.restaurant_id) !== undefined){
-        restaurantName = RestaurantStore.findByID(this.props.reservation.restaurant_id).name;
-      }
+    if (RestaurantStore.findByID(this.props.reservation.restaurant_id) !== undefined){
+      restaurantName = RestaurantStore.findByID(this.props.reservation.restaurant_id).name;
+    }
 
 
       return (

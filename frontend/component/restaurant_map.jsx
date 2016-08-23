@@ -38,12 +38,9 @@ module.exports = React.createClass({
   },
 
   _handleIdle() {
-
-
     if (!this.searchStoreListener) {
       this.searchStoreListener = SearchMapStore.addListener(this._onChange);
     }
-
   },
 
   _handleSearch() {

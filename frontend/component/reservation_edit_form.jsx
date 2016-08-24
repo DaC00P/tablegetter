@@ -86,9 +86,9 @@ const ReservationEditForm = React.createClass({
     let reservation;
     let restaurantName = "";
 
-    if (RestaurantStore.findByID(this.props.reservation.restaurant_id) !== undefined){
-      restaurantName = RestaurantStore.findByID(this.props.reservation.restaurant_id).name;
-    }
+      if (RestaurantStore.findByID(this.props.reservation.restaurant_id) !== undefined){
+        restaurantName = RestaurantStore.findByID(this.props.reservation.restaurant_id).name;
+      }
 
 
       return (
@@ -102,8 +102,6 @@ const ReservationEditForm = React.createClass({
           <ul
             key={this.props.reservation.id}
             className='reservation-details-edit'>
-            <br>
-            </br>
             <h4>
               If you would like to edit your Reservation, please fill out the form and press Edit Reservation
             </h4>

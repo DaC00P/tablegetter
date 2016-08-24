@@ -36,7 +36,7 @@
 
 .navbar-right button {
   height: 30px;
-  margin-top: 10px;
+  margin-top: 5px !important;
   margin-right: 15px;
   margin-left: 2.5px;
   color: floralwhite;
@@ -220,6 +220,30 @@
   }
 }
 
+ul#view-edit-tab-selector {
+  border-bottom: 2px solid black;
+  cursor: pointer;
+  font-size: large;
+  display: inline-block;
+  list-style: none;
+  position: relative;
+  padding: 0px 12px;
+  width: 100%;
+  li {
+    float: left;
+    margin-top: 5px;
+    padding: 5px;
+    padding-bottom: 0;
+    outline: none;
+    border: 2px solid black;
+    border-bottom: none;
+    border-radius: 7px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-right: 1px;
+  }
+}
+
 .ReactModal__Overlay--after-open {
   z-index: 1000;
 }
@@ -239,6 +263,17 @@
     background-color: rgba(0, 0, 0, 0.9);
   }
 }
+
+// .reserve-finalize-button {
+//   margin-top: 2px;
+//   margin-bottom: 2px;
+//   border: 1px solid #36454f;
+// }
+//
+// .reserve-finalize-button {
+//   display: flex;
+//   margin: 0 auto;
+// }
 
 .btn-sm {
   color: floralwhite;
@@ -423,15 +458,12 @@
   &:hover { transform: scale(1.75); }
 }
 
-.reserve-finalize-button {
-  display: flex;
-  margin: 0 auto;
-}
 
 .reservation-details-edit {
   list-style: none;
   text-align: left;
   padding-bottom: 5px;
+  border-top: none;
   form {
     display: flex;
     flex-direction: row;
@@ -580,11 +612,6 @@
   border: 1px solid #36454f;
 }
 
-.reserve-finalize-button {
-  margin-top: 2px;
-  margin-bottom: 2px;
-  border: 1px solid #36454f;
-}
 
 .reservation-entry-details {
   width: 150px;

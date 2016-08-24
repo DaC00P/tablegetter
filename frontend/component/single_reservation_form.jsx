@@ -27,6 +27,7 @@ const SingleReservationForm = React.createClass({
 
   componentWillMount() {
     ReservationStore.addListener(this.accessCurrentUserSingleReservation);
+    Tabs.setUseDefaultStyles(false);
   },
 
   accessCurrentUserSingleReservation() {
@@ -85,8 +86,6 @@ const SingleReservationForm = React.createClass({
               key = {singleReservation.id * 12}
               className="user-reservation-ud">
 
-              <br/>
-
               <h2 className="your-reservation-at">
                 Your Reservation at {restaurantName}
               </h2>
@@ -117,7 +116,7 @@ const SingleReservationForm = React.createClass({
     return (
       <div>
 
-      <Tabs>
+      <Tabs id='tab-list-id'>
         <TabList id='view-edit-tab-selector'>
             <Tab>
               View

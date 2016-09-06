@@ -57,6 +57,8 @@ const ReservationFinalizeForm = React.createClass({
 
   handleReservationSubmit() {
     let reservationtoPass = this.copyState(this.state);
+    //set party size to null so the back end validates on it existing
+    if (reservationtoPass.party_size === 0){reservationtoPass.party_size = null;}
     delete reservationtoPass["finalize"];
     delete reservationtoPass["errors"];
 

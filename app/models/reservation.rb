@@ -33,6 +33,10 @@ class Reservation < ActiveRecord::Base
   protected
 
   def over_capacity?
+    if self.party_size == nil
+      assign_res_error
+      return
+    end
     not_overbooked = (Reservation.where(restaurant_id: self.restaurant_id)
                     .where(time: self.time)
                     .where(date: self.date)
@@ -40,7 +44,11 @@ class Reservation < ActiveRecord::Base
                       ) <= (Restaurant.find(self.restaurant_id).capacity)
 
     unless not_overbooked
-      errors[:base] << "Request conflicts with existing approved request"
+      assign_res_error
     end
+  end
+
+  def assign_res_error
+    errors[:base] << "Request conflicts with existing approved request"
   end
 end

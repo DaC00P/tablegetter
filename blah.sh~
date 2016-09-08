@@ -1,0 +1,1 @@
+git filter-branch -f --commit-filter 'if [ "$GIT_AUTHOR_NAME" = "c00perfish" ]; then export GIT_AUTHOR_NAME="Daniel Cuperman"; export GIT_AUTHOR_EMAIL=dacooperfish@gmail.com; fi; if [ "$GIT_COMMITTER_NAME" = "c00perfish" ]; then export GIT_COMMITTER_NAME="Daniel Cuperman"; export GIT_COMMITTER_EMAIL=dacooperfish@gmail.com; fi; git commit-tree "$@"'

@@ -36,9 +36,12 @@ class Restaurant < ActiveRecord::Base
               bounds[:southWest][:lat],
               bounds[:northEast][:lng],
               bounds[:southWest][:lng]].map(&:to_f)
+    coords = adjustBoundsIfNecessary(coords)
     where("lat < ? AND lat > ? AND lng < ? AND lng > ?", *coords)
   end
 
+  ##TODO && FIXME Create a DB column with a full text concat of all the other columns, then also search through that
+  ## this stems from the 'blue barber' search not grabbing blue hill rest.
   scope :search, -> (query) do
     query = ["%#{query}%", "%#{query}%", "%#{query}%", "%#{query}%"]
     Restaurant.where("name ILIKE ? OR
@@ -46,6 +49,17 @@ class Restaurant < ActiveRecord::Base
                       cuisine ILIKE ? OR
                       city ILIKE ?",
                        *query )
+  end
+
+  protected
+  ##FIXME this is still broken for going across the longitudinal date line. fuck.
+  ##this adjusts the bounds in the case that the search is done across the date line
+  def self.adjustBoundsIfNecessary(coords)
+    if coords[2] < coords[3]
+      coords[3] -= 360.0 if coords[3] > 0
+      coords[2] += 360.0 if coords[3] < 0
+    end
+    coords
   end
 
 end

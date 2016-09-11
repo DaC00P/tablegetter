@@ -9,6 +9,7 @@ class Api::ReservationsController < ApplicationController
     if @reservation.save
       render json: @reservation
     else
+      ##FIXME use @reservation.errors to pass the actual error msg
       render(
         json: {error: "Bad Reservation Details, try again"},
         status: 422
@@ -27,6 +28,7 @@ class Api::ReservationsController < ApplicationController
     if @reservation.save
       render json: @reservation
     else
+      ##FIXME use @reservation.errors to pass the actual error msg
       render(
         json: {error: "Bad Reservation Details, try again"},
         status: 422
@@ -34,7 +36,7 @@ class Api::ReservationsController < ApplicationController
     end
   end
 
-  def destroy()
+  def destroy
     @reservation = Reservation.find_by(id: params[:id])
     if @reservation == nil
       render(
@@ -42,7 +44,7 @@ class Api::ReservationsController < ApplicationController
         status: 422
       )
     end
-    if (@reservation.destroy)
+    if @reservation.destroy
       render json: @reservation
     else
       @errors = @reservation.errors.full_messages
@@ -51,7 +53,7 @@ class Api::ReservationsController < ApplicationController
   end
 
   protected
-
+  ##TODO remember why this is necessary and make it more clear
   def format_date(date)
     if date.length > 10
       date.to_date
@@ -66,6 +68,7 @@ class Api::ReservationsController < ApplicationController
   end
 
   def reservation_params
-    params.require(:reservation).permit(:date, :time, :party_size, :allergies, :special_instructions, :restaurant_id)
+    rparams = params.require(:reservation).permit(:date, :time, :party_size, :allergies, :special_instructions, :restaurant_id)
+    rparams.date = format_date(rparams.date)
   end
 end

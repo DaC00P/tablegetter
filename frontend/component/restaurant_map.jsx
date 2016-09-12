@@ -44,17 +44,70 @@ module.exports = React.createClass({
   },
 
   _handleSearch() {
-    this.props.setMapBounds(this.getBounds());
+    this.props.setMapBounds(this.getMapBounds());
     this.props.activateSearch();
-    SearchActions.searchForRestaurantsOnMapSearch(this.props.getSearchValue(), this.getBounds());
+    SearchActions.searchForRestaurantsOnMapSearch(this.props.getSearchValue(), this.getMapBounds());
   },
 
-  getBounds () {
-    const bounds = this.map.getBounds();
-    const northEast = bounds.getNorthEast();
-    const southWest = bounds.getSouthWest();
-    return {northEast: {lat: northEast.lat(), lng: northEast.lng()},
-            southWest: {lat: southWest.lat(), lng: southWest.lng()}};
+  getMapBounds() {
+    let latsw, latne, lngsw, lngne;
+    let boolDateLineHandle;
+    const self = this;
+    let mapBoundsOne, mapBoundsTwo;
+
+    let getBounds = function () {
+      const bounds = self.map.getBounds();
+      const northEast = bounds.getNorthEast();
+      const southWest = bounds.getSouthWest();
+
+      latsw = southWest.lat();
+      latne = northEast.lat();
+      lngsw = southWest.lng();
+      lngne = northEast.lng();
+
+      if (lngsw > lngne) {
+        boolDateLineHandle = true;
+      }
+
+    };
+
+    let getData = function () {
+      let saveLngSW = lngsw;
+      let saveLngNE = lngne;
+
+      getBounds();
+      self.map.setCenter(self.map.getCenter(), self.map.getZoom());
+
+      if (boolDateLineHandle) {
+        lngsw = -179.999;
+      }
+
+      mapBoundsOne = {northEast: {lat: latne, lng: lngne},
+      southWest: {lat: latsw, lng: lngsw}};
+
+      if (boolDateLineHandle) {
+        lngsw = saveLngSW;
+        lngne = 180.000;
+
+        mapBoundsTwo = {northEast: {lat: latne, lng: lngne},
+        southWest: {lat: latsw, lng: lngsw}};
+      }
+    };
+
+    getBounds();
+    getData();
+    console.log('############LOGS###########');
+    console.log('###MB2####');
+    console.log(mapBoundsTwo);
+    console.log('###MB1####');
+    console.log(mapBoundsOne);
+
+    if (mapBoundsTwo) {
+      return {mapBoundsOne: mapBoundsOne, mapBoundsTwo: mapBoundsTwo};
+    }
+    else {
+      return {mapBoundsOne: mapBoundsOne};
+    }
   },
 
   componentWillUnmount () {

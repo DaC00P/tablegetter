@@ -36,7 +36,6 @@ class Restaurant < ActiveRecord::Base
               bounds[:southWest][:lat],
               bounds[:northEast][:lng],
               bounds[:southWest][:lng]].map(&:to_f)
-    coords = adjustBoundsIfNecessary(coords)
     where("lat < ? AND lat > ? AND lng < ? AND lng > ?", *coords)
   end
 
@@ -54,12 +53,12 @@ class Restaurant < ActiveRecord::Base
   protected
   ##FIXME this is still broken for going across the longitudinal date line. fuck.
   ##this adjusts the bounds in the case that the search is done across the date line
-  def self.adjustBoundsIfNecessary(coords)
-    if coords[2] < coords[3]
-      coords[3] -= 360.0 if coords[3] > 0
-      coords[2] += 360.0 if coords[3] < 0
-    end
-    coords
-  end
+  # def self.adjustBoundsIfNecessary(coords)
+  #   if coords[2] < coords[3]
+  #     coords[3] -= 360.0 if coords[3] > 0
+  #     coords[2] += 360.0 if coords[3] < 0
+  #   end
+  #   coords
+  # end
 
 end

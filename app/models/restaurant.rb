@@ -50,15 +50,4 @@ class Restaurant < ActiveRecord::Base
                        *query )
   end
 
-  protected
-  ##FIXME this is still broken for going across the longitudinal date line. fuck.
-  ##this adjusts the bounds in the case that the search is done across the date line
-  # def self.adjustBoundsIfNecessary(coords)
-  #   if coords[2] < coords[3]
-  #     coords[3] -= 360.0 if coords[3] > 0
-  #     coords[2] += 360.0 if coords[3] < 0
-  #   end
-  #   coords
-  # end
-
 end

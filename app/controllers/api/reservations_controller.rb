@@ -5,13 +5,13 @@ class Api::ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     @reservation.user_id = current_user.id
-    @reservation.date = format_date(@reservation.date)
     if @reservation.save
       render json: @reservation
     else
-      ##FIXME use @reservation.errors to pass the actual error msg
+      ##TODO make error message to user clearer
+      @errors = @reservation.errors.full_messages
       render(
-        json: {error: "Bad Reservation Details, try again"},
+        json: {error: @errors},
         status: 422
       )
     end
@@ -28,9 +28,10 @@ class Api::ReservationsController < ApplicationController
     if @reservation.save
       render json: @reservation
     else
-      ##FIXME use @reservation.errors to pass the actual error msg
+      ##TODO make error message to user clearer
+      @errors = @reservation.errors.full_messages
       render(
-        json: {error: "Bad Reservation Details, try again"},
+        json: {error: @errors},
         status: 422
       )
     end
@@ -69,6 +70,7 @@ class Api::ReservationsController < ApplicationController
 
   def reservation_params
     rparams = params.require(:reservation).permit(:date, :time, :party_size, :allergies, :special_instructions, :restaurant_id)
-    rparams.date = format_date(rparams.date)
+    rparams[:date] = format_date(rparams[:date])
+    rparams
   end
 end

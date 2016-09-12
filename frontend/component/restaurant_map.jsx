@@ -96,11 +96,6 @@ module.exports = React.createClass({
 
     getBounds();
     getData();
-    console.log('############LOGS###########');
-    console.log('###MB2####');
-    console.log(mapBoundsTwo);
-    console.log('###MB1####');
-    console.log(mapBoundsOne);
 
     if (mapBoundsTwo) {
       return {mapBoundsOne: mapBoundsOne, mapBoundsTwo: mapBoundsTwo};

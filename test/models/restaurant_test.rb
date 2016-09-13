@@ -16,6 +16,7 @@
 #  chef_pic_url         :text
 #  restaurant_cover_pic :text
 #  reviews              :json
+#  full_search_text     :tsvector
 #
 
 require 'test_helper'

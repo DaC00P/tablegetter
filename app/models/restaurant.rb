@@ -16,6 +16,8 @@
 #  chef_pic_url         :text
 #  restaurant_cover_pic :text
 #  reviews              :json
+#  full_search_text     :text
+#  search_vector        :tsvector
 #
 
 class Restaurant < ActiveRecord::Base
@@ -39,8 +41,7 @@ class Restaurant < ActiveRecord::Base
     where("lat < ? AND lat > ? AND lng < ? AND lng > ?", *coords)
   end
 
-  ##TODO && FIXME Create a DB column with a full text concat of all the other columns, then also search through that
-  ## this stems from the 'blue barber' search not grabbing blue hill rest.
+  ##TODO optimize the DB column with a proper index
   scope :search, -> (query) do
     query = ["%#{query}%", "%#{query}%", "%#{query}%", "%#{query}%"]
     Restaurant.where("name ILIKE ? OR
@@ -48,6 +49,19 @@ class Restaurant < ActiveRecord::Base
                       cuisine ILIKE ? OR
                       city ILIKE ?",
                        *query )
+  end
+
+  scope :full_search, -> (query) do
+    Restaurant.full_search_method(query)
+  end
+
+
+  def self.full_search_method(query)
+    sanitized_query = sanitize_sql_array(["plainto_tsquery(?)", query])
+    sql_query = <<-SQL
+      full_search_text @@ #{sanitized_query}
+    SQL
+    Restaurant.where(sql_query)
   end
 
 end

@@ -55,6 +55,14 @@ Restaurant.find_by(name: "Pujol").update(city: "Mexico City, Mexico")
 Restaurant.find_by(name: "Hiša Franko").update(city: "Kobarid, Slovenia", name: "Hiša Franko")
 Restaurant.find_by(name: "Gaggan").update(city: "Bangkok, Thailand")
 
+Restaurant.all.each do |r|
+  r.update(full_search_text:
+  ("#{r.chef}".downcase + ' ' +
+  "#{r.cuisine}".downcase + ' ' +
+  "#{r.city}".downcase + ' ' +
+  "#{r.name}".downcase))
+end
+
 Restaurant.find_by(name: "The French Laundry").update(chef_pic_url: "https://res.cloudinary.com/dldvsrho8/image/upload/v1467927252/keller_ccykiz.jpg")
 Restaurant.find_by(name: "Osteria Francescana").update(chef_pic_url: "https://res.cloudinary.com/dldvsrho8/image/upload/c_scale,w_200/v1467927251/massimo_ftjevi.jpg")
 Restaurant.find_by(name: "Blue Hill Restaurant").update(chef_pic_url: "https://res.cloudinary.com/dldvsrho8/image/upload/c_scale,w_200/v1467927251/barber_z1vth1.jpg")

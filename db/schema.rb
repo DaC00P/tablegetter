@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160708030919) do
+ActiveRecord::Schema.define(version: 20160912191939) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20160708030919) do
     t.text     "chef_pic_url"
     t.text     "restaurant_cover_pic"
     t.json     "reviews"
+    t.tsvector "full_search_text"
   end
 
   create_table "users", force: :cascade do |t|

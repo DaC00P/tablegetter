@@ -1,3 +1,4 @@
+# noinspection RailsChecklist01
 class Api::SearchesController < ApplicationController
 
 

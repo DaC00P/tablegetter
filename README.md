@@ -40,34 +40,56 @@ Check out ChefsTable [live here][production].
     protected
 
     def over_capacity?
-      not_overbooked = (Reservation.where(restaurant_id: self.restaurant_id)
-                      .where(time: self.time)
-                      .where(date: self.date)
-                      .sum(:party_size) + self.party_size
-                        ) <= (Restaurant.find(self.restaurant_id).capacity)
-
-      unless not_overbooked
-        errors[:base] << "Request conflicts with existing approved request"
+        if self.party_size == nil
+          errors[:base] << "You have not properly selected a Party Size for your reservation, please try again"
+          return
+        end
+    
+        current_bookings = Reservation.where(restaurant_id: self.restaurant_id)
+                           .where(time: self.time)
+                           .where(date: self.date)
+                           .sum(:party_size) + self.party_size
+    
+        capacity = Restaurant.find(self.restaurant_id).capacity
+    
+        unless current_bookings <= capacity
+          errors[:base] << "Request conflicts with existing approved request"
+        end
       end
-    end
     ```
 
 ### Filtering Map & Index: Active Search Bar Utilized to Narrow Your Reservation Choices
 - The Restaurant Index has two filtering options:
-  - 1) An active filter based on a search bar, which updates the results with every character typed.
+  - 1) An active filter based on a search bar.
 
   - 2) The zoom function on the map, which narrows the results based on the bounds of the map.
-    - Active filtering is accomplished via a single ActiveRecord query:
+    - Active filtering is accomplished via varying methods - if the below scope initially returns results, those results are used. Otherwise, a standard iLike search is utilized to make sure the user gets any potential results that the PostGresQL full text search may not return:
     ```ruby
-    # searches_controller.rb
-    def search_for_restaurants(query)
-      query = ["%#{query}%", "%#{query}%", "%#{query}%", "%#{query}%"]
-      Restaurant.where("name ILIKE ? OR
-                        chef ILIKE ? OR
-                        cuisine ILIKE ? OR
-                        city ILIKE ?",
-                         *query )
-    end
+    # restaurant.rb
+    scope :search, -> (query) do
+        query = ["%#{query}%", "%#{query}%", "%#{query}%", "%#{query}%"]
+        Restaurant.where("name ILIKE ? OR
+                          chef ILIKE ? OR
+                          cuisine ILIKE ? OR
+                          city ILIKE ?",
+                           *query )
+      end
+  
+    
+      scope :full_search, -> (query) do
+        Restaurant.full_search_method(query)
+      end
+  
+    
+    
+      def self.full_search_method(query)
+        sanitized_query = sanitize_sql_array(["plainto_tsquery(?)", query])
+        sql_query = <<-SQL
+          full_search_text @@ #{sanitized_query}
+        SQL
+        Restaurant.where(sql_query)
+      end
+  
     ```
     - Filter in Use
     ![search-bar](./docs/screenshots/search-bar-in-action.png)

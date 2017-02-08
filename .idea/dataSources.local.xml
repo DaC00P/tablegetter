@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails tablegetter: production" uuid="bbe2c53e-96f1-476e-8392-57dd949688fe">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <first-sync>true</first-sync>
+      <user-name>TableSetter</user-name>
+      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddffedfebdfe8dfe6dfefdff9dfefdffedffedfefdff8dff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+    </data-source>
+    <data-source name="Rails tablegetter: test" uuid="75e990ea-ed52-4a71-8284-49270bcb28ce">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <first-sync>true</first-sync>
+    </data-source>
+    <data-source name="Rails tablegetter: development" uuid="bf762581-0dc3-42bc-8d47-608994d28bff">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <first-sync>true</first-sync>
+    </data-source>
+  </component>
+</project>

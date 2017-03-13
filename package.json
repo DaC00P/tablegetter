@@ -1,14 +1,15 @@
 {
   "name": "tablegetter",
   "version": "1.0.0",
-  "description": "[Heroku link][heroku] coming soon...",
+  "description": "",
   "main": "index.js",
   "directories": {
     "doc": "docs",
     "test": "test"
   },
   "scripts": {
-    "postinstall": "./node_modules/.bin/webpack"
+    "postinstall": "./node_modules/.bin/webpack",
+    "webpack": "./node_modules/.bin/webpack --watch"
   },
   "repository": {
     "type": "git",

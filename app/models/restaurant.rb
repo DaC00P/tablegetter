@@ -33,6 +33,7 @@ class Restaurant < ActiveRecord::Base
   foreign_key: :restaurant_id,
   class_name: :RestaurantPic
 
+
   scope :in_bounds, -> (bounds) do
     coords = [bounds[:northEast][:lat],
               bounds[:southWest][:lat],

@@ -124,7 +124,7 @@ const RestaurantBookingCalender = React.createClass({
       <section className='restaurant-booking-calender'>
             <Calendar onChange={this.handleCalenderSelect} closeOnSelect={true}
               type="calender" minDate={new Date()}
-              openOnInputFocus={true} format='dddd, MMMM Do YYYY'
+              openOnInputFocus={true} format='MMMM Do YYYY'
               onKeyUp={this.handleTypingInDateField}
               parsingFormat='MM/DD/YYYY'  date={this.state.reservationDate}/>
             <Dropdown onChange={this.handleTimeSelect} className=""

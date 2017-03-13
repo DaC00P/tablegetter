@@ -43,7 +43,7 @@ Restaurant.find_by(name: "Gaggan").update(lat: 13.737738, lng: 100.542076)
 
 Restaurant.find_by(name: "The French Laundry").update(city: "Yountville, California")
 Restaurant.find_by(name: "Osteria Francescana").update(city: "Modena, Italy")
-Restaurant.find_by(name: "Blue Hill Restaurant").update(city: "New York City, New Yok")
+Restaurant.find_by(name: "Blue Hill Restaurant").update(city: "New York City, New York")
 Restaurant.find_by(name: "El Restaurante Patagonia Sur").update(city: "Buenos Aires, Argentina")
 Restaurant.find_by(name: "N/Naka").update(city: "Los Angeles, California")
 Restaurant.find_by(name: "Attica").update(city: "Melbourne, Australia")

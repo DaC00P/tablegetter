@@ -238,6 +238,7 @@ ul#view-edit-tab-selector {
 }
 
 #reserve-finalize-button {
+  border-radius: 4px;
   margin-left: 10px;
   height: 37px;
   background-color: rgba(0, 0, 0, 0.6);
@@ -303,10 +304,12 @@ ul#view-edit-tab-selector {
   li {
     list-style: none;
   }
+  img {
+    opacity: .9;
+  }
 }
 
 .restaurant-details-div {
-  background-color: rgba(237,239,237, 0.75);
   width: 100%;
   box-sizing: border-box;
   padding: 15px;
@@ -652,13 +655,16 @@ ul#view-edit-tab-selector {
 }
 
 .input-calendar .input-calendar-field {
-  width: 220px;
+  width: 175px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-family: 'Pontano Sans', sans-serif;
   font-size: 16px;
   padding: 2px 0px;
   margin-left: 5px;
+  height: 36.5px;
+  padding-left: 10px;
+  text-align: center;
 }
 
 .input-calendar .input-calendar-field:focus {
@@ -669,8 +675,8 @@ ul#view-edit-tab-selector {
 .input-calendar .calendar-icon {
   display: inline-block;
   padding: 0px 1px 0 5px;
-  height: 27px;
-  line-height: 27px;
+  height: 37px;
+  line-height: 37px;
   transform: translateY(4px);
   cursor: pointer;
 }
@@ -753,6 +759,7 @@ ul#view-edit-tab-selector {
 
 .input-calendar .icon-wrapper {
   cursor: pointer;
+  height: 37px;
 }
 
 .input-calendar .icon:hover,
@@ -819,7 +826,7 @@ pre code {
   overflow: hidden;
   background-color: white;
   border: 1px solid #ccc;
-  border-radius: 2px;
+  border-radius: 4px;
   box-sizing: border-box;
   color: #333;
   cursor: default;

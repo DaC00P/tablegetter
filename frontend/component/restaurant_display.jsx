@@ -67,14 +67,21 @@ const RestaurantDisplay = React.createClass({
     }
   },
 
+  handleKeyDown(event){
+    console.log(event.charCode);
+    if(event.charCode === 13){
+      event.preventDefault();
+    }
+  },
+
   render() {
     let restaurant_names = this.restaurantSearchResults();
 
     return (
       <section className="restaurant-index-and-search">
-        <form className="navbar-form navbar-left" role="search" id='restaurant-searchbar'>
+        <form onKeyPress={this.handleKeyDown} className="navbar-form navbar-left" role="search" id='restaurant-searchbar'>
           <div className="form-group">
-            <input onKeyPress={event.preventDefault} onChange={this.searchForRestaurants} type="text" className="form-control" id="restaurant-filter" placeholder="Filter by Name, Chef, City or Cuisine"/>
+            <input onChange={this.searchForRestaurants} type="text" className="form-control" id="restaurant-filter" placeholder="Filter by Name, Chef, City or Cuisine"/>
           </div>
         </form>
         <section className="restaurant-index">{restaurant_names}</section>

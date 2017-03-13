@@ -57,6 +57,7 @@
  bottom: 0;
  width: 100%;
  border: none;
+ box-shadow: 1px 1px 5px black;
 }
 
 #homepage{
@@ -606,6 +607,7 @@ ul#view-edit-tab-selector {
   overflow-y: scroll;
   background-color: #edefed;
   padding-bottom: 1px;
+  margin-bottom: 50px
 }
 
 .restaurant-index-and-search {
@@ -791,10 +793,9 @@ ul#view-edit-tab-selector {
 
 
 body {
-  margin: 20px auto;
+  margin: 0px auto;
   width: 100%;
   height: 100%;
-  padding-bottom: 50px;
 }
 
 header h2 {

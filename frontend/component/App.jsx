@@ -131,7 +131,7 @@ const App = React.createClass({
 
           {marketingBanner}
 
-          <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyle} id="loginmodal">
+          <Modal contentLabel='aria-label' isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyle} id="loginmodal">
             <LoginForm closeModal={this.closeModal} form={this.state.form} />
           </Modal>
 

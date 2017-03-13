@@ -67,6 +67,7 @@
  height: 50px !important;
  border: none;
  display: flex;
+ box-shadow: 1px 1px 5px black;
 }
 
 .footer-column {
@@ -601,6 +602,7 @@ ul#view-edit-tab-selector {
   box-shadow: 0 1px 2px #444444;
   overflow-y: scroll;
   background-color: #edefed;
+  padding-bottom: 1px;
 }
 
 .restaurant-index-and-search {
@@ -629,6 +631,7 @@ ul#view-edit-tab-selector {
   position: relative;
   padding-right: 15px;
   display: flex;
+  margin-left: 11px;
 }
 
 .input-calendar-wrapper {
@@ -655,6 +658,7 @@ ul#view-edit-tab-selector {
   font-family: 'Pontano Sans', sans-serif;
   font-size: 16px;
   padding: 2px 0px;
+  margin-left: 5px;
 }
 
 .input-calendar .input-calendar-field:focus {

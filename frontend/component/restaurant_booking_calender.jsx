@@ -132,7 +132,11 @@ const RestaurantBookingCalender = React.createClass({
               placeholder={defaultOption} />
             {finalizeButton}
 
-        <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyle} id="reservation-modal">
+        <Modal contentLabel='aria-label'
+               isOpen={this.state.modalIsOpen}
+               onRequestClose={this.closeModal}
+               style={customStyle}
+               id="reservation-modal">
           {currentForm}
         </Modal>
       </section>

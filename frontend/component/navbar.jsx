@@ -169,6 +169,7 @@ return (
     </nav>
 
     <Modal
+      contentLabel='aria-label'
       key="reservationModal"
       isOpen={this.state.modalIsOpen}
       onRequestClose={this.closeModal}

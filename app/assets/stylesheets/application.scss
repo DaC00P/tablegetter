@@ -1,21 +1,3 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_self
- *= require reset.css
- */
-
-
-
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
@@ -255,7 +237,6 @@ ul#view-edit-tab-selector {
 }
 
 #reserve-finalize-button {
-  margin: 0 auto;
   margin-left: 10px;
   height: 37px;
   background-color: rgba(0, 0, 0, 0.6);
@@ -263,17 +244,6 @@ ul#view-edit-tab-selector {
     background-color: rgba(0, 0, 0, 0.9);
   }
 }
-
-// .reserve-finalize-button {
-//   margin-top: 2px;
-//   margin-bottom: 2px;
-//   border: 1px solid #36454f;
-// }
-//
-// .reserve-finalize-button {
-//   display: flex;
-//   margin: 0 auto;
-// }
 
 .btn-sm {
   color: floralwhite;
@@ -617,6 +587,7 @@ ul#view-edit-tab-selector {
   width: 150px;
   background-color: #edefed;
   border-radius: 5px;
+  padding-left: 5px;
 }
 
 .restaurant-index {

@@ -141,6 +141,7 @@ const ReservationEditForm = React.createClass({
                 placeholder="Please Enter You New Special Instructions"
                 className="reservation-entry-details"/>
             </li>
+
             <button
               type="button"
               className="btn btn-info btn-sm"
@@ -148,6 +149,7 @@ const ReservationEditForm = React.createClass({
               onClick={this.editReservationDetails.bind(this, this.props.reservation.id)} >
               Edit Reservation
             </button>
+            &nbsp;
             <button
               type="button"
               className="btn btn-info btn-sm"
@@ -155,6 +157,7 @@ const ReservationEditForm = React.createClass({
               onClick={this.cancelReservation.bind(this, this.props.reservation.id)} >
               Cancel Reservation
             </button>
+
           </ul>
         </div>
     );

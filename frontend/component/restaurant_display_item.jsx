@@ -31,10 +31,8 @@ const RestaurantDisplayItem = React.createClass({
           <div className="title-reviewsmore-div">
             <ReactTooltip place="top" type="dark" effect="float"/>
             <Link to={`/api/restaurants/${this.props.restaurant.id}`} restaurantID={this.props.restaurant.id}>
-              <h2 className='restaurant-name-header'>
-                <p id='restaurant-name-tooltip' data-tip="Pictures & Reviews">
-                  {this.props.restaurant.name}
-                </p>
+              <h2 data-tip="Pictures & Reviews" className='restaurant-name-header'>
+                {this.props.restaurant.name}
               </h2>
             </Link>
           </div>

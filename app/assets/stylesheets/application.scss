@@ -277,7 +277,7 @@ ul#view-edit-tab-selector {
   font-size: 30px;
   &:hover {
     text-decoration: underline;
-    text-decoration-color: red;
+    text-decoration-color: gray;
     cursor: pointer;
   }
 }
@@ -307,6 +307,10 @@ ul#view-edit-tab-selector {
   }
   img {
     opacity: .9;
+  }
+
+  ul {
+    padding-left: 0px;
   }
 }
 
@@ -573,13 +577,13 @@ ul#view-edit-tab-selector {
 .restaurant-all-details {
   text-align: left;
   border-radius: 5px;
-}
-
-.restaurant-detail-item {
+  background-color: rgba(0, 0, 0, 0.45);
+  display: inline-block;
+  margin-bottom: 5px;
   padding: 3px;
-  border-radius: 5px;
   color: black;
   font-weight: bold;
+  text-shadow:  1px 1px #dff0d8;
 }
 
 .dropdown-toggle {
@@ -636,7 +640,6 @@ ul#view-edit-tab-selector {
   position: relative;
   padding-right: 15px;
   display: flex;
-  margin-left: 11px;
 }
 
 .input-calendar-wrapper {

@@ -98,7 +98,7 @@ const RestaurantBookingCalender = React.createClass({
     } else {
       return (
         <div>
-          <ReactTooltip place="top" type="dark" effect="float"/>
+      
           <button
             className="btn btn-info btn-sm"
             id='reserve-finalize-button'

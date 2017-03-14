@@ -9,11 +9,8 @@ const RestaurantAllDetailBox = React.createClass({
   render() {
     return (
       <section className='restaurant-all-details'>
-        <ul>
-          <li className="restaurant-detail-item"> <span className="nearly-fancy-span" >{this.props.restaurant.chef}</span> Chef</li>
-          <li className="restaurant-detail-item"> <span className="nearly-fancy-span" >{this.props.restaurant.city}</span></li>
-          <li className="restaurant-detail-item"> <span className="nearly-fancy-span" >{this.props.restaurant.cuisine}</span> Cuisine</li>
-        </ul>
+          By {this.props.restaurant.chef},
+          Located In {this.props.restaurant.city}
       </section>
     );
   }

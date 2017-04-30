@@ -200,15 +200,18 @@
    color: black;
  }
 
-
- .restaurant-show-page-details li{
-   height: 50px;
-   font-size: 20px;
-   color: grey;
+ .restaurant-show-page-details {
+   li {
+     height: 50px;
+     font-size: 20px;
+   }
+   justify-content: center;
  }
+
  .chef-pic {
    margin-right: 15px;
    border-radius: 10px;
+   border: 2px solid black;
    height: 250px;
    width: 250px;
  }
@@ -258,6 +261,32 @@
    border-radius: 5px;
    transition: all .2s ease-in-out;
    &:hover { transform: scale(1.75); }
+ }
+
+ .restaurant-detail-bar {
+   display: flex;
+   justify-content: center;
+   width: 95%;
+   margin: 0 auto;
+   border-bottom: 2.5px solid #36454f;
+   margin-top: 25px;
+   padding-bottom: 35px;
+ }
+
+ .restaurant-bg {
+   height: 400px;
+   background-size: cover;
+   background-position: 50% 25%;
+   margin-top: 0px;
+   padding-top: 0px;
+
+   position: relative;
+   align-content: center;
+   margin-top: 5px;
+ }
+
+ .restaurant-detail-bar img {
+   border-radius: 5px;
  }
 //
 //
@@ -502,31 +531,7 @@
 //   padding-top: 0px;
 // }
 //
-// .restaurant-detail-bar {
-//   display: flex;
-//   justify-content: flex-start;
-//   width: 95%;
-//   margin: 0 auto;
-//   border-bottom: 2.5px solid #36454f;
-//   margin-top: 25px;
-//   padding-bottom: 35px;
-// }
-//
-// .restaurant-bg {
-//   height: 400px;
-//   background-size: cover;
-//   background-position: 50% 25%;
-//   margin-top: 0px;
-//   padding-top: 0px;
-//
-//   position: relative;
-//   align-content: center;
-//   margin-top: 5px;
-// }
-//
-// .restaurant-detail-bar img {
-//   border-radius: 5px;
-// }
+
 //
 
 //

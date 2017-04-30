@@ -33,8 +33,7 @@ const ReservationFinalizeForm = React.createClass({
   },
 
   handleTimeSelect(time) {
-    console.log('TIME', time)
-    this.setState({time: time});
+    this.setState({time: time.value});
   },
 
   componentDidMount() {
@@ -74,7 +73,7 @@ const ReservationFinalizeForm = React.createClass({
     if (reservationtoPass.party_size === 0){reservationtoPass.party_size = null;}
     delete reservationtoPass["finalize"];
     delete reservationtoPass["errors"];
-
+    console.log(reservationtoPass);
     ReservationActions.postSingleReservation({reservation: reservationtoPass}, this.reservationConfirmed);
   },
 
@@ -162,18 +161,16 @@ const ReservationFinalizeForm = React.createClass({
 
     const reservationForm = (
       <div>
+        <h3>Please Complete Your Reservation for {this.props.restaurant.name}</h3>
         <Calendar onChange={this.handleCalenderSelect} closeOnSelect={true}
           type="calender" minDate={new Date()}
           openOnInputFocus={true} format='MMMM Do YYYY'
           onKeyUp={this.handleTypingInDateField}
           parsingFormat='MM/DD/YYYY'  date={this.state.date}/>
-        <Dropdown onChange={(time) => this.handleTimeSelect(time)} className=""
-          options={options} value={this.state.time}
-          placeholder={defaultOption} />
-        <h3>Please Complete Your Reservation for {this.props.restaurant.name}</h3>
+          <Dropdown onChange={(time) => this.handleTimeSelect(time)} className=""
+            options={options} value={this.state.time}
+            placeholder={defaultOption} />
           <br></br> <span className="reservation-finalize-form-errors">{this.state.errors.error}</span> <br></br>
-          <h4>Your Reservation Date: {Moment(this.props.date).format('dddd, MMMM Do YYYY')}</h4>
-          <h4>Your Reservation Time: {this.props.time.value}</h4>
         <form>
           <input onChange={this.handlePartySize} type="text" placeholder="Please Enter Your Party Size" className="reservation-entry-details"/>
           <br/>

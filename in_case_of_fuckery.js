@@ -82,14 +82,33 @@ const RestaurantBookingCalender = React.createClass({
   },
 
   getFinalizeButton() {
-    return (
-      <button
-        className="btn btn-info btn-sm"
-        id='reserve-finalize-button'
-        onClick={this.openModal}>
-        Book Reservation
-      </button>
-    );
+    let time = this.state.reservationTime.value;
+    if (time === undefined){
+      time='';
+    }
+
+    if (time.length > 0){
+      return (
+        <button
+          className="btn btn-info btn-sm"
+          id='reserve-finalize-button'
+          onClick={this.openModal}>
+          Finalize Reservation
+        </button>
+      );
+    } else {
+      return (
+        <div>
+
+          <button
+            className="btn btn-info btn-sm"
+            id='reserve-finalize-button'
+            data-tip="Please Select a Time before Finalizing">
+            Finalize Reservation
+          </button>
+        </div>
+      );
+    }
   },
 
   handleTypingInDateField(e) {
@@ -104,6 +123,14 @@ const RestaurantBookingCalender = React.createClass({
 
     return (
       <section className='restaurant-booking-calender'>
+            <Calendar onChange={this.handleCalenderSelect} closeOnSelect={true}
+              type="calender" minDate={new Date()}
+              openOnInputFocus={true} format='MMMM Do YYYY'
+              onKeyUp={this.handleTypingInDateField}
+              parsingFormat='MM/DD/YYYY'  date={this.state.reservationDate}/>
+            <Dropdown onChange={this.handleTimeSelect} className=""
+              options={options} value={this.state.reservationTime}
+              placeholder={defaultOption} />
             {finalizeButton}
 
         <Modal contentLabel='aria-label'

@@ -121,9 +121,9 @@ const NavBar = React.createClass({
     let greeting = <div/>;
     let myReservations = <div/>;
 
-    let currentbutton;
+    let currentButtons;
     if (SessionStore.isUserLoggedIn()){
-      currentbutton = logoutbutton;
+      currentButtons = logoutbutton;
       greeting = (
         <h4 className="navbar-header-name">Welcome, {SessionStore.currentUser().username}!</h4>
       );
@@ -142,7 +142,7 @@ const NavBar = React.createClass({
 
     }
     else {
-      currentbutton =
+      currentButtons =
       <span>
         {loginbuttons} {signupbutton}
       </span>
@@ -152,9 +152,8 @@ const NavBar = React.createClass({
 
 return (
   <div className="transparant-navbar">
-    <nav className="navbar navbar-default navbar-fix">
-      <div className="container-fluid">
-        <div className="navbar-header">
+    <div className="header-button-bar">
+        <div className="header-link">
           <Link to="/" className="navbar-brand">
             <span className="glyphicon glyphicon-cutlery">
             </span>
@@ -162,11 +161,11 @@ return (
             Chefs Table
           </Link>
         </div>
-        <div className="nav navbar-nav navbar-right">
-          {myReservations}{currentbutton}
+        <div className="navbar-buttons">
+          {myReservations}{currentButtons}
         </div>
-      </div>
-    </nav>
+
+    </div>
 
     <Modal
       contentLabel='aria-label'

@@ -40,7 +40,6 @@ const ReservationEditForm = React.createClass({
     this.errorListener.remove();
   },
 
-
   handleCalenderSelect(date) {
     this.setState({reservationDate: date});
   },

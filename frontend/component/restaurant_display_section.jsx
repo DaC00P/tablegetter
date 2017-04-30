@@ -58,19 +58,28 @@ const RestaurantDisplaySection = React.createClass({
 
   render() {
     return (
-      <section className="map-details-combo clearfix">
-        <RestaurantMap
-          checkStore={this.checkStore}
-          setMapBounds={this.setMapBounds}
-          activateSearch={this.activateSearch}
-          checkSearchState={this.checkSearchState}
-          getSearchValue={this.getSearchValue}/>
-        <RestaurantDisplay
-          checkStore={this.checkStore}
-          setMapBounds={this.setMapBounds}
-          getMapBounds={this.getMapBounds}
-          activateSearch={this.activateSearch}
-          setSearchValue={this.setSearchValue}/>
+      <section className='body-main'>
+        <div className='body-left'>
+          <RestaurantDisplay
+            checkStore={this.checkStore}
+            setMapBounds={this.setMapBounds}
+            getMapBounds={this.getMapBounds}
+            activateSearch={this.activateSearch}
+            setSearchValue={this.setSearchValue}/>
+        </div>
+        <div className="body-right">
+            <div className="map">
+              <RestaurantMap
+                checkStore={this.checkStore}
+                setMapBounds={this.setMapBounds}
+                activateSearch={this.activateSearch}
+                checkSearchState={this.checkSearchState}
+                getSearchValue={this.getSearchValue}/>
+            </div>
+            <div className='restaurant-of-week'>
+              RESTAURANT OF THE WEEK TBD
+            </div>
+          </div>
       </section>
     );
   }

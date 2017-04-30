@@ -97,9 +97,9 @@ const App = React.createClass({
   render() {
 
     let marketingBanner = (
-      <header>
+      <header className="header">
+        <NavBar reservations={this.state.reservations} handleLogout = {this._handleLogOut} openModal={this.openModal} closeModal={this.closeModal} setLogin={this.setLogin} setSignup={this.setSignup}/>
         <div className="chef-bg">
-          <NavBar reservations={this.state.reservations} handleLogout = {this._handleLogOut} openModal={this.openModal} closeModal={this.closeModal} setLogin={this.setLogin} setSignup={this.setSignup}/>
           <section className="header-text">
             <h3 className="site-title-text">INDULGE YOURSELF</h3>
             <h4 className="site-marketing-text">Book tables at the best restaurants in the world and experience a culinary pioneer's deft touch</h4>
@@ -110,7 +110,7 @@ const App = React.createClass({
 
     if (this.props.location.pathname.includes('api/restaurant')){
       marketingBanner = (
-        <header>
+        <header className="header">
           <div>
             <NavBar reservations={this.state.reservations} handleLogout = {this._handleLogOut} openModal={this.openModal} closeModal={this.closeModal} setLogin={this.setLogin} setSignup={this.setSignup}/>
           </div>
@@ -127,7 +127,7 @@ const App = React.createClass({
 
 
     return (
-        <div className='flexboxeverything'>
+        <div className='flexbox-everything'>
 
           {marketingBanner}
 
@@ -135,9 +135,11 @@ const App = React.createClass({
             <LoginForm closeModal={this.closeModal} form={this.state.form} />
           </Modal>
 
-          {this.props.children}
+          <div className='body'>
+            {this.props.children}
+          </div>
 
-          <nav id={footerStyleID} className="navbar navbar-default navbar-fixed-bottom">
+          <nav id={footerStyleID} className="footer">
               <SocialButtons/>
           </nav>
 

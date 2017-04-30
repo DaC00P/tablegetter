@@ -14,12 +14,14 @@ const ImageTransformer = require('../constants/image_transformer');
 
 const RestaurantDisplayItem = React.createClass({
 
+  // TODO this is probably causing the weird mouse enter mouse leave issues with the time slot? a prop is probably getting reset on highlight
+  ///FIXME CONFIRMED. The _onMouseEnter & _onMouseLeave is likely affecting the state. FIXME
   _onMouseEnter () {
-     RestaurantActions.highlightRestaurant(this.props.restaurant.id);
+    //  RestaurantActions.highlightRestaurant(this.props.restaurant.id);
    },
 
    _onMouseLeave () {
-     RestaurantActions.unhighlightRestaurant(this.props.restaurant.id);
+    //  RestaurantActions.unhighlightRestaurant(this.props.restaurant.id);
    },
 
   render() {
@@ -27,13 +29,12 @@ const RestaurantDisplayItem = React.createClass({
     return (
       <section key={this.props.restaurant.id} className='restaurant-details' style={{backgroundImage: `url(${backgroundImageUrl})`}}  onMouseEnter={this._onMouseEnter} onMouseLeave={this._onMouseLeave}>
         <div className="restaurant-details-div">
-
           <div className="title-reviewsmore-div">
             <ReactTooltip place="top" type="dark" effect="float"/>
             <Link to={`/api/restaurants/${this.props.restaurant.id}`} restaurantID={this.props.restaurant.id}>
-              <h2 data-tip="Pictures & Reviews" className='restaurant-name-header'>
+              <div data-tip="Pictures & Reviews" className='restaurant-name-header'>
                 {this.props.restaurant.name}
-              </h2>
+              </div>
             </Link>
           </div>
 

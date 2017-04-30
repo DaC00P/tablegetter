@@ -1,118 +1,79 @@
- @import "bootstrap-sprockets";
- @import "bootstrap";
-
-
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 .map {
-  float: right;
-  position: absolute;
-  right: 0;
-  margin-left: 1px;
   width: 50vw;
-  height: 665px;
+  height: calc(50vh - 100px);
   box-shadow: 0 1px 2px #444444;
   border-right: none;
   border-top: none;
 }
 
-
-.navbar-right button {
-  height: 30px;
-  margin-top: 5px !important;
-  margin-right: 15px;
-  margin-left: 2.5px;
-  color: floralwhite;
-  border: none;
-}
-
-.navbar-fix {
-  margin-bottom: 0px;
-  padding-bottom: 0px;
-  height: 0px;
-  border-radius: none;
-}
-
-.navbar-brand {
-  font-weight: bolder;
-  font-family: 'Bad Script', cursive;
-  font-size: 21px;
-}
-
-.transparant-navbar {
-  position: fixed;
-  background-image: inherit;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  z-index: 100;
-}
-
-#content {
-  position: relative;
-}
-
-#footer {
- position: absolute;
- background-color: rgb(246, 246, 246);
- bottom: 0;
- width: 100%;
- border: none;
- box-shadow: 1px 1px 5px black;
-}
-
-#homepage{
- position: fixed;
- background-color: rgb(246, 246, 246);
- bottom: 0;
- width: 100%;
- height: 50px !important;
- border: none;
- display: flex;
- box-shadow: 1px 1px 5px black;
-}
-
-.footer-column {
- display: inline-flex;
- align-items: center;
- width: 100%;
- justify-content: space-between;
- .heading {
-   font-size: 18px
- }
- .by-dc {
-   left: 0;
-   font-size: 18px;
-   font-weight: bold;
- }
- .connect-row {
-  align-items: center;
+.flexbox-everything {
   display: flex;
-  justify-content: space-around;
-  width: 300px;
-  padding: 0px;
-  height: 50px;
-  list-style: none;
- }
- #icon {
-   width: 35px;
-   height: 35px;
- }
+  flex-direction: column;
+  height: 100vh;
 }
 
+.header {
+  flex: 0 0 auto;
+}
 
-#greeting {
-  margin: 0 auto;
+.body {
+  display: flex;
+  flex: 1;
+}
+
+.body-main {
+  display: flex;
+  width: 100vw;
+}
+
+.body-left {
+  display: flex;
+  flex: 1;
+  overflow: auto;
+  height: calc(100vh - 240px)
+}
+
+.body-right {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.map {
+  flex: 0 0 auto;
+}
+
+.restaurant-of-week {
+  flex: 1;
+}
+
+.restaurant-index-and-search {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+}
+
+.footer {
+  flex: 0 0 auto;
 }
 
 .chef-bg {
-  height: 250px;
+  height: 150px;
   background-image: url("https://res.cloudinary.com/dldvsrho8/image/upload/c_scale,q_47,w_2751/v1467239803/chefstablemain2_yzp72y.jpg");
   background-size: cover;
   background-position: 50% 27%;
   margin-top: 0px;
   padding-top: 0px;
-  // opacity: .8;
   position: relative;
+  display: flex;
+  align-items: center;
+}
+
+#greeting {
+  margin: 0 auto;
 }
 
 .site-marketing-text {
@@ -121,17 +82,11 @@
   font-weight: lighter;
 }
 
-.no-search-results {
-  font-family: 'Bad Script', cursive;
-  text-align: center;
-  font-weight: bolder;
-}
-
 .site-title-text {
   font-weight: bolder;
   font-family: 'Bad Script', cursive;
-  font-size: 45px;
-  padding-top: 15px;
+  font-size: 30px;
+  padding-top: 10px;
   color: white;
   margin-top: 5px;
 }
@@ -140,441 +95,25 @@
   opacity: 1;
   text-align: center;
   background-color: rgba(0,0,0,0.6);
-  height: 100px;
-  position: absolute;
+  height: 75px;
   width: 100%;
   top: 85px;
 }
 
-.login-form-box {
-  font-weight: bold;
-  text-align: center;
-}
-
-.login-form {
-  font-size: 20px;
-  button {
-    margin: 10px;
-  }
-  input {
-    border-radius: 5px;
-  }
-}
-
-.please-login-signup {
-  font-size: 16px;
-}
-
-.welcome-to {
-  font-weight: bolder;
-  font-family: 'Bad Script', cursive;
-  font-size: 34px;
-}
-
-#loginmodal {
-  height: 100%;
-  border-radius: 5px;
-  box-shadow: 0 1px 2px #444444;
-}
-
-#reservation-modal {
-  border-radius: 5px;
-  box-shadow: 0 1px 2px #444444;
-  font-weight: bold;
-}
-
-.your-reservation-at {
-  color: black;
-  font-weight: bolder;
-  font-family: 'Bad Script', cursive;
-}
-
-.finalized-reservation {
+.header-button-bar {
   display: flex;
-  flex-direction: column;
-  text-align: center;
-  button {
-    margin: 0 auto !important;
-    margin-top: 50px !important;
-  }
-  h3 {
-    font-weight: bolder;
-    font-family: 'Bad Script', cursive;
-    margin-bottom: 25px;
-  }
+  justify-content: space-between;
+  background-color: #f8f8f8;
+  border-color: #e7e7e7;
+  align-items: center;
 }
-
-ul#view-edit-tab-selector {
-  border-bottom: 2px solid black;
-  cursor: pointer;
-  font-size: large;
-  display: inline-block;
-  list-style: none;
-  position: relative;
-  padding: 0px 12px;
-  width: 100%;
-  li {
-    float: left;
-    margin-top: 5px;
-    padding: 5px;
-    padding-bottom: 0;
-    outline: none;
-    border: 2px solid black;
-    border-bottom: none;
-    border-radius: 7px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    margin-right: 1px;
-  }
-}
-
-.ReactModal__Overlay--after-open {
-  z-index: 1000;
-}
-
-#restaurant-dropdown {
-  align-items: stretch;
-  position: relative;
-  border-radius: 5px;
-}
-
-#reserve-finalize-button {
-  border-radius: 4px;
-  height: 37px;
-  background-color: rgba(0, 0, 0, 0.6);
-  font-weight: bold;
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.9);
-  }
-}
-
-.btn-sm {
-  color: white;
-  border: none;
-  opacity: .9;
-  height: 40px;
-  font-size: 16px;
-}
-
 
 #restaurant-searchbar {
-  height: 50px;
   width: 500px;
   min-width: 500px;
   z-index: 1;
   position: absolute;
-  top: -50px;
-}
-
-#restaurant-filter {
-  width: 300px;
-}
-
-
-.flexboxeverything {
-  display: flex;
-  background-color: #edefed;
-  flex-direction: column;
-}
-
-.restaurant-details {
-  border: 1.5px solid #36454f;
-  border-top: 0;
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-size: cover;
-
-  .dropdown-menu {
-    display: none;
-    background-color: #edefed;
-  }
-  li {
-    list-style: none;
-  }
-  img {
-    opacity: .9;
-  }
-
-  ul {
-    padding-left: 0px;
-  }
-}
-
-
-.restaurant-details-div {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 15px;
-  padding-top: 0px;
-}
-
-.restaurant-detail-bar {
-  display: flex;
-  justify-content: flex-start;
-  width: 95%;
-  margin: 0 auto;
-  border-bottom: 2.5px solid #36454f;
-  margin-top: 25px;
-  padding-bottom: 35px;
-}
-
-.restaurant-bg {
-  height: 400px;
-  background-size: cover;
-  background-position: 50% 25%;
-  margin-top: 0px;
-  padding-top: 0px;
-
-  position: relative;
-  align-content: center;
-  margin-top: 5px;
-}
-
-.restaurant-detail-bar img {
-  border-radius: 5px;
-}
-
-.restaurant-show-page {
-  justify-content: center;
-  margin: 0 auto;
-  position: relative;
-}
-
-.restaurant-show-page-details {
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-}
-.restaurant-show-page-details img {
-  text-align: left;
-}
-
-.restaurant-show-page-details .fancy-span, pre .fancy-span {
-  font-weight: bolder;
-  font-family: 'Bad Script', cursive;
-  font-size: 30px;
-  color: black;
-}
-
-.nearly-fancy-span {
-  font-weight: lighter;
-  font-family: 'Montserrat';
-  font-size: 20px;
-  color: black;
-}
-
-
-.restaurant-show-page-details li{
-  height: 50px;
-  font-size: 20px;
-  color: grey;
-}
-.chef-pic {
-  margin-right: 15px;
-  border-radius: 10px;
-  height: 250px;
-  width: 250px;
-}
-
-.restaurant-review-section {
-  margin-top: 25px;
-  padding-bottom: 35px;
-  border-top: 2.5px solid #36454f;
-}
-
-.restaurant-review-section h2 {
-  text-align: center;
-  font-weight: bolder;
-  font-family: 'Bad Script', cursive;
-  font-size: 45px;
-  padding-top: 15px;
-  padding-bottom: 10px;
-}
-
-.restaurant-review-section pre {
-  font-family: 'Montserrat';
-  font-size: 14px;
-  font-weight: 300;
-  padding-left: 15px;
-  padding-right: 15px;
-  width: 90%;
-  margin: 0 auto;
-  word-wrap: normal;
-  word-break: break-word;
-  overflow-x: auto;
-  min-height: 150px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  white-space: pre-wrap;
-}
-
-.restaurant-pics-index {
-  display: flex;
-  flex-flow: row wrap;
-  width: 83%;
-  margin: 0 auto;
-  padding-top: 35px;
-}
-
-.restaurant-detail-pic {
-  margin: 5px;
-  border-radius: 5px;
-  transition: all .2s ease-in-out;
-  &:hover { transform: scale(1.75); }
-}
-
-
-.reservation-details-edit {
-  list-style: none;
-  text-align: left;
-  padding-bottom: 5px;
-  border-top: none;
-  form {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-  }
-  input {
-    margin-top: 7.5px;
-    margin-bottom: 7.5px;
-    height: 40px;
-    width: 400px;
-    border: 1px solid black;
-    border-radius: 5px;
-  }
-}
-
-.single-reservation-view{
-  display: flex;
-  flex-direction: row;
-  list-style: none;
-  padding: 10px;
-  font-size: 16px;
-  li {
-    padding-right: 10px;
-  }
-}
-
-#view-edit-tab-selector{
-
-}
-
-.restaurant-reserve-pics{
-  justify-content: space-around;
-  display: flex;
-  flex-direction: row;
-  img {
-    margin: 5px;
-    border-radius: 5px;
-    opacity: .8;
-  }
-}
-
-
-.reservation-finalize-form-errors {
-  color: red;
-}
-
-.reservation-finalize-form {
-  form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-  }
-  input {
-    margin: 7.5px;
-    height: 40px;
-    width: auto;
-    border: 1px solid black;
-    border-radius: 5px;
-  }
-  .btn-sm {
-    background-color: rgba(0, 0, 0, 0.6);
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.9);
-    }
-  }
-}
-
-.not-signed-in-reservation {
-  max-width: 750px;
-  font-weight: bolder;
-  font-size: 30px;
-  text-align: center;
-  margin-top: 140px;
-  font-weight: bolder;
-  font-family: 'Bad Script', cursive;
-}
-
-.not-signed-in-buttons {
-  margin: 0 auto;
-  text-align: center;
-  margin-top: 25px;
-}
-
-.detail-booking-section {
-  border-radius: 5px;
-  margin: 3px;
-  width: 100%;
-  align-items: center;
-  text-align: center;
-}
-
-
-
-.restaurant-box-group {
-  display: inline-flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  border-radius: 5px;
-  width: 100%;
-}
-
-.restaurant-booking-calender {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  .btn {
-    height: 28px;
-  }
-}
-
-.dropdown-food-pic {
-  width: 25%;
-  display: inline-flex;
-  padding: 2px;
-  border-radius: 5px;
-}
-
-.main-restaurant-food-pic {
-  margin: 5px;
-  width: 30%;
-  height: 30%;
-  border-radius: 5px;
-}
-
-.restaurant-all-details {
-  text-align: center;
-  border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.65);;
-  display: inline-block;
-  margin-bottom: 5px;
-  padding: 3px;
-  color: white;
-  font-weight: bold;
-}
-
-.title-reviewsmore-div {
-  text-align: center;
-  border-radius: 5px;
+  transform: translateY(-80%);
 }
 
 .restaurant-name-header {
@@ -593,46 +132,597 @@ ul#view-edit-tab-selector {
   }
 }
 
-.dropdown-toggle {
-  margin: 2.5px;
-  border: 1px solid #36454f;
+.restaurant-details-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  min-height: 100px;
 }
 
-
-.reservation-entry-details {
-  width: 150px;
-  background-color: #edefed;
-  border-radius: 5px;
-  padding-left: 5px;
+.footer-column {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f8f8;
+  border-color: #e7e7e7;
+  padding: 0 5px;
 }
 
-.restaurant-index {
-  float:left;
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 660px;
-  width: 50vw;
-  height: 665px;
-  box-shadow: 0 1px 2px #444444;
-  overflow-y: scroll;
-  background-color: #edefed;
-  padding-bottom: 1px;
-  margin-bottom: 50px
-}
+.connect-row {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  width: 300px;
+  padding: 0px;
+  height: 40px;
+  list-style: none;
+  margin: 0;
+ }
 
-.restaurant-index-and-search {
-  position: relative;
-}
+ #icon {
+   width: 35px;
+   height: 35px;
+ }
 
-.reservation-modal {
-    box-shadow: 0 1px 2px #444444;
-    background-color: #edefed;
-}
+ p {
+   margin: 0;
+ }
 
-.map-details-combo {
-  display: inline-flex;
-}
+ .restaurant-show-page {
+   justify-content: center;
+   margin: 0 auto;
+   position: relative;
+ }
+
+ .restaurant-show-page-details {
+   display: flex;
+   flex-direction: column;
+   list-style: none;
+ }
+ .restaurant-show-page-details img {
+   text-align: left;
+ }
+
+ .restaurant-show-page-details .fancy-span, pre .fancy-span {
+   font-weight: bolder;
+   font-family: 'Bad Script', cursive;
+   font-size: 30px;
+   color: black;
+ }
+
+ .nearly-fancy-span {
+   font-weight: lighter;
+   font-family: 'Montserrat';
+   font-size: 20px;
+   color: black;
+ }
+
+
+ .restaurant-show-page-details li{
+   height: 50px;
+   font-size: 20px;
+   color: grey;
+ }
+ .chef-pic {
+   margin-right: 15px;
+   border-radius: 10px;
+   height: 250px;
+   width: 250px;
+ }
+
+ .restaurant-review-section {
+   margin-top: 25px;
+   padding-bottom: 35px;
+   border-top: 2.5px solid #36454f;
+ }
+
+ .restaurant-review-section h2 {
+   text-align: center;
+   font-weight: bolder;
+   font-family: 'Bad Script', cursive;
+   font-size: 45px;
+   padding-top: 15px;
+   padding-bottom: 10px;
+ }
+
+ .restaurant-review-section pre {
+   font-family: 'Montserrat';
+   font-size: 14px;
+   font-weight: 300;
+   padding-left: 15px;
+   padding-right: 15px;
+   width: 90%;
+   margin: 0 auto;
+   word-wrap: normal;
+   word-break: break-word;
+   overflow-x: auto;
+   min-height: 150px;
+   margin-top: 15px;
+   margin-bottom: 15px;
+   white-space: pre-wrap;
+ }
+
+ .restaurant-pics-index {
+   display: flex;
+   flex-flow: row wrap;
+   width: 83%;
+   margin: 0 auto;
+   padding-top: 35px;
+ }
+
+ .restaurant-detail-pic {
+   margin: 5px;
+   border-radius: 5px;
+   transition: all .2s ease-in-out;
+   &:hover { transform: scale(1.75); }
+ }
+//
+//
+// .navbar-right button {
+//   height: 30px;
+//   margin-top: 5px !important;
+//   margin-right: 15px;
+//   margin-left: 2.5px;
+//   color: floralwhite;
+//   border: none;
+// }
+//
+// .navbar-fix {
+//   margin-bottom: 0px;
+//   padding-bottom: 0px;
+//   height: 0px;
+//   border-radius: none;
+// }
+//
+// .navbar-brand {
+//   font-weight: bolder;
+//   font-family: 'Bad Script', cursive;
+//   font-size: 21px;
+// }
+//
+// .transparant-navbar {
+//   position: fixed;
+//   background-image: inherit;
+//   top: 0px;
+//   left: 0px;
+//   width: 100%;
+//   z-index: 100;
+// }
+//
+// #content {
+//   position: relative;
+// }
+//
+// #footer {
+//  position: absolute;
+//  background-color: rgb(246, 246, 246);
+//  bottom: 0;
+//  width: 100%;
+//  border: none;
+//  box-shadow: 1px 1px 5px black;
+// }
+//
+// #homepage{
+//  position: fixed;
+//  background-color: rgb(246, 246, 246);
+//  bottom: 0;
+//  width: 100%;
+//  height: 50px !important;
+//  border: none;
+//  display: flex;
+//  box-shadow: 1px 1px 5px black;
+// }
+// //
+// .footer-column {
+//  display: inline-flex;
+//  align-items: center;
+//  width: 100%;
+//  justify-content: space-between;
+//  .heading {
+//    font-size: 18px
+//  }
+//  .by-dc {
+//    left: 0;
+//    font-size: 18px;
+//    font-weight: bold;
+//  }
+//
+//
+// }
+
+//
+
+//
+// .no-search-results {
+//   font-family: 'Bad Script', cursive;
+//   text-align: center;
+//   font-weight: bolder;
+// }
+//
+//
+//
+// .login-form-box {
+//   font-weight: bold;
+//   text-align: center;
+// }
+//
+// .login-form {
+//   font-size: 20px;
+//   button {
+//     margin: 10px;
+//   }
+//   input {
+//     border-radius: 5px;
+//   }
+// }
+//
+// .please-login-signup {
+//   font-size: 16px;
+// }
+//
+// .welcome-to {
+//   font-weight: bolder;
+//   font-family: 'Bad Script', cursive;
+//   font-size: 34px;
+// }
+//
+// #loginmodal {
+//   height: 100%;
+//   border-radius: 5px;
+//   box-shadow: 0 1px 2px #444444;
+// }
+//
+// #reservation-modal {
+//   border-radius: 5px;
+//   box-shadow: 0 1px 2px #444444;
+//   font-weight: bold;
+// }
+//
+// .your-reservation-at {
+//   color: black;
+//   font-weight: bolder;
+//   font-family: 'Bad Script', cursive;
+// }
+//
+// .finalized-reservation {
+//   display: flex;
+//   flex-direction: column;
+//   text-align: center;
+//   button {
+//     margin: 0 auto !important;
+//     margin-top: 50px !important;
+//   }
+//   h3 {
+//     font-weight: bolder;
+//     font-family: 'Bad Script', cursive;
+//     margin-bottom: 25px;
+//   }
+// }
+//
+// ul#view-edit-tab-selector {
+//   border-bottom: 2px solid black;
+//   cursor: pointer;
+//   font-size: large;
+//   display: inline-block;
+//   list-style: none;
+//   position: relative;
+//   padding: 0px 12px;
+//   width: 100%;
+//   li {
+//     float: left;
+//     margin-top: 5px;
+//     padding: 5px;
+//     padding-bottom: 0;
+//     outline: none;
+//     border: 2px solid black;
+//     border-bottom: none;
+//     border-radius: 7px;
+//     border-bottom-left-radius: 0;
+//     border-bottom-right-radius: 0;
+//     margin-right: 1px;
+//   }
+// }
+//
+// .ReactModal__Overlay--after-open {
+//   z-index: 1000;
+// }
+//
+// #restaurant-dropdown {
+//   align-items: stretch;
+//   position: relative;
+//   border-radius: 5px;
+// }
+//
+// #reserve-finalize-button {
+//   border-radius: 4px;
+//   height: 37px;
+//   background-color: rgba(0, 0, 0, 0.6);
+//   font-weight: bold;
+//   &:hover {
+//     background-color: rgba(0, 0, 0, 0.9);
+//   }
+// }
+//
+// .btn-sm {
+//   color: white;
+//   border: none;
+//   opacity: .9;
+//   height: 40px;
+//   font-size: 16px;
+// }
+//
+//
+
+//
+// #restaurant-filter {
+//   width: 300px;
+// }
+//
+//
+// .flexboxeverything {
+//   display: flex;
+//   background-color: #edefed;
+//   flex-direction: column;
+// }
+//
+// .restaurant-details {
+//   border: 1.5px solid #36454f;
+//   border-top: 0;
+//   display: flex;
+//   width: 100%;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   background-size: cover;
+//
+//   .dropdown-menu {
+//     display: none;
+//     background-color: #edefed;
+//   }
+//   li {
+//     list-style: none;
+//   }
+//   img {
+//     opacity: .9;
+//   }
+//
+//   ul {
+//     padding-left: 0px;
+//   }
+// }
+//
+//
+// .restaurant-details-div {
+//   width: 100%;
+//   box-sizing: border-box;
+//   padding: 15px;
+//   padding-top: 0px;
+// }
+//
+// .restaurant-detail-bar {
+//   display: flex;
+//   justify-content: flex-start;
+//   width: 95%;
+//   margin: 0 auto;
+//   border-bottom: 2.5px solid #36454f;
+//   margin-top: 25px;
+//   padding-bottom: 35px;
+// }
+//
+// .restaurant-bg {
+//   height: 400px;
+//   background-size: cover;
+//   background-position: 50% 25%;
+//   margin-top: 0px;
+//   padding-top: 0px;
+//
+//   position: relative;
+//   align-content: center;
+//   margin-top: 5px;
+// }
+//
+// .restaurant-detail-bar img {
+//   border-radius: 5px;
+// }
+//
+
+//
+//
+// .reservation-details-edit {
+//   list-style: none;
+//   text-align: left;
+//   padding-bottom: 5px;
+//   border-top: none;
+//   form {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: center;
+//     width: 100%;
+//   }
+//   input {
+//     margin-top: 7.5px;
+//     margin-bottom: 7.5px;
+//     height: 40px;
+//     width: 400px;
+//     border: 1px solid black;
+//     border-radius: 5px;
+//   }
+// }
+//
+// .single-reservation-view{
+//   display: flex;
+//   flex-direction: row;
+//   list-style: none;
+//   padding: 10px;
+//   font-size: 16px;
+//   li {
+//     padding-right: 10px;
+//   }
+// }
+//
+// #view-edit-tab-selector{
+//
+// }
+//
+// .restaurant-reserve-pics{
+//   justify-content: space-around;
+//   display: flex;
+//   flex-direction: row;
+//   img {
+//     margin: 5px;
+//     border-radius: 5px;
+//     opacity: .8;
+//   }
+// }
+//
+//
+// .reservation-finalize-form-errors {
+//   color: red;
+// }
+//
+// .reservation-finalize-form {
+//   form {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     width: 100%;
+//   }
+//   input {
+//     margin: 7.5px;
+//     height: 40px;
+//     width: auto;
+//     border: 1px solid black;
+//     border-radius: 5px;
+//   }
+//   .btn-sm {
+//     background-color: rgba(0, 0, 0, 0.6);
+//     &:hover {
+//       background-color: rgba(0, 0, 0, 0.9);
+//     }
+//   }
+// }
+//
+// .not-signed-in-reservation {
+//   max-width: 750px;
+//   font-weight: bolder;
+//   font-size: 30px;
+//   text-align: center;
+//   margin-top: 140px;
+//   font-weight: bolder;
+//   font-family: 'Bad Script', cursive;
+// }
+//
+// .not-signed-in-buttons {
+//   margin: 0 auto;
+//   text-align: center;
+//   margin-top: 25px;
+// }
+//
+// .detail-booking-section {
+//   border-radius: 5px;
+//   margin: 3px;
+//   width: 100%;
+//   align-items: center;
+//   text-align: center;
+// }
+//
+//
+//
+// .restaurant-box-group {
+//   display: inline-flex;
+//   flex-direction: row;
+//   justify-content: center;
+//   align-items: center;
+//   margin: auto;
+//   border-radius: 5px;
+//   width: 100%;
+// }
+//
+// .restaurant-booking-calender {
+//   display: flex;
+//   justify-content: space-around;
+//   align-items: center;
+//   width: 100%;
+//   .btn {
+//     height: 28px;
+//   }
+// }
+//
+// .dropdown-food-pic {
+//   width: 25%;
+//   display: inline-flex;
+//   padding: 2px;
+//   border-radius: 5px;
+// }
+//
+// .main-restaurant-food-pic {
+//   margin: 5px;
+//   width: 30%;
+//   height: 30%;
+//   border-radius: 5px;
+// }
+//
+// .restaurant-all-details {
+//   text-align: center;
+//   border-radius: 5px;
+//   background-color: rgba(0, 0, 0, 0.65);;
+//   display: inline-block;
+//   margin-bottom: 5px;
+//   padding: 3px;
+//   color: white;
+//   font-weight: bold;
+// }
+//
+// .title-reviewsmore-div {
+//   text-align: center;
+//   border-radius: 5px;
+// }
+//
+//
+//
+// .dropdown-toggle {
+//   margin: 2.5px;
+//   border: 1px solid #36454f;
+// }
+//
+//
+// .reservation-entry-details {
+//   width: 150px;
+//   background-color: #edefed;
+//   border-radius: 5px;
+//   padding-left: 5px;
+// }
+//
+// .restaurant-index {
+//   float:left;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   min-width: 660px;
+//   width: 50vw;
+//   height: 665px;
+//   box-shadow: 0 1px 2px #444444;
+//   overflow-y: scroll;
+//   background-color: #edefed;
+//   padding-bottom: 1px;
+//   margin-bottom: 50px
+// }
+//
+// .restaurant-index-and-search {
+//   position: relative;
+// }
+//
+// .reservation-modal {
+//     box-shadow: 0 1px 2px #444444;
+//     background-color: #edefed;
+// }
+//
+// .map-details-combo {
+//   display: inline-flex;
+// }
 
 .ReactModal__Content.ReactModal__Content--after-open {
     background-color: #edefed;

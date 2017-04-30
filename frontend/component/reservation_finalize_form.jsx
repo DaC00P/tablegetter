@@ -8,13 +8,16 @@ const RestaurantStore = require('../stores/restaurant_store');
 const RestaurantActions = require('../actions/restaurant_actions');
 const ReservationActions = require('../actions/reservation_actions');
 const Moment = require('moment');
+import Dropdown from 'react-dropdown';
+import Calendar from 'react-input-calendar';
+const Modal = require('react-modal');
 
 
 const ReservationFinalizeForm = React.createClass({
   getInitialState() {
     return ({
-      date: this.props.date.toString(),
-      time: this.props.time.value,
+      date: new Date(),
+      time: '',
       party_size: 0,
       allergies: "",
       special_instructions: "",
@@ -22,6 +25,16 @@ const ReservationFinalizeForm = React.createClass({
       finalize: false,
       errors: ""
     });
+  },
+
+
+  handleCalenderSelect(date) {
+    this.setState({date: date});
+  },
+
+  handleTimeSelect(time) {
+    console.log('TIME', time)
+    this.setState({time: time});
   },
 
   componentDidMount() {
@@ -93,6 +106,8 @@ const ReservationFinalizeForm = React.createClass({
   },
 
   render() {
+    const options = ["5:00 PM", "7:00 PM", "9:00 PM"];
+    const defaultOption = "Please Select a Time";
 
     const loginbutton = (
       <button
@@ -130,9 +145,9 @@ const ReservationFinalizeForm = React.createClass({
         </h3>
 
         <section>
-          Your Reservation Date: {Moment(this.props.date).format('dddd, MMMM Do YYYY')}
+          Your Reservation Date: {Moment(this.state.date).format('dddd, MMMM Do YYYY')}
           <br/>
-          Your Reservation Time: {this.props.time.value}
+          Your Reservation Time: {this.state.time}
         </section>
 
         <button
@@ -147,6 +162,14 @@ const ReservationFinalizeForm = React.createClass({
 
     const reservationForm = (
       <div>
+        <Calendar onChange={this.handleCalenderSelect} closeOnSelect={true}
+          type="calender" minDate={new Date()}
+          openOnInputFocus={true} format='MMMM Do YYYY'
+          onKeyUp={this.handleTypingInDateField}
+          parsingFormat='MM/DD/YYYY'  date={this.state.date}/>
+        <Dropdown onChange={(time) => this.handleTimeSelect(time)} className=""
+          options={options} value={this.state.time}
+          placeholder={defaultOption} />
         <h3>Please Complete Your Reservation for {this.props.restaurant.name}</h3>
           <br></br> <span className="reservation-finalize-form-errors">{this.state.errors.error}</span> <br></br>
           <h4>Your Reservation Date: {Moment(this.props.date).format('dddd, MMMM Do YYYY')}</h4>

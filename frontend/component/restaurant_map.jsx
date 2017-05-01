@@ -24,7 +24,7 @@ module.exports = React.createClass({
 
     const mapDOMNode = ReactDOM.findDOMNode(this.refs.map);
     let mapOptions = {
-      center: {lat: 0, lng: 0},
+      center: {lat: 30, lng: -40},
       zoom: 2,
       scrollwheel: false
     };

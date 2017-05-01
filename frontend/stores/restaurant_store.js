@@ -31,6 +31,15 @@ RestaurantStore.highlightedId = function () {
   return _highlightedId;
 };
 
+RestaurantStore.restaurantOfTheWeek = function () {
+  console.log('STORE')
+  console.log(_restaurants);
+  if(_restaurants.length) {
+    return (_restaurants[Math.floor(Math.random() * restaurants.length) + 1]);
+  }
+  return {};
+};
+
 function highlightRestaurant (id) {
   if (_restaurants[id]) {
     _highlightedId = id;

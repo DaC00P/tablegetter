@@ -20,7 +20,7 @@ const RestaurantShowPage = React.createClass({
   },
 
   setCurrentRestaurant() {
-    let restaurant = RestaurantStore.findByID(this.props.params.id);
+    const restaurant = RestaurantStore.findByID(this.props.params.id);
     this.setState({restaurant: restaurant, pics: restaurant.restaurant_pics, reviews: restaurant.reviews});
   },
 
@@ -37,7 +37,7 @@ const RestaurantShowPage = React.createClass({
       for (let i = 0; i < pics.length; i++) {
         let url = ImageTransformer.showPagefoodPic(pics[i].picture_url, 350, 350);
         restaurantPics.push(<div key={pics[i].id}>
-                              <img key={pics[i].id*50} className="restaurant-detail-pic"src={url} style={{width: '200px', height: '200px'}}/>
+                              <img key={pics[i].id + 1000} className="restaurant-detail-pic"src={url} style={{width: '200px', height: '200px'}}/>
                             </div>);
       }
     }
@@ -48,12 +48,12 @@ const RestaurantShowPage = React.createClass({
       let review2 = this.state.reviews.review2;
       restaurantReviews.push(
         <pre>
-          <span className="fancy-span">Julia Child Says: </span> {review1}
+          <span key='1' className="fancy-span">Julia Child Says: </span> {review1}
         </pre>
       );
       restaurantReviews.push(
         <pre>
-          <span className="fancy-span"> Anton Ego Says: </span> {review2}
+          <span key='2' className="fancy-span"> Anton Ego Says: </span> {review2}
         </pre>
 
       );
@@ -62,9 +62,8 @@ const RestaurantShowPage = React.createClass({
     return (
       <section>
         <section className="restaurant-show-page">
-          <br></br>
-            <div style={restaurantImage} className='restaurant-bg'>
-              <section className='header-text'>
+            <div style={restaurantImage} key={restaurantImage.id} className='restaurant-bg'>
+              <section className='header-text show-header-text'>
                 <h1 className="site-title-text">{this.state.restaurant.name}</h1>
                 <h4 className="site-marketing-text">{this.state.restaurant.description}</h4>
                 </section>
@@ -82,11 +81,11 @@ const RestaurantShowPage = React.createClass({
           </ul>
         </section>
 
-        <section className='restaurant-pics-index'>
+        <section className='restaurant-pics-index' key='pics'>
           {restaurantPics}
         </section>
 
-        <section className='restaurant-review-section'>
+        <section className='restaurant-review-section' key='reviews'>
           <h2>Reviews</h2>
           {restaurantReviews}
         </section>

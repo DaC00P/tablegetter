@@ -96,14 +96,14 @@ const LoginForm = React.createClass({
 
 		return (
 							<div className="login-form-container">
-								<form onSubmit={this.handleSubmit} className="login-form-box">
+								<form onSubmit={this.handleSubmit} className="form-horizontal">
 									<span className='welcome-to'>Welcome to ChefsTable!</span>
 									<br/>
 									<br/>
 									<span className='please-login-signup'>Please { this.state.form } or { navLink }</span>
 
 									{ this.fieldErrors("base") }
-									<div className="login-form">
+									<div className="form-group">
 										<br />
 										<label className='unpw'> Username:&nbsp;
 											{ this.fieldErrors("username") }

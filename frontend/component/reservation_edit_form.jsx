@@ -104,13 +104,9 @@ const ReservationEditForm = React.createClass({
             <h4>
               If you would like to edit your Reservation, please fill out the form and press Edit Reservation
             </h4>
-            <br>
-            </br>
             <span className="reservation-finalize-form-errors">
               {this.props.errors}
             </span>
-            <br>
-            </br>
             <li key={this.props.reservation.id * 9}>
               Your Current Reservation Date is: {this.props.reservation.date} <Calendar onChange={this.handleCalenderSelect}
               closeOnSelect={true} type="calender" format='DD/MM/YYYY' date={this.state.reservationDate} defaultValue='Click Here to Reserve'/>

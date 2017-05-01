@@ -8,6 +8,7 @@ const RestaurantMap = require('./restaurant_map');
 const RestaurantActions = require('../actions/restaurant_actions');
 const RestaurantStore = require('../stores/restaurant_store');
 const SearchMapStore = require('../stores/search_map_store');
+const RestaurantOfTheWeek = require('./restaurant_of_the_week');
 
 const RestaurantDisplaySection = React.createClass({
 
@@ -77,7 +78,7 @@ const RestaurantDisplaySection = React.createClass({
                 getSearchValue={this.getSearchValue}/>
             </div>
             <div className='restaurant-of-week'>
-              RESTAURANT OF THE WEEK TBD
+              <RestaurantOfTheWeek />
             </div>
           </div>
       </section>

@@ -31,6 +31,15 @@ SearchMapStore.highlightedId = function () {
   return _highlightedId;
 };
 
+SearchMapStore.restaurantOfTheWeek = function () {
+  let length = Object.keys(_restaurants).length;
+  if(length) {
+    return (_restaurants[Math.floor(Math.random() * length) + 1]);
+  }
+  return {};
+};
+
+
 function highlightRestaurant (id) {
   if (_restaurants[id]) {
     _highlightedId = id;

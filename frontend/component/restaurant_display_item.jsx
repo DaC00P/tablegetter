@@ -17,11 +17,11 @@ const RestaurantDisplayItem = React.createClass({
   // TODO this is probably causing the weird mouse enter mouse leave issues with the time slot? a prop is probably getting reset on highlight
   ///FIXME CONFIRMED. The _onMouseEnter & _onMouseLeave is likely affecting the state. FIXME
   _onMouseEnter () {
-    //  RestaurantActions.highlightRestaurant(this.props.restaurant.id);
+     RestaurantActions.highlightRestaurant(this.props.restaurant.id);
    },
 
    _onMouseLeave () {
-    //  RestaurantActions.unhighlightRestaurant(this.props.restaurant.id);
+     RestaurantActions.unhighlightRestaurant(this.props.restaurant.id);
    },
 
   render() {

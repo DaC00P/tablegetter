@@ -2,6 +2,7 @@
 
 const React = require('react');
 const Link = require('react-router').Link;
+const ReactTooltip = require("react-tooltip");
 const RestaurantStore = require('../stores/restaurant_store');
 const SearchMapStore = require('../stores/search_map_store');
 const RestaurantActions = require('../actions/restaurant_actions');
@@ -33,15 +34,18 @@ const RestaurantOfTheWeek = React.createClass({
     render() {
       let backgroundImageUrl = this.state.restaurant.restaurant_cover_pic;
         return (
-          <section key={this.state.restaurant.id} className='restaurant-details' style={{backgroundImage: `url(${backgroundImageUrl})`}}>
-            <div className="restaurant-details-div">
-                <Link to={`/api/restaurants/${this.state.restaurant.id}`} restaurantID={this.state.restaurant.id}>
-                  <div className='restaurant-name-header'>
-                    {this.state.restaurant.name}
-                  </div>
-                </Link>
+          <div key={this.state.restaurant.id} className='row-show'>
+            <ReactTooltip place="top" type="dark" effect="float"/>
+            <div className='row-show-header'>
+              Featured Chef: {this.state.restaurant.chef} of {this.state.restaurant.name}
             </div>
-          </section>
+            <Link id='row-show-pic'
+                  to={`/api/restaurants/${this.state.restaurant.id}`}
+                  restaurantID={this.state.restaurant.id}>
+                <img className='chef-pic' src={this.state.restaurant.chef_pic_url}
+                  data-tip="See Their Restaurant!"/>
+            </Link>
+          </div>
       );
   }
 

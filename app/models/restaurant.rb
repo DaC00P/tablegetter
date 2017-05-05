@@ -63,9 +63,9 @@ class Restaurant < ActiveRecord::Base
   def self.change_chef_ofthe_week
     prior_restaurant = Restaurant.where("chef_of_the_week = 'true'")
     if prior_restaurant.exists?
-      prior_restaurant.first.chef_of_the_week = "false"
+      prior_restaurant[0].update(chef_of_the_week: "false")
     end
-    Restaurant.update(rand(Restaurant.count), chef_of_the_week: "true")
+    Restaurant.update(rand(1..Restaurant.count), chef_of_the_week: "true")
   end
 
 

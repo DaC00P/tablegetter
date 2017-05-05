@@ -5,7 +5,6 @@ include Clockwork
 # require_relative '../config/environment.rb'
 
 module Clockwork
-
   # required to enable database syncing support
   # Clockwork.manager = DatabaseEvents::Manager.new
   #
@@ -17,6 +16,9 @@ module Clockwork
     puts "Running #{job}"
   end
 
-  every(10.seconds, Restaurant.change_chef)
+  every(10.seconds, 'Change Restaurants') {
+  `bundle exec rake tablegetter`
+  }
+  # every(1.day, 'midnight.job', :at => '00:00')
 
 end

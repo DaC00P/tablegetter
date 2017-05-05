@@ -56,6 +56,18 @@ class Restaurant < ActiveRecord::Base
     Restaurant.full_search_method(query)
   end
 
+  scope :change_chef, -> do
+    Restaurant.change_chef_ofthe_week
+  end
+
+  def self.change_chef_ofthe_week
+    prior_restaurant = Restaurant.where("chef_of_the_week = 'true'")
+    if prior_restaurant.exists?
+      prior_restaurant.first.chef_of_the_week = "false"
+    end
+    Restaurant.update(rand(Restaurant.count), chef_of_the_week: "true")
+  end
+
 
   def self.full_search_method(query)
     sanitized_query = sanitize_sql_array(["plainto_tsquery(?)", query])

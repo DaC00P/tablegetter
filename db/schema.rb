@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160912191939) do
+ActiveRecord::Schema.define(version: 20170505164956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "events", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "frequency"
+    t.string   "at"
+    t.string   "job_name"
+    t.json     "job_arguments"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "reservations", force: :cascade do |t|
     t.integer  "user_id",              null: false
@@ -50,6 +60,7 @@ ActiveRecord::Schema.define(version: 20160912191939) do
     t.text     "restaurant_cover_pic"
     t.json     "reviews"
     t.tsvector "full_search_text"
+    t.string   "chef_of_the_week"
   end
 
   create_table "users", force: :cascade do |t|

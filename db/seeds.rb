@@ -407,3 +407,5 @@ Reservation.create!(user_id: userid, restaurant_id: 4, time: "5:00 PM", party_si
 Reservation.create!(user_id: userid, restaurant_id: 8, time: "5:00 PM", party_size: 5, date: "2017-10-07")
 Reservation.create!(user_id: userid, restaurant_id: 9, time: "5:00 PM", party_size: 5, date: "2017-11-07")
 Reservation.create!(user_id: userid, restaurant_id: 3, time: "5:00 PM", party_size: 5, date: "2017-12-07")
+
+Event.create(name: 'chef of the week', frequency: '1', at: '02:00', job_name: 'ChefOftheWeekJob', job_arguments: '', )

@@ -29,6 +29,8 @@ gem 'autoprefixer-rails'
 gem 'annotate'
 gem 'pry-rails'
 gem 'sprockets-rails'
+gem 'clockwork'
+gem 'sidekiq'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

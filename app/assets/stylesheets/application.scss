@@ -22,6 +22,8 @@
 .body {
   display: flex;
   flex: 1;
+  height: 100%;
+  overflow: hidden;
 }
 
 .body-main {
@@ -61,7 +63,7 @@
 #row-show-pic {
   align-self: center;
   background: none;
-  width: 250px;
+  width: 150px;
   box-shadow: 10px 10px 5px gray;
   border-radius: 10px;
 }
@@ -136,7 +138,7 @@
 #restaurant-searchbar {
   width: 500px;
   min-width: 500px;
-  z-index: 1;
+  z-index: 10;
   position: absolute;
   transform: translateY(-80%);
 }
@@ -202,6 +204,10 @@
    flex-direction: column;
  }
 
+ .show-page-scroll {
+   overflow-y: auto;
+ }
+
  .restaurant-show-page-details {
    display: flex;
    flex-direction: column;
@@ -237,9 +243,10 @@
    margin-right: 15px;
    border-radius: 10px;
    border: 2px solid black;
-   height: 250px;
-   width: 250px;
+   height: 150px;
+   width: 150px;
  }
+
 
  .restaurant-review-section {
    margin-top: 25px;
@@ -394,6 +401,10 @@ ul#view-edit-tab-selector {
     opacity: .8;
   }
 }
+
+.ReactModal__Overlay--after-open {
+  z-index: 1000;
+}
 //
 //
 // .navbar-right button {
@@ -530,9 +541,7 @@ ul#view-edit-tab-selector {
 //
 
 //
-// .ReactModal__Overlay--after-open {
-//   z-index: 1000;
-// }
+
 //
 // #restaurant-dropdown {
 //   align-items: stretch;
@@ -810,7 +819,6 @@ button {
   font-family: 'Pontano Sans', sans-serif;
   font-size: 16px;
   padding: 2px 0px;
-  margin-left: 5px;
   height: 36.5px;
   padding-left: 10px;
   text-align: center;

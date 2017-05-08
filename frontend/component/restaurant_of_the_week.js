@@ -42,7 +42,7 @@ const RestaurantOfTheWeek = React.createClass({
             <Link id='row-show-pic'
                   to={`/api/restaurants/${this.state.restaurant.id}`}
                   restaurantID={this.state.restaurant.id}>
-                <img className='chef-pic' src={this.state.restaurant.chef_pic_url}
+                  <img className='chef-pic' src={this.state.restaurant.chef_pic_url}
                   data-tip="See Their Restaurant!"/>
             </Link>
           </div>

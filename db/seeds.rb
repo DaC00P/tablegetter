@@ -1,4 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
+#This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
 # Examples:
@@ -408,4 +408,4 @@ Reservation.create!(user_id: userid, restaurant_id: 8, time: "5:00 PM", party_si
 Reservation.create!(user_id: userid, restaurant_id: 9, time: "5:00 PM", party_size: 5, date: "2017-11-07")
 Reservation.create!(user_id: userid, restaurant_id: 3, time: "5:00 PM", party_size: 5, date: "2017-12-07")
 
-Event.create(name: 'chef of the week', frequency: '1', at: '02:00', job_name: 'ChefOftheWeekJob', job_arguments: '', )
+# Event.create(name: 'chef of the week', frequency: '1', at: '02:00', job_name: 'ChefOftheWeekJob', job_arguments: '', ) for when clockwork runs from the db

@@ -73,7 +73,6 @@ const ReservationFinalizeForm = React.createClass({
     if (reservationtoPass.party_size === 0){reservationtoPass.party_size = null;}
     delete reservationtoPass["finalize"];
     delete reservationtoPass["errors"];
-    console.log(reservationtoPass);
     ReservationActions.postSingleReservation({reservation: reservationtoPass}, this.reservationConfirmed);
   },
 
@@ -102,6 +101,18 @@ const ReservationFinalizeForm = React.createClass({
 
   handleSignup() {
     this.props.switchToLoginSignupForm('signup');
+  },
+
+  renderErrors() {
+    let errors = this.state.errors.error;
+    if(errors){
+      return (
+          <ul>
+            {errors.map((error) => { return(<li>{error}</li>)})}
+          </ul>
+        );
+    };
+    return <div></div>;
   },
 
   render() {
@@ -161,29 +172,49 @@ const ReservationFinalizeForm = React.createClass({
 
     const reservationForm = (
       <div>
-        <h3>Please Complete Your Reservation for {this.props.restaurant.name}</h3>
-        <Calendar onChange={this.handleCalenderSelect} closeOnSelect={true}
-          type="calender" minDate={new Date()}
-          openOnInputFocus={true} format='MMMM Do YYYY'
-          onKeyUp={this.handleTypingInDateField}
-          parsingFormat='MM/DD/YYYY'  date={this.state.date}/>
-          <Dropdown onChange={(time) => this.handleTimeSelect(time)} className=""
-            options={options} value={this.state.time}
-            placeholder={defaultOption} />
-          <br></br> <span className="reservation-finalize-form-errors">{this.state.errors.error}</span> <br></br>
         <form>
-          <input onChange={this.handlePartySize} type="text" placeholder="Please Enter Your Party Size" className="reservation-entry-details"/>
-          <br/>
-          <input onChange={this.handleAllergies} type="text" placeholder="Please Enter Any Allergies So We May Better Serve You" className="reservation-entry-details"/>
-          <br/>
-          <input onChange={this.handleInstructions} type="text" placeholder="Please Enter Any Special Instructions So We May Better Serve You" className="reservation-entry-details"/>
-          <br/>
-          <input onClick={this.handleFinalizeClick} className="btn btn-info btn-sm" type="submit" value="Finalize Reservation"/>
+          <h3>Please Complete Your Reservation for {this.props.restaurant.name}</h3>
+          <div className="form-group">
+            <label for="inputPartySize">Party Size</label>
+            <input onChange={this.handlePartySize} type="number" className="form-control" id="inputPartySize" aria-describedby="partySizeHelp" placeholder="Enter Party Size" />
+            <small id="partySizeHelp" className="form-text text-muted">Please let us know how many we should set the table for!</small>
+          </div>
+          <div className="form-group">
+            <label for="inputAllergies">Allergies?</label>
+            <input onChange={this.handleAllergies} type="text" className="form-control" id="inputAllergies" aria-describedby="allergyHelp" placeholder="Enter any allergies" />
+            <small id="allergyHelp" className="form-text text-muted">Please provide us with any allergy information, so we may customize your experience.</small>
+          </div>
+          <div className="form-group">
+            <label for="inputSpecialInstructions">Special Instructions?</label>
+            <input onChange={this.handleInstructions} type="text" className="form-control" id="inputSpecialInstructions" aria-describedby="specialInstructionsHelp" placeholder="Enter any special requests" />
+            <small id="specialInstructionsHelp" className="form-text text-muted">Have any special requests? Let us know!</small>
+          </div>
+          <Calendar onChange={this.handleCalenderSelect} closeOnSelect={true}
+            type="calender" minDate={new Date()}
+            openOnInputFocus={true} format='MMMM Do YYYY'
+            onKeyUp={this.handleTypingInDateField}
+            parsingFormat='MM/DD/YYYY'  date={this.state.date}/>
+          <div className="form-group">
+            <Dropdown onChange={(time) => this.handleTimeSelect(time)} className="form-control"
+              options={options} value={this.state.time}
+              placeholder={defaultOption} />
+          </div>
+          <button onClick={this.handleFinalizeClick} type="submit" id='errorHelp' className="btn btn-primary">Submit</button>
         </form>
       </div>
     );
+    let errorList = (
+      <div className='reservation-errors'>
+        {this.renderErrors()}
+      </div>
+    )
 
-    let currentForm = reservationForm;
+    let currentForm = (
+                      <div>
+                        {reservationForm}
+                        {errorList}
+                      </div>
+                    );
 
     if (this.state.finalize) {
       currentForm = confirmation;
@@ -204,8 +235,6 @@ const ReservationFinalizeForm = React.createClass({
         </section>
     );
     }
-
-
     return (
       <section className='reservation-finalize-form'>
         {currentForm}

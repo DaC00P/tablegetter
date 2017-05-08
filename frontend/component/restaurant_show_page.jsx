@@ -60,7 +60,7 @@ const RestaurantShowPage = React.createClass({
     }
 
     return (
-      <section>
+      <section className='show-page-scroll'>
         <section className="restaurant-show-page">
             <div style={restaurantImage} key={restaurantImage.id} className='restaurant-bg'>
               <section className='header-text show-header-text'>

@@ -68,7 +68,6 @@ const RestaurantDisplay = React.createClass({
   },
 
   handleKeyDown(event){
-    console.log(event.charCode);
     if(event.charCode === 13){
       event.preventDefault();
     }

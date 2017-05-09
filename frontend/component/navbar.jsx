@@ -155,8 +155,7 @@ return (
     <div className="header-button-bar">
         <div className="header-link">
           <Link to="/" className="navbar-brand">
-            <span className="glyphicon glyphicon-cutlery">
-            </span>
+            <span className="glyphicon glyphicon-cutlery"></span>
             &nbsp;
             Chefs Table
           </Link>

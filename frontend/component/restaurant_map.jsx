@@ -24,8 +24,8 @@ module.exports = React.createClass({
 
     const mapDOMNode = ReactDOM.findDOMNode(this.refs.map);
     let mapOptions = {
-      center: {lat: 30, lng: -40},
-      zoom: 2,
+      center: {lat: 30, lng: 23},
+      zoom: 1,
       scrollwheel: false
     };
 
@@ -163,7 +163,7 @@ module.exports = React.createClass({
   },
 
   scrollToRestaurantInIndex() {
-    console.log('testing');
+    // console.log('testing');
   },
 
   removeRestaurantMarker (id) {

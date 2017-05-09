@@ -33,13 +33,10 @@ RestaurantStore.highlightedId = function () {
 
 RestaurantStore.restaurantOfTheWeek = function () {
   let length = Object.keys(_restaurants).length;
-  console.log('STORE')
-  console.log(_restaurants);
   if(length) {
     for (var restaurant in _restaurants) {
         if (Object.hasOwnProperty(restaurant)) {
           if(restaurant.chef_of_the_week === 'true'){
-            console.log('REST', restaurant);
             return restaurant;
           };
         };

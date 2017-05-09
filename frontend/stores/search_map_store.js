@@ -33,10 +33,18 @@ SearchMapStore.highlightedId = function () {
 
 SearchMapStore.restaurantOfTheWeek = function () {
   let length = Object.keys(_restaurants).length;
+  let singleRestaurant = {};
   if(length) {
-    return (_restaurants[Math.floor(Math.random() * length) + 1]);
-  }
-  return {};
+    for (var restaurant in _restaurants) {
+        if (_restaurants.hasOwnProperty(restaurant)) {
+          let sub_restaurant = _restaurants[restaurant];
+          if(sub_restaurant.chef_of_the_week === 'true'){
+            singleRestaurant = sub_restaurant;
+          };
+        };
+    };
+  };
+  return singleRestaurant;
 };
 
 

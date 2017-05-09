@@ -172,7 +172,7 @@ const ReservationFinalizeForm = React.createClass({
 
     const reservationForm = (
       <div>
-        <form>
+        <form onSubmit={(event) => {event.preventDefault()}}>
           <h3>Please Complete Your Reservation for {this.props.restaurant.name}</h3>
           <div className="form-group">
             <label for="inputPartySize">Party Size</label>

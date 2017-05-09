@@ -13,4 +13,5 @@ json.array! @restaurants do |restaurant|
   json.restaurant_pics restaurant.restaurant_pics
   json.restaurant_cover_pic restaurant.restaurant_cover_pic
   json.city restaurant.city
+  json.chef_of_the_week restaurant.chef_of_the_week
 end

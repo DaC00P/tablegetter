@@ -24,7 +24,9 @@ const RestaurantOfTheWeek = React.createClass({
 
     selectRestaurant() {
       const restaurant = SearchMapStore.restaurantOfTheWeek();
+      console.log(restaurant);
       if(Object.keys(restaurant).length) {
+        // console.log('REST IN WEEK', restaurant);
         this.setState({
           restaurant: restaurant
         });

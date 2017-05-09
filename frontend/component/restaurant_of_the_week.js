@@ -15,7 +15,7 @@ const RestaurantOfTheWeek = React.createClass({
     },
 
     componentWillMount() {
-      this.restaurantListener = SearchMapStore.addListener(this.selectRestaurant);;
+      this.restaurantListener = RestaurantStore.addListener(this.selectRestaurant);;
     },
 
     componentWillUnmount() {
@@ -23,7 +23,7 @@ const RestaurantOfTheWeek = React.createClass({
     },
 
     selectRestaurant() {
-      const restaurant = SearchMapStore.restaurantOfTheWeek();
+      const restaurant = RestaurantStore.restaurantOfTheWeek();
       if(Object.keys(restaurant).length) {
         this.setState({
           restaurant: restaurant

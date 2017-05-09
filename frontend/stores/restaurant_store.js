@@ -33,16 +33,18 @@ RestaurantStore.highlightedId = function () {
 
 RestaurantStore.restaurantOfTheWeek = function () {
   let length = Object.keys(_restaurants).length;
+  let singleRestaurant = {};
   if(length) {
     for (var restaurant in _restaurants) {
-        if (Object.hasOwnProperty(restaurant)) {
-          if(restaurant.chef_of_the_week === 'true'){
-            return restaurant;
+        if (_restaurants.hasOwnProperty(restaurant)) {
+          let sub_restaurant = _restaurants[restaurant];
+          if(sub_restaurant.chef_of_the_week === 'true'){
+            singleRestaurant = sub_restaurant;
           };
         };
     };
-  }
-  return {};
+  };
+  return singleRestaurant;
 };
 
 function highlightRestaurant (id) {

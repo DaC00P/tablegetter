@@ -25,7 +25,7 @@ module.exports = React.createClass({
     const mapDOMNode = ReactDOM.findDOMNode(this.refs.map);
     let mapOptions = {
       center: {lat: 30, lng: 23},
-      zoom: 2,
+      zoom: 1,
       scrollwheel: false
     };
 
@@ -149,21 +149,18 @@ module.exports = React.createClass({
 
   addRestaurantMarker (restaurant) {
     const pos = new google.maps.LatLng(restaurant.lat, restaurant.lng);
-    const marker = new google.maps.Marker({
+    let marker = new google.maps.Marker({
       position: pos,
       map: this.map,
       title: restaurant.name,
       icon: 'https://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
     });
     this.restaurant_id = restaurant.id;
-    // marker.addEventListener();
-    // this.mapMarkerListener = google.maps.event.addListener(marker, 'click', this.scrollToRestaurantInIndex);
-    // put in a callback instead of the console log that either narrows the index or does..?
+    this.mapMarkerListener = google.maps.event.addListener(marker, 'click', function(){
+      this.map.panTo(pos: pos);
+      this.map.setZoom(10);
+    });
     return marker;
-  },
-
-  scrollToRestaurantInIndex() {
-    // console.log('testing');
   },
 
   removeRestaurantMarker (id) {

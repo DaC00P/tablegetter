@@ -81,7 +81,25 @@ const ReservationEditForm = React.createClass({
     ReservationActions.cancelReservation(id);
   },
 
+  renderErrors() {
+    if(this.state.errors.error){
+      let error = this.state.errors.error[0]
+      return(
+        <ul className="error-list">
+          <li>
+            Please fix the following error: {error}
+          </li>
+          <li>
+            Please select your current time in order to confirm the change, even if you do not wish to change it. Thank You.
+          </li>
+        </ul>
+      );
+    };
+    return (<li></li>)
+  },
+
   generateReservationsEditView() {
+    this.renderErrors();
     let reservation;
     let restaurantName = "";
 
@@ -95,48 +113,37 @@ const ReservationEditForm = React.createClass({
           key = {this.props.reservation.id * 12}
           className="user-reservation-ud">
           <h2 className="your-reservation-at">
-            Your Reservation at {restaurantName}
+            Change Your Reservation at {restaurantName}
           </h2>
 
-          <ul
+          <form onSubmit={(event) => {event.preventDefault()}}
             key={this.props.reservation.id}
             className='reservation-details-edit'>
-            <h4>
-              If you would like to edit your Reservation, please fill out the form and press Edit Reservation
-            </h4>
-            <span className="reservation-finalize-form-errors">
-              {this.props.errors}
-            </span>
-            <li key={this.props.reservation.id * 9}>
-              Your Current Reservation Date is: {this.props.reservation.date} <Calendar onChange={this.handleCalenderSelect}
+            <div key={this.props.reservation.id * 9}>
+              Your Current Reservation Date is: {this.props.reservation.date}
+              <Calendar onChange={this.handleCalenderSelect}
               closeOnSelect={true} type="calender" format='DD/MM/YYYY' date={this.state.reservationDate} defaultValue='Click Here to Reserve'/>
-            </li>
-            <li key={this.props.reservation.id * 8}>
-            Your Current Reservation Time is: {this.props.reservation.time} <Dropdown onChange={this.handleTimeSelect}
-            className="" options={options} value={this.state.reservationTime} placeholder="Please Select a Seating" />
-            </li>
-            <li key={this.props.reservation.id * 7}>
-              <input
-                onChange={this.editPartySize}
-                type="text"
-                placeholder="Please Enter Your New Party Size"
-                className="reservation-entry-details"/>
-            </li>
-            <li key={this.props.reservation.id * 6}>
-              <input
-                onChange={this.editAllergies}
-                type="text"
-                placeholder="Please Enter Your New Allergies"
-                className="reservation-entry-details"/>
-            </li>
-            <li key={this.props.reservation.id * 5}>
-              <input
-                onChange={this.editSpecialInstructions}
-                type="text"
-                placeholder="Please Enter You New Special Instructions"
-                className="reservation-entry-details"/>
-            </li>
-
+            </div>
+            <div className='form-group' key={this.props.reservation.id * 8}>
+              Your Current Reservation Time is: {this.props.reservation.time}
+              <Dropdown onChange={this.handleTimeSelect}
+              className="" options={options} value={this.state.reservationTime} placeholder="Please Select a Seating" />
+            </div>
+            <div className="form-group">
+              <label for="inputPartySize">Party Size</label>
+              <input onChange={this.editPartySize} type="number" className="form-control" id="inputPartySize" aria-describedby="partySizeHelp" placeholder="Enter Party Size" />
+              <small id="partySizeHelp" className="form-text text-muted">Please let us know how many we should set the table for!</small>
+            </div>
+            <div className="form-group">
+              <label for="inputAllergies">Allergies?</label>
+              <input onChange={this.editAllergies} type="text" className="form-control" id="inputAllergies" aria-describedby="allergyHelp" placeholder="Enter any allergies" />
+              <small id="allergyHelp" className="form-text text-muted">Please provide us with any allergy information, so we may customize your experience.</small>
+            </div>
+            <div className="form-group">
+              <label for="inputSpecialInstructions">Special Instructions?</label>
+              <input onChange={this.editInstructions} type="text" className="form-control" id="inputSpecialInstructions" aria-describedby="specialInstructionsHelp" placeholder="Enter any special requests" />
+              <small id="specialInstructionsHelp" className="form-text text-muted">Have any special requests? Let us know!</small>
+            </div>
             <button
               type="button"
               className="btn btn-info btn-sm"
@@ -146,23 +153,26 @@ const ReservationEditForm = React.createClass({
             </button>
             &nbsp;
             <button
-              type="button"
+              type="submit"
               className="btn btn-info btn-sm"
               id="reserve-finalize-button"
               onClick={this.cancelReservation.bind(this, this.props.reservation.id)} >
               Cancel Reservation
             </button>
-
-          </ul>
+          </form>
         </div>
     );
   },
 
   render() {
     let reservation = this.generateReservationsEditView();
+    let errorList = this.renderErrors();
     return (
       <section>
         {reservation}
+        <div>
+          {errorList}
+        </div>
       </section>
     );
   }

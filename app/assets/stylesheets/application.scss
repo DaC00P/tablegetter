@@ -405,6 +405,13 @@ ul#view-edit-tab-selector {
 .ReactModal__Overlay--after-open {
   z-index: 1000;
 }
+
+.error-list {
+  list-style: none;
+  color: red;
+  text-align: left;
+  padding-left: 0;
+}
 //
 //
 // .navbar-right button {

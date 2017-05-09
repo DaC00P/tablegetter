@@ -30,6 +30,10 @@ const SingleReservationForm = React.createClass({
     Tabs.setUseDefaultStyles(false);
   },
 
+  componentWillUnmount() {
+    ReservationStore.remove();
+  },
+
   accessCurrentUserSingleReservation() {
     let reservation = ReservationStore.find(this.props.reservation.id);
     this.setState({reservation: reservation});

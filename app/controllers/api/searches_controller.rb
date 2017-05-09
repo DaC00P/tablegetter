@@ -12,7 +12,7 @@ class Api::SearchesController < ApplicationController
         @restaurants += Restaurant.full_search(params[:query]).in_bounds(params[:bounds][:mapBoundsTwo])
       else ##just search using one set of bounds with no IDL
         if params[:query].length == 0
-          @restaurants = Restaurant.all
+          @restaurants = Restaurant.in_bounds(params[:bounds][:mapBoundsOne])
         else
           @restaurants = Restaurant.full_search(params[:query]).in_bounds(params[:bounds][:mapBoundsOne])
         end

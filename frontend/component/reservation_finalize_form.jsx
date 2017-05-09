@@ -175,17 +175,17 @@ const ReservationFinalizeForm = React.createClass({
         <form onSubmit={(event) => {event.preventDefault()}}>
           <h3>Please Complete Your Reservation for {this.props.restaurant.name}</h3>
           <div className="form-group">
-            <label for="inputPartySize">Party Size</label>
+            <label htmlFor="inputPartySize">Party Size</label>
             <input onChange={this.handlePartySize} type="number" className="form-control" id="inputPartySize" aria-describedby="partySizeHelp" placeholder="Enter Party Size" />
             <small id="partySizeHelp" className="form-text text-muted">Please let us know how many we should set the table for!</small>
           </div>
           <div className="form-group">
-            <label for="inputAllergies">Allergies?</label>
+            <label htmlFor="inputAllergies">Allergies?</label>
             <input onChange={this.handleAllergies} type="text" className="form-control" id="inputAllergies" aria-describedby="allergyHelp" placeholder="Enter any allergies" />
             <small id="allergyHelp" className="form-text text-muted">Please provide us with any allergy information, so we may customize your experience.</small>
           </div>
           <div className="form-group">
-            <label for="inputSpecialInstructions">Special Instructions?</label>
+            <label htmlFor="inputSpecialInstructions">Special Instructions?</label>
             <input onChange={this.handleInstructions} type="text" className="form-control" id="inputSpecialInstructions" aria-describedby="specialInstructionsHelp" placeholder="Enter any special requests" />
             <small id="specialInstructionsHelp" className="form-text text-muted">Have any special requests? Let us know!</small>
           </div>

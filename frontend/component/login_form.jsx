@@ -96,37 +96,49 @@ const LoginForm = React.createClass({
 
 		return (
 							<div className="login-form-container">
-								<form onSubmit={this.handleSubmit} className="form-horizontal">
-									<span className='welcome-to'>Welcome to ChefsTable!</span>
-									<br/>
-									<br/>
-									<span className='please-login-signup'>Please { this.state.form } or { navLink }</span>
+								  <form onSubmit={this.handleSubmit}>
+										<span className='welcome-to'>Welcome to ChefsTable!</span>
+										<br/>
+										<br/>
+										<span className='please-login-signup'>Please { this.state.form } or { navLink }</span>
+										{ this.fieldErrors("base") }
 
-									{ this.fieldErrors("base") }
-									<div className="form-group">
-										<br />
-										<label className='unpw'> Username:&nbsp;
-											{ this.fieldErrors("username") }
-											<input type="text"
-												value={this.state.username}
-												onChange={this.update("username")}
-												className="login-input" />
-										</label>
+										<div className="form-group">
+											<div className="form-group">
+					              <label htmlFor="inputUsername">Username</label>
+												{ this.fieldErrors("username") }
+					              <input onChange={this.update("username")} type="username"
+															 className="form-control" id="inputUsername"
+															 aria-describedby="specialUsernameHelp"
+															 placeholder="Enter Username" />
+					              <small id="usernameHelp" className="form-text text-muted">Please Enter your Username</small>
+					            </div>
 
-										<br />
-										<label className='unpw'> Password:&nbsp;
-											{ this.fieldErrors("password") }
-											<input type="password"
-												value={this.state.password}
-												onChange={this.update("password")}
-												className="login-input" />
-										</label>
-										<br />
-										<button type="button" className="btn btn-info btn-sm" id="reserve-finalize-button" onClick={this.handleSubmit}>Submit</button>
-										<button type="button" className="btn btn-info btn-sm" id="reserve-finalize-button" onClick={this.handleDemoLogin}>Guest Log In</button>
-									</div>
-								</form>
-							</div>
+											<div className="form-group">
+					              <label htmlFor="inputPassword">Password</label>
+												{ this.fieldErrors("password") }
+					              <input onChange={this.update("password")} type="password"
+															 className="form-control" id="inputPassword"
+															 aria-describedby="specialPasswordHelp"
+															 placeholder="Enter Password" />
+					              <small id="passwordHelp" className="form-text text-muted">Please Enter your Password</small>
+					            </div>
+
+											<button type="button"
+															className="btn btn-info btn-sm"
+															id="reserve-finalize-button"
+															onClick={this.handleSubmit}>
+															Submit
+											</button>
+											<button type="button"
+															className="btn btn-info btn-sm"
+															id="reserve-finalize-button"
+															onClick={this.handleDemoLogin}>
+															Guest Log In
+											</button>
+										</div>
+									</form>
+						</div>
 		);
 	}
 });

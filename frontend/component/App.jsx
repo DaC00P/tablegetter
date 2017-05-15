@@ -20,7 +20,7 @@ const customStyle = {
     left                  : '50%',
     right                 : 'auto',
     bottom                : '0%',
-    height                : '300px',
+    height                : '500px',
     marginRight           : '-50%',
     transform             : 'translate(-50%, -50%)',
     border                : '2.5px solid black',

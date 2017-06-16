@@ -8,6 +8,9 @@ module.exports = {
     return this.transformPic(url, 650, 250);
   },
 
+  displayBackgroundPic(url) {
+    return this.transformPic(url, 1750, 500);
+  },
 
   transformPic(url, w, h, params){
     if(params === undefined){params = '';}

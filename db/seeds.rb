@@ -10,9 +10,8 @@
 
 
 
-Restaurant.create!(name: "Osteria Francescana", chef: "Massimo Bottura", cuisine: "Italian", capacity: 40, description: "A hyper-modern take on classic Italian cuisine")
+
 Restaurant.create!(name: "Blue Hill Restaurant", chef: "Dan Barber", cuisine: "Local Farm to Table - New York", capacity: 100, description: "A farmer's feast of beautiful and respectfully raised local produce")
-Restaurant.create!(name: "El Restaurante Patagonia Sur", chef: "Francis Mallman", cuisine: "Argentinian & Patagonian", capacity: 50, description: "A modern haute-cuisine presentation of Patagonia & Argentina's bounty")
 Restaurant.create!(name: "N/Naka", chef: "Niki Nakayama", cuisine: "Japanese", capacity: 35, description: "A modern Kaiseki rendition that focuses on a story told through its dishes")
 Restaurant.create!(name: "Attica", chef: "Ben Shewry", cuisine: "Australian", capacity: 25, description: "A neo-modern representation of Australia's native ingredients")
 Restaurant.create!(name: "Fäviken", chef: "Magnus Nilsson", cuisine: "Swedish", capacity: 20, description: "Swedish traditional techniques and local produce combine with modern French techniques to create a unique experience")
@@ -24,7 +23,8 @@ Restaurant.create!(name: "Hiša Franko", chef: "Ana Ros", cuisine: "Slovenian", 
 Restaurant.create!(name: "Gaggan", chef: "Gaggan Anand", cuisine: "Indian", capacity: 100, description: "Wonderous Indian dishes based on tradition, but twisted into hyper-modern transformations")
 Restaurant.create!(name: "The French Laundry", chef: "Thomas Keller", cuisine: "Californian", capacity: 100, lat: 38.404400, lng: -122.364988, description: "A bastion of Wine Country haute-cuisine, considered one of the best in California.")
 Restaurant.create!(name: "El Bulli", chef: "Ferran Adrià", cuisine: "Experimental Modernist", capacity: 100, lat: 42.251354, lng: 0.228353, city: 'Roses, Catalonia, Spain', description: "THE playground for modern gastronimic delights, rooted in a tradition of experimenting and haute cuisine")
-
+Restaurant.create!(name: "Osteria Francescana", chef: "Massimo Bottura", cuisine: "Italian", capacity: 40, description: "A hyper-modern take on classic Italian cuisine")
+Restaurant.create!(name: "El Restaurante Patagonia Sur", chef: "Francis Mallman", cuisine: "Argentinian & Patagonian", capacity: 50, description: "A modern haute-cuisine presentation of Patagonia & Argentina's bounty")
 
 Restaurant.find_by(name: "Osteria Francescana").update(lat: 44.644806, lng:  10.921570)
 Restaurant.find_by(name: "Blue Hill Restaurant").update(lat: 40.732034, lng: -73.999707)

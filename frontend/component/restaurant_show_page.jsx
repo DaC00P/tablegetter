@@ -1,12 +1,13 @@
 "use strict";
-
 const React = require('react');
 const ReactDOM = require('react-dom');
 const ReactRouter = require('react-router');
+
+const ImageTransformer = require('../constants/image_transformer');
 const RestaurantStore = require('../stores/restaurant_store');
 const RestaurantActions = require('../actions/restaurant_actions');
 const ReservationActions = require('../actions/reservation_actions');
-const ImageTransformer = require('../constants/image_transformer');
+const RestaurantDetailBox = require('./restaurant_detail_box');
 
 const RestaurantShowPage = React.createClass({
 
@@ -78,6 +79,9 @@ const RestaurantShowPage = React.createClass({
             <li>  <span className="fancy-span" >{this.state.restaurant.chef}</span> Chef</li>
             <li>  <span className="fancy-span" >{this.state.restaurant.city}</span> Location</li>
             <li>  <span className="fancy-span" >{this.state.restaurant.cuisine}</span> Cuisine</li>
+            <li>
+              <RestaurantDetailBox restaurant={this.state.restaurant}/>
+            </li>
           </ul>
         </section>
 

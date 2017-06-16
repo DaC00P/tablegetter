@@ -84,7 +84,7 @@ const RestaurantBookingCalender = React.createClass({
   getFinalizeButton() {
     return (
       <button
-        className="btn btn-info btn-sm"
+        className="btn btn-primary btn-lg"
         id='reserve-finalize-button'
         onClick={this.openModal}>
         Book Reservation

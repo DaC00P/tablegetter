@@ -93,8 +93,23 @@ const App = React.createClass({
     this.setState({form: "signup"});
   },
 
+  renderSearchButton(){
+    console.log(this.props.location.pathname)
+
+  },
 
   render() {
+
+    let searchButton = <div></div>;
+    if(!this.props.location.pathname.includes('/search')){
+      searchButton = (
+        <Link to='/search'>
+          <button className='btn-lg btn-primary' id='search-explores'>
+            Search & Explore
+          </button>
+        </Link>
+      )
+    }
 
     let marketingBanner = (
       <header className="header">
@@ -104,6 +119,7 @@ const App = React.createClass({
             <h3 className="site-title-text">INDULGE YOURSELF</h3>
             <h4 className="site-marketing-text">Book tables at the best restaurants in the world and experience a culinary pioneer's deft touch</h4>
           </section>
+          {searchButton}
         </div>
       </header>
     );

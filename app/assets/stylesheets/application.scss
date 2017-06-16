@@ -95,7 +95,9 @@
   padding-top: 0px;
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  padding-top: 100px;
   opacity: .9;
 }
 

@@ -99,7 +99,6 @@ const App = React.createClass({
   },
 
   render() {
-
     let searchButton = <div></div>;
     if(!this.props.location.pathname.includes('/search')){
       searchButton = (

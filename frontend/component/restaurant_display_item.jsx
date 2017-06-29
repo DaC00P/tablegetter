@@ -26,8 +26,13 @@ const RestaurantDisplayItem = React.createClass({
 
   render() {
     let backgroundImageUrl = ImageTransformer.displayItemBackgroundPic(this.props.restaurant.restaurant_cover_pic);
+    // console.log(backgroundImageUrl, 'URL!!!!!!!!!!!!!!!!!!');
     return (
-      <section key={this.props.restaurant.id} className='restaurant-details' style={{backgroundImage: `url(${backgroundImageUrl})`}}  onMouseEnter={this._onMouseEnter} onMouseLeave={this._onMouseLeave}>
+      <section key={this.props.restaurant.id}
+               className='restaurant-details'
+               style={{backgroundImage: `url(${backgroundImageUrl})`}}
+               onMouseEnter={this._onMouseEnter}
+               onMouseLeave={this._onMouseLeave}>
         <div className="restaurant-details-div">
           <div className="title-reviewsmore-div">
             <ReactTooltip place="top" type="dark" effect="float"/>

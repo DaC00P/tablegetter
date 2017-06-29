@@ -50,7 +50,6 @@ const RestaurantDisplay = React.createClass({
 
   restaurantSearchResults() {
     let restaurants;
-
     if(this.props.checkStore()){
       restaurants = this.state.searched;
     } else {

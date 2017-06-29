@@ -163,7 +163,6 @@ return (
         <div className="navbar-buttons">
           {myReservations}{currentButtons}
         </div>
-
     </div>
 
     <Modal

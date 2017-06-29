@@ -29,6 +29,7 @@
 .body-main {
   display: flex;
   width: 100vw;
+  padding-bottom: 40px;
 }
 
 .body-left {
@@ -82,12 +83,16 @@
   width: 50vw;
 }
 
+.restaurant-index {
+  padding-bottom: 50px;
+}
+
 .footer {
   flex: 0 0 auto;
 }
 
 .chef-bg {
-  height: 300px;
+  height: 200px;
   background-image: url("https://res.cloudinary.com/dldvsrho8/image/upload/c_scale,q_47,w_2751/v1467239803/chefstablemain2_yzp72y.jpg");
   background-size: cover;
   background-position: 50% 27%;
@@ -97,7 +102,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 100px;
+  padding-top: 50px;
   opacity: .9;
 }
 
@@ -149,7 +154,7 @@
 .restaurant-name-header {
   color: white;
   font-family: 'Verdana', cursive;
-  font-size: 20px;
+  font-size: 30px;
   background-color: rgba(0, 0, 0, 0.65);
   display: inline-block;
   padding: 7px;
@@ -179,17 +184,22 @@
 
 .restaurant-details-div {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   min-height: 200px;
   border: 3px groove gray;
-  background-size: cover;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding-bottom: 30px;
+  padding-top: 30px;
 }
 
 .all-restaurants {
   width: 100%;
   overflow-y: scroll;
   background-size: cover;
+  padding-bottom: 50px;
 }
 
 .restaurant-details-simple {
@@ -197,7 +207,7 @@
   justify-content: space-between;
   align-items: center;
   min-height: 300px;
-  border: 3px groove gray;
+  border-top: 2.5px solid gray;
   opacity: .8;
   background-size: cover;
   background-position: center;
@@ -207,7 +217,7 @@
  -o-transition: all .5s ease;
  transition: all .5s ease;
  vertical-align: middle;
- padding-bottom: 50px;
+ padding-bottom: 100px;
 }
 
 .restaurant-details-simple:hover {
@@ -219,7 +229,8 @@
    -moz-transform:scale(0.90); /* Firefox */
    -webkit-transform:scale(0.90); /* Safari and Chrome */
    -o-transform:scale(0.90); /* Opera */
-   border: 2px solid white;
+   border: none;
+   border-radius: 10px;
    text-decoration: none;
    text-shadow: 0 0 5px whitesmoke,0 0 15px whitesmoke,0 0 25px #000;
    .underlay {

@@ -5,7 +5,7 @@ module.exports = {
   },
 
   displayItemBackgroundPic(url){
-    return this.transformPic(url, 650, 250);
+    return this.transformPic(url, 1000, 200);
   },
 
   displayBackgroundPic(url) {

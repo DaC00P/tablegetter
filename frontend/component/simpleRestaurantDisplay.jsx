@@ -11,14 +11,16 @@ const RestaurantDisplayItem = React.createClass({
   render() {
     let backgroundImageUrl = ImageTransformer.displayBackgroundPic(this.props.restaurant.restaurant_cover_pic);
     return (
-      <div>
+      <div className='underlay' >
         <ReactTooltip place="top" type="dark" effect="float"/>
         <Link to={`/api/restaurants/${this.props.restaurant.id}`}
               data-tip="Pictures, Reviews, and Reservations"
               restaurantID={this.props.restaurant.id}>
-          <section className='underlay' key={this.props.restaurant.id} style={{backgroundImage: `url(${backgroundImageUrl})`}}>
+          <section key={this.props.restaurant.id}
+                   style={{backgroundImage: `url(${backgroundImageUrl})`}}
+                   className="restaurant-details-simple">
             <div>
-              <div className="restaurant-details-simple">
+              <div>
                 <div className="title-reviewsmore-div">
                   <div className='restaurant-name-header-simple'>
                     {this.props.restaurant.name}
